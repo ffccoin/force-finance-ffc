@@ -1,5 +1,4 @@
 const Button = ({
-  color = "primary",
   size = "normal",
   width = "fit",
   outline,
@@ -7,13 +6,9 @@ const Button = ({
   icon,
   title,
 }) => {
-  if (color === "secondary") outline = true;
-  else if (color === "secondary" && outline === false) outline = false;
   return (
     <button
-      className={`grid place-items-center text-neutralDark enabled:hover:text-neutralLighter gap-x-1.5 font-neue-machina-bold enabled:hover:bg-darkGreen leading-6 ${
-        color === "primary" ? "bg-primary1" : "bg-transparent"
-      }
+      className={`grid place-items-center text-neutralDark enabled:hover:text-neutralLighter font-neue-machina-bold enabled:hover:bg-darkGreen leading-6 bg-primary1
       ${outline ? "border border-black" : ""}
       ${
         size === "small"
@@ -31,8 +26,10 @@ const Button = ({
       `}
       disabled={disabled}
     >
-      {title}
-      {icon}
+      <div className="flex gap-x-2.5">
+        {title}
+        {icon}
+      </div>
     </button>
   );
 };
