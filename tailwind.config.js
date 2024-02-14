@@ -45,6 +45,9 @@ module.exports = {
 
         // Helvetica fonts
         "helvetica-medium": "Helvetica Medium",
+
+        // Apfel Grotezk fonts
+        "apfel-grotezk": "Apfel Grotezk",
       },
     },
   },

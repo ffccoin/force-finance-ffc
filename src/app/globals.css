@@ -132,4 +132,25 @@ body {
     font-family: "Helvetica Medium";
     src: url("/fonts/helvetica/HelveticaNeueMedium.ttf") format("truetype");
   }
+
+  /* Apfel Groztezk fonts */
+  @font-face {
+    font-family: "Apfel Grotezk";
+    src: url("/fonts/apfel-grotezk/ApfelGrotezk-Regular.otf") format("opentype");
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Neue Machina Bold", sans-serif;
+}
+p,
+span,
+div,
+small {
+  font-family: "Apfel Grotezk", sans-serif;
 }
