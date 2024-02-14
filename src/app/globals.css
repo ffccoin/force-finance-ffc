@@ -131,4 +131,10 @@ small {
 body,
 html {
   background-color: #161617;
+  color: #f3f3f3;
+}
+
+/* Remove all outline effects on all buttons */
+button:focus {
+  outline: none;
 }

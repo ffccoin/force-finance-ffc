@@ -6,10 +6,11 @@ const SecondaryButton = ({
   disabled = false,
   icon,
   title,
+  className,
 }) => {
   return (
     <button
-      className={`grid place-items-center text-${color} border-${color} enabled:hover:text-neutralDarker font-neue-machina-bold enabled:hover:bg-neutralLighter leading-6
+      className={`${className} grid place-items-center text-${color} border-${color} enabled:hover:text-neutralDarker font-neue-machina-bold enabled:hover:bg-neutralLighter leading-6
         ${outline ? "border" : ""}
         ${
           size === "small"

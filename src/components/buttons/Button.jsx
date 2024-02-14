@@ -5,6 +5,7 @@ const Button = ({
   disabled = false,
   icon,
   title,
+  className,
 }) => {
   return (
     <button
@@ -22,7 +23,7 @@ const Button = ({
           : ""
       }
         ${width === "fit" ? "w-auto" : "w-full"}
-        disabled:opacity-50 
+        disabled:opacity-50 ${className}
       `}
       disabled={disabled}
     >
