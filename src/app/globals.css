@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,10 +24,112 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
-@layer utilities {
+/* @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+} */
+
+/* Import local fonts in tailwind */
+@layer base {
+  /* Neue Machina Fonts */
+  @font-face {
+    font-family: "Neue Machina Bold";
+    src: url("/fonts/neue-machina/NeueMachina-Ultrabold.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "Neue Machina Light";
+    src: url("/fonts/neue-machina/NeueMachina-Light.otf") format("opentype");
+  }
+  @font-face {
+    font-family: "Neue Machina";
+    src: url("/fonts/neue-machina/NeueMachina-Regular.otf") format("opentype");
+  }
+
+  /* Euclid Fonts */
+  @font-face {
+    font-family: "Euclid Bold Italic";
+    src: url("/fonts/euclid/Euclid Circular A Bold Italic.ttf")
+      format("truetype");
+  }
+  @font-face {
+    font-family: "Euclid Bold";
+    src: url("/fonts/euclid/Euclid Circular A Bold.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Euclid Italic";
+    src: url("/fonts/euclid/Euclid Circular A Italic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Euclid Light Italic";
+    src: url("/fonts/euclid/Euclid Circular A Light Italic.ttf")
+      format("truetype");
+  }
+  @font-face {
+    font-family: "Euclid Light";
+    src: url("/fonts/euclid/Euclid Circular A Light.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Euclid Medium Italic";
+    src: url("/fonts/euclid/Euclid Circular A Medium Italic.ttf")
+      format("truetype");
+  }
+  @font-face {
+    font-family: "Euclid Medium";
+    src: url("/fonts/euclid/Euclid Circular A Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Euclid";
+    src: url("/fonts/euclid/Euclid Circular A Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Euclid SemiBold Italic";
+    src: url("/fonts/euclid/Euclid Circular A SemiBold Italic.ttf")
+      format("truetype");
+  }
+  @font-face {
+    font-family: "Euclid SemiBold";
+    src: url("/fonts/euclid/Euclid Circular A SemiBold.ttf") format("truetype");
+  }
+
+  /* PP Neue Plain Fonts */
+  @font-face {
+    font-family: "PP Neue Light";
+    src: url("/fonts/pp-neue-machina/PPNeueMachina-PlainLight.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "PP Neue Light Italic";
+    src: url("/fonts/pp-neue-machina/PPNeueMachina-PlainLightItalic.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "PP Neue Regular";
+    src: url("/fonts/pp-neue-machina/PPNeueMachina-PlainRegular.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "PP Neue Regular Italic";
+    src: url("/fonts/pp-neue-machina/PPNeueMachina-PlainRegularItalic.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "PP Neue Bold";
+    src: url("/fonts/pp-neue-machina/PPNeueMachina-PlainUltrabold.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "PP Neue Bold Italic";
+    src: url("/fonts/pp-neue-machina/PPNeueMachina-PlainUltraboldItalic.otf")
+      format("opentype");
+  }
+
+  /* Helvetica Neue Fonts */
+  @font-face {
+    font-family: "Helvetica Medium";
+    src: url("/fonts/helvetica/HelveticaNeueMedium.ttf") format("truetype");
   }
 }
