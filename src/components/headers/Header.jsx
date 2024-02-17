@@ -3,55 +3,63 @@
 import { useRouter } from "next/navigation";
 import Button from "../buttons/Button";
 import HeaderDropdown from "../dropdowns/HeaderDropdown";
+import MovingBar from "./moving-bar/MovingBar";
 
 const Header = () => {
   const router = useRouter();
   return (
-    <header className="z-50 grid place-items-center bg-transparent px-5">
-      {/* Small screen size */}
-      <div className="flex h-[58px] w-full items-center justify-between px-3 md:hidden">
-        <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">
-          {logo}
-          <h1 className="lg:text-xl lg:leading-6 xl:text-2xl">FORCE FINANCE</h1>
+    <header>
+      <MovingBar />
+      <div className="z-50 grid place-items-center bg-transparent px-5">
+        {/* Small screen size */}
+        <div className="flex h-[58px] w-full items-center justify-between px-3 md:hidden">
+          <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">
+            {logo}
+            <h1 className="lg:text-xl lg:leading-6 xl:text-2xl">
+              FORCE FINANCE
+            </h1>
+          </div>
+          <HeaderDropdown />
         </div>
-        <HeaderDropdown />
-      </div>
-      {/* Medium and larger screen size */}
-      <div className="hidden h-[78px] w-full max-w-7xl grid-cols-12 place-items-center md:grid">
-        <nav className="flex w-full items-center gap-x-2 md:col-span-6 lg:col-span-5 lg:gap-x-4">
-          <button className="mr-[3px] font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-            Home
-          </button>
-          <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-            About Us {chevronDown}
-          </button>
-          <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-            Our Team {chevronDown}
-          </button>
-          <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-            Portfolio {chevronDown}
-          </button>
-          <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-            Blog {chevronDown}
-          </button>
-          <button className="font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-            Contact
-          </button>
-        </nav>
-        <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">
-          {logo}
-          <h1 className="lg:text-xl xl:text-2xl xl:leading-6">FORCE FINANCE</h1>
-        </div>
-        <div className="flex w-full items-center justify-end gap-x-2 md:col-span-3 lg:col-span-4 xl:gap-x-2">
-          <button className="lg:px-3">{bucketIcon}</button>
-          <button className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
-            Sign up
-          </button>
-          <Button
-            size="small"
-            title="Login"
-            className="px-2 py-1 text-xs lg:px-4 lg:py-3 lg:text-sm xl:px-[25px] xl:text-base"
-          />
+        {/* Medium and larger screen size */}
+        <div className="hidden h-[78px] w-full max-w-7xl grid-cols-12 place-items-center md:grid">
+          <nav className="flex w-full items-center gap-x-2 md:col-span-6 lg:col-span-5 lg:gap-x-4">
+            <button className="mr-[3px] font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+              Home
+            </button>
+            <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+              About Us {chevronDown}
+            </button>
+            <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+              Our Team {chevronDown}
+            </button>
+            <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+              Portfolio {chevronDown}
+            </button>
+            <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+              Blog {chevronDown}
+            </button>
+            <button className="font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+              Contact
+            </button>
+          </nav>
+          <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">
+            {logo}
+            <h1 className="lg:text-xl xl:text-2xl xl:leading-6">
+              FORCE FINANCE
+            </h1>
+          </div>
+          <div className="flex w-full items-center justify-end gap-x-2 md:col-span-3 lg:col-span-4 xl:gap-x-2">
+            <button className="lg:px-3">{bucketIcon}</button>
+            <button className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
+              Sign up
+            </button>
+            <Button
+              size="small"
+              title="Login"
+              className="px-2 py-1 text-xs lg:px-4 lg:py-3 lg:text-sm xl:px-[25px] xl:text-base"
+            />
+          </div>
         </div>
       </div>
     </header>
