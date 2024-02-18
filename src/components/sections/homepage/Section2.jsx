@@ -15,8 +15,8 @@ const Section2 = () => {
           </span>
         </div>
         <div className="flex flex-col sm:flex-row gap-y-4 gap-x-[30px]">
-          <div className="flex w-full flex-col gap-y-[30px] rounded-[10px] bg-neutral px-[40px] py-[50px]">
-            <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)]">
+          <div className="flex w-full group flex-col gap-y-[30px] rounded-[10px] hover:bg-primary1 transition duration-500 ease-in-out bg-neutral px-[40px] py-[50px]">
+            <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)] group-hover:bg-primary2 ">
               <Image
                 src="/homepage/bitcoin-style-1.svg"
                 width={37}
@@ -24,8 +24,8 @@ const Section2 = () => {
                 alt="img"
               />
             </div>
-            <div className="flex flex-col gap-y-3">
-              <h1 className="text-[21.33px] uppercase leading-6">
+            <div className="flex flex-col gap-y-3 ">
+              <h1 className="text-[21.33px] group-hover:text-primary2 uppercase leading-6 ">
                 Passive Income
               </h1>
               <span className="text-neutralLight">
@@ -35,8 +35,8 @@ const Section2 = () => {
               </span>
             </div>
           </div>
-          <div className="flex w-full flex-col gap-y-[30px] rounded-[10px] bg-primary1 px-[40px] py-[50px] text-primary2">
-            <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-primary2">
+          <div className="flex w-full group flex-col gap-y-[30px] rounded-[10px] hover:bg-primary1 transition duration-500 ease-in-out bg-neutral px-[40px] py-[50px]">
+            <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)] group-hover:bg-primary2 ">
               <Image
                 src="/homepage/bitcoin-style-2.svg"
                 width={37}
@@ -45,17 +45,17 @@ const Section2 = () => {
               />
             </div>
             <div className="flex flex-col gap-y-3">
-              <h1 className="text-[21.33px] uppercase leading-6">
+            <h1 className="text-[21.33px]  group-hover:text-primary2 uppercase leading-6 ">
                 Yield Farming
               </h1>
-              <span>
+              <span className="text-neutralLight">
                 Maximize your returns by participating in yield farming
                 protocols supported by Force Finance Coin.
               </span>
             </div>
           </div>
-          <div className="flex w-full flex-col gap-y-[30px] rounded-[10px] bg-neutral px-[40px] py-[50px]">
-            <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)]">
+          <div className="flex w-full flex-col gap-y-[30px] rounded-[10px] group hover:bg-primary1 transition duration-500 ease-in-out bg-neutral px-[40px] py-[50px]">
+          <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)] group-hover:bg-primary2 ">
               <Image
                 src="/homepage/bitcoin-style-3.svg"
                 width={37}
@@ -64,7 +64,7 @@ const Section2 = () => {
               />
             </div>
             <div className="flex flex-col gap-y-3">
-              <h1 className="text-[21.33px] uppercase leading-6">
+            <h1 className="text-[21.33px] group-hover:text-primary2 uppercase leading-6 ">
                 Decentralized Loans
               </h1>
               <span className="text-neutralLight">

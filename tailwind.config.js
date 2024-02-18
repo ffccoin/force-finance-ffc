@@ -104,6 +104,7 @@ module.exports = {
 
         // Apfel Grotezk fonts
         "apfel-grotezk": "Apfel Grotezk",
+        
       },
     },
   },
