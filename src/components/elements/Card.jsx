@@ -1,16 +1,35 @@
-import React from 'react';
+import React from "react";
+import SecondaryButton from "../buttons/SecondaryButton";
 
-const Card = ({ state, bonusPercent, daysLeft, start,endTime }) => {
-
+const Card = ({ state, bonusPercent, daysLeft, start, endTime }) => {
   return (
-    <div className="card bg-neutral rounded-3xl" style={{ width: '301.67px', height: '232px' }}>
+    <div className="card group h-[232px] w-[291px] rounded-3xl bg-neutral hover:h-[242px]">
       <div className="card-content p-3">
-        <h2 className='mt-4  pl-4 '>State: {state}</h2>
-        <p className='font-neue-machina text-4xl mt-5 leading-10 font-extrabold pl-4'>{bonusPercent}%</p>
-        <p className='font-apfel-grotezktext-[18px] mt-1  font-normal pl-4'>BONUS</p>
-        <div className='flex justify-between pl-4 mt-8'>
-          <p className='text-neutralLight'>{daysLeft}</p>
-          <span className='text-sm'>{start} <p className='text-sm' >{endTime}</p></span>
+        <h2 className="mt-4  pl-4 ">State: {state}</h2>
+        <div className="flex gap-8 justify-between">
+          <div>
+            <p className="mt-5 pl-4 font-neue-machina-bold text-4xl font-extrabold leading-10 group-hover:text-primary1">
+              {bonusPercent}%
+            </p>
+            <p className="font-apfel-grotezktext-[18px] mt-1  pl-4 font-normal group-hover:text-primary1">
+              BONUS
+            </p>
+          </div>
+          <div className="mt-7">
+            {" "}
+            <SecondaryButton
+              className="mt-auto hidden group-hover:flex "
+              title="Buy now"
+              size="small"
+            />
+          </div>
+        </div>
+
+        <div className="mt-8 flex justify-between pl-4">
+          <p className="text-neutralLight">{daysLeft}</p>
+          <span className="text-sm">
+            {start} <p className="text-sm">{endTime}</p>
+          </span>
         </div>
       </div>
     </div>

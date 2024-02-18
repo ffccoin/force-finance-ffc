@@ -10,17 +10,18 @@ const Section5 = () => {
     { label: "Minimum Purchase:", value: "0.1 ETH" },
     { label: "Token Type:", value: "ERC-20" },
     { label: "Max Supply:", value: "5,000,000,000" },
-    { label: "Smart Contract", value: "0xAb5801a7D398351b8bE11C439C9B" },
+    { label: "Smart Contract:", value: "0xAb5801a7D398351b8bE11C439C9B" },
   ];
 
   return (
     <div className=" grid place-items-center  items-center justify-center ">
-      <div className=" w-[77.438rem ] mt-14 flex flex-col gap-14 px-36  lg:flex-row lg:gap-44 ">
+
+      <div className=" w-[77.438rem ] mt-14 lg:max-w-7xl flex flex-col gap-14 px-36  lg:flex-row xl:px-0 lg:gap-72 ">
         <div className="">
           <p className="text-left font-apfel-grotezk text-base font-normal leading-6 tracking-wider text-primary1">
             ABOUT FFC COIN
           </p>
-          <h3 className="mt-6 text-left font-neue-machina text-3xl font-bold leading-10 tracking-normal">
+          <h3 className="mt-6 text-left font-neue-machina-bold text-3xl font-bold leading-10 tracking-normal">
             FORCE FINCE COIN (FFC)
           </h3>
           <p className="mt-6 whitespace-break-spaces text-left  font-apfel-grotezk text-base font-normal leading-6 lg:w-[28.293rem]">
@@ -36,9 +37,9 @@ const Section5 = () => {
             finance landscape with ease and flexibility
           </p>
         </div>
-        <div className="mt-8 flex flex-col justify-end">
+        <div className="mt-8 flex flex-col w-auto flex-wrap justify-end">
           {tokenInfo.map((info, index) => (
-            <div key={index} className="mb-9 flex gap-x-6">
+            <div key={index} className="mb-9 flex flex-wrap gap-x-6">
               <p className="font-neue-machina-bold text-base font-extrabold  leading-6">
                 {info.label}
               </p>

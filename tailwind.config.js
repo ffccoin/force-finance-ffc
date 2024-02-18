@@ -86,6 +86,8 @@ module.exports = {
         neutralLight: "#898990",
         neutralLighter: "#F3F3F3",
         darkGreen: "#70833C",
+        darkGray:"#3A3A3E",
+
       },
       fontFamily: {
         // Neue Machina fonts

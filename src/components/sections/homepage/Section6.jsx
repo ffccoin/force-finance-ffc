@@ -4,9 +4,9 @@ import Image from "next/image";
 const Section6 = () => {
   return (
     <div className="grid place-items-center items-center justify-center">
-      <div className="mt-14 flex  flex-col flex-wrap items-center  justify-center lg:flex-row">
+      <div className="mt-14 flex  max-w-7xl flex-col flex-wrap items-center  justify-center lg:flex-row">
         <div className="flex flex-col flex-wrap items-center justify-center lg:w-[62rem]">
-          <h3 className="font-neue-machina text-3xl font-bold leading-10">
+          <h3 className="font-neue-machina-bold text-3xl font-bold leading-10">
             TOKENOMICS
           </h3>
           <div className="  hidden w-full text-neutralLight lg:flex lg:flex-wrap">
@@ -49,11 +49,11 @@ const Section6 = () => {
           />
         </div>
       </div>
-      <div className=" flex w-full flex-col px-20">
-        <h4 className="font-neue-machina text-[28.43px] font-extrabold leading-8">
+      <div className=" flex max-w-7xl  pl-16 mt-8 flex-col ">
+        <h4 className="font-neue-machina-bold flex lg:mr-auto  text-[28.43px] items-center justify-center  font-extrabold leading-8">
           Token Sale Stages
         </h4>
-        <div className="flex flex-col flex-wrap items-center justify-center gap-4  lg:flex-row">
+        <div className="flex flex-col flex-wrap items-center justify-center gap-4 mt-3 md:flex-row">
           <Card state={1} bonusPercent={13} daysLeft={"1 day only"}></Card>
           <Card
             state={2}
