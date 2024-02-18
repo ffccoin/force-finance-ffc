@@ -1,7 +1,5 @@
+import Card from "@/components/elements/Card";
 import Image from "next/image";
-import Button from "@/components/buttons/Button";
-import Card from "@/components/elements/card";
-import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 const Section6 = () => {
   return (
