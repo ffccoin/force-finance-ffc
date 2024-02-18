@@ -10,28 +10,40 @@ export const metadata = {
 };
 
 async function getData() {
-  const res = await fetch("https://api.binance.com/api/v3/ticker/price");
-  if (!res.ok) {
-    throw new Error("Network response was not ok");
-  }
-  const data = await res.json();
-  const prices = data.reduce((acc, pair) => {
-    // Bitcoin, Ethereum, Solana, Cardano, Terra, Polkadot
-    if (
-      pair.symbol === "BTCUSDT" ||
-      pair.symbol === "ETHUSDT" ||
-      pair.symbol === "SOLUSDT" ||
-      pair.symbol === "ADAUSDT" ||
-      pair.symbol === "LUNAUSDT" ||
-      pair.symbol === "DOTUSDT"
-    ) {
-      // round off to 2 decimal places
-      acc[pair.symbol] = Math.round(pair.price * 100) / 100;
-    }
-    return acc;
-  }, {});
+  // use node binance api
+  const Binance = require("node-binance-api");
+  const binance = new Binance().options({
+    APIKEY: "tob6BYpl3NnpqaGpq1nmxTyk5Rwisl0g53EfwSLP3vXwlYfzVSAoY5oMJrCR40yd",
+    APISECRET:
+      "Sgl3EPjk5cSTARzOAX3whAIKLZv8NGKHtmLiikFaBPRu7l2NTspgaxm07iIu9KGi",
+  });
 
+  // use try catch too
+  const prices = await binance.prices();
   return prices;
+
+  // const res = await fetch("https://api.binance.com/api/v3/ticker/price");
+  // if (!res.ok) {
+  //   throw new Error("Network response was not ok");
+  // }
+  // const data = await res.json();
+  // const prices = data.reduce((acc, pair) => {
+  //   // Bitcoin, Ethereum, Solana, Cardano, Terra, Polkadot
+  //   if (
+  //     pair.symbol === "BTCUSDT" ||
+  //     pair.symbol === "ETHUSDT" ||
+  //     pair.symbol === "SOLUSDT" ||
+  //     pair.symbol === "ADAUSDT" ||
+  //     pair.symbol === "LUNAUSDT" ||
+  //     pair.symbol === "DOTUSDT"
+  //   ) {
+  //     // round off to 2 decimal places
+  //     acc[pair.symbol] = Math.round(pair.price * 100) / 100;
+  //   }
+  //   return acc;
+  // }, {});
+
+  // return prices;
 }
 
 export default async function RootLayout({ children }) {
