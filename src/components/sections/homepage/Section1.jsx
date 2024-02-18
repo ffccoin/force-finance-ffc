@@ -6,9 +6,9 @@ import ProgressBar from "./ProgressBar";
 
 const Section1 = () => {
   return (
-    <div className="flex w-full flex-wrap items-center justify-center bg-no-repeat pt-11 pb-20  md:mt-20 bg-[url('/homepage/pattern.svg')] bg-cover md:bg-top">
+    <div className="flex w-full flex-wrap items-center justify-center bg-transparent pb-20 pt-11  md:mt-20">
       <div className="flex w-full max-w-7xl flex-col flex-wrap items-center justify-center gap-y-20 md:flex-row md:justify-between lg:px-8 xl:px-10">
-        <div className="flex w-full flex-col gap-y-10 px-10 lg:px-0 md:pt-14 lg:max-w-[45%] xl:gap-y-[55px]">
+        <div className="flex w-full flex-col gap-y-10 px-10 md:pt-14 lg:max-w-[45%] lg:px-0 xl:gap-y-[55px]">
           <h1 className="text-xl uppercase sm:text-4xl lg:text-3xl xl:text-5xl xl:leading-[56.8px]">
             Empowering Your <br /> Financial Future
           </h1>
