@@ -14,13 +14,12 @@ async function getData() {
   // use node binance api
   const Binance = require("node-binance-api");
   const binance = new Binance().options({
-    APIKEY: "tob6BYpl3NnpqaGpq1nmxTyk5Rwisl0g53EfwSLP3vXwlYfzVSAoY5oMJrCR40yd",
-    APISECRET:
-      "Sgl3EPjk5cSTARzOAX3whAIKLZv8NGKHtmLiikFaBPRu7l2NTspgaxm07iIu9KGi",
+    APIKEY: process.env.BINANCE_API_KEY,
+    APISECRET: process.env.BINANCE_API_SECRET,
   });
 
   // use try catch too
-  const prices = await binance.prices("BTCUSDT");
+  const prices = await binance.prices();
   return prices;
 
   // const res = await fetch("https://api.binance.com/api/v3/ticker/price");
@@ -49,6 +48,7 @@ async function getData() {
 
 export default async function RootLayout({ children }) {
   const data = await getData();
+  console.log(data);
   return (
     <html lang="en">
       <body className={inter.className}>
