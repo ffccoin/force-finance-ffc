@@ -14,8 +14,8 @@ const ServicesMobile = () => {
             alt="img"
           />
         </div>
-        <div className=" flex flex-col items-center text-primary2 justify-center  p-14  lg:items-start lg:p-0">
-          <h1 className="mt-4 text-wrap text-[37.9px] uppercase leading-[42.64px] lg:mt-10">
+        <div className=" flex max-w-[90vw] flex-col items-center justify-center p-14  text-primary2  lg:items-start lg:p-0">
+          <h1 className="mt-4 text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
             Total control with our transaction system{" "}
           </h1>
           <p className="mt-9 text-wrap text-[16px] leading-[24px]  lg:max-w-[34.5rem]">
@@ -36,9 +36,13 @@ const ServicesMobile = () => {
               className="w-full bg-primary2 text-neutralLighter sm:w-auto"
               title="Go to apps"
               size="small"
-              
             />
-            <SecondaryButton color="primary2" title="Learn more" className={"border-primary2"}  size="small" />
+            <SecondaryButton
+              color="primary2"
+              title="Learn more"
+              className={"border-primary2"}
+              size="small"
+            />
           </div>
         </div>
       </div>
