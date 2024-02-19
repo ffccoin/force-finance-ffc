@@ -81,8 +81,8 @@ const Section8 = () => {
             be daunting. Follow these simple steps to get started:
           </p>
         </div>
-        <div className="flex w-[24.438rem]  flex-wrap justify-end ">
-          <div className="mt-8 w-[200px] ">
+        <div className="flex md:w-[24.438rem] w-full  flex-wrap justify-center lg:justify-end ">
+          <div className="mt-8 md:w-[200px] w-full ">
             <SecondaryButton
               className="mt-auto  group-hover:flex "
               title="Get Started"

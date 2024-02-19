@@ -1,14 +1,16 @@
 'use client'
 import React from "react";
 import ServicesHeader from "@/components/ourServices/ServicesHeader";
-import ContactForm from "@/components/contactUs/ContactForm";
-import ContactFooter from "@/components/contactUs/ContactFooter";
-
+import Section1 from "@/components/ourServices/Section1";
+import ServicesExperience from "@/components/ourServices/ServicesExperience";
+import ServicesMobile from "@/components/ourServices/ServicesMobile"
 export default function page() {
   return (
     <div>
       <ServicesHeader />
-      <ContactForm />
+      <Section1 />
+      <ServicesExperience/>
+      <ServicesMobile/>
     </div>
   );
 }
