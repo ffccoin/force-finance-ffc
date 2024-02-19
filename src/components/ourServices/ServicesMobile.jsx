@@ -5,8 +5,8 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 const ServicesMobile = () => {
   return (
     <div className="grid place-items-center bg-primary1 ">
-      <div className="flex max-w-7xl flex-wrap flex-col items-center justify-center gap-x-14 lg:flex-row xl:gap-x-32">
-        <div className="flex sm:max-w[65px] ">
+      <div className="flex max-w-7xl flex-col items-center justify-center gap-x-14 lg:flex-row xl:gap-x-32">
+        <div className="flex-shrink-0">
           <Image
             src="/ourServices/mobile.svg"
             width={565}
