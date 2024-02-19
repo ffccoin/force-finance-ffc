@@ -20,7 +20,7 @@ async function getData() {
   });
 
   // use try catch too
-  const prices = await binance.prices();
+  const prices = await binance.prices("BTCUSDT");
   return prices;
 
   // const res = await fetch("https://api.binance.com/api/v3/ticker/price");
