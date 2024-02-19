@@ -1,66 +1,67 @@
 import Image from "next/image";
 
 const MovingBar = ({ prices }) => {
+  console.log("PROVES", prices["terra-luna"].usd);
   // Bitcoin, Ethereum, Solana, Cardano, Terra, Polkadot
   const displayTicker = (number) => (
     <div
       className={`ticker-text${number === 2 ? "2" : ""} flex h-[46px] w-fit select-none items-center gap-x-16 bg-black px-5 text-neutralLight`}
     >
-      {prices && prices.BTCUSDT && (
+      {prices && prices.bitcoin && (
         <div className="flex gap-x-4">
           <Image src="/icons/bitcoin.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Bitcoin</span>
-          <span className="text-sm">${prices.BTCUSDT}</span>
+          <span className="text-sm">${prices.bitcoin.usd}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices.ETHUSDT && (
+      {prices && prices.ethereum && (
         <div className="flex gap-x-4">
           <Image src="/icons/ethereum.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Ethereum</span>
-          <span className="text-sm">${prices.ETHUSDT}</span>
+          <span className="text-sm">${prices.ethereum.usd}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices.SOLUSDT && (
+      {prices && prices.solana && (
         <div className="flex gap-x-4">
           <Image src="/icons/solana.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Solana</span>
-          <span className="text-sm">${prices.SOLUSDT}</span>
+          <span className="text-sm">${prices.solana.usd}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices.ADAUSDT && (
+      {prices && prices.cardano && (
         <div className="flex gap-x-4">
           <Image src="/icons/cardano.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Cardano</span>
-          <span className="text-sm">${prices.ADAUSDT}</span>
+          <span className="text-sm">${prices.cardano.usd}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices.LUNAUSDT && (
+      {prices && prices["terra-luna"] && (
         <div className="flex gap-x-4">
           <Image src="/icons/terra.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Terra</span>
-          <span className="text-sm">${prices.LUNAUSDT}</span>
+          <span className="text-sm">${prices["terra-luna"].usd}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices.DOTUSDT && (
+      {prices && prices.polkadot && (
         <div className="flex gap-x-4">
           <Image src="/icons/polkadot.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Polkadot</span>
-          <span className="text-sm">${prices.DOTUSDT}</span>
+          <span className="text-sm">${prices.polkadot.usd}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>

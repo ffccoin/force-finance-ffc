@@ -5,12 +5,11 @@ import Button from "../buttons/Button";
 import HeaderDropdown from "../dropdowns/HeaderDropdown";
 import MovingBar from "./moving-bar/MovingBar";
 
-const Header = () => {
+const Header = ({ prices }) => {
   const router = useRouter();
   return (
     <header>
-      {/* <MovingBar prices={prices} /> */}
-      <MovingBar />
+      <MovingBar prices={prices} />
       <div className="z-50 grid place-items-center bg-transparent px-5">
         {/* Small screen size */}
         <div className="flex h-[58px] w-full items-center justify-between px-3 md:hidden">
