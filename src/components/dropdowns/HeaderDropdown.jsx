@@ -5,8 +5,8 @@ import { Menu } from "@headlessui/react";
 const HeaderDropdown = () => {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button>{menuIcon}</Menu.Button>
-      <Menu.Items className="absolute right-0 top-7 flex w-[150px] flex-col border border-neutralLight p-3">
+      <Menu.Button className="flex items-center">{menuIcon}</Menu.Button>
+      <Menu.Items className="absolute right-0 top-8 z-50 flex w-[200px] flex-col gap-y-3 rounded-md border border-neutralLight bg-neutralDarker p-3">
         <Menu.Item>
           {({ active }) => (
             <a className={`${active && "bg-blue-500"}`} href="/">
@@ -44,7 +44,7 @@ const HeaderDropdown = () => {
         </Menu.Item>
         <Menu.Item>
           {({ active }) => (
-            <a className={`${active && "bg-blue-500"}`} href="/about-us">
+            <a className={`${active && "bg-blue-500"}`} href="/contact-us">
               Contact
             </a>
           )}

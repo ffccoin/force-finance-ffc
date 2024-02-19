@@ -22,7 +22,7 @@ export default function Home() {
         <Animation />
         <Section1 />
       </div>
-      <Strip />
+      {/* <Strip />
       <MarketTrend />
       <Section2 />
       <Section3 />
@@ -34,7 +34,7 @@ export default function Home() {
       <Section9/>
       <Section10/>
       <Section11/>
-      <Section12/>
+      <Section12/> */}
     </main>
   );
 }
