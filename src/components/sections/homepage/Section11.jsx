@@ -20,13 +20,12 @@ const Section11 = () => {
                 alt="img"
               />
             </div>
-            <div className="flex flex-col gap-y-3 gap-x-3 ">
+            <div className="flex flex-col w-[80%] gap-y-3 gap-x-3 ">
               <p className="font-neue-machina-bold   text-[21.33px] leading-6 ">
               24/7 Chat Support{" "}
               </p>
               <span className="text-neutralLight">
-              Get 24/7 chat support with our friendly customer service agents
-                
+              Get 24/7 chat support with our friendly customer service agents at your service.                
               </span>
               <span className="mt-2 flex text-center ">
                 <p className=" font-neue-machina-bold text-primary1 ">
@@ -51,7 +50,7 @@ chat now                </p>
                 alt="img"
               />
             </div>
-            <div className="flex flex-col gap-y-3 gap-x-3 ">
+            <div className="flex flex-col w-[80%] gap-y-3 gap-x-3 ">
               <p className="font-neue-machina-bold   text-[21.33px] leading-6 ">
               FAQs{" "}
               </p>
@@ -81,7 +80,7 @@ chat now                </p>
                 alt="img"
               />
             </div>
-            <div className="flex flex-col gap-y-3 gap-x-3 ">
+            <div className="flex flex-col w-[80%] gap-y-3 gap-x-3 ">
               <p className="font-neue-machina-bold  text-[21.33px] leading-6 ">
               Blog{" "}
               </p>

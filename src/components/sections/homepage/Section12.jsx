@@ -20,7 +20,7 @@ const Section12 = () => {
           
           <div className="mt-4  flex w-full flex-col gap-8 md:flex-row">
             {" "}
-            <SecondaryButton title="Lunch Dapp" size="small" className="bg-neutralLighter text-neutralDarker"outline="border-black" />
+            <SecondaryButton title="Lunch Dapp" size="small" color="neutralDarker" className="bg-neutralLighter border-none text-neutralDarker"/>
           </div>
         </div>
         <div className="flex lg:mr-32 ">

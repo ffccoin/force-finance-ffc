@@ -6,7 +6,7 @@ const Section10 = () => {
     <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg ">
       <div className="mt-10 flex flex-wrap  justify-center pl-8    md:flex-row lg:justify-end">
         <div className="flex  xl:w-[36.7rem] w-[22.7rem] flex-col ">
-          <h3 className="font-neue-machina-bold text-4xl	 ">
+          <h3 className="font-neue-machina-bold text-4xl	uppercase ">
             Access all your favorite assets effortlessly{" "}
           </h3>
           <p className=" mt-8 text-neutralLight">

@@ -10,7 +10,7 @@ const Section3 = () => {
           <Image src="/homepage/mobile.png" width={266} height={531} alt="img" />
         </div>
         <div className="ml-8 flex flex-col items-center justify-center lg:items-start">
-          <h1 className="text-wrap text-[37.9px] leading-[42.64px] lg:mt-10">
+          <h1 className="text-wrap text-[37.9px]  uppercase leading-[42.64px] lg:mt-10">
             Web 3.0 Fusion Bridging DApp Browsing & Staking Crypto
           </h1>
           <p className="lg:max-w-[34.5rem] text-wrap mt-9 text-[16px] leading-[24px] text-neutralLight">

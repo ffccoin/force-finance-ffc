@@ -50,7 +50,7 @@ const Section6 = () => {
         </div>
       </div>
       <div className=" flex max-w-7xl  pl-16 mt-8 flex-col ">
-        <h4 className="font-neue-machina-bold flex lg:mr-auto  text-[28.43px] items-center justify-center  font-extrabold leading-8">
+        <h4 className="font-neue-machina-bold uppercase flex lg:mr-auto  text-[28.43px] items-center justify-center  font-extrabold leading-8">
           Token Sale Stages
         </h4>
         <div className="flex flex-col flex-wrap items-center justify-center gap-4 mt-3 md:flex-row">

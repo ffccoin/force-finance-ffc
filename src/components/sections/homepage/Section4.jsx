@@ -7,7 +7,7 @@ const Section4 = () => {
     <div className="mt-16 grid place-items-center items-center justify-center rounded-lg lg:pl-14 bg-primary1 md:h-auto lg:h-[500px]">
     <div className="flex max-w-7xl flex-col items-center  lg:flex-row"
     ><div className="p-10 flex flex-col  text-neutral">
-        <h1 className="text-wrap  text-[37.9px] leading-[42.64px] lg:mt-4">
+        <h1 className="text-wrap  uppercase text-[37.9px] leading-[42.64px] lg:mt-4">
           Force Finance Coin (FFC) POWERd BY Ethereum Chain
         </h1>
         <p className=" mt-4  text-wrap text-[16px] leading-[24px]">
