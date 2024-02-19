@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/headers/Header";
+import Footer from "@/components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,12 +49,12 @@ async function getData() {
 
 export default async function RootLayout({ children }) {
   const data = await getData();
-  console.log(data);
   return (
     <html lang="en">
       <body className={inter.className}>
         <Header prices={data} />
         {children}
+        <Footer />
       </body>
     </html>
   );

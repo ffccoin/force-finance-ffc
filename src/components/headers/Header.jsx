@@ -5,7 +5,7 @@ import Button from "../buttons/Button";
 import HeaderDropdown from "../dropdowns/HeaderDropdown";
 import MovingBar from "./moving-bar/MovingBar";
 
-const Header = ({prices}) => {
+const Header = ({ prices }) => {
   const router = useRouter();
   return (
     <header>
@@ -24,10 +24,16 @@ const Header = ({prices}) => {
         {/* Medium and larger screen size */}
         <div className="hidden h-[78px] w-full max-w-7xl grid-cols-12 place-items-center md:grid">
           <nav className="flex w-full items-center gap-x-2 md:col-span-6 lg:col-span-5 lg:gap-x-4">
-            <button className="mr-[3px] font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+            <button
+              className="mr-[3px] font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
+              onClick={() => router.push("/")}
+            >
               Home
             </button>
-            <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+            <button
+              className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
+              onClick={() => router.push("/about-us")}
+            >
               About Us {chevronDown}
             </button>
             <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
@@ -39,7 +45,10 @@ const Header = ({prices}) => {
             <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
               Blog {chevronDown}
             </button>
-            <button className="font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+            <button
+              className="font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
+              onClick={() => router.push("/contact-us")}
+            >
               Contact
             </button>
           </nav>
