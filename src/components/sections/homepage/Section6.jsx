@@ -9,7 +9,7 @@ const Section6 = () => {
           <h3 className="font-neue-machina-bold text-3xl font-bold leading-10">
             TOKENOMICS
           </h3>
-          <div className="  hidden w-full text-neutralLight lg:flex lg:flex-wrap">
+          <div className="hidden w-full text-neutralLight lg:flex lg:flex-wrap">
             <p className="text-base">
               Force Finance Coin (FFC) embodies a meticulously crafted
               tokenomics model, geared for long-term sustainability and value
@@ -22,7 +22,7 @@ const Section6 = () => {
               trajectory towards success.
             </p>
           </div>
-          <div className=" flex w-full flex-wrap px-2 text-neutralLight sm:px-6 lg:hidden">
+          <div className=" flex w-full flex-wrap px-10 text-neutralLight sm:px-6 lg:hidden">
             <p className="text-base">
               Force Finance Coin (FFC) embodies a meticulously crafted
               tokenomics model, geared for long-term sustainability and value
@@ -34,13 +34,11 @@ const Section6 = () => {
           </div>
         </div>
       </div>
-      <div className="mt-8 flex w-full flex-col  items-center justify-center gap-8 lg:flex-row ">
+      <div className="mt-8 px-5 flex w-full flex-col  items-center justify-center gap-8 lg:flex-row ">
         <div>
-          {" "}
           <Image width={350} height={350} alt="img" src="/homepage/graph.svg" />
         </div>
         <div>
-          {" "}
           <Image
             width={350}
             height={350}
@@ -49,11 +47,11 @@ const Section6 = () => {
           />
         </div>
       </div>
-      <div className=" flex max-w-7xl  pl-16 mt-8 flex-col ">
-        <h4 className="font-neue-machina-bold uppercase flex lg:mr-auto  text-[28.43px] items-center justify-center  font-extrabold leading-8">
+      <div className="mt-8 flex max-w-7xl flex-col px-5 sm:pl-16">
+        <h4 className="flex items-center justify-center font-neue-machina-bold  text-[28.43px] font-extrabold uppercase  leading-8 lg:mr-auto">
           Token Sale Stages
         </h4>
-        <div className="flex flex-col flex-wrap items-center justify-center gap-4 mt-3 md:flex-row">
+        <div className="mt-3 flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row">
           <Card state={1} bonusPercent={13} daysLeft={"1 day only"}></Card>
           <Card
             state={2}

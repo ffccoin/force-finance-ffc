@@ -23,18 +23,18 @@ export default function Home() {
         <Section1 />
       </div>
       <Strip />
-      {/* <MarketTrend /> */}
+      <MarketTrend />
       <Section2 />
       <Section3 />
       <Section4/>
       <Section5/>
-      {/*<Section6/>
+      <Section6/>
       <Section7/>
       <Section8/>
       <Section9/>
       <Section10/>
       <Section11/>
-      <Section12/> */}
+      <Section12/>
     </main>
   );
 }

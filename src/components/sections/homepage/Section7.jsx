@@ -2,7 +2,7 @@ import Image from "next/image";
 import Button from "@/components/buttons/Button";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
 
-const Section4 = () => {
+const Section7 = () => {
   return (
     <div className="mt-16 flex justify-center rounded-lg bg-primary1 h-auto  lg:h-[782px] ">
       <div className="flex flex-col ">
@@ -54,7 +54,7 @@ const Section4 = () => {
             </ul>
             
             
-            </div>{" "}
+            </div> 
           <div className="border-darkGray hidden h-[243px] w-[300px] border-l border-dashed  flex-col lg:flex xl:w-[340px] ">
           <p className="ml-6 mt-[2.622rem] font-neue-machina-bold text-lg leading-6   text-primary2 ">
           ICO Execution & CEX Listing
@@ -114,7 +114,7 @@ const Section4 = () => {
             </ul>
             
             
-            </div>{" "}
+            </div> 
           <div className="border-darkGray hidden h-[243px] w-[300px] border-l border-dashed  flex-col lg:flex xl:w-[340px] ">
           <p className="ml-6 mt-[2.622rem] font-neue-machina-bold text-lg leading-6   text-primary2 ">
           ICO Marketing Campaign           </p>
@@ -136,4 +136,4 @@ const Section4 = () => {
   );
 };
 
-export default Section4;
+export default Section7;

@@ -3,7 +3,7 @@ import SecondaryButton from "../buttons/SecondaryButton";
 
 const Card = ({ state, bonusPercent, daysLeft, start, endTime }) => {
   return (
-    <div className="card group h-[232px] w-[291px] rounded-3xl bg-neutral hover:h-[242px]">
+    <div className="card group w-full sm:h-[232px] sm:w-[291px] rounded-3xl bg-neutral hover:h-[242px]">
       <div className="card-content p-3">
         <h2 className="mt-4  pl-4 ">State: {state}</h2>
         <div className="flex gap-8 justify-between">
