@@ -1,7 +1,17 @@
+"use client";
+
+import { updatePrices } from "@/libs/features/coins/coinsSlice";
 import Image from "next/image";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 const MovingBar = ({ prices }) => {
-  console.log("PROVES", prices["terra-luna"].usd);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updatePrices(prices));
+  }, [prices]);
+
   // Bitcoin, Ethereum, Solana, Cardano, Terra, Polkadot
   const displayTicker = (number) => (
     <div

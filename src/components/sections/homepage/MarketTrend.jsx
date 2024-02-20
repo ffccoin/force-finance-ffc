@@ -1,14 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const MarketTrend = () => {
+  const prices = useSelector((state) => state.coins.pricesInUsd);
   return (
     <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">
         <div className="flex w-full justify-between px-6">
           <h1 className="text-[37.9px] leading-[42.64px]">MARKET TREND</h1>
           <div className="flex items-center text-primary1">
-            <h4>View more markets</h4>
+            <button>
+              <h4>View more markets</h4>
+            </button>
             {chevronRight}
           </div>
         </div>
@@ -51,7 +57,9 @@ const MarketTrend = () => {
                   <Image src="/icons/bitcoin.svg" width={36} height={36} />
                   <span>Bitcoin BTC</span>
                 </td>
-                <td className="px-6 py-4 text-neutralLight">$38513.19</td>
+                <td className="px-6 py-4 text-neutralLight">
+                  ${prices.bitcoin?.usd}
+                </td>
                 <td className="px-6 text-white">
                   <div className="flex items-center gap-x-1">
                     {arrowDown}
@@ -79,7 +87,9 @@ const MarketTrend = () => {
                   <Image src="/icons/ethereum.svg" width={36} height={36} />
                   <span>Ethereum ETH</span>
                 </td>
-                <td className="px-6 py-4 text-neutralLight">$2755</td>
+                <td className="px-6 py-4 text-neutralLight">
+                  ${prices.ethereum?.usd}
+                </td>
                 <td className="px-6 text-white">
                   <div className="flex items-center gap-x-1">
                     {arrowUp}
@@ -111,7 +121,9 @@ const MarketTrend = () => {
                   <Image src="/icons/cardano.svg" width={36} height={36} />
                   <span>Cardano ADC</span>
                 </td>
-                <td className="px-6 py-4 text-neutralLight">$0.844</td>
+                <td className="px-6 py-4 text-neutralLight">
+                  ${prices.cardano?.usd}
+                </td>
                 <td className="px-6 text-white">
                   <div className="flex items-center gap-x-1">
                     {arrowUp}
@@ -143,7 +155,9 @@ const MarketTrend = () => {
                   <Image src="/icons/solana.svg" width={36} height={36} />
                   <span>Solana SOL</span>
                 </td>
-                <td className="px-6 py-4 text-neutralLight">$87.08</td>
+                <td className="px-6 py-4 text-neutralLight">
+                  ${prices.solana?.usd}
+                </td>
                 <td className="px-6 text-white">
                   <div className="flex items-center gap-x-1">
                     {arrowUp}
@@ -170,7 +184,7 @@ const MarketTrend = () => {
         <h5 className="mx-6 self-start">
           <span className="font-neue-machina-bold text-primary1 underline">
             Sign up
-          </span> 
+          </span>
           now to build your own portfolio for free!
         </h5>
       </div>
