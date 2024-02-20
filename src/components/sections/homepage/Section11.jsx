@@ -22,7 +22,7 @@ const Section11 = () => {
             </div>
             <div className="flex flex-col w-[80%] gap-y-3 gap-x-3 ">
               <p className="font-neue-machina-bold   text-[21.33px] leading-6 ">
-              24/7 Chat Support{" "}
+              24/7 Chat Support 
               </p>
               <span className="text-neutralLight">
               Get 24/7 chat support with our friendly customer service agents at your service.                
@@ -52,7 +52,7 @@ chat now                </p>
             </div>
             <div className="flex flex-col w-[80%] gap-y-3 gap-x-3 ">
               <p className="font-neue-machina-bold   text-[21.33px] leading-6 ">
-              FAQs{" "}
+              FAQs 
               </p>
               <span className="text-neutralLight">
               View FAQs for detailed instructions on specific features.
@@ -82,7 +82,7 @@ chat now                </p>
             </div>
             <div className="flex flex-col w-[80%] gap-y-3 gap-x-3 ">
               <p className="font-neue-machina-bold  text-[21.33px] leading-6 ">
-              Blog{" "}
+              Blog 
               </p>
               <span className="text-neutralLight">
               Stay up to date with the latest stories and commentary.              </span>

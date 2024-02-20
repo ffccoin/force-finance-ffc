@@ -16,7 +16,7 @@ const Card = ({ state, bonusPercent, daysLeft, start, endTime }) => {
             </p>
           </div>
           <div className="mt-7">
-            {" "}
+             
             <SecondaryButton
               className="mt-auto hidden group-hover:flex "
               title="Buy now"

@@ -54,7 +54,7 @@ const Section4 = () => {
             </ul>
             
             
-            </div>{" "}
+            </div> 
           <div className="border-darkGray hidden h-[243px] w-[300px] border-l border-dashed  flex-col lg:flex xl:w-[340px] ">
           <p className="ml-6 mt-[2.622rem] font-neue-machina-bold text-lg leading-6   text-primary2 ">
           ICO Execution & CEX Listing
@@ -114,7 +114,7 @@ const Section4 = () => {
             </ul>
             
             
-            </div>{" "}
+            </div> 
           <div className="border-darkGray hidden h-[243px] w-[300px] border-l border-dashed  flex-col lg:flex xl:w-[340px] ">
           <p className="ml-6 mt-[2.622rem] font-neue-machina-bold text-lg leading-6   text-primary2 ">
           ICO Marketing Campaign           </p>

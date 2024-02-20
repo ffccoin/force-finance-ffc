@@ -36,11 +36,11 @@ const Section6 = () => {
       </div>
       <div className="mt-8 flex w-full flex-col  items-center justify-center gap-8 lg:flex-row ">
         <div>
-          {" "}
+           
           <Image width={350} height={350} alt="img" src="/homepage/graph.svg" />
         </div>
         <div>
-          {" "}
+           
           <Image
             width={350}
             height={350}

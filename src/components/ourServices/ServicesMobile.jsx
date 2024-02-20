@@ -4,8 +4,8 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 const ServicesMobile = () => {
   return (
-    <div className="grid place-items-center bg-primary1 ">
-      <div className="flex max-w-7xl flex-col items-center justify-center gap-x-14 lg:flex-row xl:gap-x-32">
+    <div className="mt-[-2px] grid  place-items-center bg-primary1 ">
+      <div className="mt-20 flex  max-w-7xl flex-col items-center justify-center gap-x-14 lg:flex-row xl:gap-x-32">
         <div className="flex-shrink-0">
           <Image
             src="/ourServices/mobile.svg"
@@ -15,8 +15,8 @@ const ServicesMobile = () => {
           />
         </div>
         <div className=" flex max-w-[90vw] flex-col items-center justify-center p-14  text-primary2  lg:items-start lg:p-0">
-          <h1 className="mt-4 text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
-            Total control with our transaction system{" "}
+          <h1 className=" text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
+            Total control with our transaction system
           </h1>
           <p className="mt-9 text-wrap text-[16px] leading-[24px]  lg:max-w-[34.5rem]">
             Simplify Your Financial Transactions: With our platform, you can

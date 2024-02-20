@@ -13,7 +13,7 @@ const Section4 = () => {
         <p className=" mt-4  text-wrap text-[16px] leading-[24px]">
           Force Finance Coin (FFC) is a revolutionary cryptocurrency built on
           the Ethereum blockchain, offering users access to a decentralized
-          financial ecosystem powered by cutting-edge blockchain technology.{" "}
+          financial ecosystem powered by cutting-edge blockchain technology. 
         </p>
         <div className="mt-5 flex  flex-col gap-y-5">
           <div className="flex items-center">

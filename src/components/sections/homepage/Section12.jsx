@@ -8,18 +8,18 @@ const Section12 = () => {
       <div className="flex max-w-7xl flex-col mt-16  gap-48 lg:flex-row">
         <div className="flex flex-col pl-4   text-neutral">
           <h1 className="text-wrap font-neue-machina-bold uppercase w-[29rem]  text-[37.9px] leading-[42.64px]">
-            Unlock tomorrow's potential with FFC Coin{" "}
+            Unlock tomorrow's potential with FFC Coin 
           </h1>
           <p className=" mt-4  text-wrap text-[16px]  w-[29rem] leading-[24px]">
             Embrace the future with FFC Coin, where innovation meets
             opportunity. Join our platform to unlock a world of limitless
             possibilities and cutting-edge technology. Don't wait any longer –
             start your journey with FFC today and experience the power of
-            decentralized finance firsthand{" "}
+            decentralized finance firsthand 
           </p>
           
           <div className="mt-4  flex w-full flex-col gap-8 md:flex-row">
-            {" "}
+             
             <SecondaryButton title="Lunch Dapp" size="small" color="neutralDarker" className="bg-neutralLighter border-none text-neutralDarker"/>
           </div>
         </div>

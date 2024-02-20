@@ -74,7 +74,7 @@ const Section8 = () => {
       <div className="mt-24 flex flex-wrap justify-center  gap-28 xl:gap-96  lg:flex-row lg:justify-end">
         <div className="flex  w-[24.438rem] flex-col lg:ml-auto">
           <h3 className="font-neue-machina-bold text-3xl	 ">
-            HOW TO GET STARTED{" "}
+            HOW TO GET STARTED 
           </h3>
           <p className=" mt-8 text-neutralLight">
             Embarking on your cryptocurrency investment journey doesn't have to
