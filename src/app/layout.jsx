@@ -13,10 +13,10 @@ export const metadata = {
 
 async function getData() {
   // Define the URL and query parameters
-  const url = new URL("https://api.coingecko.com/api/v3/simple/price");
+  const url = new URL("https://api.coingecko.com/api/v3/coins/markets");
   const params = {
     ids: "bitcoin,ethereum,solana,cardano,terra-luna,polkadot",
-    vs_currencies: "usd", // Specify the currency
+    vs_currency: "usd", // Specify the currency
   };
   url.search = new URLSearchParams(params).toString();
 
@@ -73,7 +73,7 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <StoreProvider>
         <body className={inter.className}>
-          <Header prices={data} />
+          <Header coins={data} />
           {children}
           <Footer />
         </body>

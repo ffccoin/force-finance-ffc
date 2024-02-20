@@ -5,7 +5,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const MarketTrend = () => {
-  const prices = useSelector((state) => state.coins.pricesInUsd);
+  const coins = useSelector((state) => state.coins.coinDetails);
+  console.log("COINS", coins);
   return (
     <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">
@@ -20,7 +21,7 @@ const MarketTrend = () => {
         </div>
         <div className="relative w-[80vw] overflow-auto shadow-md sm:w-full sm:rounded-lg">
           <table className="w-full text-left rtl:text-right dark:text-gray-400">
-            <thead className="bg-tableRowColor h-[58px] text-white">
+            <thead className="bg-[#1E1E1F] h-[58px] text-white">
               <tr>
                 <th scope="col" className="px-6 py-3 font-neue-machina-bold">
                   #
@@ -46,138 +47,49 @@ const MarketTrend = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="even:bg-tableRowColor h-[58px]">
-                <th
-                  scope="row"
-                  className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
-                >
-                  1
-                </th>
-                <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
-                  <Image src="/icons/bitcoin.svg" width={36} height={36} />
-                  <span>Bitcoin BTC</span>
-                </td>
-                <td className="px-6 py-4 text-neutralLight">
-                  ${prices.bitcoin?.usd}
-                </td>
-                <td className="px-6 text-white">
-                  <div className="flex items-center gap-x-1">
-                    {arrowDown}
-                    <span>-1.43%</span>
-                  </div>
-                </td>
-                <td className="px-6 py-4">
-                  <Image src="/homepage/red-chart.svg" width={67} height={20} />
-                </td>
-                <td className="px-6 py-4">$773,816M</td>
-                <td className="px-6 py-4">
-                  <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
-                    <h4 className="text-white">Buy</h4>
-                  </button>
-                </td>
-              </tr>
-              <tr className="even:bg-tableRowColor h-[58px]">
-                <th
-                  scope="row"
-                  className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
-                >
-                  2
-                </th>
-                <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
-                  <Image src="/icons/ethereum.svg" width={36} height={36} />
-                  <span>Ethereum ETH</span>
-                </td>
-                <td className="px-6 py-4 text-neutralLight">
-                  ${prices.ethereum?.usd}
-                </td>
-                <td className="px-6 text-white">
-                  <div className="flex items-center gap-x-1">
-                    {arrowUp}
-                    <span>+4.33%</span>
-                  </div>
-                </td>
-                <td className="px-6 py-4">
-                  <Image
-                    src="/homepage/yellow-chart.svg"
-                    width={67}
-                    height={20}
-                  />
-                </td>
-                <td className="px-6 py-4">$330,499M</td>
-                <td className="px-6 py-4">
-                  <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
-                    <h4 className="text-white">Buy</h4>
-                  </button>
-                </td>
-              </tr>
-              <tr className="even:bg-tableRowColor h-[58px]">
-                <th
-                  scope="row"
-                  className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
-                >
-                  3
-                </th>
-                <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
-                  <Image src="/icons/cardano.svg" width={36} height={36} />
-                  <span>Cardano ADC</span>
-                </td>
-                <td className="px-6 py-4 text-neutralLight">
-                  ${prices.cardano?.usd}
-                </td>
-                <td className="px-6 text-white">
-                  <div className="flex items-center gap-x-1">
-                    {arrowUp}
-                    <span>+5.63%</span>
-                  </div>
-                </td>
-                <td className="px-6 py-4">
-                  <Image
-                    src="/homepage/yellow-chart.svg"
-                    width={67}
-                    height={20}
-                  />
-                </td>
-                <td className="px-6 py-4">$28,443M</td>
-                <td className="px-6 py-4">
-                  <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
-                    <h4 className="text-white">Buy</h4>
-                  </button>
-                </td>
-              </tr>
-              <tr className="even:bg-tableRowColor h-[58px]">
-                <th
-                  scope="row"
-                  className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
-                >
-                  4
-                </th>
-                <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
-                  <Image src="/icons/solana.svg" width={36} height={36} />
-                  <span>Solana SOL</span>
-                </td>
-                <td className="px-6 py-4 text-neutralLight">
-                  ${prices.solana?.usd}
-                </td>
-                <td className="px-6 text-white">
-                  <div className="flex items-center gap-x-1">
-                    {arrowUp}
-                    <span>+5.16%</span>
-                  </div>
-                </td>
-                <td className="px-6 py-4">
-                  <Image
-                    src="/homepage/yellow-chart.svg"
-                    width={67}
-                    height={20}
-                  />
-                </td>
-                <td className="px-6 py-4">$27,888.67M</td>
-                <td className="px-6 py-4">
-                  <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
-                    <h4 className="text-white">Buy</h4>
-                  </button>
-                </td>
-              </tr>
+              {coins?.map((coin, index) => (
+                <tr className="even:bg-[#1E1E1F] h-[58px]">
+                  <th
+                    scope="row"
+                    className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
+                  >
+                    {index + 1}
+                  </th>
+                  <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
+                    <Image src={coin.image} width={36} height={36} />
+                    <p>
+                      {coin.name}{" "}
+                      <span className="uppercase">{coin.symbol}</span>
+                    </p>
+                  </td>
+                  <td className="px-6 py-4 text-neutralLight">
+                    ${coin.current_price}
+                  </td>
+                  <td className="px-6 text-white">
+                    <div className="flex items-center gap-x-1">
+                      {coin.price_change_24h > 0 ? arrowUp : arrowDown}
+                      <span>{coin.price_change_24h}</span>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <Image
+                      src={
+                        coin.price_change_24h > 0
+                          ? "/homepage/yellow-chart.svg"
+                          : "/homepage/red-chart.svg"
+                      }
+                      width={67}
+                      height={20}
+                    />
+                  </td>
+                  <td className="px-6 py-4">${coin.market_cap}</td>
+                  <td className="px-6 py-4">
+                    <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
+                      <h4 className="text-white">Buy</h4>
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

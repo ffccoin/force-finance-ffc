@@ -1,77 +1,77 @@
 "use client";
 
-import { updatePrices } from "@/libs/features/coins/coinsSlice";
+import { updateCoinDetails, updatecoins } from "@/libs/features/coins/coinsSlice";
 import Image from "next/image";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-const MovingBar = ({ prices }) => {
+const MovingBar = ({ coins }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(updatePrices(prices));
-  }, [prices]);
+    dispatch(updateCoinDetails(coins));
+  }, [coins]);
 
   // Bitcoin, Ethereum, Solana, Cardano, Terra, Polkadot
   const displayTicker = (number) => (
     <div
       className={`ticker-text${number === 2 ? "2" : ""} flex h-[46px] w-fit select-none items-center gap-x-16 bg-black px-5 text-neutralLight`}
     >
-      {prices && prices.bitcoin && (
+      {coins && coins[0].id === "bitcoin" && (
         <div className="flex gap-x-4">
           <Image src="/icons/bitcoin.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Bitcoin</span>
-          <span className="text-sm">${prices.bitcoin.usd}</span>
+          <span className="text-sm">${coins[0].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices.ethereum && (
+      {coins && coins[1].id === "ethereum" && (
         <div className="flex gap-x-4">
           <Image src="/icons/ethereum.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Ethereum</span>
-          <span className="text-sm">${prices.ethereum.usd}</span>
+          <span className="text-sm">${coins[1].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices.solana && (
+      {coins && coins[2].id === "solana" && (
         <div className="flex gap-x-4">
           <Image src="/icons/solana.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Solana</span>
-          <span className="text-sm">${prices.solana.usd}</span>
+          <span className="text-sm">${coins[2].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices.cardano && (
+      {coins && coins[3].id === "cardano" && (
         <div className="flex gap-x-4">
           <Image src="/icons/cardano.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Cardano</span>
-          <span className="text-sm">${prices.cardano.usd}</span>
+          <span className="text-sm">${coins[3].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices["terra-luna"] && (
+      {coins && coins[5].id === "terra-luna" && (
         <div className="flex gap-x-4">
           <Image src="/icons/terra.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Terra</span>
-          <span className="text-sm">${prices["terra-luna"].usd}</span>
+          <span className="text-sm">${coins[5].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>
         </div>
       )}
-      {prices && prices.polkadot && (
+      {coins && coins[4].id === "polkadot" && (
         <div className="flex gap-x-4">
           <Image src="/icons/polkadot.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Polkadot</span>
-          <span className="text-sm">${prices.polkadot.usd}</span>
+          <span className="text-sm">${coins[4].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white"></span>
           </div>

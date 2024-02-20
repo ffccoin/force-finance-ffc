@@ -6,11 +6,11 @@ import HeaderDropdown from "../dropdowns/HeaderDropdown";
 import MovingBar from "./moving-bar/MovingBar";
 import Image from "next/image";
 
-const Header = ({ prices }) => {
+const Header = ({ coins }) => {
   const router = useRouter();
   return (
     <header>
-      <MovingBar prices={prices} />
+      <MovingBar coins={coins} />
       <div className="z-50 grid place-items-center bg-transparent px-5">
         {/* Small screen size */}
         <div className="flex h-[58px] w-full items-center justify-between px-3 md:hidden">

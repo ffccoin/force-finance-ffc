@@ -29,6 +29,7 @@ export const coinsSlice = createSlice({
       "polkadot",
     ],
     pricesInUsd: {},
+    coinDetails: [],
   },
   reducers: {
     addCoin: (state, action) => {
@@ -41,6 +42,9 @@ export const coinsSlice = createSlice({
       console.log("action", action);
       state.pricesInUsd = action.payload;
     },
+    updateCoinDetails: (state, action) => {
+      state.coinDetails = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPricesInUsd.fulfilled, (state, action) => {
@@ -49,6 +53,6 @@ export const coinsSlice = createSlice({
   },
 });
 
-export const { addCoin, removeCoin, updatePrices } = coinsSlice.actions;
+export const { addCoin, removeCoin, updatePrices, updateCoinDetails } = coinsSlice.actions;
 
 export default coinsSlice.reducer;
