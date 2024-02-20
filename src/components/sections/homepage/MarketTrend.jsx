@@ -12,7 +12,7 @@ const MarketTrend = () => {
             {chevronRight}
           </div>
         </div>
-        <div className="relative w-[84vw] overflow-auto shadow-md sm:w-full sm:rounded-lg">
+        <div className="relative w-[80vw] overflow-auto shadow-md sm:w-full sm:rounded-lg">
           <table className="w-full text-left rtl:text-right dark:text-gray-400">
             <thead className="bg-tableRowColor h-[58px] text-white">
               <tr>
