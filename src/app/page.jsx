@@ -22,9 +22,9 @@ export default function Home() {
         <Animation />
         <Section1 />
       </div>
-      {/* <Strip />
+      <Strip />
       <MarketTrend />
-      <Section2 />
+      {/* <Section2 />
       <Section3 />
       <Section4/>
       <Section5/>

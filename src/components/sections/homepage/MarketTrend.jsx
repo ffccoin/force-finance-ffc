@@ -5,7 +5,7 @@ const MarketTrend = () => {
   return (
     <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">
-        <div className="flex justify-between">
+        <div className="flex w-full justify-between px-6">
           <h1 className="text-[37.9px] leading-[42.64px]">MARKET TREND</h1>
           <div className="flex items-center text-primary1">
             <h4>View more markets</h4>
@@ -14,7 +14,7 @@ const MarketTrend = () => {
         </div>
         <div className="relative w-[84vw] overflow-auto shadow-md sm:w-full sm:rounded-lg">
           <table className="w-full text-left rtl:text-right dark:text-gray-400">
-            <thead className="h-[58px] bg-tableRowColor text-white">
+            <thead className="bg-tableRowColor h-[58px] text-white">
               <tr>
                 <th scope="col" className="px-6 py-3 font-neue-machina-bold">
                   #
@@ -40,7 +40,7 @@ const MarketTrend = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="h-[58px] even:bg-tableRowColor">
+              <tr className="even:bg-tableRowColor h-[58px]">
                 <th
                   scope="row"
                   className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
@@ -68,7 +68,7 @@ const MarketTrend = () => {
                   </button>
                 </td>
               </tr>
-              <tr className="h-[58px] even:bg-tableRowColor">
+              <tr className="even:bg-tableRowColor h-[58px]">
                 <th
                   scope="row"
                   className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
@@ -100,7 +100,7 @@ const MarketTrend = () => {
                   </button>
                 </td>
               </tr>
-              <tr className="h-[58px] even:bg-tableRowColor">
+              <tr className="even:bg-tableRowColor h-[58px]">
                 <th
                   scope="row"
                   className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
@@ -132,7 +132,7 @@ const MarketTrend = () => {
                   </button>
                 </td>
               </tr>
-              <tr className="h-[58px] even:bg-tableRowColor">
+              <tr className="even:bg-tableRowColor h-[58px]">
                 <th
                   scope="row"
                   className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
@@ -167,7 +167,7 @@ const MarketTrend = () => {
             </tbody>
           </table>
         </div>
-        <h5>
+        <h5 className="mx-6 self-start">
           <span className="font-neue-machina-bold text-primary1 underline">
             Sign up
           </span>{" "}

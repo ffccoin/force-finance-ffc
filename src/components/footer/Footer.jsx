@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="grid h-[520px] w-screen bg-[url('/footer/bg.svg')] bg-cover px-8 sm:px-12 lg:px-24">
       <div className="grid gap-x-20 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
-        <div className="flex flex-col gap-y-4">
+        <div className="flex flex-col gap-y-4 lg:gap-y-7">
           <Image
             src="/logos/header-logo.svg"
             width={250}
