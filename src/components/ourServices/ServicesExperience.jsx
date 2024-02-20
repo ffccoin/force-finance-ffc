@@ -4,13 +4,13 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 const ServicesExperience = () => {
   return (
-    <div className="mt-16 grid place-items-center items-center justify-center rounded-lg bg-primary1 md:h-auto lg:h-[700px] ">
-      <div className="flex max-w-[86rem] justify-between  flex-col items-center gap-8  lg:flex-row">
-        <div className="flex flex-col sm:p-6 p-2 max-w-[50rem] text-neutral">
-          <h3 className="text-wrap max-w-lg text-[37.9px] uppercase leading-[42.64px] lg:mt-4">
-            Experience the Power of Web 3 Wallets{" "}
+    <div className="mt-16 grid place-items-center items-center justify-center  bg-primary1 md:h-auto lg:h-[700px] ">
+      <div className="flex max-w-[90vw] flex-col  items-center  justify-between gap-8 md:justify-center  lg:flex-row">
+        <div className="flex max-w-[50rem] flex-col p-14 text-neutral md:p-6">
+          <h3 className=" text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-4">
+            Experience the Power of Web 3 Wallets
           </h3>
-          <p className=" mt-4  text-wrap text-[16px] max-w-[34rem] leading-[24px]">
+          <p className=" mt-4  max-w-[34rem] text-wrap text-[16px] leading-[24px]">
             Discover the Next Generation of Wallets, Web 3 Wallets seamlessly
             integrate with decentralized applications and blockchain networks,
             offering enhanced security, multi-chain support, and user-centric
@@ -25,7 +25,10 @@ const ServicesExperience = () => {
                 alt="img"
                 src="/homepage/tick.svg"
               />
-              <p className="ml-2">Seamless Integration, Connect with ease to decentralized applications and blockchain networks</p>
+              <p className="ml-2">
+                Seamless Integration, Connect with ease to decentralized
+                applications and blockchain networks
+              </p>
             </div>
 
             <div className="flex items-center">
@@ -36,7 +39,9 @@ const ServicesExperience = () => {
                 src="/homepage/tick.svg"
               />
               <p className="ml-2">
-              Enhanced Security, Safeguard your assets with robust encryption and decentralized architecture              </p>
+                Enhanced Security, Safeguard your assets with robust encryption
+                and decentralized architecture{" "}
+              </p>
             </div>
 
             <div className="flex items-center">
@@ -47,7 +52,9 @@ const ServicesExperience = () => {
                 src="/homepage/tick.svg"
               />
               <p className="ml-2">
-              Multi-Chain Support, Access multiple blockchains and digital assets from a single interface.              </p>
+                Multi-Chain Support, Access multiple blockchains and digital
+                assets from a single interface.{" "}
+              </p>
             </div>
             <div className="flex items-center">
               <Image
@@ -57,10 +64,11 @@ const ServicesExperience = () => {
                 src="/homepage/tick.svg"
               />
               <p className="ml-2">
-              DeFi Integration, Explore decentralized finance services like staking, yield farming, and more directly from your wallet</p>
+                DeFi Integration, Explore decentralized finance services like
+                staking, yield farming, and more directly from your wallet
+              </p>
             </div>
           </div>
-         
         </div>
         <div className="">
           <Image

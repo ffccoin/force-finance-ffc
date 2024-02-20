@@ -170,7 +170,7 @@ const MarketTrend = () => {
         <h5 className="mx-6 self-start">
           <span className="font-neue-machina-bold text-primary1 underline">
             Sign up
-          </span>{" "}
+          </span> 
           now to build your own portfolio for free!
         </h5>
       </div>
