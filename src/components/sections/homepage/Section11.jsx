@@ -4,11 +4,11 @@ import Image from "next/image";
 const Section11 = () => {
   return (
     <div className="grid place-items-center">
-      <div className="mt-8 flex max-w-7xl flex-col   gap-y-[61px] px-5 sm:px-10">
+      <div className="mt-8 flex max-w-[75rem] flex-col px-4  gap-y-[61px] ">
         <div className="flex flex-col gap-y-0.5 ">
-          <p className="font-neue-machina-bold text-4xl uppercase leading-10">
+        <h3 className="font-neue-machina-bold text-wrap md:text-3xl text-xl	 ">
             Need Help?
-          </p>
+        </h3>
         </div>
         <div className="flex  gap-x-[30px] gap-y-4 sm:gap-y-8 flex-col md:flex-row sm:justify-center">
           <div className="group flex w-full  gap-y-[30px] rounded-[10px] ">
