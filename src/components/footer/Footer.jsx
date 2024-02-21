@@ -1,9 +1,8 @@
 import Image from "next/image";
 
-
 const Footer = () => {
   return (
-    <footer className="grid h-[520px] w-screen bg-[url('/footer/bg.svg')] bg-cover px-8 sm:px-12 lg:px-24 py-10">
+    <footer className="grid h-[520px] w-screen bg-[url('/footer/bg.svg')] bg-cover px-8 py-10 sm:px-12 lg:px-24">
       <div className="grid gap-x-20 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-y-4 lg:gap-y-7">
           <Image
@@ -44,10 +43,17 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
           <h3 className="mb-2 text-sm uppercase">Resources</h3>
-          <a href="/about-us" className="text-neutralLight">
+          <a
+            href="/whitepaper.pdf"
+            download="ffc-whitepaper"
+            className="text-neutralLight"
+          >
             Whitepaper
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a
+            href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/"
+            className="text-neutralLight"
+          >
             Lightpaper
           </a>
           <a href="/about-us" className="text-neutralLight">
