@@ -3,43 +3,29 @@ import Image from "next/image";
 
 const Section6 = () => {
   return (
-    <div className="grid place-items-center items-center justify-center">
-      <div className="mt-14 flex  max-w-7xl flex-col flex-wrap items-center  justify-center lg:flex-row">
-        <div className="flex flex-col flex-wrap items-center justify-center lg:w-[62rem]">
-          <h3 className="font-neue-machina-bold text-3xl font-bold leading-10">
+    <div className="mt-2 grid place-items-center  bg-primary2">
+      <div className=" flex flex-col  items-center ">
+        <div className=" flex flex-col items-center  md:mt-20 ">
+          <p className="mt-3 text-center font-neue-machina-bold text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] ">
             TOKENOMICS
-          </h3>
-          <div className="hidden w-full text-neutralLight lg:flex lg:flex-wrap">
-            <p className="text-base">
-              Force Finance Coin (FFC) embodies a meticulously crafted
-              tokenomics model, geared for long-term sustainability and value
-              generation. With a focus on fostering growth and prosperity for
-              all participants, our structure is designed to adapt to evolving
-              market dynamics while
-            </p>
-            <p className="pl-40 text-base">
-              empowering our vibrant community to steer the platform's
-              trajectory towards success.
-            </p>
-          </div>
-          <div className=" flex w-full flex-wrap px-10 text-neutralLight sm:px-6 lg:hidden">
-            <p className="text-base">
-              Force Finance Coin (FFC) embodies a meticulously crafted
-              tokenomics model, geared for long-term sustainability and value
-              generation. With a focus on fostering growth and prosperity for
-              all participants, our structure is designed to adapt to evolving
-              market dynamics while empowering our vibrant community to steer
-              the platform's trajectory towards success.
-            </p>
-          </div>
+          </p>
+          <span className="lg: mt-6 max-w-[61rem] text-wrap px-4 text-center text-sm text-neutralLight sm:text-base md:px-1">
+            Force Finance Coin (FFC) embodies a meticulously crafted tokenomics
+            model, geared for long-term sustainability and value generation.
+            With a focus on fostering growth and prosperity for all
+            participants, our structure is designed to adapt to evolving market
+            dynamics while empowering our vibrant community to steer the
+            platform's trajectory towards success.
+          </span>
         </div>
       </div>
-      <div className="mt-8 px-5 flex w-full flex-col  items-center justify-center gap-8 lg:flex-row ">
+      {/* <div className="mt-8 flex w-full flex-col  items-center justify-center gap-8 lg:flex-row ">
         <div>
-           
+          {" "}
           <Image width={350} height={350} alt="img" src="/homepage/graph.svg" />
         </div>
         <div>
+          {" "}
           <Image
             width={350}
             height={350}
@@ -47,12 +33,12 @@ const Section6 = () => {
             src="/homepage/graph2.svg"
           />
         </div>
-      </div>
-      <div className="mt-8 flex max-w-7xl flex-col px-5 sm:pl-16">
-        <h4 className="flex items-center justify-center font-neue-machina-bold  text-[28.43px] font-extrabold uppercase  leading-8 lg:mr-auto">
+      </div> */}
+      <div className=" mt-8  flex flex-col px-20">
+        <h4 className="mr-auto flex items-center  justify-center font-neue-machina-bold text-[28.43px]  font-extrabold leading-8">
           Token Sale Stages
         </h4>
-        <div className="mt-3 flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row">
+        <div className="mt-3 grid max-w-[85rem]   items-center justify-center gap-4 md:grid-cols-2 xl:grid-cols-4">
           <Card state={1} bonusPercent={13} daysLeft={"1 day only"}></Card>
           <Card
             state={2}
