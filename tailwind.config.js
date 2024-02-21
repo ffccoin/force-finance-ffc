@@ -120,6 +120,9 @@ module.exports = {
         // Apfel Grotezk fonts
         "apfel-grotezk": "Apfel Grotezk",
       },
+      backgroundImage: {
+        gradient1: "radial-gradient(#ffffff14,#cbfb4514)",
+      },
     },
   },
   plugins: [],

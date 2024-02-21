@@ -6,7 +6,7 @@ import ContactFooter from "@/components/contactUs/ContactFooter";
 
 export default function page() {
   return (
-    <div>
+    <div className="ml-32 sm:ml-0 justify-center items-center">
       <ContactHeader />
       <ContactForm />
       <ContactFooter />
