@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const SecondaryButton = ({
   color = "white",
   size = "normal",
@@ -9,30 +13,42 @@ const SecondaryButton = ({
   className,
 }) => {
   return (
-    <button
-      className={`${className} grid place-items-center text-${color} border-${color} enabled:hover:text-neutralDarker font-neue-machina-bold enabled:hover:bg-neutralLighter leading-6
+    <motion.button
+      className={`${className} grid place-items-center text-${color} border-${color} font-neue-machina-bold leading-6 enabled:hover:bg-neutralLighter enabled:hover:text-neutralDarker
         ${outline ? "border" : ""}
         ${
           size === "small"
             ? "px-[25px] py-2.5"
             : size === "normal"
-            ? "px-[25px] py-[15px]"
-            : size === "medium"
-            ? "px-[25px] py-[20px]"
-            : size === "large"
-            ? "px-[30px] py-[25px]"
-            : ""
+              ? "px-[25px] py-[15px]"
+              : size === "medium"
+                ? "px-[25px] py-[20px]"
+                : size === "large"
+                  ? "px-[30px] py-[25px]"
+                  : ""
         }
           ${width === "fit" ? "w-auto" : "w-full"}
           disabled:opacity-50 
         `}
       disabled={disabled}
+      initial={{
+        x: 100,
+        opacity: 0,
+      }}
+      animate={{
+        x: 0,
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1.5,
+        delay: 1,
+      }}
     >
       <div className="flex gap-x-2.5">
         {title}
         {icon}
       </div>
-    </button>
+    </motion.button>
   );
 };
 

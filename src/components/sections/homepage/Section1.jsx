@@ -37,7 +37,8 @@ const Section1 = () => {
               opacity: 1,
             }}
             transition={{
-              duration: 2.5,
+              duration: 1.5,
+              delay: 0.5,
             }}
           >
             Embracing the forefront of Web 3.0, we're pioneering the path
@@ -57,7 +58,21 @@ const Section1 = () => {
             />
           </div>
         </div>
-        <div className="mx-5 flex flex-col gap-y-4 rounded-[20px] bg-[#F2F2FE1A] px-5 py-6 sm:w-full sm:max-w-[85vw] sm:px-10 sm:py-12 md:max-w-full md:gap-y-8 lg:mx-0 lg:max-h-fit lg:max-w-fit xl:max-h-[534px] xl:max-w-[537px]">
+        <motion.div
+          className="mx-5 flex flex-col gap-y-4 rounded-[20px] bg-[#F2F2FE1A] px-5 py-6 sm:w-full sm:max-w-[85vw] sm:px-10 sm:py-12 md:max-w-full md:gap-y-8 lg:mx-0 lg:max-h-fit lg:max-w-fit xl:max-h-[534px] xl:max-w-[537px]"
+          initial={{
+            x: 100,
+            opacity: 0,
+          }}
+          animate={{
+            x: 0,
+            opacity: 1,
+          }}
+          transition={{
+            duration: 1.5,
+            delay: 0.2,
+          }}
+        >
           <h2 className="text-center uppercase sm:text-[21.3px] md:leading-6">
             Token sale ends in:
           </h2>
@@ -76,7 +91,7 @@ const Section1 = () => {
             <Button title="Buy FFC Coin" size="small" />
             <SecondaryButton title="Explore WhitePaper" size="small" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
