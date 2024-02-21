@@ -5,12 +5,12 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 const Section8 = () => {
   return (
     <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg ">
-      <div className="flex flex-wrap justify-center gap-28 xl:gap-96 max-w-7xl lg:flex-row lg:justify-end">
-        <div className="flex  w-[24.438rem] flex-col lg:ml-auto">
-          <h3 className="font-neue-machina-bold text-3xl	 ">
+      <div className="flex flex-wrap px-4  gap-28 xl:gap-96 max-w-7xl lg:flex-row ">
+        <div className="flex  lg:w-[24.438rem] flex-col lg:ml-auto">
+          <h3 className="font-neue-machina-bold text-wrap md:text-3xl text-xl	 ">
             TRY CRYPTO COIN CONVERTER
           </h3>
-          <p className=" mt-8 text-neutralLight">
+          <p className=" mt-8 text-neutralLight text-wrap">
             Instantly convert between your local currency and over 40
             cryptocurrencies to capitalize on price movements.
           </p>
