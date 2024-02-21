@@ -6,6 +6,22 @@ import { useSelector } from "react-redux";
 
 const MarketTrend = () => {
   const coins = useSelector((state) => state.coins.coinDetails);
+  console.log("Coins:", coins);
+  function convertToInternationalCurrencySystem(labelValue) {
+    // Nine Zeroes for Billions
+    return Math.abs(Number(labelValue)) >= 1.0e9
+      ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
+      : // Six Zeroes for Millions
+        Math.abs(Number(labelValue)) >= 1.0e6
+        ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
+        : // Three Zeroes for Thousands
+          Math.abs(Number(labelValue)) >= 1.0e3
+          ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
+          : Math.abs(Number(labelValue));
+  }
+  const convertToTwoDecimal = (labelValue) => {
+    return Math.abs(Number(labelValue)).toFixed(2);
+  };
   return (
     <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">
@@ -20,7 +36,7 @@ const MarketTrend = () => {
         </div>
         <div className="relative w-[80vw] overflow-auto shadow-md sm:w-full sm:rounded-lg">
           <table className="w-full text-left rtl:text-right dark:text-gray-400">
-            <thead className="bg-[#1E1E1F] h-[58px] text-white">
+            <thead className="h-[58px] bg-[#1E1E1F] text-white">
               <tr>
                 <th scope="col" className="px-6 py-3 font-neue-machina-bold">
                   #
@@ -47,7 +63,7 @@ const MarketTrend = () => {
             </thead>
             <tbody>
               {coins?.map((coin, index) => (
-                <tr className="even:bg-[#1E1E1F] h-[58px]">
+                <tr className="h-[58px] even:bg-[#1E1E1F]">
                   <th
                     scope="row"
                     className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
@@ -62,12 +78,12 @@ const MarketTrend = () => {
                     </p>
                   </td>
                   <td className="px-6 py-4 text-neutralLight">
-                    ${coin.current_price}
+                    ${convertToInternationalCurrencySystem(coin.current_price)}
                   </td>
                   <td className="px-6 text-white">
                     <div className="flex items-center gap-x-1">
                       {coin.price_change_24h > 0 ? arrowUp : arrowDown}
-                      <span>{coin.price_change_24h}</span>
+                      <span>{convertToTwoDecimal(coin.price_change_24h)}%</span>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -81,7 +97,9 @@ const MarketTrend = () => {
                       height={20}
                     />
                   </td>
-                  <td className="px-6 py-4">${coin.market_cap}</td>
+                  <td className="px-6 py-4">
+                    ${convertToInternationalCurrencySystem(coin.market_cap)}
+                  </td>
                   <td className="px-6 py-4">
                     <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
                       <h4 className="text-white">Buy</h4>
@@ -95,7 +113,7 @@ const MarketTrend = () => {
         <h5 className="mx-6 self-start">
           <span className="font-neue-machina-bold text-primary1 underline">
             Sign up
-          </span>
+          </span>{" "}
           now to build your own portfolio for free!
         </h5>
       </div>

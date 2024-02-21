@@ -6,10 +6,31 @@ import HeaderDropdown from "../dropdowns/HeaderDropdown";
 import MovingBar from "./moving-bar/MovingBar";
 import Image from "next/image";
 
+// framer motion import
+import { motion } from "framer-motion";
+
 const Header = ({ coins }) => {
   const router = useRouter();
+  const headerVariants = {
+    hide: {
+      opacity: 0,
+      y: -80,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
   return (
-    <header>
+    <motion.header
+      initial="hide"
+      whileInView="show"
+      exit="show"
+      variants={headerVariants}
+    >
       <MovingBar coins={coins} />
       <div className="z-50 grid place-items-center bg-transparent px-5">
         {/* Small screen size */}
@@ -73,7 +94,7 @@ const Header = ({ coins }) => {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

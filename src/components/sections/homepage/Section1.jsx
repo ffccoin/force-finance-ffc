@@ -1,22 +1,49 @@
+"use client";
 import Button from "@/components/buttons/Button";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
-
 import CountdownTimer from "./CountdownTimer";
 import ProgressBar from "./ProgressBar";
+import { motion } from "framer-motion";
 
 const Section1 = () => {
   return (
     <div className="flex w-full flex-wrap items-center justify-center bg-transparent pb-20 pt-11  md:mt-20">
       <div className="flex w-full max-w-7xl flex-col flex-wrap items-center justify-center gap-y-20 md:flex-row md:justify-between lg:px-8 xl:px-10">
         <div className="flex w-full flex-col gap-y-10 px-10 md:pt-14 lg:max-w-[45%] lg:px-0 xl:gap-y-[55px]">
-          <h1 className="text-[35.41px] leading-[40.6px] sm:text-[39.41px] sm:leading-[42.6px] uppercase lg:text-3xl xl:text-5xl xl:leading-[56.8px]">
+          <motion.h1
+            className="text-[35.41px] uppercase leading-[40.6px] sm:text-[39.41px] sm:leading-[42.6px] lg:text-3xl xl:text-5xl xl:leading-[56.8px]"
+            initial={{
+              x: -100,
+              opacity: 0,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1.5,
+            }}
+          >
             Empowering Your <br /> Financial Future
-          </h1>
-          <p className="w-full max-w-[90%] md:leading-6 lg:max-w-[450px] xl:max-w-[585px]">
+          </motion.h1>
+          <motion.p
+            className="w-full max-w-[90%] md:leading-6 lg:max-w-[450px] xl:max-w-[585px]"
+            initial={{
+              x: -100,
+              opacity: 0,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 2.5,
+            }}
+          >
             Embracing the forefront of Web 3.0, we're pioneering the path
             forward. With our decentralized finance (DeFi) solutions, we're
             sculpting a future where financial liberation knows no bounds.
-          </p>
+          </motion.p>
           <div className="hidden gap-x-6 md:flex lg:hidden xl:flex">
             <Button title="Connect Wallet" />
             <SecondaryButton title="Coin Audit" icon={rightArrow} />

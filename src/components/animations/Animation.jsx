@@ -74,10 +74,10 @@ const Animation = () => {
         },
         links: {
           color: "#778C3A",
-          distance: 120,
+          distance: 130,
           enable: true,
           opacity: 1,
-          width: 0.3,
+          width: 0.2,
         },
         move: {
           direction: "none",
@@ -86,17 +86,17 @@ const Animation = () => {
             default: "bounce",
           },
           random: false,
-          speed: 2,
+          speed: 1,
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 400,
+          value: 500,
         },
         opacity: {
-          value: 0.5,
+          value: 0.8,
         },
         shape: {
           type: "circle",

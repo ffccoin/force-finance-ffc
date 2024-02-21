@@ -1,9 +1,13 @@
 "use client";
 
-import { updateCoinDetails, updatecoins } from "@/libs/features/coins/coinsSlice";
+import {
+  updateCoinDetails,
+  updatecoins,
+} from "@/libs/features/coins/coinsSlice";
 import Image from "next/image";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 
 const MovingBar = ({ coins }) => {
   const dispatch = useDispatch();
@@ -11,6 +15,19 @@ const MovingBar = ({ coins }) => {
   useEffect(() => {
     dispatch(updateCoinDetails(coins));
   }, [coins]);
+
+  const movingBarVariants = {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        delay: 0.3,
+      },
+    },
+  };
 
   // Bitcoin, Ethereum, Solana, Cardano, Terra, Polkadot
   const displayTicker = (number) => (
@@ -23,7 +40,9 @@ const MovingBar = ({ coins }) => {
           <span className="text-sm">Bitcoin</span>
           <span className="text-sm">${coins[0].current_price}</span>
           <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white"></span>
+            <span className="text-sm text-white">
+              {coins[0].price_change_24h > 0 ? upArrow : downArrow}
+            </span>
           </div>
         </div>
       )}
@@ -33,7 +52,9 @@ const MovingBar = ({ coins }) => {
           <span className="text-sm">Ethereum</span>
           <span className="text-sm">${coins[1].current_price}</span>
           <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white"></span>
+            <span className="text-sm text-white">
+              {coins[1].price_change_24h > 0 ? upArrow : downArrow}
+            </span>
           </div>
         </div>
       )}
@@ -43,7 +64,9 @@ const MovingBar = ({ coins }) => {
           <span className="text-sm">Solana</span>
           <span className="text-sm">${coins[2].current_price}</span>
           <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white"></span>
+            <span className="text-sm text-white">
+              {coins[2].price_change_24h > 0 ? upArrow : downArrow}
+            </span>
           </div>
         </div>
       )}
@@ -53,7 +76,9 @@ const MovingBar = ({ coins }) => {
           <span className="text-sm">Cardano</span>
           <span className="text-sm">${coins[3].current_price}</span>
           <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white"></span>
+            <span className="text-sm text-white">
+              {coins[3].price_change_24h > 0 ? upArrow : downArrow}
+            </span>
           </div>
         </div>
       )}
@@ -63,7 +88,9 @@ const MovingBar = ({ coins }) => {
           <span className="text-sm">Terra</span>
           <span className="text-sm">${coins[5].current_price}</span>
           <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white"></span>
+            <span className="text-sm text-white">
+              {coins[5].price_change_24h > 0 ? upArrow : downArrow}
+            </span>
           </div>
         </div>
       )}
@@ -73,7 +100,9 @@ const MovingBar = ({ coins }) => {
           <span className="text-sm">Polkadot</span>
           <span className="text-sm">${coins[4].current_price}</span>
           <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white"></span>
+            <span className="text-sm text-white">
+              {coins[4].price_change_24h > 0 ? upArrow : downArrow}
+            </span>
           </div>
         </div>
       )}
@@ -81,10 +110,16 @@ const MovingBar = ({ coins }) => {
   );
 
   return (
-    <div className="ticker-container relative flex overflow-x-hidden">
+    <motion.div
+      className="ticker-container relative flex overflow-x-hidden"
+      initial="hide"
+      whileInView="show"
+      exit="show"
+      variants={movingBarVariants}
+    >
       {displayTicker(1)}
       {displayTicker(2)}
-    </div>
+    </motion.div>
   );
 };
 
