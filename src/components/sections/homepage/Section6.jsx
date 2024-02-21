@@ -34,35 +34,35 @@ const Section6 = () => {
           />
         </div>
       </div> */}
-      <div className="mt-8 flex flex-col bg-red-200 sm:px-20">
-        <h4 className="w-full bg-red-400 text-[28.43px] leading-8">
+      {/* <div className=" mt-8  flex flex-col px-20">
+        <h4 className="mr-auto flex items-center  justify-center font-neue-machina-bold text-[28.43px]  font-extrabold leading-8">
           Token Sale Stages
         </h4>
-        <div className="mt-3 grid w-full max-w-[85rem] gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <Card state={1} bonusPercent={13} daysLeft={"1 day only"} />
+        <div className="mt-3 grid max-w-[85rem]   items-center justify-center gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <Card state={1} bonusPercent={13} daysLeft={"1 day only"}></Card>
           <Card
             state={2}
             bonusPercent={20}
             daysLeft={"1 day only"}
             start={"End In: "}
             endTime={"07:08:30:15"}
-          />
+          ></Card>
           <Card
             state={3}
             bonusPercent={15}
             daysLeft={"2 weeks"}
             start={"Start In: "}
             endTime={"07:08:30:15"}
-          />
+          ></Card>
           <Card
             state={4}
             bonusPercent={0}
             daysLeft={"1 month"}
             start={"Start In: "}
             endTime={"05.30.2022"}
-          />
-        </div>
-      </div>
+          ></Card>
+        </div> */}
+      {/* </div> */}
     </div>
   );
 };
