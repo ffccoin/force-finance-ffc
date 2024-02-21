@@ -1,5 +1,5 @@
 import GoToHomepageButton from "@/components/buttons/GoToHomepageButton";
-import React from "react";
+
 
 const NotFound = () => {
   return (

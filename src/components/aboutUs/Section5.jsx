@@ -1,8 +1,6 @@
-import React from "react";
-
 export default function Section5() {
   return (
-    <div className="items-centre w-screen mx-6 flex-col justify-center">
+    <div className="items-centre mx-6 w-screen flex-col justify-center">
       <div className="flex items-center justify-center">
         <div className=" mt-[90px] flex w-full max-w-[1349px] items-center justify-center md:px-5">
           <div className="flex w-full flex-col items-center justify-center gap-[49px]">
@@ -17,7 +15,7 @@ export default function Section5() {
             </div>
             <div className="grid  justify-center ">
               <div className="mb-6 flex flex-col items-center justify-center gap-8 lg:flex-row">
-                <div className="flex w-full  max-w-[635px] flex-col sm:flex-row items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:px-5">
+                <div className="flex w-full  max-w-[635px] flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5">
                   <img
                     className="h-20 w-20"
                     src="images/img_home.svg"
@@ -36,7 +34,7 @@ export default function Section5() {
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col w-full max-w-[635px] sm:flex-row items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:px-5">
+                <div className="flex w-full max-w-[635px] flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5">
                   <img
                     className="h-20 w-20"
                     src="images/img_group9321.svg"
@@ -56,7 +54,7 @@ export default function Section5() {
                 </div>
               </div>
               <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
-                <div className="flex w-full flex-col  max-w-[635px] sm:flex-row items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:px-5">
+                <div className="flex w-full max-w-[635px]  flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5">
                   <img
                     className="h-20 w-20"
                     src="images/img_settings.svg"
@@ -74,7 +72,7 @@ export default function Section5() {
                     </p>
                   </div>
                 </div>
-                <div className="flex w-full  max-w-[635px] flex-col sm:flex-row items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:px-5">
+                <div className="flex w-full  max-w-[635px] flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5">
                   <img
                     className="h-20 w-20"
                     src="images/img_settings_light_green_a200.svg"
@@ -99,20 +97,19 @@ export default function Section5() {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <div className="mx-2 mb-16 mt-16 flex w-full h-full min-h-[288px] max-w-[1300px] flex-col items-center justify-between rounded-2xl bg-[url('/images/back.svg')] bg-cover bg-center bg-no-repeat px-20 sm:mx-5 sm:flex-row">
+        <div className="mx-2 mb-16 mt-16 flex h-full min-h-[288px] w-full max-w-[1300px] flex-col items-center justify-between rounded-2xl bg-[url('/images/back.svg')] bg-cover bg-center bg-no-repeat px-20 sm:mx-5 sm:flex-row">
           <div className="mt-4 flex flex-col items-start justify-center pb-4 sm:pr-6">
             <p className="font-neue-machina-bold text-[25px] uppercase text-black lg:text-[38px]">
               Get started for free
             </p>
-            
-              <p
-                className=" mt-3 w-full max-w-[500px] font-apfel-grotezk text-[16px] text-black
+
+            <p
+              className=" mt-3 w-full max-w-[500px] font-apfel-grotezk text-[16px] text-black
             "
-              >
-                Force Finance Coin integrates Ethereum and sovereign blockchains
-                seamlessly, evolving into a comprehensive multi-chain system.
-              </p>
-            
+            >
+              Force Finance Coin integrates Ethereum and sovereign blockchains
+              seamlessly, evolving into a comprehensive multi-chain system.
+            </p>
           </div>
           <div className="flex flex-col items-center justify-center gap-4 pb-5 lg:flex-row">
             <button

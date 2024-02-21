@@ -1,6 +1,6 @@
 import Button from "@/components/buttons/Button";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
-import React from "react";
+
 import CountdownTimer from "./CountdownTimer";
 import ProgressBar from "./ProgressBar";
 

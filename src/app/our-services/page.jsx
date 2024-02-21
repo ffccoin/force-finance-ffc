@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+
 import ServicesHeader from "@/components/ourServices/ServicesHeader";
 import Section1 from "@/components/ourServices/Section1";
 import Section2 from "@/components/ourServices/Section2";

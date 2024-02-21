@@ -1,15 +1,14 @@
-import React from "react";
 import Button from "../buttons/Button";
 
 export default function Section4() {
   return (
-    <div className="flex items-center justify-center w-screen">
+    <div className="flex w-screen items-center justify-center">
       <div className="mx-auto mt-[46px] flex  w-full max-w-[1340px] flex-col items-center justify-center md:flex-row md:gap-5 md:px-5">
-        <div className="flex w-[250px] md:w-[600px] xl:w-[700px] flex-col justify-center items-start mr-0 lg:mr-14 ">
-          <p className="font-apfel-grotezk flex items-center text-[16px] text-base uppercase tracking-[5.76px] text-primary1">
+        <div className="mr-0 flex w-[250px] flex-col items-start justify-center md:w-[600px] lg:mr-14 xl:w-[700px] ">
+          <p className="flex items-center font-apfel-grotezk text-[16px] text-base uppercase tracking-[5.76px] text-primary1">
             WHAT IS Ffc coin?
           </p>
-          <p className="mt-[33px] w-full font-neue-machina-bold3 font-[800px] uppercase leading-[42.00px] text-gray-100 text-[25.9px] lg:text-[35.9px]">
+          <p className="font-neue-machina-bold3 mt-[33px] w-full text-[25.9px] font-[800px] uppercase leading-[42.00px] text-gray-100 lg:text-[35.9px]">
             Your Trusted Decentralized DeFi Web 3 Financial Solution Provider
           </p>
           <div className="font-apfelgrotezk mt-[17px] flex flex-col items-center justify-start gap-[15px]">
@@ -38,9 +37,9 @@ export default function Section4() {
           <Button title={"Lunch Dapp"} />
         </div>
         <div className="relative">
-          <div className="absoluteh-[613px] md:h-[350px] lg:h-[602px] xl:w-[700px] md:w-[350px] lg:w-[600px]">
+          <div className="absoluteh-[613px] md:h-[350px] md:w-[350px] lg:h-[602px] lg:w-[600px] xl:w-[700px]">
             <img
-              className="absolute inset-[0] m-auto h-full w-full object-center justify-center object-cover"
+              className="absolute inset-[0] m-auto h-full w-full justify-center object-cover object-center"
               src="images/img_rectangle4994.png"
               alt="rectangle4994"
             />

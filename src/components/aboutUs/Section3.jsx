@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "./Header";
 import Header2 from "./Header2";
 import Thumbnail from "./Thumbnail";
@@ -8,12 +7,12 @@ export default function Section3() {
     <div>
       <div
         style={{ backgroundImage: "url('aboutpage/backgroundB.svg')" }}
-        className={`mb-10 flex h-full w-screen px-4 flex-col items-center justify-center bg-cover bg-center bg-no-repeat pt-6`}
+        className={`mb-10 flex h-full w-screen flex-col items-center justify-center bg-cover bg-center bg-no-repeat px-4 pt-6`}
       >
         <Header />
         <div
           style={{ backgroundImage: "url('aboutpage/body.svg')" }}
-          className={`mb-32 mt-14 flex h-[400px] [w-400px] md:h-[600px] lg:h-[665px] md:w-[625px] items-center justify-center bg-cover bg-center bg-no-repeat`}
+          className={`[w-400px] mb-32 mt-14 flex h-[400px] items-center justify-center bg-cover bg-center bg-no-repeat md:h-[600px] md:w-[625px] lg:h-[665px]`}
         >
           <Header2 />
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+
 import SecondaryButton from "../buttons/SecondaryButton";
 
 const Card = ({ state, bonusPercent, daysLeft, start, endTime }) => {

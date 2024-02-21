@@ -1,4 +1,4 @@
-import React from "react";
+
 import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 export default function ServicesHeader() {
