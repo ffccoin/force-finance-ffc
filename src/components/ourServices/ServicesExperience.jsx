@@ -70,7 +70,7 @@ const ServicesExperience = () => {
             </div>
           </div>
         </div>
-        <div className="">
+        <div className="flex items-center  lg:mr-16 justify-center ">
           <Image
             src="/homepage/developers-transformed.png"
             width={465}

@@ -12,6 +12,7 @@ import Section9 from "@/components/sections/homepage/Section9";
 import Section10 from "@/components/sections/homepage/Section10";
 import Section11 from "@/components/sections/homepage/Section11";
 import Section12 from "@/components/sections/homepage/Section12";
+
 import Strip from "@/components/sections/homepage/Strip";
 
 export default function Home() {
@@ -22,18 +23,18 @@ export default function Home() {
         <Section1 />
       </div>
       <Strip />
-      <MarketTrend />
+      {/* <MarketTrend /> */}
       <Section2 />
       <Section3 />
       <Section4/>
       <Section5/>
       <Section6/>
       <Section7/>
-      <Section8/>
+      {/* <Section8/>
       <Section9/>
       <Section10/>
       <Section11/>
-      <Section12/>
+      <Section12/> */}  
     </main>
   );
 }

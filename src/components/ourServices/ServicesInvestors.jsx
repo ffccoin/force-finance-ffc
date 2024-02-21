@@ -45,8 +45,6 @@ const ServicesInvestors = () => {
             />
           </div>
         </div>
-        </div>
-
         <div className="mt-6 grid grid-cols-2  mb-8 items-center md:mt-20 md:max-w-6xl sm:gap-x-20  gap-x-12 gap-y-12  px-10  lg:grid-cols-3  xl:gap-36">
           <div className="max-w-20  md:col-start-1  md:max-w-44 ">
             <Image
@@ -74,6 +72,9 @@ const ServicesInvestors = () => {
             />
           </div>
       </div>
+        </div>
+
+        
     </div>
   );
 };
