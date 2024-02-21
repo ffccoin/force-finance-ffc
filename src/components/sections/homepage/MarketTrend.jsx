@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const MarketTrend = () => {
   const coins = useSelector((state) => state.coins.coinDetails);
-  console.log("COINS", coins);
   return (
     <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">

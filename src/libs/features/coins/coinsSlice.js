@@ -39,7 +39,6 @@ export const coinsSlice = createSlice({
       state.coins = state.coins.filter((coin) => coin !== action.payload);
     },
     updatePrices: (state, action) => {
-      console.log("action", action);
       state.pricesInUsd = action.payload;
     },
     updateCoinDetails: (state, action) => {

@@ -26,7 +26,7 @@ const Animation = () => {
   }, []);
 
   const particlesLoaded = (container) => {
-    console.log(container);
+    console.log("");
   };
 
   const options = useMemo(
