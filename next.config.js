@@ -7,7 +7,9 @@ module.exports = {
         port: "",
         pathname: "/**",
       },
+
     ],
+
   },
   // ... other configurations
 };

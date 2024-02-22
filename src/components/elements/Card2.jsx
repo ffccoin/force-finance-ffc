@@ -3,7 +3,7 @@ const Card2 = ({ title, text, number }) => {
     <div>
       <div className="relative flex max-w-7xl flex-col lg:max-w-96 lg:flex-row">
         <div className="mb-4 lg:mb-0 lg:mr-auto">
-          <div className="lg:h-[137px] gap-10 rounded-[20px] bg-neutral p-3 px-6">
+          <div className="lg:h-[137px] gap-10 rounded-[20px] bg-neutral p-3 px-4">
             <p className="mt-2 font-neue-machina-bold text-[21.33px]">
               {title}
             </p>

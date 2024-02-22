@@ -122,6 +122,7 @@ module.exports = {
       },
       backgroundImage: {
         gradient1: "radial-gradient(#ffffff14,#cbfb4514)",
+
       },
     },
   },

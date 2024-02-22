@@ -1,108 +1,141 @@
-
+import Image from "next/image";
+import Button from "../buttons/Button";
 
 export default function AboutHeader() {
   return (
-    <div className="flex items-center w-screen justify-center">
-      <div className="flex h-[350px] w-[540px] items-center justify-center bg-[url('/aboutpage/background.svg')] bg-no-repeat bg-cover bg-center sm:bg-contain md:h-[700px] md:w-[1040px] md:bg-cover lg:h-[1100px] lg:w-[1440px] lg:bg-contain xl:bg-cover">
-        <div className="flex w-full h-screen ml-[50px] md:ml-[150px] lg:ml-[200px] flex-col justify-center items-center">
-          <div className="relative h-[812px] w-[91%] sm:h-[611px] md:h-[952px] md:w-full">
-            <div className="absolute left-[2%] top-[5%] flex w-[79%] flex-col items-center justify-start">
-              <div className="flex w-full flex-col items-center justify-center gap-5">
-                <div className="flex w-full mt-[200px] sm:mt-[120px] md:mt-24 lg:mt-[-80px] xl:mt-[-100px] flex-col items-center justify-center">
-                  <p
-                    className="text-primary1 text-center uppercase font-apfel-grotezk tracking-[1.60px]"
-                    
-                  >
-                    First order and you’ll get up to $10 in free BTC as a reward
-                  </p>
-                  <p className="text-white-A700 mt-4 font-neue-machina-bold w-full text-center text-[20px] md:text-[56px] uppercase md:leading-[75.00px]">
-                    A Trusted and Secure Web 3.0 Financial DeFi Solution
-                  </p>
-                  <div className="mt-[26px] flex w-[64%] flex-col items-center justify-center gap-[25px] md:w-full lg:flex-row">
-                    <div className="font-apfel-grotezk flex w-[78%] flex-col items-center justify-start md:w-full ">
-                      <div className="flex w-full flex-col items-center justify-center md:gap-10 md:flex-row">
-                        <div className="bg-gray-900_02 light_green_A200_38_white_A700_00_border w-[285px] flex flex-col items-center justify-start rounded-[10px] border border-solid p-3">
-                          <div className="flex w-[94%] flex-row items-center justify-between md:w-full pr-4 lg:pr-0">
-                            <div className="flex flex-col items-start justify-start">
-                              <p className="text-[#898990] font-apfel-grotezk text-[16px] text-base">
-                                You have
-                              </p>
-                              <p className="mt-[3px] text-base text-white font-apfel-grotezk text-[16px]">
-                                $42.984
-                              </p>
-                            </div>
-                            <div className="flex text-white font-apfel-grotezk text-[16px] w-[35%] flex-row items-center justify-between">
-                            
-                              <p className="bg-[#7D32F9] text-white-A700 flex h-[24px] w-[24px] p-2 mr-1 pb-2.5 items-center justify-center rounded-xl text-center text-base">
-                                $
-                              </p>
-                              <p className="text-white-A700 text-base">USD</p>
-                              <img
-                                className="h-6 w-6"
-                                src="images/img_iconframe.svg"
-                                alt="iconframe"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <img
-                          className="h-6 w-6 rotate-90 md:rotate-0  my-2 md:my-0"
-                          src="images/img_share.svg"
-                          alt="share"
-                        />
-                        <div className="bg-gray-900_02 light_green_A200_33_white_A700_00_border w-[285px] flex flex-col items-center justify-end rounded-[10px] border border-solid p-3">
-                          <div className="flex w-[99%] flex-col items-center justify-start md:w-full pr-4 lg:pr-0">
-                            <div className="flex w-full flex-row items-center justify-between">
-                              <div className="flex flex-col items-start justify-start">
-                                <p className="text-[#898990] font-apfel-grotezk text-[16px] text-base">
-                                  You get
-                                </p>
-                                <p className="text-base text-gray-100">0.95</p>
-                              </div>
-                              <div className="flex text-white font-apfel-grotezk text-[16px] w-[35%] flex-row items-center justify-between">
-                            
-                              <p className="bg-orange-600 text-white-A700 flex h-[24px] w-[24px] p-2 mr-1 pb-2.5 items-center justify-center rounded-xl text-center text-base">
-                              ฿
-                              </p>
-                              <p className="text-white-A700 text-base">BTC</p>
-                              <img
-                                className="h-6 w-6"
-                                src="images/img_iconframe.svg"
-                                alt="iconframe"
-                              />
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="font-neue-machina bg-primary1 w-[155px] h-[65px] text-black flex justify-center items-center my-[3px] min-w-[154px] cursor-pointer text-center text-base font-extrabold md:mt-0"
-                      shape="square"
-                      color="light_green_A200"
-                      size="lg"
-                      variant="fill"
-                    >
-                      Buy Now
-                    </div>
-                  </div>
-                </div>
-                <div className="flex w-[79%] flex-col items-center justify-start gap-2.5 md:w-full">
+    <div className="grid place-items-center     bg-primary2">
+      <div className=" flex flex-col items-center px-4 ">
+        {/*         <Image     className="absolute top-[5.4rem] left-[15.4rem] sm:left-[20rem] md:left-[30rem] lg:left-[60rem] xl:left-[60rem]" width={51} height={51} alt="img" src="/aboutpage/bitcoin.svg" /> */}
+        <Image
+          className="absolute top-[5.4rem] hidden xl:left-[60rem] xl:block"
+          width={51}
+          height={51}
+          alt="img"
+          src="/aboutpage/bitcoin.svg"
+        />
+        <Image
+          className="absolute top-[9.3rem]  hidden xl:left-[1.25rem] xl:block"
+          width={116.52}
+          height={116.52}
+          alt="img"
+          src="/aboutpage/goldenBitcoin.svg"
+        />
+        <Image
+          className="absolute top-[15rem] hidden rotate-3 xl:left-[70.65rem] xl:block"
+          width={123}
+          height={123}
+          alt="img"
+          src="/aboutpage/greenBitcoin.svg"
+        />
+        <Image
+          className="absolute top-[26.3rem]  hidden xl:left-[8rem] xl:block"
+          width={85}
+          height={85}
+          alt="img"
+          src="/aboutpage/greenBitcoin2.svg"
+        />
+        <Image
+          className="absolute top-[28rem] hidden rotate-3 xl:left-[69.65rem] xl:block"
+          width={51}
+          height={51}
+          alt="img"
+          src="/aboutpage/blueBitcoin.svg"
+        />
+
+        <div className=" flex flex-col items-center  uppercase">
+          <p className=" text-wrap text-center font-apfel-grotezk text-sm text-primary1 sm:text-base xl:mr-auto  xl:pl-[357px]">
+            First order and you’ll get up to $10 in free BTC as a reward{" "}
+          </p>
+          <p className="mt-3 text-wrap text-center  font-neue-machina-bold text-xl uppercase sm:text-[56px]   sm:leading-[75.75px] md:px-8 xl:pr-32 ">
+            A Trusted and Secure Web 3.0 Financial DeFi Solution
+          </p>
+        </div>
+        <div className="mt-10 lg:mr-28 flex flex-col items-center  gap-4 md:flex-row">
+          <div className="flex max-w-72 flex-wrap rounded-[10px] bg-neutral p-4 lg:gap-10 ">
+            <div className=" max-w-28 sm:max-w-32">
+              <p className="text-neutralLight">You have</p>
+              <input
+                type="text"
+                placeholder="$42.984"
+                className=" w-full border-transparent bg-transparent  outline-none"
+              />
+            </div>
+
+            <div className="flex items-center justify-center ">
+              <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center rounded-xl bg-[#7D32F9] p-2 pb-2.5 text-center text-base">
+                $
+              </p>
+              <p className="text-white-A700 text-base">USD</p>
+              <Image
+                width={24}
+                height={24}
+                src="images/img_iconframe.svg"
+                alt="iconframe"
+              />
+            </div>
+          </div>
+          <Image
+            className="my-2 rotate-90  md:my-0 md:rotate-0"
+            width={24}
+            height={24}
+            src="images/img_share.svg"
+            alt="share"
+          />
+          <div className="flex max-w-72 flex-wrap rounded-[10px] bg-neutral p-4 lg:gap-10 ">
+            <div className=" max-w-28 sm:max-w-32">
+              <p className="text-neutralLight">You get</p>
+              <input
+                type="text"
+                placeholder="0.95"
+                className=" w-full border-transparent bg-transparent  outline-none"
+              />
+            </div>
+
+            <div className="flex items-center justify-center ">
+              <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px]  items-center justify-center rounded-xl bg-orange-600 p-2 pb-2.5 text-center text-base">
+                ฿
+              </p>
+              <p className="text-white-A700 text-base">USD</p>
+              <Image
+                width={24}
+                height={24}
+                src="images/img_iconframe.svg"
+                alt="iconframe"
+              />
+            </div>
+          </div>
+          <div
+            className="my-[3px] mt-1 font-neue-machina-bold flex h-[76px] w-[155px] min-w-[154px] cursor-pointer items-center justify-center bg-primary1 text-center text-base font-extrabold text-black md:mt-0"
+            shape="square"
+            color="light_green_A200"
+            size="lg"
+            variant="fill"
+          >
+            Buy Now
+          </div>
+
+        </div>
+        <div className="flex w-[79%] mt-5 flex-col items-center justify-start gap-2.5 md:w-full">
                   <p className=" text-base text-[#898990] font-apfel-grotezk text-[16px]">We accept</p>
                   <img
                     className="h-[30px]"
                     src="images/img_group9342.svg"
                     alt="group9342"
                   />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </div> 
       </div>
-    </div>
-  )
-}
+      <div className="md:mt-20 mt-8 bg-gradient-to-b from-[#161617] from-50% via-[#7D32F9] via-100%  w-full flex flex-col items-center ">
 
+      <Image
+                width={891}
+                height={301}
+                src="/aboutpage/test.svg"
+                alt="iconframe"
+              />
+         </div>
+         </div>
+
+  );
+}
 
 

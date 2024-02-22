@@ -34,7 +34,7 @@ const Section6 = () => {
           />
         </div>
       </div>
-      <div className=" mt-8  flex flex-col sm:px-24">
+      <div className=" mt-8  px-4 flex flex-col sm:px-24">
         <h4 className="mr-auto flex items-center  justify-center font-neue-machina-bold text-[28.43px]  font-extrabold leading-8">
           Token Sale Stages
         </h4>

@@ -12,12 +12,12 @@ export default function page() {
   return (
     <div className="flex flex-col w-screen items-center justify-center">
       <AboutHeader />
-      <AboutFFC />
+      {/* <AboutFFC />
       <Section3 />
       <Section4 />
       <Section5 />
       <Section6 />
-      <Section7 />
+      <Section7 /> */}
     </div>
   );
 }

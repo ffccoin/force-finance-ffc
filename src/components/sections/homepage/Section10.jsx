@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 const Section10 = () => {
   return (
     <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg ">
-      <div className="mt-10 flex flex-wrap  pl-8    md:flex-row lg:justify-end">
-        <div className="flex  max-w-[22.7rem] flex-col xl:max-w-[36.7rem] ">
-          <h3 className="text-wrap font-neue-machina-bold text-xl md:text-3xl	 ">
-            Access all your favorite assets effortlessly
+      <div className="mt-10 flex flex-wrap  sm: pl-8  px-4   md:flex-row lg:justify-end">
+        <div className="flex  xl:max-w-[36.7rem] md:max-w-[22.7rem] max-w-[38.7rem]  flex-col ">
+        <h3 className="font-neue-machina-bold text-wrap md:text-3xl text-xl	 ">
+            Access all your favorite assets effortlessly 
           </h3>
 
           <p className=" mt-8 text-wrap text-[16px] leading-[24px] text-neutralLight">
