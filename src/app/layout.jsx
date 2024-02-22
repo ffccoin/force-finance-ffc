@@ -68,6 +68,7 @@ async function getData() {
 
 export default async function RootLayout({ children }) {
   const data = await getData();
+  console.log("DATA", data);
   return (
     <html lang="en">
       <StoreProvider>

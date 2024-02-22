@@ -21,6 +21,10 @@ const MarketTrend = () => {
   const convertToTwoDecimal = (labelValue) => {
     return Math.abs(Number(labelValue)).toFixed(2);
   };
+
+  const calculate24hChangePercentage = (price, priceChange) => {
+    return ((priceChange / price) * 100).toFixed(2);
+  };
   return (
     <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">
@@ -33,7 +37,7 @@ const MarketTrend = () => {
             {chevronRight}
           </div>
         </div>
-        <div className="relative w-[80vw] overflow-auto shadow-md sm:w-full sm:rounded-lg">
+        <div className="relative w-[80vw] overflow-auto shadow-md sm:rounded-lg">
           <table className="w-full text-left rtl:text-right dark:text-gray-400">
             <thead className="h-[58px] bg-[#1E1E1F] text-white">
               <tr>
@@ -81,8 +85,10 @@ const MarketTrend = () => {
                   </td>
                   <td className="px-6 text-white">
                     <div className="flex items-center gap-x-1">
-                      {coin.price_change_24h > 0 ? arrowUp : arrowDown}
-                      <span>{convertToTwoDecimal(coin.price_change_24h)}%</span>
+                      {coin.price_change_percentage_24h > 0
+                        ? arrowUp
+                        : arrowDown}
+                      <span>{coin.price_change_percentage_24h}%</span>
                     </div>
                   </td>
                   <td className="px-6 py-4">

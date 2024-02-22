@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="grid h-[520px] w-screen bg-[url('/footer/bg.svg')] bg-cover px-8 py-10 sm:px-12 lg:px-24">
-      <div className="grid gap-x-20 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
-        <div className="flex flex-col gap-y-4 lg:gap-y-7">
+    <footer className="grid h-[520px] w-screen bg-[url('/footer/bg.svg')] bg-cover px-8 py-10 sm:px-12 lg:px-24 lg:py-24">
+      <div className="grid gap-x-20 gap-y-10 md:grid-cols-2 lg:grid-cols-5">
+        <div className="flex flex-col gap-y-4 lg:col-span-2 lg:gap-y-7">
           <Image
             src="/logos/header-logo.svg"
             width={250}
@@ -81,7 +81,7 @@ const Footer = () => {
             FAQs
           </a>
         </div>
-        <div className="flex w-[80vw] flex-col gap-y-5 md:flex-row md:justify-between">
+        <div className="flex w-[80vw] mb-10 flex-col gap-y-5 md:flex-row md:justify-between">
           <span className="w-fit text-nowrap text-sm text-neutralLight">
             Copyright © 2024 FFC. All Rights Reserved
           </span>

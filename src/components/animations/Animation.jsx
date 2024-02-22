@@ -77,7 +77,7 @@ const Animation = () => {
           distance: 130,
           enable: true,
           opacity: 1,
-          width: 0.2,
+          width:0.3,
         },
         move: {
           direction: "none",

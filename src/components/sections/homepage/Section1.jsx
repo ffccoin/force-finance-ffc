@@ -47,15 +47,19 @@ const Section1 = () => {
           </motion.p>
           <div className="hidden gap-x-6 md:flex lg:hidden xl:flex">
             <Button title="Connect Wallet" />
-            <SecondaryButton title="Coin Audit" icon={rightArrow} />
+            <a href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/">
+              <SecondaryButton title="Coin Audit" icon={rightArrow} />
+            </a>
           </div>
           <div className="flex flex-col gap-3 md:hidden lg:flex xl:hidden">
             <Button title="Connect Wallet" size="small" width="fit" />
-            <SecondaryButton
-              title="Coin Audit"
-              icon={rightArrow}
-              size="small"
-            />
+            <a href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/">
+              <SecondaryButton
+                title="Coin Audit"
+                icon={rightArrow}
+                size="small"
+              />
+            </a>
           </div>
         </div>
         <motion.div
@@ -85,11 +89,15 @@ const Section1 = () => {
           <ProgressBar />
           <div className="hidden items-center gap-x-8 md:flex">
             <Button title="Buy FFC Coin" />
-            <SecondaryButton title="Explore WhitePaper" />
+            <a href="/whitepaper.pdf" download="ffc-whitepaper">
+              <SecondaryButton title="Explore WhitePaper" />
+            </a>
           </div>
           <div className="flex flex-col gap-y-4 md:hidden">
             <Button title="Buy FFC Coin" size="small" />
-            <SecondaryButton title="Explore WhitePaper" size="small" />
+            <a href="/whitepaper.pdf" download="ffc-whitepaper">
+              <SecondaryButton title="Explore WhitePaper" size="small" />
+            </a>
           </div>
         </motion.div>
       </div>
@@ -107,7 +115,7 @@ const rightArrow = (
   >
     <path
       d="M12 19L19 12L12 5M19 12L5 12"
-      stroke="#F3F3F3"
+      stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
