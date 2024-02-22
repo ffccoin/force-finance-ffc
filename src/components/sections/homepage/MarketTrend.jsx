@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const MarketTrend = () => {
   const coins = useSelector((state) => state.coins.coinDetails);
-  console.log("Coins:", coins);
   function convertToInternationalCurrencySystem(labelValue) {
     // Nine Zeroes for Billions
     return Math.abs(Number(labelValue)) >= 1.0e9
