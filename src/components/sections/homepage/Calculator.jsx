@@ -4,23 +4,21 @@ import { Menu } from "@headlessui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const Calculator = () => {
+const Calculator = ({ coins }) => {
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
-  const [selectedCoin, setSelectedCoin] = useState("BTC");
-  const [currencyAmount, setCurrencyAmount] = useState(0);
-  const [coinAmount, setCoinAmount] = useState(0);
-  const [exchangeRate, setExchangeRate] = useState(0);
+  const [selectedCoin, setSelectedCoin] = useState("bitcoin");
+  const [currencyAmount, setCurrencyAmount] = useState("");
+  const [coinAmount, setCoinAmount] = useState("");
 
-  const calculateAmounts = async () => {
-    const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`;
-    const res = await fetch(url);
-    if (!res.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const data = await res.json();
-    setExchangeRate(data.bitcoin.usd);
+  const calculateCoinAmount = () => {
+    const currency = coins.find((coin) => coin.id === selectedCoin);
+    return currencyAmount / currency.current_price;
   };
 
+  const calculateCurrencyAmount = () => {
+    const currency = coins.find((coin) => coin.id === selectedCoin);
+    return coinAmount * currency.current_price;
+  };
   return (
     <div className="flex w-full flex-wrap lg:max-w-[24.438rem]">
       <div className="flex w-full flex-col flex-wrap">
@@ -29,7 +27,9 @@ const Calculator = () => {
           <input
             type="text"
             value={currencyAmount}
-            onChange={(e) => setCurrencyAmount(e.target.value)}
+            onChange={(e) => (
+              setCurrencyAmount(e.target.value), calculateCoinAmount()
+            )}
             className="mt-3 h-8 w-full border border-transparent border-b-primary1 bg-transparent outline-none focus:border-b-primary1 focus:outline-none"
           />
 
@@ -97,7 +97,9 @@ const Calculator = () => {
           <input
             type="text"
             value={coinAmount}
-            onChange={(e) => setCoinAmount(e.target.value)}
+            onChange={(e) => (
+              setCoinAmount(e.target.value), calculateCurrencyAmount()
+            )}
             className="mt-3 h-8 w-full border border-transparent border-b-primary1 bg-transparent outline-none focus:border-b-primary1 focus:outline-none"
           />
           <Menu as="div" className="relative">
@@ -111,8 +113,8 @@ const Calculator = () => {
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
                     onClick={() => {
-                        setSelectedCoin("BTC");
-                        calculateAmounts();
+                      setSelectedCoin("BTC");
+                      calculateAmounts();
                     }}
                   >
                     BTC

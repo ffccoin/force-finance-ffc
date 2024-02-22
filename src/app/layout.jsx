@@ -75,7 +75,7 @@ export default async function RootLayout({ children }) {
         <body className={inter.className}>
           <Header coins={data} />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </body>
       </StoreProvider>
     </html>
