@@ -3,7 +3,7 @@ import Button from "../buttons/Button";
 
 export default function AboutHeader() {
   return (
-    <div className="grid place-items-center  bg-gradient-to-b from-[#000000] via-[#6102fa]     bg-primary2">
+    <div className="grid place-items-center  bg-gradient-to-b from-[#161617] from-70% via-[#7D32F9] via-100%    bg-primary2">
       <div className=" flex flex-col items-center px-4 ">
         {/*         <Image     className="absolute top-[5.4rem] left-[15.4rem] sm:left-[20rem] md:left-[30rem] lg:left-[60rem] xl:left-[60rem]" width={51} height={51} alt="img" src="/aboutpage/bitcoin.svg" /> */}
         <Image
