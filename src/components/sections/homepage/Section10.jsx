@@ -4,17 +4,18 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 const Section10 = () => {
   return (
     <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg ">
-      <div className="mt-10 flex flex-wrap  justify-center pl-8    md:flex-row lg:justify-end">
-        <div className="flex  xl:w-[36.7rem] w-[22.7rem] flex-col ">
-          <h3 className="font-neue-machina-bold text-4xl	uppercase ">
+      <div className="mt-10 flex flex-wrap  pl-8    md:flex-row lg:justify-end">
+        <div className="flex  xl:max-w-[36.7rem] max-w-[22.7rem] flex-col ">
+        <h3 className="font-neue-machina-bold text-wrap md:text-3xl text-xl	 ">
             Access all your favorite assets effortlessly 
           </h3>
-          <p className=" mt-8 text-neutralLight">
+
+          <p className=" mt-8 text-wrap text-[16px] leading-[24px] text-neutralLight">
             Empower yourself to manage your cryptocurrencies, NFTs, and other
             digital assets with complete control, privacy, and security, all
             from the convenience of your own device. 
           </p>
-          <div className="mt-6 w-[38rem] ">
+          <div className="mt-6 max-w-[38rem] ">
             <Image
               src="/homepage/line2.svg"
               alt="Arrow"
@@ -40,7 +41,7 @@ const Section10 = () => {
           </span>
         </div>
         <div className="flex  flex-wrap justify-end ">
-          <div className="mt-8 lg:w-[38rem] w-[20rem]  ">
+          <div className="mt-8 lg:max-w-[38rem] max-w-[20rem]  ">
             <Image
               src="/homepage/sideIcon.svg"
               alt="Arrow"
