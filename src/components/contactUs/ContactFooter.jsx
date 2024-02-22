@@ -1,6 +1,6 @@
 
 
-export default function ContactFooter() {
+export default function Contact() {
   return (
     <div className="ml-10 flex flex-col items-center justify-center xl:ml-0">
       <div className="overflow-hidden font-neue-machina text-white">

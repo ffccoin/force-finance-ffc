@@ -4,8 +4,8 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 const Section10 = () => {
   return (
     <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg ">
-      <div className="mt-10 flex flex-wrap  pl-8    md:flex-row lg:justify-end">
-        <div className="flex  xl:max-w-[36.7rem] max-w-[22.7rem] flex-col ">
+      <div className="mt-10 flex flex-wrap  sm: pl-8  px-4   md:flex-row lg:justify-end">
+        <div className="flex  xl:max-w-[36.7rem] md:max-w-[22.7rem] max-w-[38.7rem]  flex-col ">
         <h3 className="font-neue-machina-bold text-wrap md:text-3xl text-xl	 ">
             Access all your favorite assets effortlessly 
           </h3>
