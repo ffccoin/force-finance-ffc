@@ -1,8 +1,8 @@
 "use client";
 
-import { Menu } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 
 const Calculator = () => {
@@ -58,12 +58,12 @@ const Calculator = () => {
   };
 
   useEffect(() => {
-    if(coinAmount === null) return;
+    if (coinAmount === null) return;
     calculateCurrencyAmount(coinAmount);
   }, [selectedCurrency]);
 
   useEffect(() => {
-    if(currencyAmount === null) return;
+    if (currencyAmount === null) return;
     calculateCurrencyAmount(coinAmount);
   }, [selectedCoin]);
 
@@ -83,58 +83,68 @@ const Calculator = () => {
               {selectedCurrency}
               {chevronDown}
             </Menu.Button>
-            <Menu.Items className="absolute right-0 top-11 flex w-[150px] flex-col items-start gap-y-1 rounded-md border border-primary1 border-opacity-50 bg-neutralDarker bg-opacity-50 px-4 py-2">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCurrencySelect("usd")}
-                  >
-                    USD
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCurrencySelect("inr")}
-                  >
-                    INR
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCurrencySelect("eur")}
-                  >
-                    EUR
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCurrencySelect("pkr")}
-                  >
-                    PKR
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCurrencySelect("gbp")}
-                  >
-                    GBP
-                  </button>
-                )}
-              </Menu.Item>
-            </Menu.Items>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="absolute right-0 top-11 z-30 flex w-[150px] flex-col items-start gap-y-1 rounded-md border border-primary1 border-opacity-50 bg-neutralDarker bg-opacity-90 px-4 py-2">
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCurrencySelect("usd")}
+                    >
+                      USD
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCurrencySelect("inr")}
+                    >
+                      INR
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCurrencySelect("eur")}
+                    >
+                      EUR
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCurrencySelect("pkr")}
+                    >
+                      PKR
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCurrencySelect("gbp")}
+                    >
+                      GBP
+                    </button>
+                  )}
+                </Menu.Item>
+              </Menu.Items>
+            </Transition>
           </Menu>
         </div>
         <p className="mt-6 text-neutralLight">You get</p>
@@ -160,68 +170,78 @@ const Calculator = () => {
                         : "LUNA"}
               {chevronDown}
             </Menu.Button>
-            <Menu.Items className="absolute right-0 top-11 flex w-[150px] flex-col items-start gap-y-1 rounded-md border border-primary1 border-opacity-50 bg-neutralDarker bg-opacity-50 px-4 py-2">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCoinSelect("bitcoin")}
-                  >
-                    BTC
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCoinSelect("ethereum")}
-                  >
-                    ETH
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCoinSelect("cardano")}
-                  >
-                    ADA
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCoinSelect("polkadot")}
-                  >
-                    DOT
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCoinSelect("solana")}
-                  >
-                    SOL
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCoinSelect("terra-luna")}
-                  >
-                    LUNA
-                  </button>
-                )}
-              </Menu.Item>
-            </Menu.Items>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="absolute right-0 top-11 z-30 flex w-[150px] flex-col items-start gap-y-1 rounded-md border border-primary1 border-opacity-50 bg-neutralDarker bg-opacity-90 px-4 py-2">
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCoinSelect("bitcoin")}
+                    >
+                      BTC
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCoinSelect("ethereum")}
+                    >
+                      ETH
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCoinSelect("cardano")}
+                    >
+                      ADA
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCoinSelect("polkadot")}
+                    >
+                      DOT
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCoinSelect("solana")}
+                    >
+                      SOL
+                    </button>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                      onClick={() => handleCoinSelect("terra-luna")}
+                    >
+                      LUNA
+                    </button>
+                  )}
+                </Menu.Item>
+              </Menu.Items>
+            </Transition>
           </Menu>
         </div>
       </div>
