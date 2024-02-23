@@ -1,18 +1,15 @@
-"use client";
-import { Fragment, useEffect, useState } from "react";
-
+import { useState } from "react";
 import Image from "next/image";
-import { Menu, Transition } from "@headlessui/react";
-
+import { motion, AnimatePresence } from "framer-motion";
 
 const HeaderSidebar = () => {
   const [isSidebarVisible, setSidebarVisibility] = useState(false);
-
   const [subMenuOpen, setSubMenuOpen] = useState(false);
 
   const handleImageClick = () => {
     setSidebarVisibility(!isSidebarVisible);
   };
+
   const chevronDown = (
     <svg
       className={`transform transition-transform ${
@@ -32,61 +29,84 @@ const HeaderSidebar = () => {
       />
     </svg>
   );
+
   return (
-    <div>
+    <div className=" md:hidden ">
       <Image
-        className="  pl-4"
+        className="cursor-pointer pl-4"
         src="/homepage/sidebar.svg"
         width={40}
         height={32}
         onClick={handleImageClick}
       />
 
-      {isSidebarVisible && (
-        <div className="yourSidebar z-50 grid place-items-center bg-transparent px-5">
-          {/* Small screen size */}
-          <div className="fixed inset-0 z-40">
-            <div
-              className="fixed inset-0 bg-[rgba(0,0,0,0.75)] backdrop-brightness-200"
-              onClick={handleImageClick}
-            ></div>
+      <AnimatePresence>
+        {isSidebarVisible && (
+          <motion.div
+            key="background"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            aria-hidden="true"
+            className="fixed inset-0 z-40 bg-[rgba(0,0,0,0.75)] backdrop-brightness-200"
+            onClick={handleImageClick}
+          ></motion.div>
+        )}
 
-            <div className="relative z-10 flex h-full max-w-[85%] flex-col bg-[#161617]">
-              <div className="flex max-w-full justify-between pl-2 pr-10  sm:px-8">
-                <Image
-                  className="mt-11 pl-4"
-                  src="/logos/header-logo.svg"
-                  width={250}
-                  height={32}
-                  loading="eager"
-                />
-                <Image
-                  src="/homepage/cross-30.svg"
-                  className="mt-11"
-                  width={30}
-                  height={36}
-                  loading="eager"
-                  onClick={handleImageClick}
-                />
-              </div>
-              <div className="flex-1 select-none overflow-y-auto">
-                <div className=" mt-11 justify-between px-8 hover:text-primary1 sm:pl-14 sm:pr-10">
+        {isSidebarVisible && (
+          <motion.div
+            key="sidebar"
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-0 left-0 top-0 z-50 w-[85%] border-r-2 border-zinc-800 bg-zinc-900"
+            aria-label="Sidebar"
+          >
+            <div className="mt-16 flex items-center justify-between pr-4 pl-1 sm:px-8 ">
+              <Image
+                className=" pl-4 "
+                src="/logos/header-logo.svg"
+                width={250}
+                height={32}
+                loading="eager"
+              />
+              <Image
+                src="/homepage/cross-30.svg"
+                className=""
+                width={20}
+                height={20}
+                loading="eager"
+                onClick={handleImageClick}
+              />
+            </div>
+            <ul>
+              <motion.div
+                key="submenu"
+                initial={{ opacity: 0, translateY: -20 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                exit={{ opacity: 0, translateY: -20 }}
+                transition={{ duration: 0.5 }}
+                className="mb-6 w-full sm:pr-5 sm:pl-16  pl-10 pr-4 "
+              >
+                <div className=" mt-11 justify-between select-none hover:text-primary1 ">
                   <a href="/" className=" ">
                     Home
                   </a>
                 </div>
-                <div className="mt-4 px-8 hover:text-primary1 sm:pl-14  sm:pr-10">
-                  <a href="/" className=" ">
-                    About
+                <div className="mt-4  hover:text-primary1">
+                  <a href="/about-us" className=" ">
+                    About Us
                   </a>
                 </div>
-                <div className="mt-4 px-8 hover:text-primary1 sm:pl-14  sm:pr-10">
-                  <a href="/" className=" ">
-                    Service
+                <div className="mt-4  hover:text-primary1 ">
+                  <a href="/our-services" className=" ">
+                    Services
                   </a>
                 </div>
-                <div className="  group mt-4 flex justify-between px-8 hover:text-primary1 sm:pl-14 sm:pr-10">
-                  <a href="/" className=" ">
+                <div className="  group mt-4 flex justify-between  hover:text-primary1 ">
+                  <a  className=" ">
                     Docs
                   </a>
                   <div
@@ -97,45 +117,40 @@ const HeaderSidebar = () => {
                   </div>
                 </div>
                 {subMenuOpen && (
-  <Transition
-    as={Fragment}
-    show={subMenuOpen}
-    enter="transition ease-out duration-100"
-    enterFrom="transform opacity-0 scale-95"
-    enterTo="transform opacity-100 scale-100"
-    leave="transition ease-in duration-75"
-    leaveFrom="transform opacity-100 scale-100"
-    leaveTo="transform opacity-0 scale-95"
-  >
-    <div>
-      <div className="mb-6 w-full px-8 text-neutralLight sm:pl-24 sm:pr-10">
-        <div className="justify-between hover:text-primary1">
-          <a href="/" className="">
-            White
-          </a>
-        </div>
-        <div className="mt-2 justify-between hover:text-primary1">
-          <a href="/" className="">
-            Light
-          </a>
-        </div>
-      </div>
-    </div>
-  </Transition>
-)}
-               
-
-                <div className=" mt-2 justify-between px-8 hover:text-primary1 sm:pl-14 sm:pr-10">
-                  <a href="/" className=" ">
+                  <motion.div
+                    key="submenu"
+                    initial={{ opacity: 0, translateY: -20 }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    exit={{ opacity: 0, translateY: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-6 w-full px-8 text-neutralLight pl-4 "
+                  >
+                    <div className="mb-6  pl-7 text-neutralLight ">
+                      <div className=" justify-between hover:text-primary1">
+                        <a href="/whitepaper.pdf" className=" ">
+                          Whitepaper
+                        </a>
+                      </div>
+                      <div className="  mt-2 justify-between hover:text-primary1">
+                        <a             href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/" className=" ">
+                          Lightpaper
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+                <div className=" mt-2 justify-between  hover:text-primary1 ">
+                  <a href="/#Section7" className=" ">
                     Roadmap
                   </a>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+              </motion.div>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
+
 export default HeaderSidebar;

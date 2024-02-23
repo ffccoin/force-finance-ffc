@@ -36,7 +36,7 @@ const Header = ({ coins }) => {
       <MovingBar coins={coins} />
       <div className="z-50 grid place-items-center bg-transparent px-5">
         {/* Small screen size */}
-        <div className="flex h-[58px] w-full items-center justify-between px-3 ">
+        <div className="flex h-[58px] w-full items-center justify-between px-3 md:hidden ">
           {/* <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">
             {logo}
             <h1 className="lg:text-xl lg:leading-6 xl:text-2xl">
@@ -60,22 +60,13 @@ const Header = ({ coins }) => {
               className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
               onClick={() => router.push("/about-us")}
             >
-              About Us {chevronDown}
+              About Us 
             </button>
             <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-              Our Team {chevronDown}
+              Docs {chevronDown}
             </button>
-            <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-              Portfolio {chevronDown}
-            </button>
-            <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-              Blog {chevronDown}
-            </button>
-            <button
-              className="font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
-              onClick={() => router.push("/contact-us")}
-            >
-              Contact
+            <button onClick={() => router.push("/#Section7")} className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+            Roadmap 
             </button>
           </nav>
           <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">

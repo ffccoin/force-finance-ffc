@@ -4,7 +4,7 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 const Section7 = () => {
   return (
-    <div className=" mt-[-2px] grid  place-items-center bg-primary1 ">
+    <div id="Section7" className=" mt-[-2px] grid  place-items-center bg-primary1 ">
       <div className="flex max-w-[90rem] flex-col">
         <div className=" mt-[3.375rem] flex flex-col text-neutral">
           <p className="text-center font-apfel-grotezk  text-base font-normal leading-6 tracking-wider text-darkGreen">
