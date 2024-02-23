@@ -1,8 +1,9 @@
 "use client";
-import { useState, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 
-import { Menu } from "@headlessui/react";
 import Image from "next/image";
+import { Menu, Transition } from "@headlessui/react";
+
 
 const HeaderSidebar = () => {
   const [isSidebarVisible, setSidebarVisibility] = useState(false);
@@ -96,19 +97,34 @@ const HeaderSidebar = () => {
                   </div>
                 </div>
                 {subMenuOpen && (
-                  <div className="transition-all delay-150 duration-300 overflow-hidden w-full mb-6 px-8  text-neutralLight  sm:pl-24 sm:pr-10 ">
-                    <div className=" transition-all delay-150 duration-300 justify-between hover:text-primary1">
-                      <a href="/" className=" ">
-                        White
-                      </a>
-                    </div>
-                    <div className=" transition-all delay-150 duration-300  mt-2 justify-between hover:text-primary1">
-                      <a href="/" className=" ">
-                        Light
-                      </a>
-                    </div>
-                  </div>
-                )}
+  <Transition
+    as={Fragment}
+    show={subMenuOpen}
+    enter="transition ease-out duration-100"
+    enterFrom="transform opacity-0 scale-95"
+    enterTo="transform opacity-100 scale-100"
+    leave="transition ease-in duration-75"
+    leaveFrom="transform opacity-100 scale-100"
+    leaveTo="transform opacity-0 scale-95"
+  >
+    <div>
+      <div className="mb-6 w-full px-8 text-neutralLight sm:pl-24 sm:pr-10">
+        <div className="justify-between hover:text-primary1">
+          <a href="/" className="">
+            White
+          </a>
+        </div>
+        <div className="mt-2 justify-between hover:text-primary1">
+          <a href="/" className="">
+            Light
+          </a>
+        </div>
+      </div>
+    </div>
+  </Transition>
+)}
+               
+
                 <div className=" mt-2 justify-between px-8 hover:text-primary1 sm:pl-14 sm:pr-10">
                   <a href="/" className=" ">
                     Roadmap
