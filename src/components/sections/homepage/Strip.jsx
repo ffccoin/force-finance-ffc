@@ -15,8 +15,9 @@ const Strip = () => {
           repeatType: "reverse",
         }}
       >
-        <div className="absolute">{strip2}</div>
-        <div className="absolute">{strip1}</div>
+        <div className="absolute bg-[url('/homepage/strip2.svg')] h-[140px] w-screen bg-cover"></div>
+        <div className="absolute bg-[url('/homepage/strip1.svg')] h-[157px] w-screen bg-cover">
+        </div>
         <div className="absolute flex w-full max-w-7xl -rotate-1 justify-between px-10">
           <Image src="/icons/poolin.svg" width={180} height={28} alt="icon" />
           <Image src="/icons/neutrino.svg" width={180} height={28} alt="icon" />

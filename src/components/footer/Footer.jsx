@@ -11,7 +11,7 @@ const Footer = () => {
             height={32}
             alt="logo"
           />
-          <span className="text-[15px] leading-7 text-neutralLight">
+          <span className="text-[15px] leading-7 text-neutralLight hover:text-primary1">
             Pioneering the Future of Finance, Empowering Individuals with
             Innovative Solutions and Endless Opportunities.
           </span>
@@ -25,19 +25,19 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
           <h3 className="mb-2 text-sm uppercase">Company</h3>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             About us
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Token
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Careers
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Teams
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             About us
           </a>
         </div>
@@ -46,46 +46,46 @@ const Footer = () => {
           <a
             href="/whitepaper.pdf"
             download="ffc-whitepaper"
-            className="text-neutralLight"
+            className="text-neutralLight hover:text-primary1"
           >
             Whitepaper
           </a>
           <a
             href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/"
-            className="text-neutralLight"
+            className="text-neutralLight hover:text-primary1"
           >
             Lightpaper
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Github
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Roadmap
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Documentation
           </a>
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
           <h3 className="mb-2 text-sm uppercase">Community</h3>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Roles
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Ecosystem
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Blogs
           </a>
-          <a href="/about-us" className="text-neutralLight">
+          <a href="/about-us" className="text-neutralLight hover:text-primary1">
             FAQs
           </a>
         </div>
-        <div className="flex w-[80vw] mb-10 flex-col gap-y-5 md:flex-row md:justify-between">
-          <span className="w-fit text-nowrap text-sm text-neutralLight">
+        <div className="mb-10 flex w-[80vw] flex-col gap-y-5 md:flex-row md:justify-between">
+          <span className="w-fit text-nowrap text-sm text-neutralLight hover:text-primary1">
             Copyright © 2024 FFC. All Rights Reserved
           </span>
-          <div className="flex gap-x-6 text-neutralLight">
+          <div className="flex gap-x-6 text-neutralLight hover:text-primary1">
             <span className="text-nowrap text-sm">Terms of Service</span>
             <span className="text-nowrap text-sm">Privacy Policy</span>
             <span className="text-nowrap text-sm">Security</span>

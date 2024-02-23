@@ -110,16 +110,18 @@ const MovingBar = ({ coins }) => {
   );
 
   return (
-    <motion.div
-      className="ticker-container relative flex overflow-x-hidden"
-      initial="hide"
-      whileInView="show"
-      exit="show"
-      variants={movingBarVariants}
-    >
-      {displayTicker(1)}
-      {displayTicker(2)}
-    </motion.div>
+    <div className="w-screen bg-black">
+      <motion.div
+        className="ticker-container relative flex overflow-x-hidden"
+        initial="hide"
+        whileInView="show"
+        exit="show"
+        variants={movingBarVariants}
+      >
+        {displayTicker(1)}
+        {displayTicker(2)}
+      </motion.div>
+    </div>
   );
 };
 

@@ -5,11 +5,11 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 const Section3 = () => {
   return (
     <div className="mt-16 grid place-items-center">
-      <div className="flex max-w-6xl flex-col items-center justify-center gap-4 lg:ml-40 lg:flex-row lg:gap-40">
+      <div className="flex max-w-6xl flex-col px-10 items-center justify-center gap-4 lg:ml-40 lg:flex-row lg:gap-40">
         <div className="flex-shrink-0">
           <Image src="/homepage/mobile.png" width={266} height={531} alt="img" />
         </div>
-        <div className="ml-8 flex flex-col items-center justify-center lg:items-start">
+        <div className="flex flex-col items-center mt-10 justify-center lg:items-start">
           <h1 className="text-wrap text-[37.9px]  uppercase leading-[42.64px] lg:mt-10">
             Web 3.0 Fusion Bridging DApp Browsing & Staking Crypto
           </h1>

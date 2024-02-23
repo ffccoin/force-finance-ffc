@@ -14,7 +14,7 @@ const SecondaryButton = ({
 }) => {
   return (
     <motion.button
-      className={`${className} grid place-items-center text-${color} border-${color} font-neue-machina-bold leading-6 transition-all ease-out duration-200 enabled:hover:bg-neutralLighter enabled:hover:text-neutralDarker
+      className={`grid place-items-center text-${color} border-${color} font-neue-machina-bold leading-6 transition-all ease-out duration-200 enabled:hover:bg-neutralLighter enabled:hover:text-neutralDarker
         ${outline ? "border" : ""}
         ${
           size === "small"
@@ -28,7 +28,7 @@ const SecondaryButton = ({
                   : ""
         }
           ${width === "fit" ? "w-auto" : "w-full"}
-          disabled:opacity-50 
+          disabled:opacity-50 ${className}
         `}
       disabled={disabled}
       initial={{

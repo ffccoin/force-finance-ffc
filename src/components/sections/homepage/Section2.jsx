@@ -3,7 +3,7 @@ import Image from "next/image";
 const Section2 = () => {
   return (
     <div className="grid place-items-center">
-      <div className="flex max-w-7xl flex-col items-center gap-y-[61px] px-5 sm:px-10">
+      <div className="flex max-w-7xl flex-col items-center gap-y-[61px] px-8 sm:px-10 md:px-12">
         <div className="flex flex-col gap-y-0.5">
           <h1 className="text-center text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px]">
             Empower Your Finances with FFC COIN

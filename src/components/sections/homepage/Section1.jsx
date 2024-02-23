@@ -58,6 +58,7 @@ const Section1 = () => {
                 title="Coin Audit"
                 icon={rightArrow}
                 size="small"
+                width="full"
               />
             </a>
           </div>
@@ -96,7 +97,7 @@ const Section1 = () => {
           <div className="flex flex-col gap-y-4 md:hidden">
             <Button title="Buy FFC Coin" size="small" />
             <a href="/whitepaper.pdf" download="ffc-whitepaper">
-              <SecondaryButton title="Explore WhitePaper" size="small" />
+              <SecondaryButton title="Explore WhitePaper" size="small" width="full" />
             </a>
           </div>
         </motion.div>

@@ -3,22 +3,70 @@
 import { Menu } from "@headlessui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
-const Calculator = ({ coins }) => {
-  const [selectedCurrency, setSelectedCurrency] = useState("USD");
+const Calculator = () => {
+  const [selectedCurrency, setSelectedCurrency] = useState("usd");
   const [selectedCoin, setSelectedCoin] = useState("bitcoin");
-  const [currencyAmount, setCurrencyAmount] = useState("");
-  const [coinAmount, setCoinAmount] = useState("");
+  const [currencyAmount, setCurrencyAmount] = useState(0);
+  const [coinAmount, setCoinAmount] = useState(0);
+  const [coinToCurrencyRate, setCoinToCurrencyRate] = useState(0);
+  const [inputDisabled, setInputDisabled] = useState(false);
 
-  const calculateCoinAmount = () => {
-    const currency = coins.find((coin) => coin.id === selectedCoin);
-    return currencyAmount / currency.current_price;
+  const fetchExchangeRate = async () => {
+    try {
+      // Fetching the exchange rate of Bitcoin in terms of USD from CoinGecko API
+      const response = await axios.get(
+        `https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=${selectedCurrency}`,
+      );
+      const btcToUsd = response.data.bitcoin.usd; // Accessing the BTC to USD rate
+      setCoinToCurrencyRate(btcToUsd);
+    } catch (error) {
+      console.error("Error fetching exchange rate:", error);
+    }
   };
 
-  const calculateCurrencyAmount = () => {
-    const currency = coins.find((coin) => coin.id === selectedCoin);
-    return coinAmount * currency.current_price;
+  const convertCoinToCurrency = () => {
+    const usd = coinAmount * coinToCurrencyRate;
+    setCurrencyAmount(usd);
   };
+
+  const convertCurrencyToCoin = () => {
+    const btc = currencyAmount / coinToCurrencyRate;
+    setCoinAmount(btc);
+  };
+  if (coinToCurrencyRate === 0) {
+    fetchExchangeRate();
+  }
+
+  const handleCoinSelect = (coin) => {
+    setInputDisabled(true);
+    setSelectedCoin(coin);
+    fetchExchangeRate().then(() => {
+      setInputDisabled(false);
+    });
+  };
+
+  const handleCurrencySelect = (currency) => {
+    setInputDisabled(true);
+    setSelectedCurrency(currency);
+    fetchExchangeRate().then(() => {
+      setInputDisabled(false);
+    });
+  };
+
+  useEffect(() => {
+    if (coinToCurrencyRate !== 0) {
+      convertCoinToCurrency();
+    }
+  }, [coinAmount]);
+
+  useEffect(() => {
+    if (coinToCurrencyRate !== 0) {
+      convertCurrencyToCoin();
+    }
+  }, [currencyAmount]);
+
   return (
     <div className="flex w-full flex-wrap lg:max-w-[24.438rem]">
       <div className="flex w-full flex-col flex-wrap">
@@ -27,14 +75,12 @@ const Calculator = ({ coins }) => {
           <input
             type="text"
             value={currencyAmount}
-            onChange={(e) => (
-              setCurrencyAmount(e.target.value), calculateCoinAmount()
-            )}
+            onChange={(e) => setCurrencyAmount(e.target.value)}
             className="mt-3 h-8 w-full border border-transparent border-b-primary1 bg-transparent outline-none focus:border-b-primary1 focus:outline-none"
+            disabled={inputDisabled}
           />
-
           <Menu as="div" className="relative">
-            <Menu.Button className="mt-3 flex h-8 max-w-fit items-center border border-transparent border-b-primary1 bg-transparent font-apfel-grotezk outline-none">
+            <Menu.Button className="mt-3 flex h-8 max-w-fit items-center border border-transparent border-b-primary1 bg-transparent font-apfel-grotezk uppercase outline-none">
               {selectedCurrency}
               {chevronDown}
             </Menu.Button>
@@ -43,7 +89,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => setSelectedCurrency("USD")}
+                    onClick={() => handleCurrencySelect("usd")}
                   >
                     USD
                   </button>
@@ -53,7 +99,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onCLick={() => setSelectedCurrency("PKR")}
+                    onCLick={() => handleCurrencySelect("pkr")}
                   >
                     PKR
                   </button>
@@ -63,7 +109,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => setSelectedCurrency("INR")}
+                    onClick={() => handleCurrencySelect("inr")}
                   >
                     INR
                   </button>
@@ -73,7 +119,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => setSelectedCurrency("EUR")}
+                    onClick={() => handleCurrencySelect("eur")}
                   >
                     EUR
                   </button>
@@ -83,7 +129,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => setSelectedCurrency("GBP")}
+                    onClick={() => handleCurrencySelect("gbp")}
                   >
                     GBP
                   </button>
@@ -97,14 +143,21 @@ const Calculator = ({ coins }) => {
           <input
             type="text"
             value={coinAmount}
-            onChange={(e) => (
-              setCoinAmount(e.target.value), calculateCurrencyAmount()
-            )}
+            onChange={(e) => setCoinAmount(e.target.value)}
             className="mt-3 h-8 w-full border border-transparent border-b-primary1 bg-transparent outline-none focus:border-b-primary1 focus:outline-none"
+            disabled={inputDisabled}
           />
           <Menu as="div" className="relative">
             <Menu.Button className="mt-3 flex h-8 max-w-fit items-center border border-transparent border-b-primary1 bg-transparent font-apfel-grotezk outline-none">
-              {selectedCoin}
+              {selectedCoin === "bitcoin"
+                ? "BTC"
+                : selectedCoin === "ethereum"
+                  ? "ETH"
+                  : selectedCoin === "litecoin"
+                    ? "LTC"
+                    : selectedCoin === "ripple"
+                      ? "XRP"
+                      : "BCH"}
               {chevronDown}
             </Menu.Button>
             <Menu.Items className="absolute right-0 top-11 flex w-[150px] flex-col items-start gap-y-1 rounded-md border border-primary1 border-opacity-50 bg-neutralDarker bg-opacity-50 px-4 py-2">
@@ -112,10 +165,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => {
-                      setSelectedCoin("BTC");
-                      calculateAmounts();
-                    }}
+                    onClick={() => handleCoinSelect("bitcoin")}
                   >
                     BTC
                   </button>
@@ -125,7 +175,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => setSelectedCoin("ETH")}
+                    onClick={() => handleCoinSelect("ethereum")}
                   >
                     ETH
                   </button>
@@ -135,7 +185,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => setSelectedCoin("LTC")}
+                    onClick={() => handleCoinSelect("litecoin")}
                   >
                     LTC
                   </button>
@@ -145,7 +195,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => setSelectedCoin("XRP")}
+                    onClick={() => handleCoinSelect("ripple")}
                   >
                     XRP
                   </button>
@@ -155,7 +205,7 @@ const Calculator = ({ coins }) => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => setSelectedCoin("BCH")}
+                    onClick={() => handleCoinSelect("bitcoin-cash")}
                   >
                     BCH
                   </button>
