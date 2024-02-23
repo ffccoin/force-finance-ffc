@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Calculator = () => {
-  const [coinData, setCoinData] = useState([]);
+  const [coinData, setCoinData] = useState([{ bitcoin: { usd: 0 } }]);
   const [selectedCoin, setSelectedCoin] = useState("bitcoin");
   const [selectedCurrency, setSelectedCurrency] = useState("usd");
   const [coinAmount, setCoinAmount] = useState(null);
@@ -24,28 +24,16 @@ const Calculator = () => {
   };
 
   // If currencyAmount changes
-  const calculateCoinAmount = () => {
-    if (currencyAmount && coinData) {
-      const exchangeRate = coinData[selectedCoin][selectedCurrency];
-      setCoinAmount((currencyAmount / exchangeRate).toFixed(2));
-    }
+  const calculateCoinAmount = (amount) => {
+    const exchangeRate = coinData[selectedCoin][selectedCurrency];
+    setCoinAmount((amount / exchangeRate).toFixed(4));
   };
 
   // If coinAmount changes
-  const calculateCurrencyAmount = () => {
-    if (coinAmount && coinData) {
-      const exchangeRate = coinData[selectedCoin][selectedCurrency];
-      setCurrencyAmount((coinAmount * exchangeRate).toFixed(2));
-    }
+  const calculateCurrencyAmount = (amount) => {
+    const exchangeRate = coinData[selectedCoin][selectedCurrency];
+    setCurrencyAmount((amount * exchangeRate).toFixed(4));
   };
-
-  useEffect(() => {
-    calculateCoinAmount();
-  }, [currencyAmount, coinData, selectedCoin, selectedCurrency]);
-
-  useEffect(() => {
-    calculateCurrencyAmount();
-  }, [coinAmount, coinData, selectedCoin, selectedCurrency]);
 
   useEffect(() => {
     fetchExchangeRate();
@@ -59,6 +47,26 @@ const Calculator = () => {
     setSelectedCurrency(currency);
   };
 
+  const handleCoinAmountChange = (e) => {
+    calculateCurrencyAmount(e.target.value);
+    setCoinAmount(e.target.value);
+  };
+
+  const handleCurrencyAmountChange = (e) => {
+    calculateCoinAmount(e.target.value);
+    setCurrencyAmount(e.target.value);
+  };
+
+  useEffect(() => {
+    if(coinAmount === null) return;
+    calculateCurrencyAmount(coinAmount);
+  }, [selectedCurrency]);
+
+  useEffect(() => {
+    if(currencyAmount === null) return;
+    calculateCurrencyAmount(coinAmount);
+  }, [selectedCoin]);
+
   return (
     <div className="flex w-full flex-wrap lg:max-w-[24.438rem]">
       <div className="flex w-full flex-col flex-wrap">
@@ -67,7 +75,7 @@ const Calculator = () => {
           <input
             type="number"
             value={currencyAmount}
-            onChange={(e) => setCurrencyAmount(e.target.value)}
+            onChange={(e) => handleCurrencyAmountChange(e)}
             className="mt-3 h-8 w-full border border-transparent border-b-primary1 bg-transparent outline-none focus:border-b-primary1 focus:outline-none"
           />
           <Menu as="div" className="relative">
@@ -134,7 +142,7 @@ const Calculator = () => {
           <input
             type="number"
             value={coinAmount}
-            onChange={(e) => setCoinAmount(e.target.value)}
+            onChange={(e) => handleCoinAmountChange(e)}
             className="mt-3 h-8 w-full border border-transparent border-b-primary1 bg-transparent outline-none focus:border-b-primary1 focus:outline-none"
           />
           <Menu as="div" className="relative">
