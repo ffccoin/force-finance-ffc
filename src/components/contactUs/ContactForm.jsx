@@ -1,5 +1,5 @@
 import Button from "../buttons/Button";
-import { Fragment, useState } from "react";
+import { Fragment, useState,useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
@@ -15,6 +15,15 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  useEffect(() => {
+    let timer;
+    if (formSubmitted) {
+      timer = setTimeout(() => {
+        setFormSubmitted(false);
+      }, 5000);
+    }
+    return () => clearTimeout(timer);
+  }, [formSubmitted]);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -93,7 +102,7 @@ export default function ContactForm() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="sm:[300px]  absolute right-0 z-10 mt-2 w-[226px] origin-top-right rounded-md bg-neutral outline-none md:w-[625px]">
+              <Menu.Items className="sm:w-[100%]  absolute right-0 z-10 mt-2 w-[226px] origin-top-right rounded-md bg-neutral outline-none md:w-[625px]">
                 <div className="py-1">
                   {options.map((option, index) => (
                     <Menu.Item key={index}>
@@ -146,7 +155,7 @@ export default function ContactForm() {
             size="small"
             type="submit"
             title="Send Message"
-            className="h-[55px] w-full md:w-[170px]"
+            className="h-[55px]  md:w-[170px]"
           />
           {formSubmitted && (
             <div className="mr-auto flex gap-1 pl-[0.45rem]">
@@ -158,7 +167,7 @@ export default function ContactForm() {
                 alt="img"
               />
               <p className="select-none text-wrap	 text-neutralLight">
-                The form was sent successfully!
+                The form was sent successfully.
               </p>
             </div>
           )}
