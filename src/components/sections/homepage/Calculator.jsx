@@ -6,66 +6,58 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Calculator = () => {
-  const [selectedCurrency, setSelectedCurrency] = useState("usd");
+  const [coinData, setCoinData] = useState([]);
   const [selectedCoin, setSelectedCoin] = useState("bitcoin");
-  const [currencyAmount, setCurrencyAmount] = useState(0);
-  const [coinAmount, setCoinAmount] = useState(0);
-  const [coinToCurrencyRate, setCoinToCurrencyRate] = useState(0);
-  const [inputDisabled, setInputDisabled] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState("usd");
+  const [coinAmount, setCoinAmount] = useState(null);
+  const [currencyAmount, setCurrencyAmount] = useState(null);
 
   const fetchExchangeRate = async () => {
-    try {
-      // Fetching the exchange rate of Bitcoin in terms of USD from CoinGecko API
-      const response = await axios.get(
-        `https://api.coingecko.com/api/v3/simple/price?ids=${selectedCoin}&vs_currencies=${selectedCurrency}`,
-      );
-      const btcToUsd = response.data.bitcoin.usd; // Accessing the BTC to USD rate
-      setCoinToCurrencyRate(btcToUsd);
-    } catch (error) {
-      console.error("Error fetching exchange rate:", error);
+    const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano,terra-luna,polkadot&vs_currencies=usd,pkr,inr,eur,gbp`;
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await res.json();
+    console.log("DATA", data);
+    setCoinData(data);
+  };
+
+  // If currencyAmount changes
+  const calculateCoinAmount = () => {
+    if (currencyAmount && coinData) {
+      const exchangeRate = coinData[selectedCoin][selectedCurrency];
+      setCoinAmount((currencyAmount / exchangeRate).toFixed(2));
     }
   };
 
-  const convertCoinToCurrency = () => {
-    const usd = coinAmount * coinToCurrencyRate;
-    setCurrencyAmount(usd);
+  // If coinAmount changes
+  const calculateCurrencyAmount = () => {
+    if (coinAmount && coinData) {
+      const exchangeRate = coinData[selectedCoin][selectedCurrency];
+      setCurrencyAmount((coinAmount * exchangeRate).toFixed(2));
+    }
   };
 
-  const convertCurrencyToCoin = () => {
-    const btc = currencyAmount / coinToCurrencyRate;
-    setCoinAmount(btc);
-  };
-  if (coinToCurrencyRate === 0) {
+  useEffect(() => {
+    calculateCoinAmount();
+  }, [currencyAmount, coinData, selectedCoin, selectedCurrency]);
+
+  useEffect(() => {
+    calculateCurrencyAmount();
+  }, [coinAmount, coinData, selectedCoin, selectedCurrency]);
+
+  useEffect(() => {
     fetchExchangeRate();
-  }
+  }, []);
 
   const handleCoinSelect = (coin) => {
-    setInputDisabled(true);
     setSelectedCoin(coin);
-    fetchExchangeRate().then(() => {
-      setInputDisabled(false);
-    });
   };
 
   const handleCurrencySelect = (currency) => {
-    setInputDisabled(true);
     setSelectedCurrency(currency);
-    fetchExchangeRate().then(() => {
-      setInputDisabled(false);
-    });
   };
-
-  useEffect(() => {
-    if (coinToCurrencyRate !== 0) {
-      convertCoinToCurrency();
-    }
-  }, [coinAmount]);
-
-  useEffect(() => {
-    if (coinToCurrencyRate !== 0) {
-      convertCurrencyToCoin();
-    }
-  }, [currencyAmount]);
 
   return (
     <div className="flex w-full flex-wrap lg:max-w-[24.438rem]">
@@ -73,11 +65,10 @@ const Calculator = () => {
         <p className="text-neutralLight">You have</p>
         <div className="flex gap-x-3">
           <input
-            type="text"
+            type="number"
             value={currencyAmount}
             onChange={(e) => setCurrencyAmount(e.target.value)}
             className="mt-3 h-8 w-full border border-transparent border-b-primary1 bg-transparent outline-none focus:border-b-primary1 focus:outline-none"
-            disabled={inputDisabled}
           />
           <Menu as="div" className="relative">
             <Menu.Button className="mt-3 flex h-8 max-w-fit items-center border border-transparent border-b-primary1 bg-transparent font-apfel-grotezk uppercase outline-none">
@@ -92,16 +83,6 @@ const Calculator = () => {
                     onClick={() => handleCurrencySelect("usd")}
                   >
                     USD
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onCLick={() => handleCurrencySelect("pkr")}
-                  >
-                    PKR
                   </button>
                 )}
               </Menu.Item>
@@ -129,6 +110,16 @@ const Calculator = () => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                    onClick={() => handleCurrencySelect("pkr")}
+                  >
+                    PKR
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
                     onClick={() => handleCurrencySelect("gbp")}
                   >
                     GBP
@@ -141,11 +132,10 @@ const Calculator = () => {
         <p className="mt-6 text-neutralLight">You get</p>
         <div className="flex gap-x-3">
           <input
-            type="text"
+            type="number"
             value={coinAmount}
             onChange={(e) => setCoinAmount(e.target.value)}
             className="mt-3 h-8 w-full border border-transparent border-b-primary1 bg-transparent outline-none focus:border-b-primary1 focus:outline-none"
-            disabled={inputDisabled}
           />
           <Menu as="div" className="relative">
             <Menu.Button className="mt-3 flex h-8 max-w-fit items-center border border-transparent border-b-primary1 bg-transparent font-apfel-grotezk outline-none">
@@ -153,11 +143,13 @@ const Calculator = () => {
                 ? "BTC"
                 : selectedCoin === "ethereum"
                   ? "ETH"
-                  : selectedCoin === "litecoin"
-                    ? "LTC"
-                    : selectedCoin === "ripple"
-                      ? "XRP"
-                      : "BCH"}
+                  : selectedCoin === "cardano"
+                    ? "ADA"
+                    : selectedCoin === "polkadot"
+                      ? "DOT"
+                      : selectedCoin === "solana"
+                        ? "SOL"
+                        : "LUNA"}
               {chevronDown}
             </Menu.Button>
             <Menu.Items className="absolute right-0 top-11 flex w-[150px] flex-col items-start gap-y-1 rounded-md border border-primary1 border-opacity-50 bg-neutralDarker bg-opacity-50 px-4 py-2">
@@ -185,9 +177,9 @@ const Calculator = () => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCoinSelect("litecoin")}
+                    onClick={() => handleCoinSelect("cardano")}
                   >
-                    LTC
+                    ADA
                   </button>
                 )}
               </Menu.Item>
@@ -195,9 +187,9 @@ const Calculator = () => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCoinSelect("ripple")}
+                    onClick={() => handleCoinSelect("polkadot")}
                   >
-                    XRP
+                    DOT
                   </button>
                 )}
               </Menu.Item>
@@ -205,9 +197,19 @@ const Calculator = () => {
                 {({ active }) => (
                   <button
                     className={`${active && ""} w-full text-start font-apfel-grotezk`}
-                    onClick={() => handleCoinSelect("bitcoin-cash")}
+                    onClick={() => handleCoinSelect("solana")}
                   >
-                    BCH
+                    SOL
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                    onClick={() => handleCoinSelect("terra-luna")}
+                  >
+                    LUNA
                   </button>
                 )}
               </Menu.Item>

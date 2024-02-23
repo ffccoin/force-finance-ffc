@@ -13,7 +13,7 @@ const Section5 = () => {
 
   return (
     <div className="grid place-items-center items-center justify-center">
-      <div className="mt-14 flex flex-col gap-14 px-8 lg:max-w-7xl lg:flex-row lg:gap-72 xl:px-0 ">
+      <div className="mt-14 flex flex-col gap-14 px-8 lg:max-w-7xl lg:flex-row lg:gap-72 xl:px-0">
         <div className="">
           <p className="text-left font-apfel-grotezk text-base font-normal leading-6 tracking-wider text-primary1">
             ABOUT FFC COIN

@@ -25,7 +25,7 @@ const getData = async () => {
 const Section8 = async () => {
   const data = await getData();
   return (
-    <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg">
+    <div className="bg-primary px-4 mt-16 grid h-auto items-center justify-center rounded-lg">
       <div className="flex max-w-7xl flex-wrap gap-28 px-4 sm:px-8 md:px-12 lg:flex-row xl:gap-96 ">
         <div className="flex  flex-col lg:ml-auto lg:w-[24.438rem]">
           <h3 className="text-wrap font-neue-machina-bold text-xl md:text-3xl	 ">
