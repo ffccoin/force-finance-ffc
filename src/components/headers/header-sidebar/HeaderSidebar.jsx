@@ -96,13 +96,13 @@ const HeaderSidebar = () => {
                   </div>
                 </div>
                 {subMenuOpen && (
-                  <div className="top-12 mb-6 px-8  text-neutralLight transition-all duration-300 ease-in-out sm:pl-24 sm:pr-10 ">
-                    <div className=" justify-between hover:text-primary1">
+                  <div className="transition-all delay-150 duration-300 overflow-hidden w-full mb-6 px-8  text-neutralLight  sm:pl-24 sm:pr-10 ">
+                    <div className=" transition-all delay-150 duration-300 justify-between hover:text-primary1">
                       <a href="/" className=" ">
                         White
                       </a>
                     </div>
-                    <div className="  mt-2 justify-between hover:text-primary1">
+                    <div className=" transition-all delay-150 duration-300  mt-2 justify-between hover:text-primary1">
                       <a href="/" className=" ">
                         Light
                       </a>
