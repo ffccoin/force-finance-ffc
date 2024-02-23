@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const ServicesInvestors = () => {
   return (
-    <div className="mt-8 grid place-items-center  bg-primary1">
-      <div className=" flex max-w-7xl flex-col  text-primary2 ">
+    <div className="mt-8 grid place-items-center bg-primary1">
+      <div className=" flex max-w-7xl flex-col text-primary2 ">
         <div className="mt-10 flex flex-col items-center md:mt-20 md:max-w-[90vw] ">
           <p className="text-center font-neue-machina-bold text-2xl  uppercase sm:text-[37.9px] sm:leading-[42.64px] ">
             Our investors

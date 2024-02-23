@@ -14,7 +14,7 @@ const ServicesGlobe = () => {
             alt="img"
           />
         </div>
-        <div className=" flex max-w-[90vw] flex-col items-center justify-center p-14   lg:items-start lg:p-0">
+        <div className=" flex max-w-[90vw] flex-col items-center justify-center px-4 py-10 lg:items-start lg:p-0">
           <p className="text-primary1 uppercase font-apfel-grotezk ">our story</p>
           <h1 className=" text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
             Building the Future of Finance with FFC Coin

@@ -1,10 +1,9 @@
 import Image from "next/image";
 
-
 const Section2 = () => {
   return (
-    <div className="mt-2 grid place-items-center  bg-primary2">
-      <div className=" flex max-w-7xl flex-col items-center   ">
+    <div className="mt-12 grid place-items-center  bg-primary2">
+      <div className=" flex max-w-7xl flex-col items-center">
         <div className=" flex flex-col items-center px-8 uppercase md:mt-20 md:max-w-[50vw] ">
           <p className=" text-wrap text-base text-primary1">
             FFC COIN DEFI Finance solution
@@ -13,8 +12,8 @@ const Section2 = () => {
             Experience the Future of Finance with FFC Coin{" "}
           </p>
         </div>
-        <div className="flex flex-col  gap-y-4  px-8 lg:flex-row lg:gap-x-4 xl:gap-x-0">
-          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[50px] transition duration-500 ease-in-out ">
+        <div className="flex flex-col gap-y-4 px-8 lg:flex-row lg:gap-x-4 xl:gap-x-0">
+          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[10px] transition duration-500 ease-in-out md:py-[50px] ">
             <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)] group-hover:bg-primary2   ">
               <Image
                 src="/ourServices/server.svg"
@@ -34,7 +33,7 @@ const Section2 = () => {
               </span>
             </div>
           </div>
-          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[50px] transition duration-500 ease-in-out ">
+          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[10px] transition duration-500 ease-in-out md:py-[50px] ">
             <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)]  ">
               <Image
                 src="/ourServices/bitcoin.svg"
@@ -54,7 +53,7 @@ const Section2 = () => {
               </span>
             </div>
           </div>
-          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[50px] transition duration-500 ease-in-out ">
+          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[10px] transition duration-500 ease-in-out md:py-[50px] ">
             <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)]  ">
               <Image
                 src="/ourServices/globalReach.svg"
@@ -75,8 +74,8 @@ const Section2 = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col  gap-y-4  px-8 lg:flex-row lg:gap-x-4 xl:gap-x-0">
-          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[50px] transition duration-500 ease-in-out ">
+        <div className="flex flex-col gap-y-4 px-8 lg:flex-row lg:gap-x-4 xl:gap-x-0">
+          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[10px] transition duration-500 ease-in-out md:py-[50px] ">
             <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)] group-hover:bg-primary2   ">
               <Image
                 src="/homepage/bitcoin-style-1.svg"
@@ -97,7 +96,7 @@ const Section2 = () => {
               </span>
             </div>
           </div>
-          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[50px] transition duration-500 ease-in-out ">
+          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[10px] transition duration-500 ease-in-out md:py-[50px] ">
             <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)]  ">
               <Image
                 src="/homepage/bitcoin-style-3.svg"
@@ -116,7 +115,7 @@ const Section2 = () => {
               </span>
             </div>
           </div>
-          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[50px] transition duration-500 ease-in-out ">
+          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] px-1 py-[10px] transition duration-500 ease-in-out md:py-[50px] ">
             <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)]  ">
               <Image
                 src="/homepage/bitcoin-style-2.svg"

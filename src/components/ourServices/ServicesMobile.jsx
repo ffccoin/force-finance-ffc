@@ -14,7 +14,7 @@ const ServicesMobile = () => {
             alt="img"
           />
         </div>
-        <div className=" flex max-w-[90vw] flex-col items-center justify-center p-14  text-primary2  lg:items-start lg:p-0">
+        <div className=" flex max-w-[90vw] flex-col items-center justify-center p-4  text-primary2  lg:items-start lg:p-0">
           <h1 className=" text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
             Total control with our transaction system
           </h1>
