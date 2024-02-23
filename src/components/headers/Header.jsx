@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import Button from "../buttons/Button";
 import HeaderDropdown from "../dropdowns/HeaderDropdown";
+import HeaderSidebar from "../headers/header-sidebar/HeaderSidebar";
+
 import MovingBar from "./moving-bar/MovingBar";
 import Image from "next/image";
 
@@ -34,15 +36,16 @@ const Header = ({ coins }) => {
       <MovingBar coins={coins} />
       <div className="z-50 grid place-items-center bg-transparent px-5">
         {/* Small screen size */}
-        <div className="flex h-[58px] w-full items-center justify-between px-3 md:hidden">
+        <div className="flex h-[58px] w-full items-center justify-between px-3 ">
           {/* <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">
             {logo}
             <h1 className="lg:text-xl lg:leading-6 xl:text-2xl">
               FORCE FINANCE
             </h1>
           </div> */}
-          <Image src="/logos/header-logo.svg" width={250} height={32} />
-          <HeaderDropdown />
+          <Image src="/logos/header-logo.svg" loading="eager" width={250} height={32} />
+          
+          <HeaderSidebar />
         </div>
         {/* Medium and larger screen size */}
         <div className="hidden h-[78px] w-full max-w-7xl grid-cols-12 place-items-center md:grid">
