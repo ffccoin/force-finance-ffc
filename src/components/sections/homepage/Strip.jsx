@@ -5,20 +5,19 @@ import { motion } from "framer-motion";
 
 const Strip = () => {
   return (
-    <div className="grid min-h-[150px] max-w-full place-items-center overflow-x-auto">
-      <motion.div
-        className="relative my-10 grid w-full place-items-center"
-        animate={{ x: [0, 10, 0] }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-      >
-        <div className="absolute bg-[url('/homepage/strip2.svg')] h-[140px] w-screen bg-cover"></div>
-        <div className="absolute bg-[url('/homepage/strip1.svg')] h-[157px] w-screen bg-cover">
-        </div>
-        <div className="absolute flex w-full max-w-7xl -rotate-1 justify-between px-10">
+    <div className="grid min-h-[150px] max-w-full place-items-center overflow-x-hidden">
+      <div className="relative my-10 grid w-full place-items-center">
+        <div className="absolute h-[140px] w-screen bg-[url('/homepage/strip2.svg')] bg-cover"></div>
+        <div className="absolute h-[157px] w-screen bg-[url('/homepage/strip1.svg')] bg-cover"></div>
+        <motion.div
+          animate={{ x: [0, 10, 0] }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="absolute flex w-full max-w-7xl -rotate-1 justify-between px-10"
+        >
           <Image src="/icons/poolin.svg" width={180} height={28} alt="icon" />
           <Image src="/icons/neutrino.svg" width={180} height={28} alt="icon" />
           <Image src="/icons/swopfi.svg" width={180} height={28} alt="icon" />
@@ -30,8 +29,8 @@ const Strip = () => {
             height={28}
             alt="icon"
           />
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };

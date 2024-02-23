@@ -86,10 +86,10 @@ const CountdownTimer = () => {
     <div className="flex w-full max-w-[458px] justify-between">
       <div className="flex flex-col items-center gap-y-6">
         <div className="flex gap-x-1">
-          <div className="grid h-[36px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
+          <div className="grid h-[36px] w-[28px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
             {timer.substring(0, 1)}
           </div>
-          <div className="grid h-[36px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
+          <div className="grid h-[36px] w-[28px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
             {timer.substring(1, 2)}
           </div>
         </div>
@@ -100,10 +100,10 @@ const CountdownTimer = () => {
       </div>
       <div className="flex flex-col items-center gap-y-6">
         <div className="flex gap-x-1">
-          <div className="grid h-[36px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
+          <div className="grid h-[36px] w-[28px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
             {timer.substring(3, 4)}
           </div>
-          <div className="grid h-[36px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
+          <div className="grid h-[36px] w-[28px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
             {timer.substring(4, 5)}
           </div>
         </div>
@@ -114,10 +114,10 @@ const CountdownTimer = () => {
       </div>
       <div className="flex flex-col items-center gap-y-6">
         <div className="flex gap-x-1">
-          <div className="grid h-[36px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
+          <div className="grid h-[36px] w-[28px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
             {timer.substring(6, 7)}
           </div>
-          <div className="grid h-[36px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
+          <div className="grid h-[36px] w-[28px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
             {timer.substring(7, 8)}
           </div>
         </div>
@@ -128,10 +128,10 @@ const CountdownTimer = () => {
       </div>
       <div className="flex flex-col items-center gap-y-6">
         <div className="flex gap-x-1">
-          <div className="grid h-[36px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
+          <div className="grid h-[36px] w-[28px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
             {timer.substring(9, 10)}
           </div>
-          <div className="grid h-[36px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
+          <div className="grid h-[36px] w-[28px] place-items-center rounded-[5px] border border-primary1 bg-neutral px-1.5 pt-1 font-neue-machina-bold text-sm leading-[15px] sm:h-[63px] sm:w-[40px] sm:text-[30px] xl:w-[50px]">
             {timer.substring(10)}
           </div>
         </div>

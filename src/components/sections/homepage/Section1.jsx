@@ -4,11 +4,13 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 import CountdownTimer from "./CountdownTimer";
 import ProgressBar from "./ProgressBar";
 import { motion } from "framer-motion";
+import LinkedParticlesAnimation from "@/components/animations/LinkedParticlesAnimation";
 
 const Section1 = () => {
   return (
-    <div className="flex w-full flex-wrap items-center justify-center bg-transparent pb-20 pt-11  md:mt-20">
-      <div className="flex w-full max-w-7xl flex-col flex-wrap items-center justify-center gap-y-20 md:flex-row md:justify-between lg:px-8 xl:px-10">
+    <div className="relative flex w-full flex-wrap items-center justify-center bg-transparent pb-20 pt-11 md:mt-20">
+      <LinkedParticlesAnimation />
+      <div className="flex w-full z-10 max-w-7xl flex-col flex-wrap items-center justify-center gap-y-20 md:flex-row md:justify-between lg:px-8 xl:px-10">
         <div className="flex w-full flex-col gap-y-10 px-10 md:pt-14 lg:max-w-[45%] lg:px-0 xl:gap-y-[55px]">
           <motion.h1
             className="text-[28.1px] uppercase leading-[40.6px] sm:text-[39.41px] sm:leading-[42.6px] lg:text-3xl xl:text-5xl xl:leading-[56.8px]"
@@ -97,7 +99,11 @@ const Section1 = () => {
           <div className="flex flex-col gap-y-4 md:hidden">
             <Button title="Buy FFC Coin" size="small" />
             <a href="/whitepaper.pdf" download="ffc-whitepaper">
-              <SecondaryButton title="Explore WhitePaper" size="small" width="full" />
+              <SecondaryButton
+                title="Explore WhitePaper"
+                size="small"
+                width="full"
+              />
             </a>
           </div>
         </motion.div>

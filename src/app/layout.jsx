@@ -4,6 +4,8 @@ import Header from "@/components/headers/Header";
 import Footer from "@/components/footer/Footer";
 import StoreProvider from "./StoreProvider";
 
+export const revalidate = 3600;
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -23,7 +25,7 @@ async function getData() {
   url.search = new URLSearchParams(params).toString();
 
   // Fetch the data
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: "force-cache" });
 
   if (!res.ok) {
     throw new Error("Network response was not ok");

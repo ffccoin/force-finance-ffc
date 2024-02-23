@@ -7,7 +7,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 
-const Animation = () => {
+const LinkedParticlesAnimation = () => {
   const [init, setInit] = useState(false);
 
   // this should be run only once per application lifetime
@@ -76,8 +76,8 @@ const Animation = () => {
           color: "#778C3A",
           distance: 130,
           enable: true,
-          opacity: 1,
-          width:0.3,
+          opacity: 0.5,
+          width: 0.3,
         },
         move: {
           direction: "none",
@@ -86,14 +86,14 @@ const Animation = () => {
             default: "bounce",
           },
           random: false,
-          speed: 1,
+          speed: 2,
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 500,
+          value: 450,
         },
         opacity: {
           value: 0.8,
@@ -115,7 +115,7 @@ const Animation = () => {
 
   if (init) {
     return (
-      <div className="absolute">
+      <div className="absolute top-0 pointer-events-none">
         <Particles
           id="tsparticles"
           particlesLoaded={particlesLoaded}
@@ -130,4 +130,4 @@ const Animation = () => {
   return <></>;
 };
 
-export default Animation;
+export default LinkedParticlesAnimation;

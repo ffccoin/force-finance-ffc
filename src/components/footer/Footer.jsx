@@ -37,9 +37,6 @@ const Footer = () => {
           <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Teams
           </a>
-          <a href="/about-us" className="text-neutralLight hover:text-primary1">
-            About us
-          </a>
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
           <h3 className="mb-2 text-sm uppercase">Resources</h3>
@@ -85,10 +82,16 @@ const Footer = () => {
           <span className="w-fit text-nowrap text-sm text-neutralLight hover:text-primary1">
             Copyright © 2024 FFC. All Rights Reserved
           </span>
-          <div className="flex gap-x-6 text-neutralLight hover:text-primary1">
-            <span className="text-nowrap text-sm">Terms of Service</span>
-            <span className="text-nowrap text-sm">Privacy Policy</span>
-            <span className="text-nowrap text-sm">Security</span>
+          <div className="flex gap-x-6">
+            <span className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1">
+              Terms of Service
+            </span>
+            <span className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1">
+              Privacy Policy
+            </span>
+            <span className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1">
+              Security
+            </span>
           </div>
         </div>
       </div>

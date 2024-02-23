@@ -1,4 +1,3 @@
-import Animation from "@/components/animations/Animation";
 import MarketTrend from "@/components/sections/homepage/MarketTrend";
 import Section1 from "@/components/sections/homepage/Section1";
 import Section2 from "@/components/sections/homepage/Section2";
@@ -18,10 +17,7 @@ import Strip from "@/components/sections/homepage/Strip";
 export default function Home() {
   return (
     <main>
-      <div className="relative">
-        <Animation />
-        <Section1 />
-      </div>
+      <Section1 />
       <Strip />
       <MarketTrend />
       <Section2 />
