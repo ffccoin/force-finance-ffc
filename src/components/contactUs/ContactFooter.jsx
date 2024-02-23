@@ -3,7 +3,7 @@ import Image from "next/image";
 const Section11 = () => {
   return (
     <div className="grid place-items-center">
-      <div className="mt-8 flex max-w-[75rem] flex-col gap-y-[61px] xl:px-4 px-8">
+      <div className="mt-8 flex w-[100vw] flex-col gap-y-[61px] xl:px-4 bg-cover px-8 py-10 sm:px-12 lg:px-24 lg:py-24">
         <div className="flex flex-col gap-y-0.5 ">
           <h3 className="text-wrap font-neue-machina-bold text-xl md:text-3xl	 ">
             Need Help?

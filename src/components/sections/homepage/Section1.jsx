@@ -11,7 +11,7 @@ const Section1 = () => {
       <div className="flex w-full max-w-7xl flex-col flex-wrap items-center justify-center gap-y-20 md:flex-row md:justify-between lg:px-8 xl:px-10">
         <div className="flex w-full flex-col gap-y-10 px-10 md:pt-14 lg:max-w-[45%] lg:px-0 xl:gap-y-[55px]">
           <motion.h1
-            className="text-[35.41px] uppercase leading-[40.6px] sm:text-[39.41px] sm:leading-[42.6px] lg:text-3xl xl:text-5xl xl:leading-[56.8px]"
+            className="text-[28.1px] uppercase leading-[40.6px] sm:text-[39.41px] sm:leading-[42.6px] lg:text-3xl xl:text-5xl xl:leading-[56.8px]"
             initial={{
               x: -100,
               opacity: 0,
@@ -24,7 +24,7 @@ const Section1 = () => {
               duration: 1.5,
             }}
           >
-            Empowering Your <br /> Financial Future
+            Empowering <br /> Financial Future
           </motion.h1>
           <motion.p
             className="w-full max-w-[90%] md:leading-6 lg:max-w-[450px] xl:max-w-[585px]"
