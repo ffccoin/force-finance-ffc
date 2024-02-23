@@ -1,32 +1,117 @@
-import React from "react";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import SecondaryButton from "../buttons/SecondaryButton";
 
-const Card = ({ state, bonusPercent, daysLeft, start, endTime }) => {
+const Card = ({
+  state,
+  bonusPercent,
+  daysLeft,
+  start,
+  endTime = "01:00:00:00",
+}) => {
+  const Ref = useRef(null);
+  const [timer, setTimer] = useState("00:00:00:00");
+
+  const getTimeRemaining = (e) => {
+    const total = Date.parse(e) - Date.parse(new Date());
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / 1000 / 60 / 60) % 24);
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    return {
+      total,
+      days,
+      hours,
+      minutes,
+      seconds,
+    };
+  };
+
+  const startTimer = (e) => {
+    let { total, days, hours, minutes, seconds } = getTimeRemaining(e);
+    if (total >= 0) {
+      // update the timer
+      // check if less than 10 then we need to
+      // add '0' at the beginning of the variable
+      setTimer(
+        (days > 9 ? days : "0" + days) +
+          ":" +
+          (hours > 9 ? hours : "0" + hours) +
+          ":" +
+          (minutes > 9 ? minutes : "0" + minutes) +
+          ":" +
+          (seconds > 9 ? seconds : "0" + seconds),
+      );
+    }
+  };
+
+  const clearTimer = (e) => {
+    // If you adjust it you should also need to
+    // adjust the Endtime formula we are about
+    // to code next
+    setTimer(endTime);
+
+    // If you try to remove this line the
+    // updating of timer Variable will be
+    // after 1000ms or 1sec
+    if (Ref.current) clearInterval(Ref.current);
+    const id = setInterval(() => {
+      startTimer(e);
+    }, 1000);
+    Ref.current = id;
+  };
+
+  const getDeadTime = () => {
+    let deadline = new Date();
+
+    // This is where you need to adjust if
+    // you entend to add more time
+    // set timer to 52 days 21 hours 12 minutes 08 seconds
+    deadline.setDate(deadline.getDate() + parseFloat(endTime.substring(0, 2)));
+    return deadline;
+  };
+
+  // We can use useEffect so that when the component
+  // mount the timer will start as soon as possible
+
+  // We put empty array to act as componentDid
+  // mount only
+  useEffect(() => {
+    clearTimer(getDeadTime());
+  }, []);
+
+  // Another way to call the clearTimer() to start
+  // the countdown is via action event from the
+  // button first we create function to be called
+  // by the button
+  const onClickReset = () => {
+    clearTimer(getDeadTime());
+  };
   return (
-    <div className="group max-w-[250px] w-[85vw] rounded-3xl max-h-[242px] bg-neutral p-4 transition-all duration-300 ease-in-out hover:scale-105 sm:min-w-[271.5px]">
-      <h2 className="sm:mt-4 sm:pl-4">State: {state}</h2>
-      <div className="flex flex-col justify-between sm:flex-row">
+    <div className="group w-[85vw] min-w-[271.5px] max-w-full rounded-3xl bg-neutral p-4 transition-all duration-500 ease-in-out hover:scale-105 sm:w-[313px]">
+      <h2 className="mt-4 pl-4">State: {state}</h2>
+      <div className="flex justify-between">
         <div>
-          <p className="font-neue-machina-bold text-xl font-extrabold leading-10 group-hover:text-primary1 sm:mt-5 sm:pl-3 sm:text-4xl">
+          <p className="mt-5 pl-3 font-neue-machina-bold text-4xl font-extrabold leading-10 group-hover:text-primary1">
             {bonusPercent}%
           </p>
-          <p className="font-apfel-grotezktext font-normal group-hover:text-primary1 sm:mt-1 sm:pl-4 sm:text-[18px]">
+          <p className="font-apfel-grotezktext mt-1 pl-4 text-[18px] font-normal group-hover:text-primary1">
             BONUS
           </p>
         </div>
-        <div className="flex sm:justify-center py-5 sm:mt-7 sm:text-start">
+        <div className="relative mt-7 flex w-full justify-center py-5 text-start">
           <SecondaryButton
-            className="mt-auto hidden group-hover:flex "
+            className="absolute right-0 top-0 mt-auto hidden group-hover:flex"
             title="Buy now"
             size="small"
           />
         </div>
       </div>
-
-      <div className="flex  justify-between gap-1 sm:mt-8 sm:pl-4">
+      <div className="my-4 flex items-center justify-between gap-1 px-4">
         <p className="text-neutralLight">{daysLeft}</p>
         <span className="text-sm">
-          {start} <p className="text-sm">{endTime}</p>
+          {start} <p className="text-sm">{timer}</p>
         </span>
       </div>
     </div>

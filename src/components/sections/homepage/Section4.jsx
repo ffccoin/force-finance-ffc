@@ -55,7 +55,7 @@ const Section4 = () => {
               <Button title="Learn more" size="small" outline="border-black" />
             </div>
           </div>
-          <div className="flex items-center justify-center p-8 lg:mr-32">
+          <div className="flex items-center lg:w-3/4 justify-center p-8 lg:p-0 lg:mr-32">
             <Image
               src="/homepage/developers-transformed.png"
               width={532}
