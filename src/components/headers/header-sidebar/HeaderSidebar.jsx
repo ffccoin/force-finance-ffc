@@ -47,7 +47,7 @@ const HeaderSidebar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5 }}
             aria-hidden="true"
             className="fixed inset-0 z-40 bg-[rgba(0,0,0,0.75)] backdrop-brightness-200"
             onClick={handleImageClick}
@@ -60,7 +60,7 @@ const HeaderSidebar = () => {
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5 }}
             className="fixed bottom-0 left-0 top-0 z-50 w-[85%] border-r-2 border-zinc-800 bg-zinc-900"
             aria-label="Sidebar"
           >
@@ -87,7 +87,7 @@ const HeaderSidebar = () => {
                 initial={{ opacity: 0, translateY: -20 }}
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: -20 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 5 }}
                 className="mb-6 w-full sm:pr-5 sm:pl-16  pl-10 pr-4 "
               >
                 <div className=" mt-11 justify-between select-none hover:text-primary1 ">
