@@ -124,7 +124,7 @@ export default function AboutHeader() {
                   />
                 </div> 
       </div>
-      <div className="md:mt-20 mt-8 bg-gradient-to-b from-[#161617] from-50% via-[#7D32F9] via-100%  w-full flex flex-col items-center ">
+      <div className="md:mt-20 mt-8 bg-gradient-to-b  from-[#161617] from-50% via-[#7D32F9] via-100%  w-full flex flex-col items-center  px-4">
 
       <Image
                 width={891}

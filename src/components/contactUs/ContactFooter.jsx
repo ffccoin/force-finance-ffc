@@ -1,62 +1,113 @@
+import Image from "next/image";
 
-
-export default function Contact() {
+const Section11 = () => {
   return (
-    <div className="ml-10 flex flex-col items-center justify-center xl:ml-0">
-      <div className="overflow-hidden font-neue-machina text-white">
-        <p className="mb-6 ml-8 text-[38px] font-[800]">NEED HELP?</p>
-        <div className="mb-20 flex flex-wrap">
-          <div className=" mb-8 ml-8 flex w-[413px]">
-            <img
-              src={"/contactpage/chat.svg"}
-              alt=""
-              className="mt-2 h-[80px] w-[80px]"
-            />
-            <div className="ml-6 flex flex-col">
-              <p className="text-[21px] font-[800]">24/7 Chat Support</p>
-              <p className="my-2 font-apfel-grotezk text-[16px] font-[400] text-neutralLight">
+    <div className="grid place-items-center">
+      <div className="mt-8 flex max-w-[75rem] flex-col gap-y-[61px] xl:px-4 px-8">
+        <div className="flex flex-col gap-y-0.5 ">
+          <h3 className="text-wrap font-neue-machina-bold text-xl md:text-3xl	 ">
+            Need Help?
+          </h3>
+        </div>
+        <div className="flex  flex-col gap-x-[30px] gap-y-4 sm:justify-center sm:gap-y-8 md:flex-row">
+          <div className="group flex w-full  gap-y-[30px] rounded-[10px] ">
+            <div className="grid h-[80px] w-[80px] place-items-center  ">
+              <Image
+                src="/homepage/chat.svg"
+                width={80}
+                height={80}
+                alt="img"
+              />
+            </div>
+            <div className="flex w-[80%] flex-col gap-x-3 gap-y-3 ">
+              <p className="font-neue-machina-bold   text-[21.33px] leading-6 ">
+                24/7 Chat Support
+              </p>
+              <span className="text-neutralLight">
                 Get 24/7 chat support with our friendly customer service agents
                 at your service.
-              </p>
-              <p className="font-neue-machina text-[16px] font-[400] text-primary1">
-                Chat now {">"}
-              </p>
+              </span>
+              <span className="mt-2 flex text-center ">
+                <p className=" font-neue-machina-bold text-primary1 ">
+                  chat now{" "}
+                </p>
+                <div className=" flex justify-center text-center">
+                  <Image
+                    src="/homepage/arrowHead.svg"
+                    alt="Arrow"
+                    width={16}
+                    height={10}
+                  />
+                </div>
+              </span>
             </div>
           </div>
-          <div className="mb-8 ml-8 flex w-[413px]">
-            <img
-              src={"/contactpage/faq.svg"}
-              alt=""
-              className="mt-2 h-[80px] w-[80px]"
-            />
-            <div className="ml-6 flex flex-col">
-              <p className="text-[21px] font-[800]">FAQs</p>
-              <p className="my-2 font-apfel-grotezk text-[16px] font-[400] text-neutralLight">
+          <div className="group flex w-full  gap-y-[30px] rounded-[10px] ">
+            <div className="grid h-[80px] w-[80px] place-items-center  ">
+              <Image
+                src="/homepage/FaQs.svg"
+                width={80}
+                height={80}
+                alt="img"
+              />
+            </div>
+            <div className="flex w-[80%] flex-col gap-x-3 gap-y-3 ">
+              <p className="font-neue-machina-bold   text-[21.33px] leading-6 ">
+                FAQs
+              </p>
+              <span className="text-neutralLight">
                 View FAQs for detailed instructions on specific features.
-              </p>
-              <p className="font-neue-machina text-[16px] font-[400] text-primary1">
-                Learn more {">"}
-              </p>
+              </span>
+              <span className="mt-2 flex text-center ">
+                <p className=" font-neue-machina-bold text-primary1 ">
+                  Learn more
+                </p>
+                <div className=" flex justify-center text-center">
+                  <Image
+                    src="/homepage/arrowHead.svg"
+                    alt="Arrow"
+                    width={16}
+                    height={10}
+                  />
+                </div>
+              </span>
             </div>
-          </div>
-          <div className="mb-8 ml-8 flex w-[413px]">
-            <img
-              src={"/contactpage/blog.svg"}
-              alt=""
-              className="mt-2 h-[80px] w-[80px]"
-            />
-            <div className="ml-6 flex flex-col">
-              <p className="text-[21px] font-[800]">Blog</p>
-              <p className="my-2 font-apfel-grotezk text-[16px] font-[400] text-neutralLight">
-                Stay up to date with the latest stories and commentary.
+          </div>{" "}
+          <div className="group flex w-full  gap-y-[30px] rounded-[10px] ">
+            <div className="grid h-[80px] w-[80px] place-items-center  ">
+              <Image
+                src="/homepage/blog.svg"
+                width={80}
+                height={80}
+                alt="img"
+              />
+            </div>
+            <div className="flex w-[80%] flex-col gap-x-3 gap-y-3 ">
+              <p className="font-neue-machina-bold  text-[21.33px] leading-6 ">
+                Blog
               </p>
-              <p className="font-neue-machina text-[16px] font-[400] text-primary1">
-                Learn more {">"}
-              </p>
+              <span className="text-neutralLight">
+                Stay up to date with the latest stories and commentary.{" "}
+              </span>
+              <span className="mt-2 flex text-center ">
+                <p className=" font-neue-machina-bold text-primary1 ">
+                  Learn more
+                </p>
+                <div className=" flex justify-center text-center">
+                  <Image
+                    src="/homepage/arrowHead.svg"
+                    alt="Arrow"
+                    width={16}
+                    height={10}
+                  />
+                </div>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Section11;

@@ -194,6 +194,30 @@ On hover remove animation from all child divs .ticker-container:hover > * {
   position: absolute;
   white-space: nowrap;
 }
+input[type="checkbox"] {
+  width: 1px;
+
+}
+ input[type="checkbox"] + label:before {
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  margin: 6px 0.65em 0px -30px;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+  background: #232325;
+  border-radius: 3px;
+
+}
+input[type="checkbox"]:checked + label:before {
+  background: #CBFB45;
+  color: black;
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.17L5.53 12.7a1 1 0 0 1 1.47-1.4l2.95 2.94 7.06-7.06a1 1 0 1 1 1.41 1.41L10.4 16.17a1 1 0 0 1-1.41 0z"/></svg>');
+  text-align: center;
+} 
+
 
 @keyframes ticker {
   0% {
