@@ -87,7 +87,7 @@ const HeaderSidebar = () => {
                 initial={{ opacity: 0, translateY: -20 }}
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: -20 }}
-                transition={{ duration: 5 }}
+                transition={{ duration: 1 }}
                 className="mb-6 w-full sm:pr-5 sm:pl-16  pl-10 pr-4 "
               >
                 <div className=" mt-11 justify-between select-none hover:text-primary1 ">
