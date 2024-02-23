@@ -1,19 +1,67 @@
+"use client";
+
 import Image from "next/image";
 import Button from "@/components/buttons/Button";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
+import { motion } from "framer-motion";
 
 const Section3 = () => {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const bottomToTopVariants = {
+    hide: {
+      opacity: 0,
+      y: 150,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+
   return (
     <div className="mt-16 grid place-items-center">
-      <div className="flex max-w-6xl flex-col px-10 items-center justify-center gap-4 lg:ml-40 lg:flex-row lg:gap-40">
-        <div className="flex-shrink-0">
-          <Image src="/homepage/mobile.png" width={266} height={531} alt="img" />
-        </div>
-        <div className="flex flex-col items-center mt-10 justify-center lg:items-start">
+      <div className="flex max-w-6xl flex-col items-center justify-center gap-4 px-10 lg:ml-40 lg:flex-row lg:gap-40">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+          className="flex-shrink-0"
+        >
+          <Image
+            src="/homepage/mobile.png"
+            width={266}
+            height={531}
+            alt="img"
+          />
+        </motion.div>
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={bottomToTopVariants}
+          className="mt-10 flex flex-col items-center justify-center lg:mb-10 lg:mt-0 lg:items-start"
+        >
           <h1 className="text-wrap text-[37.9px]  uppercase leading-[42.64px] lg:mt-10">
             Web 3.0 Fusion Bridging DApp Browsing & Staking Crypto
           </h1>
-          <p className="lg:max-w-[34.5rem] text-wrap mt-9 text-[16px] leading-[24px] text-neutralLight">
+          <p className="mt-9 text-wrap text-[16px] leading-[24px] text-neutralLight lg:max-w-[34.5rem]">
             Experience the seamless convergence of Web 3.0 capabilities with our
             integrated DApp browser, facilitating staking, crypto transactions,
             liquidity pool farming, and cross-chain interoperability
@@ -23,11 +71,15 @@ const Section3 = () => {
             {renderStat("1500+", "Liquidity Pool")}
             {renderStat("1000+", "Yield Farming")}
           </div>
-          <div className="w-full pr-8 mt-11 flex flex-col gap-8 md:flex-row">
-            <Button className="sm:w-auto w-full" title="Go to apps" size="small" />
+          <div className="mt-11 flex w-full flex-col gap-8 pr-8 md:flex-row">
+            <Button
+              className="w-full sm:w-auto"
+              title="Go to apps"
+              size="small"
+            />
             <SecondaryButton title="Learn more" size="small" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,10 +1,71 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Section2 = () => {
+  const topToBottomVariants = {
+    hide: {
+      opacity: 0,
+      y: -50,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 50,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -50,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+  const bottomToTopVariants = {
+    hide: {
+      opacity: 0,
+      y: 50,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
   return (
     <div className="grid place-items-center">
       <div className="flex max-w-7xl flex-col items-center gap-y-[61px] px-8 sm:px-10 md:px-12">
-        <div className="flex flex-col gap-y-0.5">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={topToBottomVariants}
+          className="flex flex-col gap-y-0.5"
+        >
           <h1 className="text-center text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px]">
             Empower Your Finances with FFC COIN
           </h1>
@@ -12,9 +73,15 @@ const Section2 = () => {
             Empowering Financial Independence and Prosperity with Force Finance
             Coin Your Gateway to a Liberated Financial Future
           </span>
-        </div>
+        </motion.div>
         <div className="flex flex-col gap-x-[30px] gap-y-4 md:flex-row">
-          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] bg-neutral px-[20px] py-[25px] transition duration-500 ease-in-out hover:bg-primary1 lg:px-[40px] lg:py-[50px]">
+          <motion.div
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={leftToRightVariants}
+            className="group flex w-full flex-col gap-y-[30px] rounded-[10px] bg-neutral px-[20px] py-[25px] transition duration-500 ease-in-out hover:bg-primary1 lg:px-[40px] lg:py-[50px]"
+          >
             <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)] group-hover:bg-primary2 ">
               <Image
                 src="/homepage/bitcoin-style-1.svg"
@@ -33,8 +100,14 @@ const Section2 = () => {
                 rewards.
               </span>
             </div>
-          </div>
-          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] bg-neutral px-[20px] py-[25px] transition duration-500 ease-in-out hover:bg-primary1 lg:px-[40px] lg:py-[50px]">
+          </motion.div>
+          <motion.div
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={bottomToTopVariants}
+            className="group flex w-full flex-col gap-y-[30px] rounded-[10px] bg-neutral px-[20px] py-[25px] transition duration-500 ease-in-out hover:bg-primary1 lg:px-[40px] lg:py-[50px]"
+          >
             <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)] group-hover:bg-primary2 ">
               <Image
                 src="/homepage/bitcoin-style-2.svg"
@@ -52,8 +125,14 @@ const Section2 = () => {
                 protocols supported by Force Finance Coin.
               </span>
             </div>
-          </div>
-          <div className="group flex w-full flex-col gap-y-[30px] rounded-[10px] bg-neutral px-[20px] py-[25px] transition duration-500 ease-in-out hover:bg-primary1 lg:px-[40px] lg:py-[50px]">
+          </motion.div>
+          <motion.div
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={rightToLeftVariants}
+            className="group flex w-full flex-col gap-y-[30px] rounded-[10px] bg-neutral px-[20px] py-[25px] transition duration-500 ease-in-out hover:bg-primary1 lg:px-[40px] lg:py-[50px]"
+          >
             <div className="grid h-[80px] w-[80px] place-items-center rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.00)_21.35%,rgba(203,251,69,0.08)_100%)] group-hover:bg-primary2 ">
               <Image
                 src="/homepage/bitcoin-style-3.svg"
@@ -71,7 +150,7 @@ const Section2 = () => {
                 Coin, eliminating the need for intermediaries.
               </span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

@@ -28,8 +28,8 @@ const Footer = () => {
           <a href="/about-us" className="text-neutralLight hover:text-primary1">
             About us
           </a>
-          <a href="/about-us" className="text-neutralLight hover:text-primary1">
-            Token
+          <a href="/our-services" className="text-neutralLight hover:text-primary1">
+            Services
           </a>
           <a href="/about-us" className="text-neutralLight hover:text-primary1">
             Careers

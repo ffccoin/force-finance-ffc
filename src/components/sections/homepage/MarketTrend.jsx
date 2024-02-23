@@ -25,19 +25,77 @@ const MarketTrend = () => {
   const calculate24hChangePercentage = (price, priceChange) => {
     return ((priceChange / price) * 100).toFixed(2);
   };
+
+  const h1Variants = {
+    hide: {
+      opacity: 0,
+      x: -50,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+  const viewMoreVariants = {
+    hide: {
+      opacity: 0,
+      x: 50,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+  const tableVariants = {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
   return (
-    <motion.div className="grid place-items-center py-28">
+    <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">
         <div className="flex w-full justify-between px-6">
-          <h1 className="text-[37.9px] leading-[42.64px]">MARKET TREND</h1>
-          <div className="flex items-center text-primary1">
+          <motion.h1
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={h1Variants}
+            className="text-[37.9px] leading-[42.64px]"
+          >
+            MARKET TREND
+          </motion.h1>
+          <motion.div
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={viewMoreVariants}
+            className="flex items-center text-primary1"
+          >
             <button>
               <h4>View more markets</h4>
             </button>
             {chevronRight}
-          </div>
+          </motion.div>
         </div>
-        <div className="relative w-[80vw] overflow-auto shadow-md sm:rounded-lg xl:w-full">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={tableVariants}
+          className="relative w-[80vw] overflow-auto shadow-md sm:rounded-lg xl:w-full"
+        >
           <table className="w-full text-left rtl:text-right dark:text-gray-400">
             <thead className="h-[58px] bg-[#1E1E1F] text-white">
               <tr>
@@ -114,15 +172,21 @@ const MarketTrend = () => {
               ))}
             </tbody>
           </table>
-        </div>
-        <h5 className="mx-6 self-start">
+        </motion.div>
+        <motion.h1
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={tableVariants}
+          className="mx-6 self-start"
+        >
           <span className="font-neue-machina-bold text-primary1 underline">
             Sign up
           </span>{" "}
           now to build your own portfolio for free!
-        </h5>
+        </motion.h1>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
