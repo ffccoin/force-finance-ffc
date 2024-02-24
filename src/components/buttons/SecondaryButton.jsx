@@ -40,8 +40,8 @@ const SecondaryButton = ({
         opacity: 1,
       }}
       transition={{
-        duration: 1.5,
-        delay: 1,
+        duration: 0.5,
+        delay: 0,
       }}
     >
       <div className="flex gap-x-2.5">

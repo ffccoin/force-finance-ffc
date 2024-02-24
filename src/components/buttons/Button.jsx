@@ -10,6 +10,7 @@ const Button = ({
   icon,
   title,
   className,
+  dontAnimate,
 }) => {
   return (
     <motion.button
@@ -30,18 +31,30 @@ const Button = ({
         disabled:opacity-50 ${className}
       `}
       disabled={disabled}
-      initial={{
-        x: -100,
-        opacity: 0,
-      }}
-      animate={{
-        x: 0,
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1.5,
-        delay: 1,
-      }}
+      initial={
+        dontAnimate
+          ? {}
+          : {
+              x: 100,
+              opacity: 0,
+            }
+      }
+      animate={
+        dontAnimate
+          ? {}
+          : {
+              x: 0,
+              opacity: 1,
+            }
+      }
+      transition={
+        dontAnimate
+          ? {}
+          : {
+              duration: 0.5,
+              delay: 0,
+            }
+      }
     >
       <div className="flex gap-x-2.5">
         {title}
