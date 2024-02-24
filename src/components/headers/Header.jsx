@@ -2,12 +2,11 @@
 
 import { useRouter } from "next/navigation";
 import Button from "../buttons/Button";
-import HeaderDropdown from "../dropdowns/HeaderDropdown";
 import HeaderSidebar from "../headers/header-sidebar/HeaderSidebar";
 import { Menu, Transition } from "@headlessui/react";
 import MovingBar from "./moving-bar/MovingBar";
 import Image from "next/image";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment,  useState } from "react";
 
 // framer motion import
 import { AnimatePresence, motion } from "framer-motion";

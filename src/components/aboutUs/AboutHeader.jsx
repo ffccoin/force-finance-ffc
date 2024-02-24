@@ -1,7 +1,16 @@
 import Image from "next/image";
 import Button from "../buttons/Button";
+import { Menu, Transition } from "@headlessui/react";
+
+import { Fragment, useState } from "react";
 
 export default function AboutHeader() {
+  const [selectedCurrency, setSelectedCurrency] = useState("usd");
+
+  const handleCurrencySelect = (currency) => {
+    setSelectedCurrency(currency);
+  };
+
   return (
     <div className="grid place-items-center     bg-primary2">
       <div className=" flex flex-col items-center px-4 ">
@@ -42,7 +51,7 @@ export default function AboutHeader() {
           src="/aboutpage/blueBitcoin.svg"
         />
 
-        <div className=" flex flex-col items-center  uppercase">
+        <div className=" flex max-w-[90rem] flex-col  items-center uppercase">
           <p className=" text-wrap text-center font-apfel-grotezk text-sm text-primary1 sm:text-base xl:mr-auto  xl:pl-[357px]">
             First order and you’ll get up to $10 in free BTC as a reward{" "}
           </p>
@@ -50,8 +59,8 @@ export default function AboutHeader() {
             A Trusted and Secure Web 3.0 Financial DeFi Solution
           </p>
         </div>
-        <div className="mt-10 lg:mr-28 flex flex-col items-center  gap-4 md:flex-row">
-          <div className="flex max-w-72 flex-wrap rounded-[10px] bg-neutral p-4 lg:gap-10 ">
+        <div className="mt-10 flex flex-col items-center gap-4  md:flex-row lg:mr-28">
+          <div className="flex max-w-72 flex-wrap rounded-[10px] border-[#CBFB4533] border bg-neutral p-4 lg:gap-10 ">
             <div className=" max-w-28 sm:max-w-32">
               <p className="text-neutralLight">You have</p>
               <input
@@ -65,13 +74,74 @@ export default function AboutHeader() {
               <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center rounded-xl bg-[#7D32F9] p-2 pb-2.5 text-center text-base">
                 $
               </p>
-              <p className="text-white-A700 text-base">USD</p>
-              <Image
-                width={24}
-                height={24}
-                src="images/img_iconframe.svg"
-                alt="iconframe"
-              />
+              <Menu as="div" className="relative">
+                <Menu.Button className="flex h-8 max-w-fit items-center  border-transparent  bg-transparent font-apfel-grotezk uppercase outline-none">
+                  {selectedCurrency}
+                  {chevronDown}
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 top-11 z-30 flex w-[100px] flex-col items-start gap-y-1 rounded-md border border-[#CBFB4533] border-opacity-50 bg-neutral bg-opacity-90 px-4 py-2">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && " text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("usd")}
+                        >
+                          USD
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("inr")}
+                        >
+                          INR
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("eur")}
+                        >
+                          EUR
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("pkr")}
+                        >
+                          PKR
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("gbp")}
+                        >
+                          GBP
+                        </button>
+                      )}
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
             </div>
           </div>
           <Image
@@ -81,7 +151,7 @@ export default function AboutHeader() {
             src="images/img_share.svg"
             alt="share"
           />
-          <div className="flex max-w-72 flex-wrap rounded-[10px] bg-neutral p-4 lg:gap-10 ">
+          <div className="flex max-w-72 flex-wrap rounded-[10px] border-[#CBFB4533] border bg-neutral p-4 lg:gap-10 ">
             <div className=" max-w-28 sm:max-w-32">
               <p className="text-neutralLight">You get</p>
               <input
@@ -95,47 +165,110 @@ export default function AboutHeader() {
               <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px]  items-center justify-center rounded-xl bg-orange-600 p-2 pb-2.5 text-center text-base">
                 ฿
               </p>
-              <p className="text-white-A700 text-base">USD</p>
-              <Image
-                width={24}
-                height={24}
-                src="images/img_iconframe.svg"
-                alt="iconframe"
-              />
+              <Menu as="div" className="relative">
+                <Menu.Button className="flex h-8 max-w-fit items-center  border-transparent  bg-transparent font-apfel-grotezk uppercase outline-none">
+                  {selectedCurrency}
+                  {chevronDown}
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 top-11 z-30 flex w-[100px] flex-col items-start gap-y-1 rounded-md border border-[#CBFB4533] border-opacity-50 bg-neutral px-4 py-2">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && " text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("usd")}
+                        >
+                          USD
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("inr")}
+                        >
+                          INR
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("eur")}
+                        >
+                          EUR
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("pkr")}
+                        >
+                          PKR
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCurrencySelect("gbp")}
+                        >
+                          GBP
+                        </button>
+                      )}
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
             </div>
           </div>
-          <div
-            className="my-[3px] mt-1 font-neue-machina-bold flex h-[76px] w-[155px] min-w-[154px] cursor-pointer items-center justify-center bg-primary1 text-center text-base font-extrabold text-black md:mt-0"
-            shape="square"
-            color="light_green_A200"
-            size="lg"
-            variant="fill"
-          >
-            Buy Now
-          </div>
-
+          <Button
+              size="small"
+              title="Buy Now"
+              className="text-xs px-10  md:py-5 lg:py-5 lg:text-base xl:px-10 xl:text-base"
+            />
         </div>
-        <div className="flex w-[79%] mt-5 flex-col items-center justify-start gap-2.5 md:w-full">
-                  <p className=" text-base text-[#898990] font-apfel-grotezk text-[16px]">We accept</p>
-                  <img
-                    className="h-[30px]"
-                    src="images/img_group9342.svg"
-                    alt="group9342"
-                  />
-                </div> 
+        <div className="mt-5 flex w-[79%] flex-col items-center justify-start gap-2.5 md:w-full">
+          <p className=" font-apfel-grotezk text-[16px] text-base text-[#898990]">
+            We accept
+          </p>
+          <img
+            className="h-[30px]"
+            src="images/img_group9342.svg"
+            alt="group9342"
+          />
+        </div>
       </div>
-      <div className="md:mt-20 mt-8 bg-gradient-to-b  from-[#161617] from-50% via-[#7D32F9] via-100%  w-full flex flex-col items-center  px-4">
-
-      <Image
-                width={891}
-                height={301}
-                src="/aboutpage/test.svg"
-                alt="iconframe"
-              />
-         </div>
-         </div>
-
+      <div className="mt-8 flex w-full  flex-col items-center bg-gradient-to-b from-[#161617]  from-50% via-[#7D32F9] via-100% px-4  md:mt-20">
+        <Image
+          width={891}
+          height={301}
+          src="/aboutpage/test.svg"
+          alt="iconframe"
+        />
+      </div>
+    </div>
   );
 }
 
-
+const chevronDown = (
+  <Image
+    width={24}
+    height={24}
+    src="images/img_iconframe.svg"
+    alt="iconframe"
+  />
+);
