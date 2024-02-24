@@ -12,11 +12,11 @@ export default function AboutHeader() {
   };
 
   return (
-    <div className="grid place-items-center     bg-primary2">
-      <div className=" flex flex-col items-center px-4 ">
+    <div className="grid place-items-center   bg-primary2">
+      <div className=" relative flex flex-col items-center px-4 ">
         {/*         <Image     className="absolute top-[5.4rem] left-[15.4rem] sm:left-[20rem] md:left-[30rem] lg:left-[60rem] xl:left-[60rem]" width={51} height={51} alt="img" src="/aboutpage/bitcoin.svg" /> */}
         <Image
-          className="absolute top-[5.4rem] hidden xl:left-[60rem] xl:block"
+          className="absolute top-[0.4rem] hidden xl:left-[60rem] xl:block"
           width={51}
           height={51}
           alt="img"
@@ -52,10 +52,10 @@ export default function AboutHeader() {
         />
 
         <div className=" flex max-w-[90rem] flex-col  items-center uppercase">
-          <p className=" text-wrap text-center font-apfel-grotezk text-sm text-primary1 sm:text-base xl:mr-auto  xl:pl-[357px]">
+          <p className=" text-wrap text-center font-apfel-grotezk  text-primary1 text-base xl:mr-auto  xl:pl-[357px]">
             First order and you’ll get up to $10 in free BTC as a reward{" "}
           </p>
-          <p className="mt-3 text-wrap text-center  font-neue-machina-bold text-xl uppercase sm:text-[56px]   sm:leading-[75.75px] md:px-8 xl:pr-32 ">
+          <p className="mt-3 text-wrap text-center  font-neue-machina-bold text-[30px] line-height-[ 44px] uppercase sm:text-[56px]   sm:leading-[75.75px] md:px-8 xl:pr-32 ">
             A Trusted and Secure Web 3.0 Financial DeFi Solution
           </p>
         </div>

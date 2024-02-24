@@ -6,7 +6,7 @@ import HeaderSidebar from "../headers/header-sidebar/HeaderSidebar";
 import { Menu, Transition } from "@headlessui/react";
 import MovingBar from "./moving-bar/MovingBar";
 import Image from "next/image";
-import { Fragment,  useState } from "react";
+import { Fragment,  useState ,useEffect} from "react";
 
 // framer motion import
 import { AnimatePresence, motion } from "framer-motion";
@@ -133,7 +133,7 @@ const Header = ({ coins }) => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute left-1  top-11 z-30 flex w-[232px] flex-col items-start gap-y-1 rounded-md border border-primary1 bg-[#161617] bg-opacity-90 py-1  pl-1 text-neutralLight ">
+                    <Menu.Items className="absolute left-1  top-11 z-30 flex w-[232px] flex-col items-start gap-y-1 rounded-md border border-primary1 bg-[#161617]  py-1  pl-1 text-neutralLight ">
                       <Menu.Item className="mt-2  w-full py-1 pl-6  hover:border-l-4   hover:border-l-primary1  hover:bg-neutral hover:text-primary1">
                         <a href="/whitepaper.pdf" className=" ">
                           Whitepaper

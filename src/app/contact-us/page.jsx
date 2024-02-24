@@ -6,7 +6,7 @@ import ContactFooter from "@/components/contactUs/ContactFooter";
 
 export default function page() {
   return (
-    <div className="">
+    <div className="mt-56">
       <ContactHeader />
       <ContactForm />
       <ContactFooter />
