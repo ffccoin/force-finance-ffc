@@ -8,12 +8,12 @@ import LinkedParticlesAnimation from "@/components/animations/LinkedParticlesAni
 
 const Section1 = () => {
   return (
-    <div className="relative flex w-full flex-wrap items-center justify-center bg-transparent pb-20 pt-11 md:mt-20">
+    <div className="relative flex w-full flex-wrap items-center justify-center mt-24  lg:mt-44 bg-transparent pb-20 pt-11 ">
       <LinkedParticlesAnimation />
       <div className="flex w-full z-10 max-w-7xl flex-col flex-wrap items-center justify-center gap-y-20 md:flex-row md:justify-between lg:px-8 xl:px-10">
-        <div className="flex w-full flex-col gap-y-10 px-10 md:pt-14 pt-24 lg:max-w-[45%] lg:px-0 xl:gap-y-[55px]">
+        <div className="flex w-full flex-col gap-y-10 px-10 md:pt-14 pt-12 lg:max-w-[45%] lg:px-0 xl:gap-y-[55px]">
           <motion.h1
-            className="text-[28.1px] uppercase leading-[40.6px] sm:text-[39.41px] sm:leading-[42.6px] lg:text-3xl xl:text-5xl xl:leading-[56.8px]"
+            className="text-[28.1px] uppercase leading-[40.6px] sm:text-[39.41px] sm:leading-[42.6px] lg:text-5xl lg:leading-[56.8px]"
             initial={{
               x: -100,
               opacity: 0,
