@@ -119,12 +119,12 @@ const Header = ({ coins }) => {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <Menu.Items className="absolute left-1  top-11 z-30 flex w-[232px] flex-col items-start gap-y-1 rounded-md border border-primary1 bg-[#161617] bg-opacity-90 pl-1  py-1 text-neutralLight ">
-                  <Menu.Item className="mt-2  w-full py-1 pl-6 hover:border-l hover:border-l-primary1  hover:bg-neutral hover:text-primary1">
+                  <Menu.Item className="mt-2  w-full py-1 pl-6  hover:border-l-4   hover:border-l-primary1  hover:bg-neutral hover:text-primary1">
                     <a href="/whitepaper.pdf" className=" ">
                       Whitepaper
                     </a>
                   </Menu.Item>
-                  <Menu.Item className="mb-4 w-full  py-1  pl-6 hover:border-l hover:border-l-primary1 hover:bg-neutral hover:text-primary1">
+                  <Menu.Item className="mb-4 w-full  py-1  pl-6 hover:border-l-4  hover:border-l-primary1 hover:bg-neutral hover:text-primary1">
                     <a
                       href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/"
                       className=" "
@@ -141,6 +141,12 @@ const Header = ({ coins }) => {
               className="flex  h-8  items-center gap-x-1 border  border-transparent font-apfel-grotezk text-xs hover:border-b-primary1 lg:text-xs xl:text-[15px]"
             >
               Roadmap
+            </button>
+            <button
+              onClick={() => router.push("/contact-us")}
+              className="flex  h-8  items-center gap-x-1 border  border-transparent font-apfel-grotezk text-xs hover:border-b-primary1 lg:text-xs xl:text-[15px]"
+            >
+              Contact Us
             </button>
           </nav>
           <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">
