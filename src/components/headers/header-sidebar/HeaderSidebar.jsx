@@ -33,7 +33,7 @@ const HeaderSidebar = () => {
   return (
     <div className=" md:hidden ">
       <Image
-        className="cursor-pointer pl-4"
+        className="cursor-pointer w-[100%] "
         src="/homepage/sidebar.svg"
         width={40}
         height={32}

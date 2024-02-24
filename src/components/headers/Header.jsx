@@ -68,13 +68,15 @@ const Header = ({ coins }) => {
               FORCE FINANCE
             </h1>
           </div> */}
-              <Image
+          <div className="w-[80%]">
+          <Image
                 src="/logos/header-logo.svg"
                 loading="eager"
                 width={250}
                 height={32}
               />
 
+          </div>
               <HeaderSidebar />
             </div>
             {/* Medium and larger screen size */}
