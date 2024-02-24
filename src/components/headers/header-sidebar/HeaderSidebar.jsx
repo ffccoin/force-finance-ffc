@@ -64,20 +64,18 @@ const HeaderSidebar = () => {
             className="fixed bottom-0 left-0 top-0 z-50 w-[85%] border-r-2 border-zinc-800 bg-zinc-900"
             aria-label="Sidebar"
           >
-            <div className="mt-16 flex items-center justify-between pr-4 pl-1 sm:px-8 ">
+            <div className="mt-16 flex items-center justify-between pl-1 pr-4 sm:px-8 ">
               <Image
                 className=" pl-4 "
                 src="/logos/header-logo.svg"
                 width={250}
                 height={32}
-                loading="eager"
               />
               <Image
                 src="/homepage/cross-30.svg"
                 className=""
                 width={20}
                 height={20}
-                loading="eager"
                 onClick={handleImageClick}
               />
             </div>
@@ -88,9 +86,9 @@ const HeaderSidebar = () => {
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: -20 }}
                 transition={{ duration: 1 }}
-                className="mb-6 w-full sm:pr-5 sm:pl-16  pl-10 pr-4 "
+                className="mb-6 w-full pl-10 pr-4  sm:pl-16 sm:pr-5 "
               >
-                <div className=" mt-11 justify-between select-none hover:text-primary1 ">
+                <div className=" mt-11 select-none justify-between hover:text-primary1 ">
                   <a href="/" className=" ">
                     Home
                   </a>
@@ -105,10 +103,9 @@ const HeaderSidebar = () => {
                     Services
                   </a>
                 </div>
+
                 <div className="  group mt-4 flex justify-between  hover:text-primary1 ">
-                  <a  className=" ">
-                    Docs
-                  </a>
+                  <a className=" ">Docs</a>
                   <div
                     className="group-hover:stroke-primary1 "
                     onClick={() => setSubMenuOpen(!subMenuOpen)}
@@ -123,7 +120,7 @@ const HeaderSidebar = () => {
                     animate={{ opacity: 1, translateY: 0 }}
                     exit={{ opacity: 0, translateY: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="mb-6 w-full px-8 text-neutralLight pl-4 "
+                    className="mb-6 w-full px-8 pl-4 text-neutralLight "
                   >
                     <div className="mb-6  pl-7 text-neutralLight ">
                       <div className=" justify-between hover:text-primary1">
@@ -132,14 +129,22 @@ const HeaderSidebar = () => {
                         </a>
                       </div>
                       <div className="  mt-2 justify-between hover:text-primary1">
-                        <a             href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/" className=" ">
+                        <a
+                          href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/"
+                          className=" "
+                        >
                           Lightpaper
                         </a>
                       </div>
                     </div>
                   </motion.div>
                 )}
-                <div className=" mt-2 justify-between  hover:text-primary1 ">
+                <div className="mt-2  hover:text-primary1 ">
+                  <a href="/contact-us" className=" ">
+                    Contact Us
+                  </a>
+                </div>
+                <div className=" mt-4 justify-between  hover:text-primary1 ">
                   <a href="/#Section7" className=" ">
                     Roadmap
                   </a>

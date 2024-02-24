@@ -4,9 +4,10 @@ import { useRouter } from "next/navigation";
 import Button from "../buttons/Button";
 import HeaderDropdown from "../dropdowns/HeaderDropdown";
 import HeaderSidebar from "../headers/header-sidebar/HeaderSidebar";
-
+import { Menu, Transition } from "@headlessui/react";
 import MovingBar from "./moving-bar/MovingBar";
 import Image from "next/image";
+import { Fragment, useEffect, useState } from "react";
 
 // framer motion import
 import { motion } from "framer-motion";
@@ -26,6 +27,15 @@ const Header = ({ coins }) => {
       },
     },
   };
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDropdownOpen(false);
+  };
   return (
     <motion.header
       initial="hide"
@@ -43,30 +53,94 @@ const Header = ({ coins }) => {
               FORCE FINANCE
             </h1>
           </div> */}
-          <Image src="/logos/header-logo.svg" loading="eager" width={250} height={32} />
-          
+          <Image
+            src="/logos/header-logo.svg"
+            loading="eager"
+            width={250}
+            height={32}
+          />
+
           <HeaderSidebar />
         </div>
         {/* Medium and larger screen size */}
         <div className="hidden h-[78px] w-full max-w-7xl grid-cols-12 place-items-center md:grid">
           <nav className="flex w-full items-center gap-x-2 md:col-span-6 lg:col-span-5 lg:gap-x-4">
+            <motion.div className="relative overflow-hidden font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
+              <motion.button
+                key="submenu"
+                whileHover={{
+                  borderBottomColor: "#CBFB45",
+                  borderBottomWidth: "1px",
+                }}
+                className="h-8 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
+                onClick={() => router.push("/")}
+              >
+                Home
+              </motion.button>
+              {/* <motion.div
+                key="submenu"
+                className="absolute top-0 h-[2px] w-full bg-primary1"
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                exit={{ width: 0 }}
+                transition={{ duration: 0.5 }}
+              /> */}
+            </motion.div>
             <button
-              className="mr-[3px] font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
-              onClick={() => router.push("/")}
-            >
-              Home
-            </button>
-            <button
-              className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
+              className="flex h-8 items-center  gap-x-1  border  border-transparent font-apfel-grotezk text-xs hover:border-b-primary1 lg:text-xs xl:text-[15px]"
               onClick={() => router.push("/about-us")}
             >
-              About Us 
+              About Us
             </button>
-            <button className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-              Docs {chevronDown}
+            <button
+              className="flex h-8 items-center  gap-x-1  border  border-transparent font-apfel-grotezk text-xs hover:border-b-primary1 lg:text-xs xl:text-[15px]"
+              onClick={() => router.push("/our-services")}
+            >
+              Services
             </button>
-            <button onClick={() => router.push("/#Section7")} className="flex items-center gap-x-1 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-            Roadmap 
+            <Menu
+              as="div"
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Menu.Button className=" flex h-8  items-center border border-transparent bg-transparent font-apfel-grotezk text-xs outline-none hover:border-b-primary1 lg:text-xs  xl:text-[15px]">
+                Docs
+                {chevronDown}
+              </Menu.Button>
+              <Transition
+                as={Fragment}
+                show={isDropdownOpen}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute left-1  top-11 z-30 flex w-[232px] flex-col items-start gap-y-1 rounded-md border border-primary1 bg-[#161617] bg-opacity-90 pl-1  py-1 text-neutralLight ">
+                  <Menu.Item className="mt-2  w-full py-1 pl-6 hover:border-l hover:border-l-primary1  hover:bg-neutral hover:text-primary1">
+                    <a href="/whitepaper.pdf" className=" ">
+                      Whitepaper
+                    </a>
+                  </Menu.Item>
+                  <Menu.Item className="mb-4 w-full  py-1  pl-6 hover:border-l hover:border-l-primary1 hover:bg-neutral hover:text-primary1">
+                    <a
+                      href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/"
+                      className=" "
+                    >
+                      Lightpaper
+                    </a>
+                  </Menu.Item>
+                </Menu.Items>
+              </Transition>
+            </Menu>
+
+            <button
+              onClick={() => router.push("/#Section7")}
+              className="flex  h-8  items-center gap-x-1 border  border-transparent font-apfel-grotezk text-xs hover:border-b-primary1 lg:text-xs xl:text-[15px]"
+            >
+              Roadmap
             </button>
           </nav>
           <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">
@@ -76,7 +150,6 @@ const Header = ({ coins }) => {
             </h1>
           </div>
           <div className="flex w-full items-center justify-end gap-x-2 md:col-span-3 lg:col-span-4 xl:gap-x-2">
-            <button className="lg:px-3">{bucketIcon}</button>
             <button className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
               Sign up
             </button>

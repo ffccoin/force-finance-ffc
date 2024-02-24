@@ -41,7 +41,7 @@ const Section8 = async () => {
         </div>
         <Calculator coins={data} />
       </div>
-      <div className="mt-28 flex max-w-7xl flex-wrap justify-between  px-4 md:flex-row ">
+      <div className="mt-28 flex max-w-7xl flex-wrap justify-between  px-12 md:flex-row ">
         <div className="flex  flex-col md:max-w-[27.438rem] ">
           <h3 className="text-wrap font-neue-machina-bold text-xl md:text-3xl	 ">
             HOW TO GET STARTED

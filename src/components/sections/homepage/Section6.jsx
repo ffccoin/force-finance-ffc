@@ -9,7 +9,7 @@ const Section6 = () => {
           <p className="mt-3 text-center font-neue-machina-bold text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px]">
             TOKENOMICS
           </p>
-          <span className="lg:mt-6 text-wrap px-4 text-center text-sm text-neutralLight sm:text-base md:px-1">
+          <span className="max-w-[61rem] text-wrap px-4 text-center text-sm text-neutralLight sm:text-base md:px-1 lg:mt-6">
             Force Finance Coin (FFC) embodies a meticulously crafted tokenomics
             model, geared for long-term sustainability and value generation.
             With a focus on fostering growth and prosperity for all
