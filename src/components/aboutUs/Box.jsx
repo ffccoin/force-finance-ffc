@@ -1,7 +1,7 @@
 export default function Box({ num, heading, text }) {
   return (
     <div>
-      <div className="mx-4 mb-12 flex h-[218px] w-[337px] flex-col items-center justify-start gap-[30px] sm:ml-[0] md:h-auto">
+      <div className="mx-4 mb-12 flex max-w-[327px] flex-col items-center justify-start gap-[30px] sm:ml-[0] md:h-auto">
         <p className="flex  h-20 w-20 items-center justify-center rounded-[50%] bg-gradient1 text-center font-neue-machina-bold text-[28.43px] uppercase text-primary1 sm:px-5 sm:text-[24.43px] md:text-[26.43px]">
           {num}
         </p>

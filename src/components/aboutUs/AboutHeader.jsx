@@ -6,9 +6,13 @@ import { Fragment, useState } from "react";
 
 export default function AboutHeader() {
   const [selectedCurrency, setSelectedCurrency] = useState("usd");
+  const [selectedCoin, setSelectedCoin] = useState("bitcoin");
 
   const handleCurrencySelect = (currency) => {
     setSelectedCurrency(currency);
+  };
+  const handleCoinSelect = (coin) => {
+    setSelectedCoin(coin);
   };
 
   return (
@@ -52,15 +56,15 @@ export default function AboutHeader() {
         />
 
         <div className=" flex max-w-[90rem] flex-col  items-center uppercase">
-          <p className=" text-wrap text-center font-apfel-grotezk  text-primary1 text-base xl:mr-auto  xl:pl-[357px]">
+          <p className=" text-wrap text-center font-apfel-grotezk  text-base text-primary1 xl:mr-auto  xl:pl-[357px]">
             First order and you’ll get up to $10 in free BTC as a reward{" "}
           </p>
-          <p className="mt-3 text-wrap text-center  font-neue-machina-bold text-[30px] line-height-[ 44px] uppercase sm:text-[56px]   sm:leading-[75.75px] md:px-8 xl:pr-32 ">
+          <p className="line-height-[ 44px] mt-3  text-wrap text-center font-neue-machina-bold text-[30px] uppercase sm:text-[56px]   sm:leading-[75.75px] md:px-8 xl:pr-32 ">
             A Trusted and Secure Web 3.0 Financial DeFi Solution
           </p>
         </div>
         <div className="mt-10 flex flex-col items-center gap-4  md:flex-row lg:mr-28">
-          <div className="flex max-w-72 flex-wrap rounded-[10px] border-[#CBFB4533] border bg-neutral p-4 lg:gap-10 ">
+          <div className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 ">
             <div className=" max-w-28 sm:max-w-32">
               <p className="text-neutralLight">You have</p>
               <input
@@ -76,7 +80,17 @@ export default function AboutHeader() {
               </p>
               <Menu as="div" className="relative">
                 <Menu.Button className="flex h-8 max-w-fit items-center  border-transparent  bg-transparent font-apfel-grotezk uppercase outline-none">
-                  {selectedCurrency}
+                  {selectedCoin === "bitcoin"
+                    ? "BTC"
+                    : selectedCoin === "ethereum"
+                      ? "ETH"
+                      : selectedCoin === "cardano"
+                        ? "ADA"
+                        : selectedCoin === "polkadot"
+                          ? "DOT"
+                          : selectedCoin === "solana"
+                            ? "SOL"
+                            : "LUNA"}{" "}
                   {chevronDown}
                 </Menu.Button>
                 <Transition
@@ -92,50 +106,60 @@ export default function AboutHeader() {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && " text-primary1"} w-full text-start font-apfel-grotezk`}
-                          onClick={() => handleCurrencySelect("usd")}
+                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCoinSelect("bitcoin")}
                         >
-                          USD
+                          BTC
                         </button>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
-                          onClick={() => handleCurrencySelect("inr")}
+                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCoinSelect("ethereum")}
                         >
-                          INR
+                          ETH
                         </button>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
-                          onClick={() => handleCurrencySelect("eur")}
+                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCoinSelect("cardano")}
                         >
-                          EUR
+                          ADA
                         </button>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
-                          onClick={() => handleCurrencySelect("pkr")}
+                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCoinSelect("polkadot")}
                         >
-                          PKR
+                          DOT
                         </button>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
-                          onClick={() => handleCurrencySelect("gbp")}
+                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCoinSelect("solana")}
                         >
-                          GBP
+                          SOL
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          onClick={() => handleCoinSelect("terra-luna")}
+                        >
+                          LUNA
                         </button>
                       )}
                     </Menu.Item>
@@ -151,7 +175,7 @@ export default function AboutHeader() {
             src="images/img_share.svg"
             alt="share"
           />
-          <div className="flex max-w-72 flex-wrap rounded-[10px] border-[#CBFB4533] border bg-neutral p-4 lg:gap-10 ">
+          <div className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 ">
             <div className=" max-w-28 sm:max-w-32">
               <p className="text-neutralLight">You get</p>
               <input
@@ -236,10 +260,10 @@ export default function AboutHeader() {
             </div>
           </div>
           <Button
-              size="small"
-              title="Buy Now"
-              className="text-xs px-10  md:py-5 lg:py-5 lg:text-base xl:px-10 xl:text-base"
-            />
+            size="small"
+            title="Buy Now"
+            className="px-10 text-xs  md:py-5 lg:py-5 lg:text-base xl:px-10 xl:text-base"
+          />
         </div>
         <div className="mt-5 flex w-[79%] flex-col items-center justify-start gap-2.5 md:w-full">
           <p className=" font-apfel-grotezk text-[16px] text-base text-[#898990]">
