@@ -2,7 +2,7 @@ import Image from "next/image";
 import Button from "@/components/buttons/Button";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
 
-const ServicesGlobe = () => {
+const Section4 = () => {
   return (
     <div className="bg-primary  px-8  grid place-items-center ">
       <div className="mt-20 flex xl:ml-8  max-w-[83rem] flex-col-reverse  md:justify-center md:items-center md:flex-row-reverse ">
@@ -54,4 +54,4 @@ const renderStat = (number, label) => (
   </div>
 );
 
-export default ServicesGlobe;
+export default Section4;

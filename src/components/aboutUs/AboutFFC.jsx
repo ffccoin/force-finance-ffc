@@ -36,12 +36,12 @@ export default function AboutFFC() {
                 <div>{circleArrow}</div>
               </div>
             </div>
-            <div className="flex w-full flex-col gap-10   border-t-[2px]   border-[#2C2C2B]  pb-11 pt-11 sm:flex-row">
+            <div className="flex w-full flex-col md:gap-10 sm:gap-3 gap-10  border-t-[2px]   border-[#2C2C2B]  pb-11 pt-11 sm:flex-row">
               <div className="ml-3 flex   gap-5  sm:ml-5 md:w-[158px]  lg:w-[261px] xl:ml-12">
                 <p>Multi-Layered Security </p> <div>{circleArrow}</div>
               </div>
 
-              <div className="ml-3 flex gap-10 sm:ml-5  md:w-[158px] lg:w-[261px]">
+              <div className="ml-3 flex md:gap-14 gap-[4.5rem] sm:gap-16  md:ml-1  md:w-[158px] lg:w-[261px]">
                 <p>User Education </p> <div>{circleArrow}</div>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function AboutFFC() {
         </div>
       </div>
       <div
-        className="mt-14 flex max-w-[87rem] flex-col items-center justify-center  px-8 md:mb-10 md:mt-28 md:flex-row xl:px-12"
+        className="mt-14 flex max-w-[87rem] flex-col items-center justify-center   px-8 lg:px-10 md:mb-10 md:mt-28 md:flex-row "
         orientation="horizontal"
       >
         <TextBox

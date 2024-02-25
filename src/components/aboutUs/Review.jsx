@@ -1,7 +1,7 @@
 export default function Review({ image, heading, data }) {
   return (
     <div className="flex-wrap">
-      <div className="m-4 flex h-full w-full max-w-[500px] flex-col items-start justify-center rounded-lg bg-[#1E1E1F] px-10 py-10 sm:px-20 sm:py-20">
+      <div className=" flex min-h-[351px] h-full  max-w-[500px] flex-col items-start justify-center rounded-xl bg-[#1E1E1F] px-10 py-10 sm:px-20 sm:py-20">
         <img
           className="my-3 h-[30px] w-[150px]"
           src={`/aboutpage/${image}.svg`}

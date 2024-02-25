@@ -2,7 +2,7 @@ export default function Section5() {
   return (
     <div className="items-centre px-8 w-screen flex-col justify-center">
       <div className="flex items-center justify-center">
-        <div className=" mt-[90px] flex w-full max-w-[1349px] items-center justify-center md:px-5">
+        <div className=" mt-[90px] flex w-full max-w-[1349px] items-center justify-center px-4 md:px-5">
           <div className="flex w-full flex-col items-center justify-center gap-[49px]">
             <div className="flex w-full flex-col items-start justify-center md:gap-5">
               <p className="text-start font-neue-machina-bold text-[25.9px] uppercase leading-[42.00px] text-white md:text-[35.9px]">
