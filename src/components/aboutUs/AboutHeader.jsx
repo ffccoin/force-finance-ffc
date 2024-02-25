@@ -90,7 +90,7 @@ export default function AboutHeader() {
                           ? "DOT"
                           : selectedCoin === "solana"
                             ? "SOL"
-                            : "LUNA"}{" "}
+                            : "LUNA"}
                   {chevronDown}
                 </Menu.Button>
                 <Transition
@@ -106,7 +106,7 @@ export default function AboutHeader() {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
                           onClick={() => handleCoinSelect("bitcoin")}
                         >
                           BTC
@@ -116,7 +116,7 @@ export default function AboutHeader() {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
                           onClick={() => handleCoinSelect("ethereum")}
                         >
                           ETH
@@ -126,7 +126,7 @@ export default function AboutHeader() {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
                           onClick={() => handleCoinSelect("cardano")}
                         >
                           ADA
@@ -136,7 +136,7 @@ export default function AboutHeader() {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
                           onClick={() => handleCoinSelect("polkadot")}
                         >
                           DOT
@@ -146,7 +146,7 @@ export default function AboutHeader() {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
                           onClick={() => handleCoinSelect("solana")}
                         >
                           SOL
@@ -156,7 +156,7 @@ export default function AboutHeader() {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          className={`${active && ""} w-full text-start font-apfel-grotezk`}
+                          className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
                           onClick={() => handleCoinSelect("terra-luna")}
                         >
                           LUNA

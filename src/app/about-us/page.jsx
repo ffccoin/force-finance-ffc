@@ -1,5 +1,4 @@
 'use client'
-
 import AboutFFC from "@/components/aboutUs/AboutFFC";
 import Section3 from "@/components/aboutUs/Section3";
 import Section4 from "@/components/aboutUs/Section4";
@@ -17,8 +16,8 @@ export default function page() {
       <AboutFFC />
       <Section /> 
       <Section3 />
-      {/* <Section4 />
-      <Section5 />
+      {/* <Section4 /> */}
+      {/* <Section5 />
       <Section6 />
       <Section7 /> */}
     </div>
