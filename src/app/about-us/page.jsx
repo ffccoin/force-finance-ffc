@@ -19,7 +19,7 @@ export default function page() {
       <Section4 />
       <Section5 />
       <Section6 />
-      <Section7 />
+      {/* <Section7 /> */}
     </div>
   );
 }
