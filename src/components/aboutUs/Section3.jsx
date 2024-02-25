@@ -10,7 +10,7 @@ export default function Section3() {
         style={{ backgroundImage: "url('aboutpage/backgroundB.svg')" }}
         className={`mb-10  relative flex h-full w-screen flex-col items-center justify-center bg-cover bg-center bg-no-repeat px-8 pt-6`}
       >
-        <div className="absolute  left-0 top-0">
+        <div className="absolute max-w-[170px]  sm:max-w-[210px] lg:max-w-[290px] md:max-w-[240px] 2xl:max-w-full left-0 top-0">
         <Image
     width={428}
     height={349}
