@@ -7,7 +7,7 @@ export default function Section3() {
     <div>
       <div
         style={{ backgroundImage: "url('aboutpage/backgroundB.svg')" }}
-        className={`mb-10 flex h-full w-screen flex-col items-center justify-center bg-cover bg-center bg-no-repeat px-4 pt-6`}
+        className={`mb-10 flex h-full 2xl:w-screen flex-col items-center justify-center bg-cover bg-center bg-no-repeat px-4 pt-6`}
       >
         <Header />
         <div

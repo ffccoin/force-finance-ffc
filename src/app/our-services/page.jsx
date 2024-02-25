@@ -13,7 +13,7 @@ import ServicesFAQs from "@/components/ourServices/ServicesFAQs";
 
 export default function page() {
   return (
-    <div>
+    <div className="mt-52">
       <ServicesHeader />
       <Section1 />
       <ServicesExperience/>

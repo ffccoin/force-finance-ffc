@@ -3,7 +3,7 @@
 export default function ContactHeader() {
   return (
     <div className="mt-14 px-4 flex flex-col content-center items-center justify-center">
-      <p className="font-neue-machina-bold text-[28px] md:text-[56px] font-[800px] leading-[75.75px] text-neutralLighter">
+      <p className="font-neue-machina-bold text-[36px] text-center md:text-[56px] font-[800px] leading-[75.75px] text-neutralLighter">
         CONTACT US
       </p>
       <p className="w-auto mx-4 md:mx-0 md:w-[625px] text-center font-apfel-grotezk text-[16px] font-[400px] leading-[24px] text-neutralLight">
