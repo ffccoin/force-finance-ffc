@@ -4,9 +4,9 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 const ServicesGlobe = () => {
   return (
-    <div className="bg-primary mt-[-2px]  grid place-items-center ">
-      <div className="mt-20 flex  max-w-[83rem] flex-col-reverse  lg:justify-center  lg:flex-row-reverse ">
-        <div className="flex-shrink-0">
+    <div className="bg-primary  px-8  grid place-items-center ">
+      <div className="mt-20 flex xl:ml-8  max-w-[83rem] flex-col-reverse  md:justify-center md:items-center md:flex-row-reverse ">
+        <div className="xl:max-w-[685px] lg:max-w-[500px] md:max-w-[400px] flex flex-shrink-0">
           <Image
             src="/ourServices/globe.png"
             width={685}
@@ -27,9 +27,9 @@ const ServicesGlobe = () => {
           <p className="mt-9 text-wrap text-[16px] leading-[24px] text-neutralLight  lg:max-w-[34.5rem]">
           Driven by a vision of inclusivity and innovation, Force Finance Coin utilizes blockchain technology to offer diverse DeFi solutions. From decentralized exchanges to yield farming, it empowers users with a range of options.
           </p>
-          <div className="mt-11 flex w-full flex-col gap-8 pr-8 md:flex-row">
+          <div className="mt-11 flex w-full gap-8">
             <Button
-              className="w-fullsm:w-auto"
+              className="w-full sm:w-auto"
               title="Join our team"
               size="small"
               icon={

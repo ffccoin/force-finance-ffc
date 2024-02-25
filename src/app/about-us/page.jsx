@@ -17,8 +17,8 @@ export default function page() {
       <Section /> 
       <Section3 />
       <Section4 />
-      {/* <Section5 />
-      <Section6 /> */}
+      <Section5 />
+      {/* <Section6 /> */}
       {/* <Section7 /> */}
     </main>
   );
