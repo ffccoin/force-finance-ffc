@@ -37,7 +37,7 @@ export default function Section3() {
         </div>
         <div style={{
           backgroundImage: `linear-gradient(to top, transparent, #2c1c49, transparent)`,
-        }} className="flex w-screen  gap-5 sm:px-8 px-1 h-full  lg:flex-nowrap flex-wrap">
+        }} className="flex w-screen  gap-5 sm:px-8 px-5 h-full  lg:flex-nowrap flex-wrap">
           <Thumbnail text={"Transactions per second"} val={"5425"} />
           <Thumbnail text={"Total Transactions"} val={"60M+"} />
           <Thumbnail text={"Gass Fees"} val={"$0.002"} />
