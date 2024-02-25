@@ -6,7 +6,7 @@ import HeaderSidebar from "../headers/header-sidebar/HeaderSidebar";
 import { Menu, Transition } from "@headlessui/react";
 import MovingBar from "./moving-bar/MovingBar";
 import Image from "next/image";
-import { Fragment,  useState ,useEffect} from "react";
+import { Fragment, useState, useEffect } from "react";
 
 // framer motion import
 import { AnimatePresence, motion } from "framer-motion";
@@ -17,7 +17,7 @@ const Header = ({ coins }) => {
 
   const controlNavbar = () => {
     if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
+      if (window.scrollY > 100 && window.scrollY > lastScrollY) {
         // Scrolling down
         setIsVisible(false);
       } else {
@@ -68,15 +68,14 @@ const Header = ({ coins }) => {
               FORCE FINANCE
             </h1>
           </div> */}
-          <div className="w-[80%]">
-          <Image
-                src="/logos/header-logo.svg"
-                loading="eager"
-                width={250}
-                height={32}
-              />
-
-          </div>
+              <div className="w-[80%]">
+                <Image
+                  src="/logos/header-logo.svg"
+                  loading="eager"
+                  width={250}
+                  height={32}
+                />
+              </div>
               <HeaderSidebar />
             </div>
             {/* Medium and larger screen size */}
