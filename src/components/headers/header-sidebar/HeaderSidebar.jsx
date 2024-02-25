@@ -94,7 +94,7 @@ const HeaderSidebar = () => {
                 </div>
                 <div className="mt-4  hover:text-primary1">
                   <a href="/about-us" className=" ">
-                    About Us
+                    About
                   </a>
                 </div>
                 <div className="mt-4  hover:text-primary1 ">
@@ -145,7 +145,7 @@ const HeaderSidebar = () => {
                 </div>
                 <div className="mt-4 hover:text-primary1 ">
                   <a href="/contact-us" className=" ">
-                    Contact Us
+                    Contact
                   </a>
                 </div>
               </motion.div>
