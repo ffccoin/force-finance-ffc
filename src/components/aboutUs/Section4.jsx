@@ -1,51 +1,57 @@
-import Button from "../buttons/Button";
+import Image from "next/image";
+import Button from "@/components/buttons/Button";
+import SecondaryButton from "@/components/buttons/SecondaryButton";
 
-export default function Section4() {
+const ServicesGlobe = () => {
   return (
-    <div className="flex w-screen items-center justify-center">
-      <div className="mx-auto mt-[46px] flex  w-full max-w-[1340px] flex-col items-center justify-center md:flex-row md:gap-5 md:px-5">
-        <div className="mr-0 flex w-[250px] flex-col items-start justify-center md:w-[600px] lg:mr-14 xl:w-[700px] ">
-          <p className="flex items-center font-apfel-grotezk text-[16px] text-base uppercase tracking-[5.76px] text-primary1">
-            WHAT IS Ffc coin?
-          </p>
-          <p className="font-neue-machina-bold3 mt-[33px] w-full text-[25.9px] font-[800px] uppercase leading-[42.00px] text-gray-100 lg:text-[35.9px]">
-            Your Trusted Decentralized DeFi Web 3 Financial Solution Provider
-          </p>
-          <div className="font-apfelgrotezk mt-[17px] flex flex-col items-center justify-start gap-[15px]">
-            <p className="w-[99%] font-apfel-grotezk text-[18px] text-lg leading-[24.00px] text-gray-100 sm:w-full">
-              Force Finance Coin is a dynamic DeFi platform on the etherum
-              blockchain, revolutionizing finance and empowering users with
-              innovative solutions.
-            </p>
-            <div className="font-apfel-grotezk text-[16px] text-base leading-[24.00px] text-[#898990]">
-              <p>
-                At its core, Force Finance Coin serves as a decentralized medium
-                of exchange, ensuring secure and transparent transactions.
-                Committed to accessibility and security, it democratizes
-                financial services for all users.
-                <br />
-                <br />
-                Driven by a vision of inclusivity and innovation, Force Finance
-                Coin utilizes blockchain technology to offer diverse DeFi
-                solutions. From decentralized exchanges to yield farming, it
-                empowers users with a range of options.
-                <br />
-                <br />
-              </p>
-            </div>
-          </div>
-          <Button title={"Lunch Dapp"} />
+    <div className="bg-primary mt-[-2px]  grid place-items-center ">
+      <div className="mt-20 flex  max-w-[83rem] flex-col-reverse  lg:justify-center  lg:flex-row-reverse ">
+        <div className="flex-shrink-0">
+          <Image
+            src="/ourServices/globe.png"
+            width={685}
+            height={613}
+            alt="img"
+          />
         </div>
-        <div className="relative">
-          <div className="absoluteh-[613px] md:h-[350px] md:w-[350px] lg:h-[602px] lg:w-[600px] xl:w-[700px]">
-            <img
-              className="absolute inset-[0] m-auto h-full w-full justify-center object-cover object-center"
-              src="images/img_rectangle4994.png"
-              alt="rectangle4994"
+        <div className=" flex max-w-[641px] flex-col   px-4 py-10 lg:items-start lg:p-0">
+          <p className="text-primary1 uppercase font-apfel-grotezk ">our story</p>
+          <h1 className=" text-wrap text-2xl w-full uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
+          Your Trusted Decentralized DeFi Web 3 Financial Solution Provider          </h1>
+          <p className="mt-9 text-wrap text-[16px] leading-[24px]  lg:max-w-[34.5rem]">
+          Force Finance Coin is a dynamic DeFi platform on the etherum blockchain, revolutionizing finance and empowering users with innovative solutions.
+          </p>
+          <p className="mt-9 text-wrap  text-[16px] leading-[24px] text-neutralLight  lg:max-w-[34.5rem]">
+          At its core, Force Finance Coin serves as a decentralized medium of exchange, ensuring secure and transparent transactions. Committed to accessibility and security, it democratizes financial services for all users.         
+           </p>
+          <p className="mt-9 text-wrap text-[16px] leading-[24px] text-neutralLight  lg:max-w-[34.5rem]">
+          Driven by a vision of inclusivity and innovation, Force Finance Coin utilizes blockchain technology to offer diverse DeFi solutions. From decentralized exchanges to yield farming, it empowers users with a range of options.
+          </p>
+          <div className="mt-11 flex w-full flex-col gap-8 pr-8 md:flex-row">
+            <Button
+              className="w-fullsm:w-auto"
+              title="Join our team"
+              size="small"
+              icon={
+                <Image
+                  src="/ourServices/arrowHead.svg"
+                  alt="Arrow"
+                  width={16}
+                  height={16}
+                />}
             />
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+const renderStat = (number, label) => (
+  <div className="flex flex-col gap-y-4">
+    <h1 className="text-[37.9px] leading-[42.64px]">{number}</h1>
+    <p className="ml-1 md:ml-4">{label}</p>
+  </div>
+);
+
+export default ServicesGlobe;

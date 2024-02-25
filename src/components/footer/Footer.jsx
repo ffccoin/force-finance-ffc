@@ -96,11 +96,11 @@ const Footer = () => {
             FAQs
           </a>
         </div>
-        <div className="mb-10 flex w-[80vw] flex-col gap-y-5 md:flex-row md:justify-between">
+        <div className="mb-10 overflow-hidden flex w-[80vw] flex-col  gap-y-5 md:flex-row md:justify-between">
           <span className="w-fit text-nowrap text-sm text-neutralLight">
             Copyright © 2024 FFC. All Rights Reserved
           </span>
-          <div className="flex gap-x-6">
+          <div className="flex flex-wrap gap-x-6">
             <a
               href="#"
               className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1"
