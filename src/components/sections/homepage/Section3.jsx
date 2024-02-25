@@ -20,14 +20,14 @@ const Section3 = () => {
     },
   };
 
-  const bottomToTopVariants = {
+  const rightToLeftVariants = {
     hide: {
       opacity: 0,
-      y: 150,
+      x: 100,
     },
     show: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         duration: 0.7,
       },
@@ -55,7 +55,7 @@ const Section3 = () => {
           initial="hide"
           whileInView="show"
           exit="show"
-          variants={bottomToTopVariants}
+          variants={rightToLeftVariants}
           className="mt-10 flex flex-col items-center justify-center lg:mb-10 lg:mt-0 lg:items-start"
         >
           <h1 className="text-wrap text-[37.9px]  uppercase leading-[42.64px] lg:mt-10">

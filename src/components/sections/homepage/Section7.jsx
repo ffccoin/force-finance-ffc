@@ -1,23 +1,64 @@
+"use client";
+
 import Image from "next/image";
-import Button from "@/components/buttons/Button";
-import SecondaryButton from "@/components/buttons/SecondaryButton";
+import { motion } from "framer-motion";
 
 const Section7 = () => {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
   return (
     <div
       id="Section7"
       className=" mt-[-2px] grid  place-items-center bg-primary1 "
     >
       <div className="flex max-w-[90rem]  flex-col px-1  pl-2">
-        <div className=" mt-[3.375rem] flex flex-col text-neutral">
+        <motion.div
+          className="mt-[3.375rem] flex flex-col text-neutral"
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+        >
           <p className="text-center font-apfel-grotezk  text-base font-normal leading-6 tracking-wider text-darkGreen">
             ROADMAP
           </p>
           <h3 className="mt-[1.6rem] text-center  font-neue-machina-bold  text-4xl leading-10 tracking-normal">
             THE EVOLUTION OF FFC COIN
           </h3>
-        </div>
-        <div className="ml-auto mt-[4.98rem]  flex  items-center justify-end sm:mr-auto lg:ml-32 xl:ml-48 xl:pl-36 ">
+        </motion.div>
+        <motion.div
+          className="ml-auto mt-[4.98rem] flex items-center justify-end sm:mr-auto lg:ml-32 xl:ml-48 xl:pl-36"
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants}
+        >
           <div className="h-[243px] max-w-[424px] border-l border-dashed border-darkGray sm:max-w-[300px] xl:max-w-[380px] ">
             <p className="ml-6 mt-[2.622rem] font-neue-machina-bold text-lg leading-6   text-primary2 ">
               Design & Development
@@ -79,12 +120,23 @@ const Section7 = () => {
               </li>
             </ul>
           </div>
-        </div>
-        <div className="mt-8 flex">
+        </motion.div>
+        <motion.div
+          className="mt-8 flex"
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+        >
           <Image width={1920} height={100} alt="img" src="/homepage/line.svg" />
-        </div>
-
-        <div className="ml-auto mt-3  flex  items-center  justify-end sm:mr-auto lg:ml-32 xl:ml-48  xl:pl-[3.2rem]">
+        </motion.div>
+        <motion.div
+          className="ml-auto mt-3 flex items-center justify-end sm:mr-auto lg:ml-32 xl:ml-48 xl:pl-[3.2rem]"
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants}
+        >
           <div className="h-[267px] max-w-[424px] border-l border-dashed border-darkGray sm:max-w-[300px] xl:max-w-[380px] ">
             <p className="ml-6 mt-[2.622rem] font-neue-machina-bold text-lg leading-6   text-primary2 ">
               Research & Planning{" "}
@@ -146,7 +198,7 @@ const Section7 = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

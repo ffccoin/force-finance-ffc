@@ -1,4 +1,7 @@
+"use client";
+
 import Button from "@/components/buttons/Button";
+import { motion } from "framer-motion";
 
 const Section5 = () => {
   const tokenInfo = [
@@ -11,10 +14,43 @@ const Section5 = () => {
     { label: "Smart Contract:", value: "0xAb5801a7D398351b8bE11C439C9B" },
   ];
 
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
   return (
     <div className="grid place-items-center items-center justify-center">
       <div className="mt-14 flex flex-col gap-14 px-8 lg:max-w-7xl lg:flex-row lg:gap-72 xl:px-0">
-        <div className="">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+        >
           <p className="text-left font-apfel-grotezk text-base font-normal leading-6 tracking-wider text-primary1">
             ABOUT FFC COIN
           </p>
@@ -33,8 +69,14 @@ const Section5 = () => {
             involvement, FFC empowers users to participate in the decentralized
             finance landscape with ease and flexibility
           </p>
-        </div>
-        <div className="mt-8 flex w-auto flex-col flex-wrap justify-end">
+        </motion.div>
+        <motion.div
+          className="mt-8 flex w-auto flex-col flex-wrap justify-end"
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants}
+        >
           {tokenInfo.map((info, index) => (
             <div key={index} className="mb-9 flex flex-wrap gap-x-6">
               <p className="font-neue-machina-bold text-base font-extrabold  leading-6">
@@ -48,7 +90,7 @@ const Section5 = () => {
           <div className="mt-auto w-full md:w-fit">
             <Button title="View on EthScan" size="small" width="full" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

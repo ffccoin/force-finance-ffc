@@ -81,25 +81,14 @@ const Header = ({ coins }) => {
             {/* Medium and larger screen size */}
             <div className="hidden h-[78px] w-full max-w-7xl grid-cols-12 place-items-center md:grid">
               <nav className="flex w-full items-center gap-x-2 md:col-span-6 lg:col-span-5 lg:gap-x-4">
-                <motion.div className="relative overflow-hidden font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
-                  <motion.button
-                    key="submenu"
-                    className="hover-link h-8 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
-                    onClick={() => router.push("/")}
-                  >
-                    Home
-                  </motion.button>
-                  {/* <motion.div
-                key="submenu"
-                className="absolute top-0 h-[2px] w-full bg-primary1"
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                exit={{ width: 0 }}
-                transition={{ duration: 0.5 }}
-              /> */}
-                </motion.div>
                 <button
-                  className="flex h-8 items-center  gap-x-1  border  border-transparent font-apfel-grotezk text-xs hover:border-b-primary1 lg:text-xs xl:text-[15px]"
+                  className="flex h-8 items-center gap-x-1 border border-transparent font-apfel-grotezk text-xs hover:border-b-primary1 lg:text-xs xl:text-[15px]"
+                  onClick={() => router.push("/")}
+                >
+                  Home
+                </button>
+                <button
+                  className="flex h-8 items-center gap-x-1 border border-transparent font-apfel-grotezk text-xs hover:border-b-primary1 lg:text-xs xl:text-[15px]"
                   onClick={() => router.push("/about-us")}
                 >
                   About

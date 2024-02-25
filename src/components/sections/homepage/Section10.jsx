@@ -3,12 +3,45 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const Section10 = () => {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg ">
-      <div className="mt-10 flex flex-wrap  sm: pl-8  px-4   md:flex-row lg:justify-end">
-        <div className="flex  xl:max-w-[36.7rem] md:max-w-[22.7rem] max-w-[38.7rem]  flex-col ">
-        <h3 className="font-neue-machina-bold text-wrap md:text-3xl text-xl	 ">
-            Access all your favorite assets effortlessly 
+      <div className="sm: mt-10 flex flex-wrap px-4 pl-8 md:flex-row lg:justify-end">
+        <motion.div
+          className="flex max-w-[38.7rem] flex-col md:max-w-[22.7rem] xl:max-w-[36.7rem]"
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+        >
+          <h3 className="text-wrap font-neue-machina-bold text-xl md:text-3xl	 ">
+            Access all your favorite assets effortlessly
           </h3>
 
           <p className=" mt-8 text-wrap text-[16px] leading-[24px] text-neutralLight">
@@ -40,8 +73,14 @@ const Section10 = () => {
               />
             </div>
           </span>
-        </div>
-        <div className="flex flex-wrap justify-end">
+        </motion.div>
+        <motion.div
+          className="flex flex-wrap justify-end"
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants}
+        >
           <motion.div
             className="mt-8 max-w-[20rem] lg:max-w-[38rem]"
             animate={{ scale: [1, 1.02, 1] }}
@@ -58,7 +97,7 @@ const Section10 = () => {
               height={489}
             />
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

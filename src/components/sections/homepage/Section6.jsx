@@ -1,10 +1,47 @@
+"use client";
+
 import Card from "@/components/elements/Card";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Section6 = () => {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
   return (
     <div className="mb-20 mt-2 grid place-items-center bg-primary2 px-4">
-      <div className=" flex flex-col items-center">
+      <motion.div
+        className=" flex flex-col items-center"
+        initial="hide"
+        whileInView="show"
+        exit="show"
+        variants={leftToRightVariants}
+      >
         <div className=" flex flex-col items-center  md:mt-20 ">
           <p className="mt-3 text-center font-neue-machina-bold text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px]">
             TOKENOMICS
@@ -18,8 +55,14 @@ const Section6 = () => {
             platform's trajectory towards success.
           </span>
         </div>
-      </div>
-      <div className="mt-8 flex w-full flex-col  items-center justify-center gap-8 lg:flex-row ">
+      </motion.div>
+      <motion.div
+        className="mt-8 flex w-full flex-col  items-center justify-center gap-8 lg:flex-row"
+        initial="hide"
+        whileInView="show"
+        exit="show"
+        variants={rightToLeftVariants}
+      >
         <div>
           <Image width={350} height={350} alt="img" src="/homepage/graph.svg" />
         </div>
@@ -31,8 +74,14 @@ const Section6 = () => {
             src="/homepage/graph2.svg"
           />
         </div>
-      </div>
-      <div className=" mt-8  flex flex-col px-4 sm:px-24">
+      </motion.div>
+      <motion.div
+        className=" mt-8  flex flex-col px-4 sm:px-24"
+        initial="hide"
+        whileInView="show"
+        exit="show"
+        variants={leftToRightVariants}
+      >
         <h4 className="mb-5 mr-auto flex items-center justify-center font-neue-machina-bold text-[28.43px]  font-extrabold leading-8">
           Token Sale Stages
         </h4>
@@ -66,7 +115,7 @@ const Section6 = () => {
             endTime={"07.30.2022"}
           ></Card>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
