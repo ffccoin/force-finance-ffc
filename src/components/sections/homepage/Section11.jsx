@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Section11 = () => {
+  const router = useRouter();
+
   const leftToRightVariants = (delay) => ({
     hide: {
       opacity: 0,
@@ -27,15 +30,15 @@ const Section11 = () => {
             Need Help?
           </h3>
         </div>
-        <div className="flex flex-col gap-x-[30px] gap-y-4 sm:justify-center sm:gap-y-8 md:flex-row">
+        <div className="flex flex-col gap-[30px] sm:justify-center sm:gap-y-8 md:flex-row">
           <motion.div
-            className="group flex w-full  gap-y-[30px] rounded-[10px]"
+            className="group flex w-full gap-y-[30px] rounded-[10px]"
             initial="hide"
             whileInView="show"
             exit="show"
             variants={leftToRightVariants(0)}
           >
-            <div className="grid h-[80px] w-[80px] place-items-center  ">
+            <div className="grid h-[80px] w-[80px] place-items-center">
               <Image
                 src="/homepage/chat.svg"
                 width={80}
@@ -51,19 +54,20 @@ const Section11 = () => {
                 Get 24/7 chat support with our friendly customer service agents
                 at your service.
               </span>
-              <span className="mt-2 flex text-center ">
-                <p className=" font-neue-machina-bold text-primary1 ">
-                  chat now{" "}
+              <button
+                className="mt-2 flex items-center gap-x-1 text-center"
+                onClick={() => router.push("/contact-us")}
+              >
+                <p className="font-neue-machina-bold text-primary1 ">
+                  Chat now
                 </p>
-                <div className=" flex justify-center text-center">
-                  <Image
-                    src="/homepage/arrowHead.svg"
-                    alt="Arrow"
-                    width={16}
-                    height={10}
-                  />
-                </div>
-              </span>
+                <Image
+                  src="/homepage/arrowHead.svg"
+                  alt="Arrow"
+                  width={16}
+                  height={10}
+                />
+              </button>
             </div>
           </motion.div>
           <motion.div
@@ -73,7 +77,7 @@ const Section11 = () => {
             exit="show"
             variants={leftToRightVariants(0.5)}
           >
-            <div className="grid h-[80px] w-[80px] place-items-center  ">
+            <div className="grid h-[80px] w-[80px] place-items-center">
               <Image
                 src="/homepage/FaQs.svg"
                 width={80}
@@ -81,26 +85,27 @@ const Section11 = () => {
                 alt="img"
               />
             </div>
-            <div className="flex w-[80%] flex-col gap-x-3 gap-y-3 ">
-              <p className="font-neue-machina-bold   text-[21.33px] leading-6 ">
+            <div className="flex w-[80%] flex-col gap-x-3 gap-y-3">
+              <p className="font-neue-machina-bold text-[21.33px] leading-6">
                 FAQs
               </p>
               <span className="text-neutralLight">
                 View FAQs for detailed instructions on specific features.
               </span>
-              <span className="mt-2 flex text-center ">
-                <p className=" font-neue-machina-bold text-primary1 ">
+              <button
+                className="mt-2 flex items-center gap-x-1 text-center"
+                onClick={() => router.push("/faqs")}
+              >
+                <p className=" font-neue-machina-bold text-primary1">
                   Learn more
                 </p>
-                <div className=" flex justify-center text-center">
-                  <Image
-                    src="/homepage/arrowHead.svg"
-                    alt="Arrow"
-                    width={16}
-                    height={10}
-                  />
-                </div>
-              </span>
+                <Image
+                  src="/homepage/arrowHead.svg"
+                  alt="Arrow"
+                  width={16}
+                  height={10}
+                />
+              </button>
             </div>
           </motion.div>
           <motion.div
@@ -110,7 +115,7 @@ const Section11 = () => {
             exit="show"
             variants={leftToRightVariants(1)}
           >
-            <div className="grid h-[80px] w-[80px] place-items-center  ">
+            <div className="grid h-[80px] w-[80px] place-items-center">
               <Image
                 src="/homepage/blog.svg"
                 width={80}
@@ -119,25 +124,23 @@ const Section11 = () => {
               />
             </div>
             <div className="flex w-[80%] flex-col gap-x-3 gap-y-3 ">
-              <p className="font-neue-machina-bold  text-[21.33px] leading-6 ">
+              <p className="font-neue-machina-bold  text-[21.33px] leading-6">
                 Blog
               </p>
               <span className="text-neutralLight">
-                Stay up to date with the latest stories and commentary.{" "}
+                Stay up to date with the latest stories and commentary.
               </span>
-              <span className="mt-2 flex text-center ">
-                <p className=" font-neue-machina-bold text-primary1 ">
+              <button className="mt-2 flex items-center gap-x-1">
+                <p className=" font-neue-machina-bold text-primary1">
                   Learn more
                 </p>
-                <div className=" flex justify-center text-center">
-                  <Image
-                    src="/homepage/arrowHead.svg"
-                    alt="Arrow"
-                    width={16}
-                    height={10}
-                  />
-                </div>
-              </span>
+                <Image
+                  src="/homepage/arrowHead.svg"
+                  alt="Arrow"
+                  width={16}
+                  height={10}
+                />
+              </button>
             </div>
           </motion.div>
         </div>

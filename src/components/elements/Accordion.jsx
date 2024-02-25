@@ -1,21 +1,22 @@
-'use client'
-import React, { useState} from 'react'
+"use client";
+import { Disclosure } from "@headlessui/react";
+import React, { useState } from "react";
 
-export default function Accordion({ ques, ans}) {
-    const [check, setCheck] = useState(0);
-    const changeCheck = () => {
-        if(check == 0){
-            setCheck(1);
-        }
-        else if(check == 1){
-            setCheck(0);
-        }
-    }
+export default function Accordion({ ques, ans }) {
   return (
-    <div onClick={changeCheck} className={`cursor-pointer flex flex-col justify-center items-start md:w-[400px] lg:w-[500px] xl:w-[750px] mr-8 ${check == 0? "mb-5" : "mb-8"}`}>
-      <hr className={`h-px w-full ${check == 0? "bg-[#898990]": "bg-primary1"} mb-8`} />
-      <p  className={`text-[16px] font-neue-machina-bold ${check == 0? "text-[#ffffff]" : "text-primary1"} mb-4`}>{ques}</p>
-      <p className={`text-[16px] font-apfel-grotezk text-[#898990] ${check == 0? "hidden": "visible"} `}>{ans}</p>
-    </div>
-  )
+    <Disclosure>
+      {({ open }) => (
+        <>
+          <Disclosure.Button
+            className={`w-full border-t ${open ? "border-primary1 pb-3 text-primary1" : "border-[#8989904D] pb-9"} pt-9 text-start`}
+          >
+            {ques}
+          </Disclosure.Button>
+          <Disclosure.Panel className="pb-8 text-gray-500">
+            {ans}
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
+  );
 }

@@ -33,7 +33,7 @@ const HeaderSidebar = () => {
   return (
     <div className=" md:hidden ">
       <Image
-        className="cursor-pointer w-[100%] "
+        className="w-[100%] cursor-pointer"
         src="/homepage/sidebar.svg"
         width={40}
         height={32}
@@ -53,7 +53,6 @@ const HeaderSidebar = () => {
             onClick={handleImageClick}
           ></motion.div>
         )}
-
         {isSidebarVisible && (
           <motion.div
             key="sidebar"
@@ -139,14 +138,14 @@ const HeaderSidebar = () => {
                     </div>
                   </motion.div>
                 )}
-                <div className="mt-2  hover:text-primary1 ">
-                  <a href="/contact-us" className=" ">
-                    Contact Us
-                  </a>
-                </div>
-                <div className=" mt-4 justify-between  hover:text-primary1 ">
+                <div className=" mt-2 hover:text-primary1 ">
                   <a href="/#Section7" className=" ">
                     Roadmap
+                  </a>
+                </div>
+                <div className="mt-4 hover:text-primary1 ">
+                  <a href="/contact-us" className=" ">
+                    Contact Us
                   </a>
                 </div>
               </motion.div>

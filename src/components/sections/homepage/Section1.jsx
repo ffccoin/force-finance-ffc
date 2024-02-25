@@ -8,10 +8,10 @@ import LinkedParticlesAnimation from "@/components/animations/LinkedParticlesAni
 
 const Section1 = () => {
   return (
-    <div className="relative flex w-full flex-wrap items-center justify-center mt-24  lg:mt-44 bg-transparent pb-20 pt-11 ">
+    <div className="relative mt-24 flex w-full flex-wrap items-center justify-center  bg-transparent pb-20 pt-11 lg:mt-44 ">
       <LinkedParticlesAnimation />
-      <div className="flex w-full z-10 max-w-7xl flex-col flex-wrap items-center justify-center gap-y-20 md:flex-row md:justify-between lg:px-8 xl:px-10">
-        <div className="flex w-full flex-col gap-y-10 px-10 md:pt-14 pt-12 lg:max-w-[45%] lg:px-0 xl:gap-y-[55px]">
+      <div className="z-10 flex w-full max-w-7xl flex-col flex-wrap items-center justify-center gap-y-20 md:flex-row md:justify-between lg:px-8 xl:px-10">
+        <div className="flex w-full flex-col gap-y-10 px-10 pt-12 md:pt-14 lg:max-w-[45%] lg:px-0 xl:gap-y-[55px]">
           <motion.h1
             className="text-[28.1px] uppercase leading-[40.6px] sm:text-[39.41px] sm:leading-[42.6px] lg:text-5xl lg:leading-[56.8px]"
             initial={{
@@ -49,13 +49,13 @@ const Section1 = () => {
           </motion.p>
           <div className="hidden gap-x-6 md:flex lg:hidden xl:flex">
             <Button title="Connect Wallet" />
-            <a href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/">
+            <a href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
               <SecondaryButton title="Coin Audit" icon={rightArrow} />
             </a>
           </div>
           <div className="flex flex-col gap-3 md:hidden lg:flex xl:hidden">
             <Button title="Connect Wallet" size="small" width="fit" />
-            <a href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/">
+            <a href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
               <SecondaryButton
                 title="Coin Audit"
                 icon={rightArrow}
