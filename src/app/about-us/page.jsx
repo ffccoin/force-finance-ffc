@@ -11,15 +11,15 @@ import AboutHeader from "@/components/aboutUs/AboutHeader";
 
 export default function page() {
   return (
-    <div className="flex mt-32 flex-col w-screen items-center justify-center">
+    <main className="overflow-hidden w-full flex flex-col mt-32">
       <AboutHeader />
       <AboutFFC />
       <Section /> 
       <Section3 />
-      <Section4 />
+      {/* <Section4 />
       <Section5 />
-      <Section6 />
+      <Section6 /> */}
       {/* <Section7 /> */}
-    </div>
+    </main>
   );
 }
