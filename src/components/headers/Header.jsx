@@ -57,7 +57,7 @@ const Header = ({ coins }) => {
           initial={{ y: -120 }}
           animate={{ y: 0 }}
           exit={{ y: -120 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.2 }}
         >
           <MovingBar coins={coins} />
           <div className="z-50 grid place-items-center bg-transparent px-5">
@@ -84,11 +84,7 @@ const Header = ({ coins }) => {
                 <motion.div className="relative overflow-hidden font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]">
                   <motion.button
                     key="submenu"
-                    whileHover={{
-                      borderBottomColor: "#CBFB45",
-                      borderBottomWidth: "1px",
-                    }}
-                    className="h-8 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
+                    className="hover-link h-8 font-apfel-grotezk text-xs lg:text-xs xl:text-[15px]"
                     onClick={() => router.push("/")}
                   >
                     Home

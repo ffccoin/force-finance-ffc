@@ -196,9 +196,8 @@ On hover remove animation from all child divs .ticker-container:hover > * {
 }
 input[type="checkbox"] {
   width: 1px;
-
 }
- input[type="checkbox"] + label:before {
+input[type="checkbox"] + label:before {
   content: "\00a0";
   display: inline-block;
   font: 16px/1em sans-serif;
@@ -209,15 +208,34 @@ input[type="checkbox"] {
   width: 16px;
   background: #232325;
   border-radius: 3px;
-
 }
 input[type="checkbox"]:checked + label:before {
-  background: #CBFB45;
+  background: #cbfb45;
   color: black;
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.17L5.53 12.7a1 1 0 0 1 1.47-1.4l2.95 2.94 7.06-7.06a1 1 0 1 1 1.41 1.41L10.4 16.17a1 1 0 0 1-1.41 0z"/></svg>');
   text-align: center;
-} 
+}
 
+.hover-link {
+  position: relative;
+  color: #333;
+  text-decoration: none;
+}
+.hover-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #333;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.hover-link:hover::after {
+  visibility: visible;
+  width: 100%;
+}
 
 @keyframes ticker {
   0% {
