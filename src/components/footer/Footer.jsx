@@ -34,10 +34,16 @@ const Footer = () => {
           >
             Services
           </a>
-          <a href="#" className="text-neutralLight hover:text-primary1">
+          <a
+            href="/contact-us"
+            className="text-neutralLight hover:text-primary1"
+          >
             Careers
           </a>
-          <a href="#" className="text-neutralLight hover:text-primary1">
+          <a
+            href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/information/our-team"
+            className="text-neutralLight hover:text-primary1"
+          >
             Teams
           </a>
         </div>
@@ -62,16 +68,25 @@ const Footer = () => {
           <a href="#Section7" className="text-neutralLight hover:text-primary1">
             Roadmap
           </a>
-          <a href="#" className="text-neutralLight hover:text-primary1">
+          <a
+            href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/tokens/usdffc"
+            className="text-neutralLight hover:text-primary1"
+          >
             Documentation
           </a>
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
           <h3 className="mb-2 text-sm uppercase">Community</h3>
-          <a href="#" className="text-neutralLight hover:text-primary1">
+          <a
+            href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/information/beta-dex-launch"
+            className="text-neutralLight hover:text-primary1"
+          >
             Roles
           </a>
-          <a href="#" className="text-neutralLight hover:text-primary1">
+          <a
+            href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/our-foundations"
+            className="text-neutralLight hover:text-primary1"
+          >
             Ecosystem
           </a>
           <a href="#" className="text-neutralLight hover:text-primary1">
@@ -86,15 +101,24 @@ const Footer = () => {
             Copyright © 2024 FFC. All Rights Reserved
           </span>
           <div className="flex gap-x-6">
-            <span className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1">
+            <a
+              href="#"
+              className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1"
+            >
               Terms of Service
-            </span>
-            <span className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1">
+            </a>
+            <a
+              href="#"
+              className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1"
+            >
               Privacy Policy
-            </span>
-            <span className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1">
+            </a>
+            <a
+              href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits "
+              className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1"
+            >
               Security
-            </span>
+            </a>
           </div>
         </div>
       </div>
