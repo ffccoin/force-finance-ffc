@@ -17,7 +17,7 @@ export default function AboutHeader() {
 
   return (
     <div className="grid place-items-center  w-full  bg-primary2">
-      <div className="  flex flex-col items-center px-4 ">
+      <div className="  relative flex flex-col items-center px-4 ">
         {/*         <Image     className="absolute top-[5.4rem] left-[15.4rem] sm:left-[20rem] md:left-[30rem] lg:left-[60rem] xl:left-[60rem]" width={51} height={51} alt="img" src="/aboutpage/bitcoin.svg" /> */}
         <Image
           className="absolute top-[0.4rem] hidden xl:left-[60rem] xl:block"

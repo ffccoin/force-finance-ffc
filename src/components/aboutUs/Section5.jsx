@@ -1,14 +1,14 @@
 export default function Section5() {
   return (
-    <div className="items-centre mx-6 w-screen flex-col justify-center">
-      <div className="flex items-center justify-center">
-        <div className=" mt-[90px] flex w-full max-w-[1349px] items-center justify-center md:px-5">
+    <div className="items-centre flex px-8 w-screen flex-col justify-center">
+      <div className="flex items-center  xl:ml-8  justify-center">
+        <div className=" md:mt-[90px] mt-9 flex w-full max-w-[83rem]  items-center justify-center ">
           <div className="flex w-full flex-col items-center justify-center gap-[49px]">
-            <div className="flex w-full flex-col items-start justify-center md:gap-5">
-              <p className="text-start font-neue-machina-bold text-[25.9px] uppercase leading-[42.00px] text-white md:text-[35.9px]">
+            <div className="flex w-full sm:flex-row flex-col items-start justify-between md:gap-5">
+              <p className="text-start max-w-[600px] font-neue-machina-bold text-[25.9px] uppercase leading-[42.00px] text-white md:text-[35.9px]">
                 Navigating the Future of DeFi Finance
               </p>
-              <p className="text-start font-apfel-grotezk leading-[24.00px] text-[#898990] sm:mt-0">
+              <p className="text-start max-w-[450px]  font-apfel-grotezk leading-[24.00px] text-[#898990] sm:mt-0">
                 Take full control of your crypto, NFTs, and more with complete
                 privacy and security directly on your device.
               </p>
@@ -22,7 +22,7 @@ export default function Section5() {
                     alt="settings"
                   />
                   <div className="flex  w-full flex-col items-start justify-start gap-3">
-                    <p className="w-full font-neue-machina text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
+                    <p className="w-full  sm:text-start text-center font-neue-machina-bold text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
                       Cryptocurrency Transaction
                     </p>
                     <p className="text-blue_gray-400 max-w-[465px] font-apfel-grotezk text-[16px] text-base leading-[24.00px] text-[#898990] md:max-w-full">
@@ -41,7 +41,7 @@ export default function Section5() {
                     alt="settings"
                   />
                   <div className="flex  w-full flex-col items-start justify-start gap-3">
-                    <p className="w-full font-neue-machina text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
+                    <p className="w-full sm:text-start text-center  font-neue-machina-bold  text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
                       Fiat To Crypto{" "}
                     </p>
                     <p className="text-blue_gray-400 max-w-[465px] font-apfel-grotezk text-[16px] text-base leading-[24.00px] text-[#898990] md:max-w-full">
@@ -61,7 +61,7 @@ export default function Section5() {
                     alt="settings"
                   />
                   <div className="flex  w-full flex-col items-start justify-start gap-3">
-                    <p className="w-full font-neue-machina text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
+                    <p className="w-full sm:text-start text-center  font-neue-machina-bold  text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
                       Robust Security{" "}
                     </p>
                     <p className="text-blue_gray-400 max-w-[465px] font-apfel-grotezk text-[16px] text-base leading-[24.00px] text-[#898990] md:max-w-full">
@@ -79,7 +79,7 @@ export default function Section5() {
                     alt="settings"
                   />
                   <div className="flex  w-full flex-col items-start justify-start gap-3">
-                    <p className="w-full font-neue-machina text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
+                    <p className="w-full sm:text-start text-center  font-neue-machina-bold  text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
                       Defi Staking
                     </p>
                     <p className="text-blue_gray-400 max-w-[465px] font-apfel-grotezk text-[16px] text-base leading-[24.00px] text-[#898990] md:max-w-full">
@@ -97,9 +97,9 @@ export default function Section5() {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <div className="mx-2 mb-16 mt-16 flex h-full min-h-[288px] w-full max-w-[1300px] flex-col items-center justify-between rounded-2xl bg-[url('/images/back.svg')] bg-cover bg-center bg-no-repeat px-20 sm:mx-5 sm:flex-row">
+        <div className=" mb-16 mt-16 flex h-full min-h-[288px] w-full max-w-[1300px] flex-col items-center justify-between rounded-2xl bg-[url('/images/back.svg')] bg-cover bg-center bg-no-repeat px-20  sm:flex-row">
           <div className="mt-4 flex flex-col items-start justify-center pb-4 sm:pr-6">
-            <p className="font-neue-machina-bold text-[25px] uppercase text-black lg:text-[38px]">
+            <p className="font-neue-machina-bold sm:text-start text-center  text-[25px] uppercase text-black lg:text-[38px]">
               Get started for free
             </p>
 

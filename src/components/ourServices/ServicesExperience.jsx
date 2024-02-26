@@ -4,9 +4,9 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 const ServicesExperience = () => {
   return (
-    <div className="mt-16 grid place-items-center items-center justify-center  bg-primary1 md:h-auto lg:h-[700px] ">
+    <div className="mt-16 grid place-items-center items-center lg:justify-center  bg-primary1 md:h-auto lg:h-[700px] ">
       <div className="flex max-w-[90vw] flex-col-reverse  items-center  justify-between gap-8 md:justify-center  lg:flex-row">
-        <div className="flex max-w-[50rem] flex-col p-4 text-neutral md:p-6">
+        <div className="flex max-w-[56rem] flex-col p-4 text-neutral md:p-6">
           <h3 className=" text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-4">
             Experience the Power of Web 3 Wallets
           </h3>

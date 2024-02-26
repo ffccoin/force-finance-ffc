@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title:
-    "Force Finance - Decentralized Finance (DeFi) Solutions on Web 3.0 | Explore Now",
+    "Force Finance - Decentralized Finance (Defi) Web 3.0 Solutions | Explore Now ",
   description:
     "Discover Force Finance, your premier destination for decentralized finance (DeFi) solutions on Web 3.0. Explore our innovative DEX platform offering a range of financial services powered by blockchain technology. Join us in revolutionizing finance today!",
 };
