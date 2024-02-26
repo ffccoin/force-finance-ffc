@@ -1,14 +1,14 @@
 export default function Section5() {
   return (
-    <div className="items-centre px-8 w-screen flex-col justify-center">
-      <div className="flex items-center justify-center">
-        <div className=" mt-[90px] flex w-full max-w-[1349px] items-center justify-center px-4 md:px-5">
+    <div className="items-centre flex px-8 w-screen flex-col justify-center">
+      <div className="flex items-center  xl:ml-8  justify-center">
+        <div className=" md:mt-[90px] mt-9 flex w-full max-w-[83rem]  items-center justify-center ">
           <div className="flex w-full flex-col items-center justify-center gap-[49px]">
-            <div className="flex w-full flex-col items-start justify-center md:gap-5">
-              <p className="text-start font-neue-machina-bold text-[25.9px] uppercase leading-[42.00px] text-white md:text-[35.9px]">
+            <div className="flex w-full sm:flex-row flex-col items-start justify-between md:gap-5">
+              <p className="text-start max-w-[600px] font-neue-machina-bold text-[25.9px] uppercase leading-[42.00px] text-white md:text-[35.9px]">
                 Navigating the Future of DeFi Finance
               </p>
-              <p className="text-start font-apfel-grotezk leading-[24.00px] text-[#898990] sm:mt-0">
+              <p className="text-start max-w-[450px]  font-apfel-grotezk leading-[24.00px] text-[#898990] sm:mt-0">
                 Take full control of your crypto, NFTs, and more with complete
                 privacy and security directly on your device.
               </p>

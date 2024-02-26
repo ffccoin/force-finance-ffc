@@ -38,7 +38,7 @@ export default function Section3() {
           style={{
             backgroundImage: `linear-gradient(to top 50%, #2c1c49 50%,, transparent)`,
           }}
-          className="flex h-full  w-screen flex-wrap gap-5 px-5  sm:px-8 lg:flex-nowrap"
+          className="flex h-full mt-24 w-screen flex-wrap gap-5 px-5  sm:px-8 lg:flex-nowrap"
         >
           <Thumbnail text={"Transactions per second"} val={"5425"} />
           <Thumbnail text={"Total Transactions"} val={"60M+"} />

@@ -4,60 +4,60 @@ import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 export default function Section7() {
   return (
-    <div className="bg-primary  grid  place-items-center px-8 ">
-      <div className="mt-20 flex max-w-[83rem] flex-col-reverse lg:flex-row-reverse  lg:items-center lg:justify-center  lg:gap-36 xl:gap-44 ">
-        <div className="grid grid-cols-2 grid-rows-2 sm:grid-cols-3 sm:grid-rows-2">
-          <div className="flex items-center justify-center border border-solid border-[#898990] px-7 py-7	sm:px-8	 sm:py-8 xl:px-12 xl:py-12">
-            <Image
-              className=""
-              src="/aboutPage/poolin.svg"
-              width={133}
-              height={27}
-              alt="img"
-            />
+    <div className="bg-primary  grid  place-items-center px-8  md:place-items-start lg:place-items-center ">
+      <div className="mt-20 flex  max-w-full flex-col-reverse lg:max-w-[83rem] lg:flex-row-reverse lg:items-center  lg:justify-center lg:gap-36  xl:ml-8 xl:gap-44 ">
+        <div className="grid grid-cols-2 grid-rows-2 sm:grid-cols-3 sm:grid-rows-2 md:max-w-[83rem]">
+          <div className="flex items-center justify-center border border-solid border-[#898990] px-7 py-7	 sm:px-8 	md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8  xl:px-12 xl:py-12">
+              <Image
+                className=""
+                src="/aboutPage/poolin.svg"
+                width={183}
+                height={33}
+                alt="img"
+              />
           </div>
-          <div className="flex items-center justify-center border border-solid border-[#898990] px-7  py-7	sm:px-8 sm:py-8 xl:px-12 xl:py-12">
+          <div className="flex items-center justify-center border border-solid border-[#898990] px-7  py-7	sm:px-8  xl:px-12 xl:py-12  md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
             <Image
               className=""
               src="/aboutPage/neutrino.svg"
-              width={113}
-              height={26}
+              width={183}
+                height={33}
               alt="img"
             />
           </div>
-          <div className="flex items-center justify-center border border-solid border-[#898990]  px-7	py-7 sm:px-8 sm:py-8 xl:px-12 xl:py-12">
+          <div className="flex items-center justify-center border border-solid border-[#898990]  px-7	py-7 sm:px-8 xl:px-12 xl:py-12 md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
             <Image
               className=""
               src="/aboutPage/swop.svg"
-              width={100}
-              height={24}
+              width={183}
+              height={33}
               alt="img"
             />
           </div>
-          <div className="flex items-center justify-center border border-solid border-[#898990]   px-7	py-7 sm:px-8 sm:py-8 xl:px-12 xl:py-12">
+          <div className="flex items-center justify-center border border-solid border-[#898990]   px-7	py-7 sm:px-8 xl:px-12 xl:py-12 md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
             <Image
               className=""
               src="/aboutPage/btcex.svg"
-              width={123}
-              height={27}
+              width={183}
+              height={33}
               alt="img"
             />
           </div>
-          <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8 sm:py-8 xl:px-12 xl:py-12">
+          <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8 xl:px-12 xl:py-12 md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
             <Image
               className=""
               src="/aboutPage/coinbase.svg"
-              width={113}
-              height={24}
+              width={183}
+                height={33}
               alt="img"
             />
           </div>
-          <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8 sm:py-8 xl:px-12 xl:py-12">
+          <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8  xl:px-12 xl:py-12 md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
             <Image
               className=""
               src="/aboutPage/huobi.svg"
-              width={123}
-              height={27}
+              width={183}
+                height={33}
               alt="img"
             />
           </div>
