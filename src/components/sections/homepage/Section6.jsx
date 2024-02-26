@@ -3,6 +3,8 @@
 import Card from "@/components/elements/Card";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import TotalSuppliesChart from "@/components/charts/TotalSuppliesChart";
+import TokenomicsChart2 from "@/components/charts/TokenomicsChart2";
 
 const Section6 = () => {
   const leftToRightVariants = {
@@ -64,15 +66,10 @@ const Section6 = () => {
         variants={rightToLeftVariants}
       >
         <div>
-          <Image width={350} height={350} alt="img" src="/homepage/graph.svg" />
+          <TotalSuppliesChart />
         </div>
         <div>
-          <Image
-            width={350}
-            height={350}
-            alt="img"
-            src="/homepage/graph2.svg"
-          />
+          <TokenomicsChart2 />
         </div>
       </motion.div>
       <motion.div

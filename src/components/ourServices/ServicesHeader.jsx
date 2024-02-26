@@ -10,7 +10,6 @@ export default function ServicesHeader() {
       <div className=" mt-10 md:mx-0 items-center">
       <SecondaryButton title="Lunch Dapp" size="small" color="neutralDarker" className="bg-primary1 border-none text-neutralDarker" />
       </div>
-      
     </div>
   );
 }

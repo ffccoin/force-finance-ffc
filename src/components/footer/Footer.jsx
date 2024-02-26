@@ -102,13 +102,13 @@ const Footer = () => {
           </span>
           <div className="flex gap-x-6">
             <a
-              href="#"
+              href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/terms-and-condition"
               className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1"
             >
               Terms of Service
             </a>
             <a
-              href="#"
+              href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/privacy-policy"
               className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1"
             >
               Privacy Policy
