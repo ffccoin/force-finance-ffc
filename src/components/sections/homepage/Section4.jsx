@@ -45,7 +45,7 @@ const Section4 = () => {
             variants={leftToRightVariants}
           >
             <h1 className="text-wrap  text-3xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-4">
-              Force Finance Coin (FFC) POWERd BY Ethereum Chain
+              FFC Coin Powered BY Ethereum Chain
             </h1>
             <p className=" mt-4  text-wrap text-[16px] leading-[24px]">
               Force Finance Coin (FFC) is a revolutionary cryptocurrency built

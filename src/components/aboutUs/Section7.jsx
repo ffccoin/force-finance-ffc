@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Button from "@/components/buttons/Button";
-import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 export default function Section7() {
   return (

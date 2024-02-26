@@ -58,7 +58,7 @@ const Section2 = () => {
   };
   return (
     <div className="grid place-items-center">
-      <div className="flex max-w-7xl flex-col items-center gap-y-[61px] px-8 sm:px-10 md:px-12">
+      <div className="flex max-w-[87rem] flex-col items-center gap-y-[61px] px-8 sm:px-10 md:px-12">
         <motion.div
           initial="hide"
           whileInView="show"

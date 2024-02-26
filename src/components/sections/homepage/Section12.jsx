@@ -43,7 +43,7 @@ const Section12 = () => {
           variants={leftToRightVariants}
         >
           <h1 className="text-[38px] uppercase leading-[42.6px] text-black">
-            Unlock tomorrow's potential with FFC Coin
+            Unlock tomorrow's potential
           </h1>
           <p className="pr-10 text-[16px] leading-[24px] text-black">
             Embrace the future with FFC Coin, where innovation meets

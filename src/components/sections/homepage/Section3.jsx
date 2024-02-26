@@ -36,7 +36,7 @@ const Section3 = () => {
 
   return (
     <div className="mt-16 grid place-items-center">
-      <div className="flex max-w-6xl flex-col items-center justify-center gap-4 px-10 lg:ml-40 lg:flex-row lg:gap-40">
+      <div className="flex max-w-6xl flex-col items-center justify-center gap-4 px-10  lg:flex-row lg:gap-40">
         <motion.div
           initial="hide"
           whileInView="show"
@@ -56,10 +56,10 @@ const Section3 = () => {
           whileInView="show"
           exit="show"
           variants={rightToLeftVariants}
-          className="mt-10 flex flex-col items-center justify-center lg:mb-10 lg:mt-0 lg:items-start"
+          className="mt-10 flex flex-col  lg:justify-center lg:mb-10 lg:mt-0 lg:items-start"
         >
-          <h1 className="text-wrap text-[37.9px]  uppercase leading-[42.64px] lg:mt-10">
-            Web 3.0 Fusion Bridging DApp Browsing & Staking Crypto
+          <h1 className="text-wrap text-[37.9px] lg:max-w-[30rem]  uppercase leading-[42.64px] lg:mt-10">
+            Web 3.0 Fusion Bridging DApp{" "}
           </h1>
           <p className="mt-9 text-wrap text-[16px] leading-[24px] text-neutralLight lg:max-w-[34.5rem]">
             Experience the seamless convergence of Web 3.0 capabilities with our
