@@ -7,57 +7,57 @@ export default function Section7() {
     <div className="bg-primary  grid  place-items-center px-8  md:place-items-start lg:place-items-center ">
       <div className="mt-20 flex  max-w-full flex-col-reverse lg:max-w-[83rem] lg:flex-row-reverse lg:items-center  lg:justify-center lg:gap-36  xl:ml-8 xl:gap-44 ">
         <div className="grid grid-cols-2 grid-rows-2 sm:grid-cols-3 sm:grid-rows-2 md:max-w-[83rem]">
-          <div className="flex items-center justify-center border border-solid border-[#898990] px-7 py-7	 sm:px-8 	md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8  xl:px-12 xl:py-12">
-              <Image
-                className=""
-                src="/aboutPage/poolin.svg"
-                width={183}
-                height={33}
-                alt="img"
-              />
-          </div>
-          <div className="flex items-center justify-center border border-solid border-[#898990] px-7  py-7	sm:px-8  xl:px-12 xl:py-12  md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
+          <div className="flex items-center justify-center border border-solid border-[#898990] px-7 py-7	 sm:px-8 	sm:py-8 md:px-12 md:py-20 lg:px-8 	 lg:py-8  xl:px-12 xl:py-12">
             <Image
               className=""
-              src="/aboutPage/neutrino.svg"
-              width={183}
-                height={33}
-              alt="img"
-            />
-          </div>
-          <div className="flex items-center justify-center border border-solid border-[#898990]  px-7	py-7 sm:px-8 xl:px-12 xl:py-12 md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
-            <Image
-              className=""
-              src="/aboutPage/swop.svg"
+              src="./aboutPage/poolin.svg"
               width={183}
               height={33}
               alt="img"
             />
           </div>
-          <div className="flex items-center justify-center border border-solid border-[#898990]   px-7	py-7 sm:px-8 xl:px-12 xl:py-12 md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
+          <div className="flex items-center justify-center border border-solid border-[#898990] px-7  py-7	sm:px-8  sm:py-8 md:px-12  md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <Image
               className=""
-              src="/aboutPage/btcex.svg"
+              src="./aboutPage/neutrino.svg"
               width={183}
               height={33}
               alt="img"
             />
           </div>
-          <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8 xl:px-12 xl:py-12 md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
+          <div className="flex items-center justify-center border border-solid border-[#898990]  px-7	py-7 sm:px-8 sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <Image
               className=""
-              src="/aboutPage/coinbase.svg"
+              src="./aboutPage/swop.svg"
               width={183}
-                height={33}
+              height={33}
               alt="img"
             />
           </div>
-          <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8  xl:px-12 xl:py-12 md:px-12 md:py-20 sm:py-8 lg:px-8 	 lg:py-8">
+          <div className="flex items-center justify-center border border-solid border-[#898990]   px-7	py-7 sm:px-8 sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <Image
               className=""
-              src="/aboutPage/huobi.svg"
+              src="./aboutPage/btcex.svg"
               width={183}
-                height={33}
+              height={33}
+              alt="img"
+            />
+          </div>
+          <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8 sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
+            <Image
+              className=""
+              src="./aboutPage/coinbase.svg"
+              width={183}
+              height={33}
+              alt="img"
+            />
+          </div>
+          <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8  sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
+            <Image
+              className=""
+              src="./aboutPage/huobi.svg"
+              width={183}
+              height={33}
               alt="img"
             />
           </div>
@@ -72,7 +72,7 @@ export default function Section7() {
           </p>
           <Image
             className="mt-8"
-            src="/aboutPage/cerealClub.svg"
+            src="./aboutPage/cerealClub.svg"
             width={262.82}
             height={80}
             alt="img"
