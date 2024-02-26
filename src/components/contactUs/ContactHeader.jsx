@@ -1,53 +1,143 @@
-
-
 export default function ContactHeader() {
   return (
-    <div className="mt-14 px-4 flex flex-col content-center items-center justify-center">
-      <p className="font-neue-machina-bold text-[36px] text-center md:text-[56px] font-[800px] leading-[75.75px] text-neutralLighter">
+    <div className="mt-14 flex flex-col content-center items-center justify-center px-4">
+      <p className="text-center font-neue-machina-bold text-[36px] font-[800px] leading-[75.75px] text-neutralLighter md:text-[56px]">
         CONTACT US
       </p>
-      <p className="w-auto mx-4 md:mx-0 md:w-[625px] text-center font-apfel-grotezk text-[16px] font-[400px] leading-[24px] text-neutralLight">
+      <p className="mx-4 w-auto text-center font-apfel-grotezk text-[16px] font-[400px] leading-[24px] text-neutralLight md:mx-0 md:w-[625px]">
         Reach Out to Us: Whether you have questions, feedback, or partnership
         inquiries, we're here to assist you. Contact FFC Coin today and let's
         explore the future of finance together
       </p>
-      <div className="flex my-16">
-        <div className="cursor-pointer">
-          <img
-            src={"/contactpage/telegram.svg"}
-            alt=""
-            className="h-full w-full"
-          />
+      <div className="my-16 flex">
+        <div className="cursor-pointer hover:text-primary1">{telegram}</div>
+        <div className="ml-4 cursor-pointer hover:text-primary1">{twitter}</div>
+        <div className="ml-4 cursor-pointer hover:text-primary1">
+          {facebook}
         </div>
-        <div className="ml-4 cursor-pointer">
-          <img
-            src={"/contactpage/twitter.svg"}
-            alt=""
-            className="h-full w-full"
-          />
-        </div>
-        <div className="ml-4 cursor-pointer">
-          <img
-            src={"/contactpage/facebook.svg"}
-            alt=""
-            className="h-full w-full"
-          />
-        </div>
-        <div className="ml-4 cursor-pointer">
-          <img
-            src={"/contactpage/youtube.svg"}
-            alt=""
-            className="h-full w-full"
-          />
-        </div>
-        <div className="ml-4 cursor-pointer">
-          <img
-            src={"/contactpage/discord.svg"}
-            alt=""
-            className="h-full w-full"
-          />
-        </div>
+        <div className="ml-4 cursor-pointer hover:text-primary1">{youtube}</div>
+        <div className="ml-4 cursor-pointer hover:text-primary1">{discord}</div>
       </div>
     </div>
   );
 }
+
+const discord = (
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16.2812 14.625C16.2812 14.125 15.9062 13.7188 15.4688 13.7188C15 13.7188 14.625 14.125 14.625 14.625C14.625 15.0938 15 15.5 15.4688 15.5C15.9062 15.5 16.2812 15.0938 16.2812 14.625ZM12.5312 13.7188C12.0938 13.7188 11.7188 14.125 11.7188 14.625C11.7188 15.0938 12.0938 15.5 12.5312 15.5C13 15.5 13.3438 15.0938 13.3438 14.625C13.375 14.125 13 13.7188 12.5312 13.7188ZM21 8.65625C21 7.75 20.25 7 19.3438 7H8.625C7.71875 7 7 7.75 7 8.65625V19.4688C7 20.4062 7.71875 21.125 8.625 21.125H17.6875L17.2812 19.6562C19.625 21.8125 18.9688 21.25 21 23V8.65625ZM18.7188 16.25C18.7188 16.25 18.0312 17.4062 16.25 17.4688C16.25 17.4688 15.9688 17.125 15.7188 16.8125C16.7812 16.5312 17.1875 15.875 17.1875 15.875C16.8438 16.0938 16.5312 16.2188 16.25 16.3438C14.5312 17.0625 12.625 16.8125 11.25 16.0625C11.25 16.0312 11.0625 15.9375 10.9375 15.8438C10.9375 15.8438 11.3125 16.5 12.3438 16.8125C12.0938 17.0938 11.8125 17.4688 11.8125 17.4688C10.0312 17.4062 9.375 16.25 9.375 16.25C9.375 13.6562 10.5 11.5938 10.5 11.5938C11.6562 10.7188 12.75 10.75 12.75 10.75L12.8438 10.8438C11.4062 11.25 10.75 11.875 10.75 11.875C10.75 11.875 10.9062 11.7812 11.2188 11.6562C13.0625 10.8438 15.2812 10.8438 17.1875 11.875C17.1875 11.875 16.5625 11.2812 15.1875 10.875L15.3125 10.75C15.3125 10.75 16.4062 10.7188 17.5625 11.5938C17.5625 11.5938 18.7188 13.6562 18.7188 16.25Z"
+      fill="currentColor"
+    />
+    <rect
+      x="0.5"
+      y="0.5"
+      width="29"
+      height="29"
+      rx="4.5"
+      stroke="currentColor"
+      stroke-opacity="0.2"
+    />
+  </svg>
+);
+
+const facebook = (
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M22.75 15C22.75 10.7188 19.2812 7.25 15 7.25C10.7188 7.25 7.25 10.7188 7.25 15C7.25 18.875 10.0625 22.0938 13.7812 22.6562V17.25H11.8125V15H13.7812V13.3125C13.7812 11.375 14.9375 10.2812 16.6875 10.2812C17.5625 10.2812 18.4375 10.4375 18.4375 10.4375V12.3438H17.4688C16.5 12.3438 16.1875 12.9375 16.1875 13.5625V15H18.3438L18 17.25H16.1875V22.6562C19.9062 22.0938 22.75 18.875 22.75 15Z"
+      fill="currentColor"
+    />
+    <rect
+      x="0.5"
+      y="0.5"
+      width="29"
+      height="29"
+      rx="4.5"
+      stroke="currentColor"
+      stroke-opacity="0.2"
+    />
+  </svg>
+);
+
+const telegram = (
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M14.75 7.25C10.4688 7.25 7 10.7188 7 15C7 19.2812 10.4688 22.75 14.75 22.75C19.0312 22.75 22.5 19.2812 22.5 15C22.5 10.7188 19.0312 7.25 14.75 7.25ZM18.5312 12.5625L17.2812 18.5625C17.1875 19 16.9375 19.0938 16.5625 18.9062L14.625 17.4688L13.6875 18.375C13.5938 18.4688 13.5 18.5625 13.3125 18.5625L13.4375 16.5938L17.0312 13.3438C17.1875 13.2188 17 13.125 16.7812 13.25L12.3438 16.0625L10.4375 15.4688C10.0312 15.3438 10.0312 15.0312 10.5312 14.8438L18 11.9688C18.3438 11.8438 18.6562 12.0625 18.5312 12.5625Z"
+      fill="currentColor"
+    />
+    <rect
+      x="0.5"
+      y="0.5"
+      width="29"
+      height="29"
+      rx="4.5"
+      stroke="currentColor"
+      stroke-opacity="0.2"
+    />
+  </svg>
+);
+
+const twitter = (
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M21.3438 11.75C21.9688 11.2812 22.5312 10.7188 22.9688 10.0625C22.4062 10.3125 21.75 10.5 21.0938 10.5625C21.7812 10.1562 22.2812 9.53125 22.5312 8.75C21.9062 9.125 21.1875 9.40625 20.4688 9.5625C19.8438 8.90625 19 8.53125 18.0625 8.53125C16.25 8.53125 14.7812 10 14.7812 11.8125C14.7812 12.0625 14.8125 12.3125 14.875 12.5625C12.1562 12.4062 9.71875 11.0938 8.09375 9.125C7.8125 9.59375 7.65625 10.1562 7.65625 10.7812C7.65625 11.9062 8.21875 12.9062 9.125 13.5C8.59375 13.4688 8.0625 13.3438 7.625 13.0938V13.125C7.625 14.7188 8.75 16.0312 10.25 16.3438C10 16.4062 9.6875 16.4688 9.40625 16.4688C9.1875 16.4688 9 16.4375 8.78125 16.4062C9.1875 17.7188 10.4062 18.6562 11.8438 18.6875C10.7188 19.5625 9.3125 20.0938 7.78125 20.0938C7.5 20.0938 7.25 20.0625 7 20.0312C8.4375 20.9688 10.1562 21.5 12.0312 21.5C18.0625 21.5 21.3438 16.5312 21.3438 12.1875C21.3438 12.0312 21.3438 11.9062 21.3438 11.75Z"
+      fill="currentColor"
+    />
+    <rect
+      x="0.5"
+      y="0.5"
+      width="29"
+      height="29"
+      rx="4.5"
+      stroke="currentColor"
+      stroke-opacity="0.2"
+    />
+  </svg>
+);
+
+const youtube = (
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M24.1562 10.9062C23.9688 10.1562 23.375 9.5625 22.6562 9.375C21.3125 9 16 9 16 9C16 9 10.6562 9 9.3125 9.375C8.59375 9.5625 8 10.1562 7.8125 10.9062C7.4375 12.2188 7.4375 15.0312 7.4375 15.0312C7.4375 15.0312 7.4375 17.8125 7.8125 19.1562C8 19.9062 8.59375 20.4688 9.3125 20.6562C10.6562 21 16 21 16 21C16 21 21.3125 21 22.6562 20.6562C23.375 20.4688 23.9688 19.9062 24.1562 19.1562C24.5312 17.8125 24.5312 15.0312 24.5312 15.0312C24.5312 15.0312 24.5312 12.2188 24.1562 10.9062ZM14.25 17.5625V12.5L18.6875 15.0312L14.25 17.5625Z"
+      fill="currentColor"
+    />
+    <rect
+      x="0.5"
+      y="0.5"
+      width="29"
+      height="29"
+      rx="4.5"
+      stroke="currentColor"
+      stroke-opacity="0.2"
+    />
+  </svg>
+);
