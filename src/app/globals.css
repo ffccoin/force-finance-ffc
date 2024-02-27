@@ -237,6 +237,21 @@ input[type="checkbox"]:checked + label:before {
   width: 100%;
 }
 
+/* Loader */
+.circle {
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.letter {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-family: "Neue Machina Bold", sans-serif;
+  color: #cbfb45;
+}
+/* Loader END */
+
 @keyframes ticker {
   0% {
     transform: translateX(0);

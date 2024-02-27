@@ -4,7 +4,7 @@ import Header from "@/components/headers/Header";
 import Footer from "@/components/footer/Footer";
 import StoreProvider from "./StoreProvider";
 
-export const revalidate = 3000;
+export const revalidate = 300;
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -72,6 +72,7 @@ async function getData() {
 
 export default async function RootLayout({ children }) {
   const data = await getData();
+  console.log("DATA", data[0].current_price);
   return (
     <html lang="en">
       <StoreProvider>

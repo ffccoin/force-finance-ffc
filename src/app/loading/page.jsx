@@ -3,7 +3,8 @@
 import { motion, useAnimate } from "framer-motion";
 import { useEffect } from "react";
 
-const loading = () => {
+const LoadingPage = () => {
+//   const text = "THANK YOU. HAVE A NICE DAY.";
   const text = "LOADING - FORCE FINANCE";
   const characters = text.split("");
 
@@ -66,4 +67,4 @@ const loading = () => {
   );
 };
 
-export default loading;
+export default LoadingPage;
