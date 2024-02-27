@@ -24,7 +24,7 @@ export default function Home() {
       <Section3 /> {/* mobile  */}
       <Section4 />{/* Wallet */}
       <Section5 />
-      <Section6 />
+      <Section6 />{/* TOKENOMICS */}
       <Section7 />
       <Section8 />
       <Section9 />

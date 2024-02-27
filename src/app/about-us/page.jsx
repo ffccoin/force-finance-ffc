@@ -5,7 +5,7 @@ import Section4 from "@/components/aboutUs/Section4";
 import Section5 from "@/components/aboutUs/Section5";
 import Section6 from "@/components/aboutUs/Section6";
 import Section from "@/components/sections/homepage/Section7";
-import AboutAsSeen from"@/components/aboutUs/AboutAsSeen";
+// import AboutAsSeen from"@/components/aboutUs/AboutAsSeen";
 import Section7 from "@/components/aboutUs/Section7";
 import AboutHeader from "@/components/aboutUs/AboutHeader";
 

@@ -5,7 +5,7 @@ export default function Section7() {
         <div className="grid grid-cols-2 grid-rows-2 sm:grid-cols-3 sm:grid-rows-2 md:max-w-[83rem]">
           <div className="flex items-center justify-center border border-solid border-[#898990] px-7 py-7	 sm:px-8 	sm:py-8 md:px-12 md:py-20 lg:px-8 	 lg:py-8  xl:px-12 xl:py-12">
             <img
-              src="/aboutPage/poolin.svg"
+              src="/aboutpage/poolin.svg"
               width={183}
               height={33}
               alt="img"
@@ -13,7 +13,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border border-solid border-[#898990] px-7  py-7	sm:px-8  sm:py-8 md:px-12  md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <img
-              src="/aboutPage/neutrino.svg"
+              src="/aboutpage/neutrino.svg"
               width={183}
               height={33}
               alt="img"
@@ -21,7 +21,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border border-solid border-[#898990]  px-7	py-7 sm:px-8 sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <img
-              src="/aboutPage/swop.svg"
+              src="/aboutpage/swop.svg"
               width={183}
               height={33}
               alt="img"
@@ -29,7 +29,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border border-solid border-[#898990]   px-7	py-7 sm:px-8 sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <img
-              src="/aboutPage/btcex.svg"
+              src="/aboutpage/btcex.svg"
               width={183}
               height={33}
               alt="img"
@@ -37,7 +37,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8 sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <img
-              src="/aboutPage/coinbase.svg"
+              src="/aboutpage/coinbase.svg"
               width={183}
               height={33}
               alt="img"
@@ -45,7 +45,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8  sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <img
-              src="/aboutPage/huobi.svg"
+              src="/aboutpage/huobi.svg"
               width={183}
               height={33}
               alt="img"
@@ -62,7 +62,7 @@ export default function Section7() {
           </p>
           <img
             className="mt-8"
-            src="/aboutPage/cerealClub.svg"
+            src="/aboutpage/cerealClub.svg"
             width={262.82}
             height={80}
             alt="img"
@@ -73,9 +73,5 @@ export default function Section7() {
   );
 }
 
-const renderStat = (number, label) => (
-  <div className="flex flex-col gap-y-4">
-    <h1 className="text-[37.9px] leading-[42.64px]">{number}</h1>
-    <p className="ml-1 md:ml-4">{label}</p>
-  </div>
-);
+
+

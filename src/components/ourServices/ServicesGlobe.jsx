@@ -1,21 +1,62 @@
 import Image from "next/image";
 import Button from "@/components/buttons/Button";
-import SecondaryButton from "@/components/buttons/SecondaryButton";
+import { motion } from "framer-motion";
 
 const ServicesGlobe = () => {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className="bg-primary mt-[-2px]  grid place-items-center ">
       <div className="mt-20 flex  max-w-7xl flex-col items-center justify-center gap-x-14 lg:flex-row xl:gap-x-32">
-        <div className="flex-shrink-0">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+          className="flex-shrink-0"
+        >
           <Image
             src="/ourServices/globe.png"
             width={558}
             height={488}
             alt="img"
           />
-        </div>
-        <div className=" flex max-w-[90vw] flex-col items-center justify-center px-4 py-10 lg:items-start lg:p-0">
-          <p className="text-primary1 uppercase font-apfel-grotezk ">our story</p>
+        </motion.div>
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants}
+          className=" flex max-w-[90vw] flex-col items-center justify-center px-4 py-10 lg:items-start lg:p-0"
+        >
+          <p className="font-apfel-grotezk uppercase text-primary1 ">
+            our story
+          </p>
           <h1 className=" text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
             Building the Future of Finance with FFC Coin
           </h1>
@@ -39,10 +80,11 @@ const ServicesGlobe = () => {
                   alt="Arrow"
                   width={16}
                   height={16}
-                />}
+                />
+              }
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

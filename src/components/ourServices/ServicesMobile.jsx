@@ -1,20 +1,55 @@
 import Image from "next/image";
 import Button from "@/components/buttons/Button";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
+import { motion } from "framer-motion";
 
 const ServicesMobile = () => {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+
   return (
     <div className="mt-[-2px] grid  place-items-center bg-primary1 ">
       <div className="mt-20 flex  max-w-7xl flex-col items-center justify-center gap-x-14 lg:flex-row xl:gap-x-32">
-        <div className="flex-shrink-0">
+        <motion.div initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants} className="flex-shrink-0">
           <Image
             src="/ourServices/mobile.svg"
             width={565}
             height={478}
             alt="img"
           />
-        </div>
-        <div className=" flex max-w-[90vw] flex-col items-center justify-center p-4  text-primary2  lg:items-start lg:p-0">
+        </motion.div>
+        <motion.div initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants} className=" flex max-w-[90vw] flex-col items-center justify-center p-4  text-primary2  lg:items-start lg:p-0">
           <h1 className=" text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
             Total control with our transaction system
           </h1>
@@ -44,7 +79,7 @@ const ServicesMobile = () => {
               size="small"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
