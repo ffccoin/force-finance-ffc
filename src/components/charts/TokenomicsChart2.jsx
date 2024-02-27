@@ -7,12 +7,12 @@ const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const TokenomicsChart2 = () => {
   const state = {
-    series: [10, 5, 16, 10, 14], // Your data values
+    series: [8, 10, 9, 7, 5], // Your data values
     options: {
       chart: {
-        width: "100%",
+        width: "200px",
         height: "200px",
-        type: "polarArea",
+        type: "pie",
       },
       labels: [
         "Operations",
@@ -26,10 +26,9 @@ const TokenomicsChart2 = () => {
         width: 0,
       },
       legend: {
-        width: 120,
-        fontSize: "10px",
+        offsetY: -5,
         labels: {
-          colors: "#fff",
+          colors: "white",
         },
         markers: {
           radius: 0,
@@ -41,25 +40,23 @@ const TokenomicsChart2 = () => {
       yaxis: {
         show: false,
       },
+      dataLabels: {
+        enabled: false,
+      },
       plotOptions: {
-        polarArea: {
-          rings: {
-            strokeWidth: 0,
-          },
-          spokes: {
-            strokeWidth: 0,
-          },
+        pie: {
+
         },
       },
     },
   };
 
   return (
-    <div id="chart">
+    <div id="chart" className="min-h-[200px] min-w-[350px]">
       <ApexCharts
         options={state.options}
         series={state.series}
-        type="polarArea"
+        type="pie"
         width={"100%"}
         height={"100%"}
       />

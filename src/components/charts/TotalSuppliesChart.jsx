@@ -7,63 +7,92 @@ const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const TotalSuppliesChart = () => {
   const state = {
-    series: [12, 15, 14, 10, 5, 9], // Your data values
+    series: [8, 10, 9, 7, 5], // Your data values
     options: {
       chart: {
-        width: "100%",
-        height: "100%",
-        type: "polarArea",
+        width: "400px",
+        height: "400px",
+        type: "donut",
       },
       labels: [
         "Private Sale",
         "Public Sale",
-        "Staking Reward",
+        "Stalking Reward",
         "Partnership Funds",
         "Team Pool",
-        "Others",
       ], // Your labels
-      colors: [
-        "#CBFB45",
-        "#DEEBBC",
-        "#B8DB56",
-        "#CFFA57",
-        "#96B837",
-        "#6E8727",
-      ],
-      fill: {
-        opacity: 1,
-      },
+      colors: ["#CBFB45", "#B8DB56", "#96B837", "#DEEBBC", "#6E8727"],
       stroke: {
         width: 0,
+      },
+      // legend: {
+      //   show: false,
+      // },
+      fill: {
+        opacity: 1,
       },
       yaxis: {
         show: false,
       },
-      plotOptions: {
-        polarArea: {
-          rings: {
-            strokeWidth: 0,
-          },
-          spokes: {
-            strokeWidth: 0,
-          },
-        },
+      dataLabels: {
+        enabled: false,
       },
       legend: {
-        width: "50%",
+        offsetY: -5,
         labels: {
-          colors: "#fff",
+          colors: "white",
+        },
+        markers: {
+          radius: 0,
+        },
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: "50%", // Adjusts the diameter of the donut hole
+            background: "white",
+            labels: {
+              show: true,
+              name: {
+                show: true,
+                fontSize: "10px",
+                offsetY: -5,
+                fontFamily: "Neue Machina Bold",
+                fontWeight: 800,
+                color: "black",
+              },
+              value: {
+                show: true,
+                fontSize: "10px",
+                offsetY: -5,
+                fontFamily: "Neue Machina Bold",
+                fontWeight: 800,
+                color: "black",
+              },
+              total: {
+                show: true,
+                fontFamily: "Neue Machina Bold",
+                fontWeight: 800,
+                color: "black",
+                label: "Total",
+                formatter: function () {
+                  return "Supply";
+                },
+                fontSize: "10px",
+              },
+            },
+          },
         },
       },
     },
   };
 
   return (
-    <div id="chart">
+    <div id="chart" className="min-h-[200px] min-w-[320px]">
       <ApexCharts
         options={state.options}
         series={state.series}
-        type="polarArea"
+        type="donut"
         width={"100%"}
         height={"100%"}
       />

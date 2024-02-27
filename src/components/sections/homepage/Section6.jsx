@@ -59,21 +59,21 @@ const Section6 = () => {
         </div>
       </motion.div>
       <motion.div
-        className="mt-8 flex w-full flex-col items-center justify-center gap-8 lg:flex-row"
+        className="mt-8 flex w-full max-w-7xl flex-col items-center justify-center gap-8 sm:flex-row"
         initial="hide"
         whileInView="show"
         exit="show"
         variants={rightToLeftVariants}
       >
-        <div className="h-full min-h-[200px] w-full">
+        <div className="flex h-full min-h-[200px] w-full items-center justify-center">
           <TotalSuppliesChart />
         </div>
-        <div className="h-full min-h-[200px] w-full">
+        <div className="flex h-full min-h-[200px] w-full items-center justify-center">
           <TokenomicsChart2 />
         </div>
       </motion.div>
       <motion.div
-        className=" mt-8  flex flex-col px-4 sm:px-24"
+        className="mt-8 flex flex-col px-4 sm:px-24"
         initial="hide"
         whileInView="show"
         exit="show"
