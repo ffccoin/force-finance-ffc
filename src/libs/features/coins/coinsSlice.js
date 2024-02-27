@@ -1,21 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const fetchPricesInUsd = createAsyncThunk(
-  "coins/fetchPricesInUsd",
-  async () => {
-    const url = new URL("https://api.coingecko.com/api/v3/simple/price");
-    const params = {
-      ids: "bitcoin,ethereum,solana,cardano,terra-luna,polkadot",
-      vs_currencies: "usd", // Specify the currency
-    };
-    url.search = new URLSearchParams(params).toString();
-
-    // Fetch the data
-    const res = await fetch(url);
-    const data = await res.json();
-    return data;
-  },
-);
 // bitcoin,ethereum,solana,cardano,terra-luna,polkadot
 export const coinsSlice = createSlice({
   name: "coins",
@@ -45,13 +29,14 @@ export const coinsSlice = createSlice({
       state.coinDetails = action.payload;
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(fetchPricesInUsd.fulfilled, (state, action) => {
-      state.pricesInUsd = action.payload;
-    });
-  },
+  // extraReducers: (builder) => {
+  //   builder.addCase(fetchCoinDetails.fulfilled, (state, action) => {
+  //     state.coinDetails = action.payload;
+  //   });
+  // },
 });
 
-export const { addCoin, removeCoin, updatePrices, updateCoinDetails } = coinsSlice.actions;
+export const { addCoin, removeCoin, updatePrices, updateCoinDetails } =
+  coinsSlice.actions;
 
 export default coinsSlice.reducer;

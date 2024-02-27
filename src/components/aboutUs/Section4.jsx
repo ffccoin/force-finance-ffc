@@ -12,7 +12,7 @@ const Section4 = () => {
             width={685}
             height={613}
             alt="img"
-          />
+          />  
         </div>
         <div className=" flex lg:max-w-[641px] flex-col   py-10 lg:items-start lg:p-0">
           <p className="text-primary1 uppercase font-apfel-grotezk ">our story</p>

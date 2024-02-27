@@ -10,7 +10,8 @@ const TokenomicsChart2 = () => {
     series: [10, 5, 16, 10, 14], // Your data values
     options: {
       chart: {
-        width: 380,
+        width: "100%",
+        height: "200px",
         type: "polarArea",
       },
       labels: [
@@ -25,8 +26,13 @@ const TokenomicsChart2 = () => {
         width: 0,
       },
       legend: {
+        width: 120,
+        fontSize: "10px",
         labels: {
           colors: "#fff",
+        },
+        markers: {
+          radius: 0,
         },
       },
       fill: {
@@ -45,19 +51,6 @@ const TokenomicsChart2 = () => {
           },
         },
       },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200,
-            },
-            legend: {
-              position: "bottom",
-            },
-          },
-        },
-      ],
     },
   };
 
@@ -67,8 +60,8 @@ const TokenomicsChart2 = () => {
         options={state.options}
         series={state.series}
         type="polarArea"
-        width={380}
-        height={380}
+        width={"100%"}
+        height={"100%"}
       />
     </div>
   );

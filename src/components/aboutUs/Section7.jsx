@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Button from "@/components/buttons/Button";
-import SecondaryButton from "@/components/buttons/SecondaryButton";
 
 export default function Section7() {
   return (
@@ -9,8 +7,7 @@ export default function Section7() {
         <div className="grid grid-cols-2 grid-rows-2 sm:grid-cols-3 sm:grid-rows-2 md:max-w-[83rem]">
           <div className="flex items-center justify-center border border-solid border-[#898990] px-7 py-7	 sm:px-8 	sm:py-8 md:px-12 md:py-20 lg:px-8 	 lg:py-8  xl:px-12 xl:py-12">
             <Image
-              className=""
-              src="./aboutPage/poolin.svg"
+              src="/aboutPage/poolin.svg"
               width={183}
               height={33}
               alt="img"
@@ -18,8 +15,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border border-solid border-[#898990] px-7  py-7	sm:px-8  sm:py-8 md:px-12  md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <Image
-              className=""
-              src="./aboutPage/neutrino.svg"
+              src="/aboutPage/neutrino.svg"
               width={183}
               height={33}
               alt="img"
@@ -27,8 +23,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border border-solid border-[#898990]  px-7	py-7 sm:px-8 sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <Image
-              className=""
-              src="./aboutPage/swop.svg"
+              src="/aboutPage/swop.svg"
               width={183}
               height={33}
               alt="img"
@@ -36,8 +31,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border border-solid border-[#898990]   px-7	py-7 sm:px-8 sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <Image
-              className=""
-              src="./aboutPage/btcex.svg"
+              src="/aboutPage/btcex.svg"
               width={183}
               height={33}
               alt="img"
@@ -45,8 +39,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8 sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <Image
-              className=""
-              src="./aboutPage/coinbase.svg"
+              src="/aboutPage/coinbase.svg"
               width={183}
               height={33}
               alt="img"
@@ -54,8 +47,7 @@ export default function Section7() {
           </div>
           <div className="flex items-center justify-center border  border-solid border-[#898990]  px-7	py-7 sm:px-8  sm:py-8 md:px-12 md:py-20 lg:px-8 lg:py-8 xl:px-12 	 xl:py-12">
             <Image
-              className=""
-              src="./aboutPage/huobi.svg"
+              src="/aboutPage/huobi.svg"
               width={183}
               height={33}
               alt="img"
@@ -72,7 +64,7 @@ export default function Section7() {
           </p>
           <Image
             className="mt-8"
-            src="./aboutPage/cerealClub.svg"
+            src="/aboutPage/cerealClub.svg"
             width={262.82}
             height={80}
             alt="img"

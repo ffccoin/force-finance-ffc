@@ -5,16 +5,16 @@ import {
   updatecoins,
 } from "@/libs/features/coins/coinsSlice";
 import Image from "next/image";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+// import { useEffect } from "react";
+// import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 
 const MovingBar = ({ coins }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(updateCoinDetails(coins));
-  }, [coins]);
+  // useEffect(() => {
+  //   dispatch(updateCoinDetails(coins));
+  // }, [coins]);
 
   const movingBarVariants = {
     hide: {

@@ -10,7 +10,8 @@ const TotalSuppliesChart = () => {
     series: [12, 15, 14, 10, 5, 9], // Your data values
     options: {
       chart: {
-        width: 380,
+        width: "100%",
+        height: "100%",
         type: "polarArea",
       },
       labels: [
@@ -49,23 +50,11 @@ const TotalSuppliesChart = () => {
         },
       },
       legend: {
+        width: "50%",
         labels: {
           colors: "#fff",
         },
       },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200,
-            },
-            legend: {
-              position: "bottom",
-            },
-          },
-        },
-      ],
     },
   };
 
@@ -75,8 +64,8 @@ const TotalSuppliesChart = () => {
         options={state.options}
         series={state.series}
         type="polarArea"
-        width={380}
-        height={380}
+        width={"100%"}
+        height={"100%"}
       />
     </div>
   );

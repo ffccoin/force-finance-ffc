@@ -59,16 +59,16 @@ const Section6 = () => {
         </div>
       </motion.div>
       <motion.div
-        className="mt-8 flex w-full flex-col  items-center justify-center gap-8 lg:flex-row"
+        className="mt-8 flex w-full flex-col items-center justify-center gap-8 lg:flex-row"
         initial="hide"
         whileInView="show"
         exit="show"
         variants={rightToLeftVariants}
       >
-        <div>
+        <div className="h-full min-h-[200px] w-full">
           <TotalSuppliesChart />
         </div>
-        <div>
+        <div className="h-full min-h-[200px] w-full">
           <TokenomicsChart2 />
         </div>
       </motion.div>

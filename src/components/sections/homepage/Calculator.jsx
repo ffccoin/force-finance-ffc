@@ -19,7 +19,6 @@ const Calculator = () => {
       throw new Error("Network response was not ok");
     }
     const data = await res.json();
-    console.log("DATA", data);
     setCoinData(data);
   };
 

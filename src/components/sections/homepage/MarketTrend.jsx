@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useGetCoinsQuery } from "@/libs/services/coins";
 
 const MarketTrend = () => {
-  const coins = useSelector((state) => state.coins.coinDetails);
+  const { data, error, isLoading } = useGetCoinsQuery();
+  console.log("data", isLoading ? "loading" : data);
+  const coins = data?.data;
   function convertToInternationalCurrencySystem(labelValue) {
     // Nine Zeroes for Billions
     return Math.abs(Number(labelValue)) >= 1.0e9
@@ -18,13 +20,6 @@ const MarketTrend = () => {
           ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
           : Math.abs(Number(labelValue));
   }
-  const convertToTwoDecimal = (labelValue) => {
-    return Math.abs(Number(labelValue)).toFixed(2);
-  };
-
-  const calculate24hChangePercentage = (price, priceChange) => {
-    return ((priceChange / price) * 100).toFixed(2);
-  };
 
   const h1Variants = {
     hide: {
@@ -63,6 +58,7 @@ const MarketTrend = () => {
       },
     },
   };
+
   return (
     <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">
@@ -123,53 +119,64 @@ const MarketTrend = () => {
               </tr>
             </thead>
             <tbody>
-              {coins?.map((coin, index) => (
-                <tr className="h-[58px] even:bg-[#1E1E1F]">
-                  <th
-                    scope="row"
-                    className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
-                  >
-                    {index + 1}
-                  </th>
-                  <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
-                    <Image src={coin.image} width={36} height={36} />
-                    <p>
-                      {coin.name}{" "}
-                      <span className="uppercase">{coin.symbol}</span>
-                    </p>
-                  </td>
-                  <td className="px-6 py-4 text-neutralLight">
-                    ${convertToInternationalCurrencySystem(coin.current_price)}
-                  </td>
-                  <td className="px-6 text-white">
-                    <div className="flex items-center gap-x-1">
-                      {coin.price_change_percentage_24h > 0
-                        ? arrowUp
-                        : arrowDown}
-                      <span>{coin.price_change_percentage_24h}%</span>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <Image
-                      src={
-                        coin.price_change_24h > 0
-                          ? "/homepage/yellow-chart.svg"
-                          : "/homepage/red-chart.svg"
-                      }
-                      width={67}
-                      height={20}
-                    />
-                  </td>
-                  <td className="px-6 py-4">
-                    ${convertToInternationalCurrencySystem(coin.market_cap)}
-                  </td>
-                  <td className="px-6 py-4">
-                    <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
-                      <h4 className="text-white">Buy</h4>
-                    </button>
-                  </td>
+              {isLoading ? (
+                <tr>
+                  <td>Loading</td>
                 </tr>
-              ))}
+              ) : error ? (
+                <tr>
+                  <td>Error</td>
+                </tr>
+              ) : (
+                data.map((coin, index) => (
+                  <tr className="h-[58px] even:bg-[#1E1E1F]">
+                    <th
+                      scope="row"
+                      className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
+                    >
+                      {index + 1}
+                    </th>
+                    <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
+                      <Image src={coin.image} width={36} height={36} />
+                      <p>
+                        {coin.name}{" "}
+                        <span className="uppercase">{coin.symbol}</span>
+                      </p>
+                    </td>
+                    <td className="px-6 py-4 text-neutralLight">
+                      $
+                      {convertToInternationalCurrencySystem(coin.current_price)}
+                    </td>
+                    <td className="px-6 text-white">
+                      <div className="flex items-center gap-x-1">
+                        {coin.price_change_percentage_24h > 0
+                          ? arrowUp
+                          : arrowDown}
+                        <span>{coin.price_change_percentage_24h}%</span>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <Image
+                        src={
+                          coin.price_change_24h > 0
+                            ? "/homepage/yellow-chart.svg"
+                            : "/homepage/red-chart.svg"
+                        }
+                        width={67}
+                        height={20}
+                      />
+                    </td>
+                    <td className="px-6 py-4">
+                      ${convertToInternationalCurrencySystem(coin.market_cap)}
+                    </td>
+                    <td className="px-6 py-4">
+                      <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
+                        <h4 className="text-white">Buy</h4>
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </motion.div>

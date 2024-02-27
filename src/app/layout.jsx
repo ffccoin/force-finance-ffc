@@ -4,7 +4,7 @@ import Header from "@/components/headers/Header";
 import Footer from "@/components/footer/Footer";
 import StoreProvider from "./StoreProvider";
 
-export const revalidate = 3600;
+export const revalidate = 3000;
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +25,7 @@ async function getData() {
   url.search = new URLSearchParams(params).toString();
 
   // Fetch the data
-  const res = await fetch(url, { cache: "force-cache" });
+  const res = await fetch(url);
 
   if (!res.ok) {
     throw new Error("Network response was not ok");
@@ -72,7 +72,6 @@ async function getData() {
 
 export default async function RootLayout({ children }) {
   const data = await getData();
-  console.log("DATA", data[0].current_price);
   return (
     <html lang="en">
       <StoreProvider>
