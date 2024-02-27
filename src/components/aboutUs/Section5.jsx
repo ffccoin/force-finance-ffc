@@ -23,7 +23,20 @@ export default function Section5() {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.7,
+        duration: 1,
+      },
+    },
+  };
+  const blinkVariants = {
+    hide: {
+      opacity: 0,
+      x: 0,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 2,
       },
     },
   };
@@ -56,7 +69,13 @@ export default function Section5() {
             </div>
             <div className="grid  justify-center ">
               <div className="mb-6 flex flex-col items-center justify-center gap-8 lg:flex-row">
-                <div className="flex w-full  max-w-[635px] flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5">
+                <motion.div
+                  initial="hide"
+                  whileInView="show"
+                  exit="show"
+                  variants={leftToRightVariants}
+                  className="flex w-full  max-w-[635px] flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5"
+                >
                   <img
                     className="h-20 w-20"
                     src="images/img_home.svg"
@@ -74,8 +93,14 @@ export default function Section5() {
                       </>
                     </p>
                   </div>
-                </div>
-                <div className="flex w-full max-w-[635px] flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5">
+                </motion.div>
+                <motion.div
+                  initial="hide"
+                  whileInView="show"
+                  exit="show"
+                  variants={rightToLeftVariants}
+                  className="flex w-full max-w-[635px] flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5"
+                >
                   <img
                     className="h-20 w-20"
                     src="images/img_group9321.svg"
@@ -92,10 +117,16 @@ export default function Section5() {
                       </>
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
               <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
-                <div className="flex w-full max-w-[635px]  flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5">
+                <motion.div
+                  initial="hide"
+                  whileInView="show"
+                  exit="show"
+                  variants={leftToRightVariants}
+                  className="flex w-full max-w-[635px]  flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5"
+                >
                   <img
                     className="h-20 w-20"
                     src="images/img_settings.svg"
@@ -112,8 +143,14 @@ export default function Section5() {
                       </>
                     </p>
                   </div>
-                </div>
-                <div className="flex w-full  max-w-[635px] flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5">
+                </motion.div>
+                <motion.div
+                  initial="hide"
+                  whileInView="show"
+                  exit="show"
+                  variants={rightToLeftVariants}
+                  className="flex w-full  max-w-[635px] flex-col items-center justify-center gap-[30px] rounded-[10px] bg-[#232325] px-[30px] py-10 sm:flex-row sm:px-5"
+                >
                   <img
                     className="h-20 w-20"
                     src="images/img_settings_light_green_a200.svg"
@@ -131,7 +168,7 @@ export default function Section5() {
                       </>
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -139,7 +176,13 @@ export default function Section5() {
       </div>
       <div className="flex items-center justify-center">
         <div className=" mb-16 mt-16 flex h-full min-h-[288px] w-full max-w-[1300px] flex-col items-center justify-between rounded-2xl bg-[url('/images/back.svg')] bg-cover bg-center bg-no-repeat px-20  sm:flex-row">
-          <div className="mt-4 flex flex-col items-start justify-center pb-4 sm:pr-6">
+          <motion.div
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={leftToRightVariants}
+            className="mt-4 flex flex-col items-start justify-center pb-4 sm:pr-6"
+          >
             <p className="text-center font-neue-machina-bold text-[25px]  uppercase text-black sm:text-start lg:text-[38px]">
               Get started for free
             </p>
@@ -151,8 +194,14 @@ export default function Section5() {
               Force Finance Coin integrates Ethereum and sovereign blockchains
               seamlessly, evolving into a comprehensive multi-chain system.
             </p>
-          </div>
-          <div className="flex flex-col items-center justify-center gap-4 pb-5 lg:flex-row">
+          </motion.div>
+          <motion.div
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={blinkVariants}
+            className="flex flex-col items-center justify-center gap-4 pb-5 lg:flex-row"
+          >
             <button
               className={`grid h-[54px] w-[148px] place-items-center bg-black font-neue-machina-bold leading-6 text-neutralDark enabled:hover:bg-darkGreen enabled:hover:text-neutralLighter`}
             >
@@ -163,7 +212,7 @@ export default function Section5() {
             >
               <div className="flex gap-x-2.5">Learn More</div>
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
