@@ -6,7 +6,7 @@ import ContactFooter from "@/components/contactUs/ContactFooter";
 
 export default function page() {
   return (
-    <div className="mt-56 overflow-hidden">
+    <div className="mt-40 overflow-hidden">
       <ContactHeader />
       <ContactForm />
       <ContactFooter />

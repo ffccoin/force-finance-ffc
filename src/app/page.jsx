@@ -29,7 +29,7 @@ export default function Home() {
       <Section8 />
       <Section9 />
       <Section10 />
-      <Section11 />
+      <Section11 />       {/* needHelp */}
       <Section12 />
     </main>
   );

@@ -1,4 +1,18 @@
+import { motion } from "framer-motion";
 export default function Section7() {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className="bg-primary  grid  place-items-center px-8  md:place-items-start lg:place-items-center ">
       <div className="mt-20 flex  max-w-full flex-col-reverse lg:max-w-[83rem] lg:flex-row-reverse lg:items-center  lg:justify-center lg:gap-36  xl:ml-8 xl:gap-44 ">
@@ -52,7 +66,10 @@ export default function Section7() {
             />
           </div>
         </div>
-        <div className=" flex flex-col items-start   px-4 py-10 lg:max-w-[400px] lg:p-0">
+        <motion.div initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}className=" flex flex-col items-start   px-4 py-10 lg:max-w-[400px] lg:p-0">
           <h1 className=" w-full text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] ">
             Our partners
           </h1>
@@ -67,7 +84,7 @@ export default function Section7() {
             height={80}
             alt="img"
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

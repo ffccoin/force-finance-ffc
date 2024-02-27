@@ -35,10 +35,13 @@ const ServicesMobile = () => {
   return (
     <div className="mt-[-2px] grid  place-items-center bg-primary1 ">
       <div className="mt-20 flex  max-w-7xl flex-col items-center justify-center gap-x-14 lg:flex-row xl:gap-x-32">
-        <motion.div initial="hide"
+        <motion.div
+          initial="hide"
           whileInView="show"
           exit="show"
-          variants={leftToRightVariants} className="flex-shrink-0">
+          variants={leftToRightVariants}
+          className="flex-shrink-0"
+        >
           <Image
             src="/ourServices/mobile.svg"
             width={565}
@@ -46,10 +49,13 @@ const ServicesMobile = () => {
             alt="img"
           />
         </motion.div>
-        <motion.div initial="hide"
+        <motion.div
+          initial="hide"
           whileInView="show"
           exit="show"
-          variants={rightToLeftVariants} className=" flex max-w-[90vw] flex-col items-center justify-center p-4  text-primary2  lg:items-start lg:p-0">
+          variants={rightToLeftVariants}
+          className=" flex max-w-[90vw] flex-col items-center justify-center p-4  text-primary2  lg:items-start lg:p-0"
+        >
           <h1 className=" text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
             Total control with our transaction system
           </h1>

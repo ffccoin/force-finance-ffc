@@ -1,17 +1,58 @@
+import { motion } from "framer-motion";
+
 export default function Section5() {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
   return (
-    <div className="items-centre flex px-8 w-screen flex-col justify-center">
-      <div className="flex items-center  xl:ml-8  justify-center">
-        <div className=" md:mt-[90px] mt-9 flex w-full max-w-[83rem]  items-center justify-center ">
+    <div className="items-centre flex w-screen flex-col justify-center px-8">
+      <div className="flex items-center  justify-center  xl:ml-8">
+        <div className=" mt-9 flex w-full max-w-[83rem] items-center  justify-center md:mt-[90px] ">
           <div className="flex w-full flex-col items-center justify-center gap-[49px]">
-            <div className="flex w-full sm:flex-row flex-col items-start justify-between md:gap-5">
-              <p className="text-start max-w-[600px] font-neue-machina-bold text-[25.9px] uppercase leading-[42.00px] text-white md:text-[35.9px]">
+            <div className="flex w-full flex-col items-start justify-between sm:flex-row md:gap-5">
+              <motion.p
+                initial="hide"
+                whileInView="show"
+                exit="show"
+                variants={leftToRightVariants}
+                className="max-w-[600px] text-start font-neue-machina-bold text-[25.9px] uppercase leading-[42.00px] text-white md:text-[35.9px]"
+              >
                 Navigating the Future of DeFi Finance
-              </p>
-              <p className="text-start max-w-[450px]  font-apfel-grotezk leading-[24.00px] text-[#898990] sm:mt-0">
+              </motion.p>
+
+              <motion.p
+                initial="hide"
+                whileInView="show"
+                exit="show"
+                variants={rightToLeftVariants}
+                className="max-w-[450px] text-start  font-apfel-grotezk leading-[24.00px] text-[#898990] sm:mt-0"
+              >
                 Take full control of your crypto, NFTs, and more with complete
                 privacy and security directly on your device.
-              </p>
+              </motion.p>
             </div>
             <div className="grid  justify-center ">
               <div className="mb-6 flex flex-col items-center justify-center gap-8 lg:flex-row">
@@ -22,7 +63,7 @@ export default function Section5() {
                     alt="settings"
                   />
                   <div className="flex  w-full flex-col items-start justify-start gap-3">
-                    <p className="w-full  sm:text-start text-center font-neue-machina-bold text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
+                    <p className="w-full  text-center font-neue-machina-bold text-[21.33px] text-gray-100 sm:text-start sm:text-[17.33px] md:text-[19.33px]">
                       Cryptocurrency Transaction
                     </p>
                     <p className="text-blue_gray-400 max-w-[465px] font-apfel-grotezk text-[16px] text-base leading-[24.00px] text-[#898990] md:max-w-full">
@@ -41,7 +82,7 @@ export default function Section5() {
                     alt="settings"
                   />
                   <div className="flex  w-full flex-col items-start justify-start gap-3">
-                    <p className="w-full sm:text-start text-center  font-neue-machina-bold  text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
+                    <p className="w-full text-center font-neue-machina-bold  text-[21.33px]  text-gray-100 sm:text-start sm:text-[17.33px] md:text-[19.33px]">
                       Fiat To Crypto{" "}
                     </p>
                     <p className="text-blue_gray-400 max-w-[465px] font-apfel-grotezk text-[16px] text-base leading-[24.00px] text-[#898990] md:max-w-full">
@@ -61,7 +102,7 @@ export default function Section5() {
                     alt="settings"
                   />
                   <div className="flex  w-full flex-col items-start justify-start gap-3">
-                    <p className="w-full sm:text-start text-center  font-neue-machina-bold  text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
+                    <p className="w-full text-center font-neue-machina-bold  text-[21.33px]  text-gray-100 sm:text-start sm:text-[17.33px] md:text-[19.33px]">
                       Robust Security{" "}
                     </p>
                     <p className="text-blue_gray-400 max-w-[465px] font-apfel-grotezk text-[16px] text-base leading-[24.00px] text-[#898990] md:max-w-full">
@@ -79,7 +120,7 @@ export default function Section5() {
                     alt="settings"
                   />
                   <div className="flex  w-full flex-col items-start justify-start gap-3">
-                    <p className="w-full sm:text-start text-center  font-neue-machina-bold  text-[21.33px] text-gray-100 sm:text-[17.33px] md:text-[19.33px]">
+                    <p className="w-full text-center font-neue-machina-bold  text-[21.33px]  text-gray-100 sm:text-start sm:text-[17.33px] md:text-[19.33px]">
                       Defi Staking
                     </p>
                     <p className="text-blue_gray-400 max-w-[465px] font-apfel-grotezk text-[16px] text-base leading-[24.00px] text-[#898990] md:max-w-full">
@@ -99,7 +140,7 @@ export default function Section5() {
       <div className="flex items-center justify-center">
         <div className=" mb-16 mt-16 flex h-full min-h-[288px] w-full max-w-[1300px] flex-col items-center justify-between rounded-2xl bg-[url('/images/back.svg')] bg-cover bg-center bg-no-repeat px-20  sm:flex-row">
           <div className="mt-4 flex flex-col items-start justify-center pb-4 sm:pr-6">
-            <p className="font-neue-machina-bold sm:text-start text-center  text-[25px] uppercase text-black lg:text-[38px]">
+            <p className="text-center font-neue-machina-bold text-[25px]  uppercase text-black sm:text-start lg:text-[38px]">
               Get started for free
             </p>
 

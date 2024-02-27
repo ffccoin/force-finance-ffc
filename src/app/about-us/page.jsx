@@ -14,7 +14,7 @@ export default function page() {
     <main className="overflow-hidden w-full select-none flex flex-col mt-32">
       <AboutHeader />
       <AboutFFC />
-      <Section /> 
+      <Section /> {/* RoadMap*/}
       <Section3 />
       <Section4 />
       <Section5 />

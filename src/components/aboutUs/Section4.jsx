@@ -1,7 +1,21 @@
 import Image from "next/image";
 import Button from "@/components/buttons/Button";
+import { motion } from "framer-motion";
 
 const Section4 = () => {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className="bg-primary  px-8  grid lg:place-items-center place-items-center  md:place-items-start">
       <div className="mt-10 flex xl:ml-8  max-w-[83rem] flex-col  justify-start  lg:justify-center lg:items-center lg:flex-row-reverse ">
@@ -13,7 +27,10 @@ const Section4 = () => {
             alt="img"
           />  
         </div>
-        <div className=" flex lg:max-w-[641px] flex-col   py-10 lg:items-start lg:p-0">
+        <motion.div initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants} className=" flex lg:max-w-[641px] flex-col   py-10 lg:items-start lg:p-0">
           <p className="text-primary1 uppercase font-apfel-grotezk ">our story</p>
           <h1 className=" text-wrap text-xl w-full uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-10">
           Your Trusted Decentralized DeFi Web 3 Financial Solution Provider          </h1>
@@ -40,17 +57,12 @@ const Section4 = () => {
                 />}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-const renderStat = (number, label) => (
-  <div className="flex flex-col gap-y-4">
-    <h1 className="text-[37.9px] leading-[42.64px]">{number}</h1>
-    <p className="ml-1 md:ml-4">{label}</p>
-  </div>
-);
+
 
 export default Section4;

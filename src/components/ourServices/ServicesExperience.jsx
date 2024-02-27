@@ -102,12 +102,13 @@ const ServicesExperience = () => {
             </div>
           </div>
         </motion.div>
-        <motion.div className="mt-10 flex items-center justify-center lg:mr-16 "
-            initial="hide"
-            whileInView="show"
-            exit="show"
-            variants={rightToLeftVariants}
-          >
+        <motion.div
+          className="mt-10 flex items-center justify-center lg:mr-16 "
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants}
+        >
           <Image
             src="/homepage/developers-transformed.png"
             width={465}

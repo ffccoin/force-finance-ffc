@@ -1,7 +1,11 @@
 import Accordion from "../elements/Accordion";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+
 
 const ServicesFAQs = () => {
+  const router = useRouter();
+
   const leftToRightVariants = {
     hide: {
       opacity: 0,
@@ -86,11 +90,11 @@ const ServicesFAQs = () => {
           />
         </motion.div>
       </div>
-      <div className="mt-20 flex w-full  flex-wrap justify-center gap-1 px-10">
+      <div className="mt-20 flex w-full  select-none flex-wrap justify-center gap-1 px-10">
         <p className="text-center font-neue-machina-light text-base ">
           Haven’t got your answer?{" "}
         </p>
-        <p className="text-center font-neue-machina-bold text-primary1">
+        <p className="text-center font-neue-machina-bold cursor-pointer text-primary1" onClick={() => router.push("/contact-us")}>
           Contact our support now
         </p>
       </div>

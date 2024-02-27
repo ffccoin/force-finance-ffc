@@ -13,7 +13,7 @@ import ServicesFAQs from "@/components/ourServices/ServicesFAQs";
 
 export default function page() {
   return (
-    <div className="mt-52 overflow-hidden">
+    <div className="mt-48 overflow-hidden">
       <ServicesHeader />
       <Section1 />
       <ServicesExperience />

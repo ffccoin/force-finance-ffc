@@ -45,10 +45,7 @@ const Section2 = () => {
             Experience the Future of Finance with FFC Coin{" "}
           </p>
         </motion.div>
-        <div  initial="hide"
-            whileInView="show"
-            exit="show"
-            variants={bottomToTopVariants} className="flex flex-col gap-y-4 px-8 lg:flex-row lg:gap-x-4 xl:gap-x-0">
+        <div  className="flex flex-col gap-y-4 px-8 lg:flex-row lg:gap-x-4 xl:gap-x-0">
           <motion.div  initial="hide"
             whileInView="show"
             exit="show"
