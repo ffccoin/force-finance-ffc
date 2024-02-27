@@ -26,7 +26,7 @@ const Section1 = () => {
               duration: 1.5,
             }}
           >
-            Empowering <br /> Financial Future
+            Empowering your <br /> Financial Future
           </motion.h1>
           <motion.p
             className="w-full max-w-[90%] md:leading-6 lg:max-w-[450px] xl:max-w-[585px]"
@@ -43,9 +43,9 @@ const Section1 = () => {
               delay: 0.5,
             }}
           >
-            Embracing the forefront of Web 3.0, we're pioneering the path
-            forward. With our decentralized finance (DeFi) solutions, we're
-            sculpting a future where financial liberation knows no bounds.
+            Embracing the Forefront of Web 3.0, Pioneering the Path Forward.
+            With our decentralized finance (DeFi) solutions, we sculpt a future
+            where financial liberation knows no bounds.
           </motion.p>
           <div className="hidden gap-x-6 md:flex lg:hidden xl:flex">
             <Button title="Connect Wallet" />

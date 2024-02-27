@@ -32,15 +32,15 @@ const Section10 = () => {
   };
   return (
     <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg ">
-      <div className="sm: mt-10 flex flex-wrap px-4 pl-8 md:flex-row lg:justify-end">
+      <div className="sm: mt-10 flex flex-col px-4 pl-8 md:flex-row md:gap-8 lg:gap-0 lg:justify-end">
         <motion.div
-          className="flex max-w-[38.7rem] flex-col md:max-w-[22.7rem] xl:max-w-[36.7rem]"
+          className="flex max-w-[38.7rem] flex-col md:max-w-[36.7rem]  lg:max-w-[36.7rem]"
           initial="hide"
           whileInView="show"
           exit="show"
           variants={leftToRightVariants}
         >
-          <h3 className="text-wrap font-neue-machina-bold text-xl md:text-3xl	 ">
+          <h3 className="text-wrap font-neue-machina-bold uppercase text-xl md:text-3xl lg:[37.96px] leading-[42.64px]">
             Access all your favorite assets effortlessly
           </h3>
 
@@ -82,7 +82,7 @@ const Section10 = () => {
           variants={rightToLeftVariants}
         >
           <motion.div
-            className="mt-8 max-w-[20rem] lg:max-w-[38rem]"
+            className="mt-8 md:max-w-[30rem] lg:max-w-[38rem] max-w-[38rem]"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{
               duration: 2,
