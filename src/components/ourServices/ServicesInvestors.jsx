@@ -30,7 +30,7 @@ const ServicesInvestors = () => {
   };
   return (
     <div className="mt-8 grid place-items-center bg-primary1">
-      <div className=" flex max-w-7xl flex-col text-primary2 ">
+      <div className=" flex lg:max-w-7xl flex-col text-primary2 ">
         <motion.div
           initial="hide"
           whileInView="show"
@@ -42,7 +42,7 @@ const ServicesInvestors = () => {
             Our investors
           </p>
         </motion.div>
-        <div className="mt-12 grid grid-cols-2 gap-10 px-10 md:mt-20 md:max-w-6xl md:gap-x-20  md:px-10 lg:grid-cols-4  xl:gap-36">
+        <div className="mt-12 grid grid-cols-2 gap-10 px-10 md:mt-20 gap-x-20 sm:gap-x-[48vw] md:gap-x-[48vw]  md:px-10 lg:grid-cols-4 items-center  lg:gap-x-48">
           <motion.div
             initial="hide"
             whileInView="show"
@@ -53,7 +53,7 @@ const ServicesInvestors = () => {
             <Image
               className=""
               src="/ourServices/poolin.svg"
-              width={123.33}
+              width={124}
               height={27.98}
               alt="img"
             />
@@ -67,8 +67,8 @@ const ServicesInvestors = () => {
           >
             <Image
               src="/ourServices/neutino.svg"
-              width={180}
-              height={26}
+              width={124}
+              height={27.98}
               alt="img"
             />
           </motion.div>
@@ -81,8 +81,8 @@ const ServicesInvestors = () => {
           >
             <Image
               src="/ourServices/swop.svg"
-              width={180}
-              height={33}
+              width={124}
+              height={27.98}
               alt="img"
             />
           </motion.div>
@@ -95,13 +95,13 @@ const ServicesInvestors = () => {
           >
             <Image
               src="/ourServices/smile.svg"
-              width={112}
-              height={36}
+              width={124}
+              height={27.98}
               alt="img"
             />
           </motion.div>
         </div>
-        <div className="mb-8 mt-6 grid  grid-cols-2 items-center gap-x-12 gap-y-12 px-10  sm:gap-x-20 md:mt-20  md:max-w-6xl  lg:grid-cols-3  xl:gap-36">
+        <div className="mb-8 md:mt-6 sm:mt-7  mt-9 grid 2xl:ml-36  xl:ml-14  lg:ml-9 grid-cols-2 items-center gap-x-20 gap-y-9 px-10   lg:mt-20  sm:gap-x-[48vw] md:gap-x-[48vw] lg:grid-cols-3 lg:gap-x-28 xl:gap-x-36">
           <motion.div
             initial="hide"
             whileInView="show"
@@ -112,8 +112,8 @@ const ServicesInvestors = () => {
             <Image
               className=""
               src="/ourServices/btex.svg"
-              width={180.89}
-              height={36}
+              width={124}
+              height={27.98}
               alt="img"
             />
           </motion.div>
@@ -126,8 +126,8 @@ const ServicesInvestors = () => {
           >
             <Image
               src="/ourServices/coinbase.svg"
-              width={141}
-              height={24.99}
+              width={124}
+              height={27.98}
               alt="img"
             />
           </motion.div>
@@ -140,8 +140,8 @@ const ServicesInvestors = () => {
           >
             <Image
               src="/ourServices/huobi.svg"
-              width={180}
-              height={32}
+              width={124}
+              height={27.98}
               alt="img"
             />
           </motion.div>
