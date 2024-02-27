@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "framer-motion";
 import Button from "@/components/buttons/Button";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
@@ -11,6 +11,22 @@ const Calculator2 = () => {
   const [selectedCurrency, setSelectedCurrency] = useState("usd");
   const [coinAmount, setCoinAmount] = useState(null);
   const [currencyAmount, setCurrencyAmount] = useState(null);
+  const blinkVariants = {
+    hide: {
+      opacity: 0,
+      x: 0,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        opacity: {
+          duration: 2,
+          type: "tween",
+        },
+      },
+    },
+  };
 
   const fetchExchangeRate = async () => {
     const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano,terra-luna,polkadot&vs_currencies=usd,pkr,inr,eur,gbp`;
@@ -72,7 +88,10 @@ const Calculator2 = () => {
       <div
         className={`flex flex-col items-center gap-4 md:flex-row ${swapPlaces ? "flex-col-reverse md:flex-row-reverse" : "flex-col md:flex-row"}`}
       >
-        <div className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 ">
+        <motion.div initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={blinkVariants} className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 ">
           <div className=" max-w-28 sm:max-w-32">
             <p className="text-neutralLight">
               {swapPlaces ? "You get" : "You have"}
@@ -178,8 +197,11 @@ const Calculator2 = () => {
               </Transition>
             </Menu>
           </div>
-        </div>
-        <button onClick={() => setSwapPlaces(!swapPlaces)}>
+        </motion.div>
+        <motion.button  initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={blinkVariants}onClick={() => setSwapPlaces(!swapPlaces)}>
           <Image
             className="my-2 rotate-90  md:my-0 md:rotate-0"
             width={24}
@@ -187,8 +209,11 @@ const Calculator2 = () => {
             src="images/img_share.svg"
             alt="share"
           />
-        </button>
-        <div className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 ">
+        </motion.button>
+        <motion.div initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={blinkVariants} className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 ">
           <div className=" max-w-28 sm:max-w-32">
             <p className="text-neutralLight">
               {swapPlaces ? "You have" : "You get"}
@@ -275,7 +300,7 @@ const Calculator2 = () => {
               </Transition>
             </Menu>
           </div>
-        </div>
+        </motion.div>
       </div>
       <Button
         size="small"
