@@ -203,7 +203,7 @@ const Calculator2 = () => {
           </div>
 
           <div className="flex items-center justify-center ">
-            <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px]  items-center justify-center rounded-xl bg-orange-600 p-2 pb-2.5 text-center text-base">
+            <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center rounded-xl bg-orange-600 p-2 pb-2.5 text-center text-base">
               ฿
             </p>
             <Menu as="div" className="relative">
