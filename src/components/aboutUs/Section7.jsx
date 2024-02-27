@@ -5,7 +5,7 @@ export default function Section7() {
         <div className="grid grid-cols-2 grid-rows-2 sm:grid-cols-3 sm:grid-rows-2 md:max-w-[83rem]">
           <div className="flex items-center justify-center border border-solid border-[#898990] px-7 py-7	 sm:px-8 	sm:py-8 md:px-12 md:py-20 lg:px-8 	 lg:py-8  xl:px-12 xl:py-12">
             <img
-              src="/aboutPage/poolin.svg"
+              src="aboutPage/poolin.svg"
               width={183}
               height={33}
               alt="img"
@@ -73,9 +73,5 @@ export default function Section7() {
   );
 }
 
-const renderStat = (number, label) => (
-  <div className="flex flex-col gap-y-4">
-    <h1 className="text-[37.9px] leading-[42.64px]">{number}</h1>
-    <p className="ml-1 md:ml-4">{label}</p>
-  </div>
-);
+
+

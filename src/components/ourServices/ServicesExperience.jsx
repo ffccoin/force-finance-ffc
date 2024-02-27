@@ -1,12 +1,44 @@
 import Image from "next/image";
-import Button from "@/components/buttons/Button";
-import SecondaryButton from "@/components/buttons/SecondaryButton";
+import { motion } from "framer-motion";
 
 const ServicesExperience = () => {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
   return (
-    <div className="mt-16 grid place-items-center items-center lg:justify-center  bg-primary1 md:h-auto lg:h-[700px] ">
+    <div className="mt-16 grid place-items-center items-center bg-primary1  md:h-auto lg:h-[700px] lg:justify-center ">
       <div className="flex max-w-[90vw] flex-col-reverse  items-center  justify-between gap-8 md:justify-center  lg:flex-row">
-        <div className="flex max-w-[56rem] flex-col p-4 text-neutral md:p-6">
+        <motion.div
+          className="flex max-w-[56rem] flex-col p-4 text-neutral md:p-6"
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+        >
           <h3 className=" text-wrap text-2xl uppercase sm:text-[37.9px] sm:leading-[42.64px] lg:mt-4">
             Experience the Power of Web 3 Wallets
           </h3>
@@ -69,15 +101,20 @@ const ServicesExperience = () => {
               </p>
             </div>
           </div>
-        </div>
-        <div className="flex items-center mt-10 justify-center lg:mr-16 ">
+        </motion.div>
+        <motion.div className="mt-10 flex items-center justify-center lg:mr-16 "
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={rightToLeftVariants}
+          >
           <Image
             src="/homepage/developers-transformed.png"
             width={465}
             height={428}
             alt="img"
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
