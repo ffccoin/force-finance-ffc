@@ -1,11 +1,44 @@
-import Image from "next/image";
 import Accordion from "../elements/Accordion";
+import { motion } from "framer-motion";
 
 const ServicesFAQs = () => {
+  const leftToRightVariants = {
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const rightToLeftVariants = {
+    hide: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
   return (
     <div className="mt-2 grid place-items-center bg-primary2">
       <div className="mt-12 grid max-w-7xl gap-x-20 px-6  sm:grid-cols-1 sm:px-16 lg:grid-cols-2  lg:px-8">
-        <div className="w-full">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+          className="w-full"
+        >
           <Accordion
             ques={"How does FFC Coin ensure security?"}
             ans={
@@ -24,8 +57,14 @@ const ServicesFAQs = () => {
               "To commence your journey with FFC Coin, start by setting up a new wallet through our platform. Once your wallet is created, complete the necessary verification steps to ensure security. Then, you can participate in our Initial Coin Offering (ICO) by purchasing FFC Coins directly through our ICO sale or supported exchanges. Engage in our ICO to seize the opportunity for early investment and become part of our thriving decentralized finance (DeFi) ecosystem."
             }
           />
-        </div>
-        <div className="w-full">
+        </motion.div>
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants}
+          className="w-full"
+        >
           <Accordion
             ques={"What is Force Finance Coin (FFC Coin)?"}
             ans={
@@ -45,7 +84,7 @@ const ServicesFAQs = () => {
               "Yes, FFC Coin is accessible worldwide, offering its decentralized finance solutions to users globally. Through blockchain technology, FFC Coin transcends geographical boundaries, ensuring accessibility and participation from anywhere in the world."
             }
           />
-        </div>
+        </motion.div>
       </div>
       <div className="mt-20 flex w-full  flex-wrap justify-center gap-1 px-10">
         <p className="text-center font-neue-machina-light text-base ">

@@ -1,11 +1,40 @@
 import Image from "next/image";
-
-
+import { motion } from "framer-motion";
 const ServicesCertified = () => {
+  const topToBottomVariants = {
+    hide: {
+      opacity: 0,
+      y: -50,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+  const leftToRightVariants = (delay) => ({
+    hide: {
+      opacity: 0,
+      x: -100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+        delay: delay,
+      },
+    },
+  });
   return (
     <div className="mt-[-2px] grid place-items-center bg-primary1">
       <div className=" mt-16 flex max-w-7xl flex-col gap-y-[61px] px-5  text-primary2 sm:px-10 lg:mt-32">
-        <div className="flex max-w-[90vw] flex-col items-center ">
+        <motion.div initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={topToBottomVariants} className="flex max-w-[90vw] flex-col items-center ">
           <p className="text-center font-neue-machina-bold text-2xl  uppercase sm:text-[37.9px] sm:leading-[42.64px] ">
             Certified SECURE FFC Coin WALET
           </p>
@@ -14,9 +43,15 @@ const ServicesCertified = () => {
             Featuring advanced encryption protocols, multi-factor
             authentication, and biometric security options
           </p>
-        </div>
+        </motion.div>
         <div className="mb-20  flex flex-col gap-x-[19px] gap-y-4 sm:justify-center sm:gap-y-8 md:flex-row">
-          <div className="group flex w-full flex-col items-center  gap-y-[30px] rounded-[10px] ">
+          <motion.div
+            className="group flex w-full flex-col items-center  gap-y-[30px] rounded-[10px] "
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={leftToRightVariants(0)}
+          >
             <div className="grid h-[80px] w-[80px] place-items-center  ">
               <Image
                 src="/ourServices/blockChain.svg"
@@ -34,8 +69,11 @@ const ServicesCertified = () => {
                 blockchain verification.
               </span>
             </div>
-          </div>
-          <div className="group flex w-full flex-col items-center  gap-y-[30px] rounded-[10px] ">
+          </motion.div>
+          <motion.div initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={leftToRightVariants(0.5)}  className="group flex w-full flex-col items-center  gap-y-[30px] rounded-[10px] ">
             <div className="grid h-[80px] w-[80px] place-items-center  ">
               <Image
                 src="/ourServices/scalability.svg"
@@ -53,8 +91,11 @@ const ServicesCertified = () => {
                 compromising performance.
               </span>
             </div>
-          </div>
-          <div className="group flex w-full flex-col items-center  gap-y-[30px] rounded-[10px] ">
+            </motion.div>
+          <motion.div initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={leftToRightVariants(1)} className="group flex w-full flex-col items-center  gap-y-[30px] rounded-[10px] ">
             <div className="grid h-[80px] w-[80px] place-items-center  ">
               <Image
                 src="/ourServices/security.svg"
@@ -72,8 +113,11 @@ const ServicesCertified = () => {
                 measures to safeguard user assets & data.
               </span>
             </div>
-          </div>
-          <div className="group flex w-full flex-col items-center  gap-y-[30px] rounded-[10px] ">
+            </motion.div>
+          <motion.div initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={leftToRightVariants(1.5)} className="group flex w-full flex-col items-center  gap-y-[30px] rounded-[10px] ">
             <div className="grid h-[80px] w-[80px] place-items-center  ">
               <Image
                 src="/ourServices/advancedSecurity.svg"
@@ -91,7 +135,7 @@ const ServicesCertified = () => {
                 protocols to ensure the integrity of every transaction
               </span>
             </div>
-          </div>
+            </motion.div>
         </div>
       </div>
     </div>
