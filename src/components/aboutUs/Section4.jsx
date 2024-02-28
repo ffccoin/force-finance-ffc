@@ -23,7 +23,7 @@ const Section4 = () => {
           animate={{ y: [0, 40, 0] }}
           transition=
           {{
-            duration: 5,
+            duration: 6,
             repeat: Infinity,
             repeatType: "reverse",
           }}>
