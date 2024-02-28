@@ -1,52 +1,67 @@
-import Image from "next/image";
-import Button from "../buttons/Button";
-import { Menu, Transition } from "@headlessui/react";
+"use client";
 
-import { Fragment, useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import Calculator2 from "../sections/about-us/Calculator2";
 
 export default function AboutHeader() {
   return (
     <div className="grid w-full  place-items-center  bg-primary2">
-      <div className="  relative flex flex-col items-center px-4 ">
+      <div className="relative flex flex-col items-center px-4">
         {/*         <Image     className="absolute top-[5.4rem] left-[15.4rem] sm:left-[20rem] md:left-[30rem] lg:left-[60rem] xl:left-[60rem]" width={51} height={51} alt="img" src="/aboutpage/bitcoin.svg" /> */}
-        <Image
-          className="absolute top-[0.4rem] hidden xl:left-[60rem] xl:block"
-          width={51}
-          height={51}
-          alt="img"
-          src="/aboutpage/bitcoin.svg"
-        />
-        <Image
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: 20 }}
+          transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
           className="absolute top-[9.3rem]  hidden xl:left-[1.25rem] xl:block"
-          width={116.52}
-          height={116.52}
-          alt="img"
-          src="/aboutpage/goldenBitcoin.svg"
-        />
-        <Image
+        >
+          <Image
+            width={116.52}
+            height={116.52}
+            alt="img"
+            src="/aboutpage/goldenBitcoin.svg"
+          />
+        </motion.div>
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: 20 }}
+          transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
           className="absolute top-[15rem] hidden rotate-3 xl:left-[70.65rem] xl:block"
-          width={123}
-          height={123}
-          alt="img"
-          src="/aboutpage/greenBitcoin.svg"
-        />
-        <Image
+        >
+          <Image
+            width={123}
+            height={123}
+            alt="img"
+            src="/aboutpage/greenBitcoin.svg"
+          />
+        </motion.div>
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: 20 }}
+          transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
           className="absolute top-[26.3rem]  hidden xl:left-[8rem] xl:block"
-          width={85}
-          height={85}
-          alt="img"
-          src="/aboutpage/greenBitcoin2.svg"
-        />
-        <Image
+        >
+          <Image
+            width={85}
+            height={85}
+            alt="img"
+            src="/aboutpage/greenBitcoin2.svg"
+          />
+        </motion.div>
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: 20 }}
+          transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
           className="absolute top-[28rem] hidden rotate-3 xl:left-[69.65rem] xl:block"
-          width={51}
-          height={51}
-          alt="img"
-          src="/aboutpage/blueBitcoin.svg"
-        />
-
-        <div className=" flex max-w-[90rem] flex-col  items-center uppercase">
+        >
+          <Image
+            width={51}
+            height={51}
+            alt="img"
+            src="/aboutpage/blueBitcoin.svg"
+          />
+        </motion.div>
+        <div className=" z-10 flex max-w-[90rem] flex-col items-center uppercase">
           <p className=" text-wrap text-center font-apfel-grotezk  text-base text-primary1 xl:mr-auto  xl:pl-[357px]">
             First order and you’ll get up to $10 in free BTC as a reward{" "}
           </p>
@@ -66,14 +81,19 @@ export default function AboutHeader() {
           />
         </div>
       </div>
-      <div className="mt-8 flex w-full  flex-col items-center bg-gradient-to-b from-[#161617]  from-50% via-[#7D32F9] via-100% px-4  md:mt-20">
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: 20 }}
+        transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
+        className="mt-8 flex w-full flex-col items-center px-4  md:mt-0"
+      >
         <Image
           width={891}
           height={301}
           src="/aboutpage/test.svg"
           alt="iconframe"
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

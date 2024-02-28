@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/headers/Header";
 import Footer from "@/components/footer/Footer";
 import StoreProvider from "./StoreProvider";
+import LoadingPage from "./loading/page";
 
 export const revalidate = 300;
 

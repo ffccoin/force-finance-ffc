@@ -88,10 +88,13 @@ const Calculator2 = () => {
       <div
         className={`flex flex-col items-center gap-4 md:flex-row ${swapPlaces ? "flex-col-reverse md:flex-row-reverse" : "flex-col md:flex-row"}`}
       >
-        <motion.div initial="hide"
-            whileInView="show"
-            exit="show"
-            variants={blinkVariants} className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 ">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={blinkVariants}
+          className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 "
+        >
           <div className=" max-w-28 sm:max-w-32">
             <p className="text-neutralLight">
               {swapPlaces ? "You get" : "You have"}
@@ -106,7 +109,7 @@ const Calculator2 = () => {
           </div>
           <div className="flex items-center justify-center ">
             <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center rounded-xl  bg-orange-600 p-2 pb-2.5 text-center text-base">
-               ฿
+              ฿
             </p>
             <Menu as="div" className="relative">
               <Menu.Button className="flex h-8 max-w-fit items-center  border-transparent  bg-transparent font-apfel-grotezk uppercase outline-none">
@@ -198,10 +201,13 @@ const Calculator2 = () => {
             </Menu>
           </div>
         </motion.div>
-        <motion.button  initial="hide"
-            whileInView="show"
-            exit="show"
-            variants={blinkVariants}onClick={() => setSwapPlaces(!swapPlaces)}>
+        <motion.button
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={blinkVariants}
+          onClick={() => setSwapPlaces(!swapPlaces)}
+        >
           <Image
             className="my-2 rotate-90  md:my-0 md:rotate-0"
             width={24}
@@ -210,10 +216,13 @@ const Calculator2 = () => {
             alt="share"
           />
         </motion.button>
-        <motion.div initial="hide"
-            whileInView="show"
-            exit="show"
-            variants={blinkVariants} className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 ">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={blinkVariants}
+          className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 "
+        >
           <div className=" max-w-28 sm:max-w-32">
             <p className="text-neutralLight">
               {swapPlaces ? "You have" : "You get"}
@@ -228,8 +237,8 @@ const Calculator2 = () => {
           </div>
 
           <div className="flex items-center justify-center ">
-            <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center bg-[#7D32F9] rounded-xl  p-2 pb-2.5 text-center text-base">
-            $
+            <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center rounded-xl bg-[#7D32F9]  p-2 pb-2.5 text-center text-base">
+              $
             </p>
             <Menu as="div" className="relative">
               <Menu.Button className="flex h-8 max-w-fit items-center  border-transparent  bg-transparent font-apfel-grotezk uppercase outline-none">
