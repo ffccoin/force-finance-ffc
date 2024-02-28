@@ -79,7 +79,6 @@ export default function ContactForm() {
 
   return (
     <div className="mb-20 flex items-center justify-center">
-      <ParticleWave />
       <div className="w-[50%]justify-center mt-4 flex items-center rounded-3xl border-[1px] border-solid border-[#FFFFFF66]  bg-[#FAFAFA2B]  px-6 py-10 backdrop-blur-[20px]">
         <form
           className="mx-auto flex w-full max-w-[800px] flex-col items-center space-y-4"

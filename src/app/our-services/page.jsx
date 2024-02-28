@@ -10,7 +10,6 @@ import ServicesCertified from "@/components/ourServices/ServicesCertified";
 import ServicesGlobe from "@/components/ourServices/ServicesGlobe";
 import ServicesInvestors from "@/components/ourServices/ServicesInvestors";
 import ServicesFAQs from "@/components/ourServices/ServicesFAQs";
-import BouncingParticlesAnimation from "@/components/animations/BouncingParticlesAnimation";
 import ParticleWave from "@/components/animations/three-particle-waves/ThreeParticleWaves";
 
 export default function page() {

@@ -8,6 +8,7 @@ import ParticleWave from "@/components/animations/three-particle-waves/ThreePart
 export default function page() {
   return (
     <div className="relative mt-40 overflow-hidden">
+      <ParticleWave />
       <ContactHeader />
       <ContactForm />
       <ContactFooter />
