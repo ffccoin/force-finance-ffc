@@ -105,6 +105,17 @@ export default function ContactForm() {
               value={email}
             />
           </div>
+          <div className="w-full pb-4">
+            <input
+              name="phoneNumber"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={phoneNumber}
+              required
+              className=" h-[60px] w-full rounded-md bg-neutral pl-4 font-apfel-grotezk text-white outline-none [appearance:textfield] md:w-[625px] [&::-webkit-inner-spin-button]:appearance-none  [&::-webkit-outer-spin-button]:appearance-none"
+              placeholder="Tel*"
+              type="number"
+            />
+          </div>
           <Menu
             as="div"
             className="relative  inline-block pb-4 text-left outline-none"
@@ -153,17 +164,6 @@ export default function ContactForm() {
               </Menu.Items>
             </Transition>
           </Menu>
-          <div className="w-full pb-5">
-            <input
-              name="phoneNumber"
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              value={phoneNumber}
-              required
-              className=" h-[60px] w-full rounded-md bg-neutral pl-4 font-apfel-grotezk text-white outline-none [appearance:textfield] md:w-[625px] [&::-webkit-inner-spin-button]:appearance-none  [&::-webkit-outer-spin-button]:appearance-none"
-              placeholder="PhoneNumber*"
-              type="number"
-            />
-          </div>
 
           <textarea
             name="message"
