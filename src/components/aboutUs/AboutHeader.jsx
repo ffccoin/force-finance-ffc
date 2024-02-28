@@ -12,7 +12,11 @@ export default function AboutHeader() {
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: 20 }}
-          transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
+          transition={{
+            repeat: Infinity,
+            duration: 2.6,
+            repeatType: "reverse",
+          }}
           className="absolute top-[9.3rem]  hidden xl:left-[1.25rem] xl:block"
         >
           <Image
@@ -25,7 +29,7 @@ export default function AboutHeader() {
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: 20 }}
-          transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
+          transition={{ repeat: Infinity, duration: 3, repeatType: "reverse" }}
           className="absolute top-[15rem] hidden rotate-3 xl:left-[70.65rem] xl:block"
         >
           <Image
@@ -38,7 +42,11 @@ export default function AboutHeader() {
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: 20 }}
-          transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
+          transition={{
+            repeat: Infinity,
+            duration: 2.5,
+            repeatType: "reverse",
+          }}
           className="absolute top-[26.3rem]  hidden xl:left-[8rem] xl:block"
         >
           <Image
@@ -51,7 +59,11 @@ export default function AboutHeader() {
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: 20 }}
-          transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
+          transition={{
+            repeat: Infinity,
+            duration: 2.7,
+            repeatType: "reverse",
+          }}
           className="absolute top-[28rem] hidden rotate-3 xl:left-[69.65rem] xl:block"
         >
           <Image
@@ -84,7 +96,7 @@ export default function AboutHeader() {
       <motion.div
         initial={{ y: 0 }}
         animate={{ y: 20 }}
-        transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
+        transition={{ repeat: Infinity, duration: 4, repeatType: "reverse" }}
         className="mt-8 flex w-full flex-col items-center px-4  md:mt-0"
       >
         <Image
