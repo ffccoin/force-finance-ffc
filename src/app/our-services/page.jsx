@@ -10,10 +10,12 @@ import ServicesCertified from "@/components/ourServices/ServicesCertified";
 import ServicesGlobe from "@/components/ourServices/ServicesGlobe";
 import ServicesInvestors from "@/components/ourServices/ServicesInvestors";
 import ServicesFAQs from "@/components/ourServices/ServicesFAQs";
+import BouncingParticlesAnimation from "@/components/animations/BouncingParticlesAnimation";
 
 export default function page() {
   return (
     <div className="mt-48 overflow-hidden">
+      <BouncingParticlesAnimation />
       <ServicesHeader />
       <Section1 />
       <ServicesExperience />

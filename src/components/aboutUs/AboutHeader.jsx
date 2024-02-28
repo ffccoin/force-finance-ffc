@@ -6,7 +6,20 @@ import Calculator2 from "../sections/about-us/Calculator2";
 
 export default function AboutHeader() {
   return (
-    <div className="grid w-full  place-items-center  bg-primary2">
+    <motion.div
+      initial={{
+        backgroundPositionY: "0px",
+      }}
+      animate={{
+        backgroundPositionY: "100px",
+      }}
+      transition={{
+        duration: 20,
+        repeat: Infinity,
+        repeatType: "reverse",
+      }}
+      className="grid w-full place-items-center bg-primary2 bg-[url('/aboutpage/about-bg3.png')] bg-cover bg-center bg-no-repeat"
+    >
       <div className="relative flex flex-col items-center px-4">
         {/*         <Image     className="absolute top-[5.4rem] left-[15.4rem] sm:left-[20rem] md:left-[30rem] lg:left-[60rem] xl:left-[60rem]" width={51} height={51} alt="img" src="/aboutpage/bitcoin.svg" /> */}
         <motion.div
@@ -17,7 +30,7 @@ export default function AboutHeader() {
             duration: 2.6,
             repeatType: "reverse",
           }}
-          className="absolute top-[9.3rem]  hidden xl:left-[1.25rem] xl:block"
+          className="absolute top-[9.3rem] hidden xl:left-[1.25rem] xl:block"
         >
           <Image
             width={116.52}
@@ -73,7 +86,7 @@ export default function AboutHeader() {
             src="/aboutpage/blueBitcoin.svg"
           />
         </motion.div>
-        <div className=" z-10 flex max-w-[90rem] flex-col items-center uppercase">
+        <div className="z-20 flex max-w-[90rem] flex-col items-center uppercase">
           <p className=" text-wrap text-center font-apfel-grotezk  text-base text-primary1 xl:mr-auto  xl:pl-[357px]">
             First order and you’ll get up to $10 in free BTC as a reward{" "}
           </p>
@@ -106,6 +119,6 @@ export default function AboutHeader() {
           alt="iconframe"
         />
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
