@@ -4,6 +4,7 @@ import Header from "@/components/headers/Header";
 import Footer from "@/components/footer/Footer";
 import StoreProvider from "./StoreProvider";
 import LoadingPage from "./loading/page";
+import PreloaderProvider from "./PreloaderProvider";
 
 export const revalidate = 300;
 
@@ -78,9 +79,7 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <StoreProvider>
         <body className={inter.className}>
-          <Header coins={data} />
-          {children}
-          <Footer />
+          <PreloaderProvider data={data}>{children}</PreloaderProvider>
         </body>
       </StoreProvider>
     </html>
