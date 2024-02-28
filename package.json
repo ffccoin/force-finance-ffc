@@ -27,6 +27,7 @@
     "react-dom": "^18",
     "react-redux": "^9.1.0",
     "react-tsparticles": "^2.12.2",
+    "resend": "^3.2.0",
     "supports-color": "^9.4.0"
   },
   "devDependencies": {

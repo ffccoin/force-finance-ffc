@@ -25,7 +25,7 @@ export default function Home() {
       <Section4 />{/* Wallet */}
       <Section5 />
       <Section6 />{/* TOKENOMICS */}
-      <Section7 />
+      <Section7 />{/*RoadMap*/}
       <Section8 />
       <Section9 />
       <Section10 />

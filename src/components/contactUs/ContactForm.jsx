@@ -1,5 +1,5 @@
 import Button from "../buttons/Button";
-import { Fragment, useState,useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
@@ -13,6 +13,7 @@ export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   useEffect(() => {
@@ -24,17 +25,42 @@ export default function ContactForm() {
     }
     return () => clearTimeout(timer);
   }, [formSubmitted]);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Check if all required fields are filled
     if (name && email && isChecked) {
-      // Perform form submission logic here
-
+      await fetch("/api/email", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          selectedOption,
+          phoneNumber,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            setFormSubmitted(true);
+            setName("");
+            setMessage("");
+            setPhoneNumber("");
+            setIsChecked(false);
+            setEmail("");
+            setSelectedOption("Your inquiry about");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      return true;
       // Set formSubmitted to true to display confirmation message
-      setFormSubmitted(true);
     } else {
-      // Display an error or required fields message
       alert("Please fill in all required fields.");
     }
   };
@@ -52,7 +78,7 @@ export default function ContactForm() {
 
   return (
     <div className="mb-20 flex items-center justify-center bg-[url('/contactpage/background.svg')] bg-cover bg-center sm:bg-contain md:bg-cover lg:bg-contain xl:bg-cover">
-      <div className="mt-4 flex items-center w-[50%]justify-center rounded-3xl border-[1px] border-solid border-[#FFFFFF66]  bg-[#FAFAFA2B]  px-6 py-10 backdrop-blur-[20px]">
+      <div className="w-[50%]justify-center mt-4 flex items-center rounded-3xl border-[1px] border-solid border-[#FFFFFF66]  bg-[#FAFAFA2B]  px-6 py-10 backdrop-blur-[20px]">
         <form
           className="mx-auto flex w-full max-w-[800px] flex-col items-center space-y-4"
           onSubmit={handleSubmit}
@@ -102,7 +128,7 @@ export default function ContactForm() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="sm:w-[100%]  absolute right-0 z-10 mt-2 w-[226px] origin-top-right rounded-md bg-neutral outline-none md:w-[625px]">
+              <Menu.Items className="absolute  right-0 z-10 mt-2 w-[226px] origin-top-right rounded-md bg-neutral outline-none sm:w-[100%] md:w-[625px]">
                 <div className="py-1">
                   {options.map((option, index) => (
                     <Menu.Item key={index}>
@@ -110,7 +136,9 @@ export default function ContactForm() {
                         <p
                           onClick={() => handleOptionSelect(option)}
                           className={classNames(
-                            active ? "bg-gray-100 text-gray-900" : "text-white",
+                            active
+                              ? "bg-opacity-1 bg-[#FAFAFA2B] bg-opacity-25 text-primary1 backdrop-blur-[20px]"
+                              : "text-white",
                             "block select-none rounded-md px-4 py-2	 font-apfel-grotezk text-sm",
                           )}
                         >
@@ -123,9 +151,21 @@ export default function ContactForm() {
               </Menu.Items>
             </Transition>
           </Menu>
+          <div className="w-full pb-5">
+            <input
+              name="phoneNumber"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={phoneNumber}
+              required
+              className=" h-[60px] w-full rounded-md bg-neutral pl-4 font-apfel-grotezk text-white outline-none [appearance:textfield] md:w-[625px] [&::-webkit-inner-spin-button]:appearance-none  [&::-webkit-outer-spin-button]:appearance-none"
+              placeholder="PhoneNumber*"
+              type="number"
+            />
+          </div>
+
           <textarea
             name="message"
-            className="mb-4 h-[175px] w-full rounded-md bg-neutral pl-4 pt-4 font-apfel-grotezk text-white outline-none md:w-[625px]"
+            className="mb-4 mt-12 h-[175px] w-full rounded-md bg-neutral pl-4 pt-4 font-apfel-grotezk text-white outline-none md:w-[625px]"
             placeholder="Message..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
