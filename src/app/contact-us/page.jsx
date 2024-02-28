@@ -1,12 +1,13 @@
-'use client'
+"use client";
 
 import ContactHeader from "@/components/contactUs/ContactHeader";
 import ContactForm from "@/components/contactUs/ContactForm";
 import ContactFooter from "@/components/contactUs/ContactFooter";
+import ParticleWave from "@/components/animations/three-particle-waves/ThreeParticleWaves";
 
 export default function page() {
   return (
-    <div className="mt-40 overflow-hidden">
+    <div className="relative mt-40 overflow-hidden">
       <ContactHeader />
       <ContactForm />
       <ContactFooter />

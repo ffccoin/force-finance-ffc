@@ -1,6 +1,6 @@
 export default function ContactHeader() {
   return (
-    <div className="mt-14 flex flex-col content-center items-center justify-center px-4">
+    <div className="z-20 mt-14 flex flex-col content-center items-center justify-center px-4">
       <p className="text-center font-neue-machina-bold text-[36px] font-[800px] leading-[75.75px] text-neutralLighter md:text-[56px]">
         CONTACT US
       </p>

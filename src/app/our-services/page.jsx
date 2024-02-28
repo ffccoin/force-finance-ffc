@@ -11,11 +11,12 @@ import ServicesGlobe from "@/components/ourServices/ServicesGlobe";
 import ServicesInvestors from "@/components/ourServices/ServicesInvestors";
 import ServicesFAQs from "@/components/ourServices/ServicesFAQs";
 import BouncingParticlesAnimation from "@/components/animations/BouncingParticlesAnimation";
+import ParticleWave from "@/components/animations/three-particle-waves/ThreeParticleWaves";
 
 export default function page() {
   return (
-    <div className="mt-48 overflow-hidden">
-      <BouncingParticlesAnimation />
+    <div className="relative mt-48 overflow-hidden">
+      <ParticleWave />
       <ServicesHeader />
       <Section1 />
       <ServicesExperience />

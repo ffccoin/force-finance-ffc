@@ -3,6 +3,7 @@ import { Fragment, useState, useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
+import ParticleWave from "../animations/three-particle-waves/ThreeParticleWaves";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -77,7 +78,8 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="mb-20 flex items-center justify-center bg-[url('/contactpage/background.svg')] bg-cover bg-center sm:bg-contain md:bg-cover lg:bg-contain xl:bg-cover">
+    <div className="mb-20 flex items-center justify-center">
+      <ParticleWave />
       <div className="w-[50%]justify-center mt-4 flex items-center rounded-3xl border-[1px] border-solid border-[#FFFFFF66]  bg-[#FAFAFA2B]  px-6 py-10 backdrop-blur-[20px]">
         <form
           className="mx-auto flex w-full max-w-[800px] flex-col items-center space-y-4"
