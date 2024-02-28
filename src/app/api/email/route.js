@@ -10,7 +10,7 @@ export async function POST(req, res) {
       await req.json();
     const data = await resend.emails.send({
       from: "forcefinancecoin<onboarding@resend.dev>",
-      to: ["ramishashahid22@gmail.com"],
+      to: ["info@forcefinancecoin.ca"],
       subject: "Customer Inquiry ",
       react: EmailTemplate({
         name,

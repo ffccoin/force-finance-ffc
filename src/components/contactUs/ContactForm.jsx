@@ -10,8 +10,8 @@ function classNames(...classes) {
 
 export default function ContactForm() {
   const [isChecked, setIsChecked] = useState(false);
-  const [name, setName] = useState("ramisha");
-  const [email, setEmail] = useState("abc@gmail.com");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
