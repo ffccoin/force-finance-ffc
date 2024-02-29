@@ -30,7 +30,7 @@ const ServicesExperience = () => {
     },
   };
   return (
-    <div className="mt-16 grid place-items-center items-center bg-primary1  md:h-auto lg:h-[700px] lg:justify-center ">
+    <div className="mt-32 sm:mt-16 grid place-items-center items-center bg-primary1  md:h-auto lg:h-[700px] lg:justify-center ">
       <div className="flex max-w-[90vw] flex-col-reverse  items-center  justify-between gap-8 md:justify-center  lg:flex-row">
         <motion.div
           className="flex max-w-[56rem] flex-col p-4 text-neutral md:p-6"

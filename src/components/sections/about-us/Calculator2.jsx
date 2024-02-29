@@ -103,7 +103,7 @@ const Calculator2 = () => {
               type="text"
               value={coinAmount}
               onChange={handleCoinAmountChange}
-              placeholder="0.95"
+              placeholder=""
               className=" w-full border-transparent bg-transparent  outline-none"
             />
           </div>
@@ -229,7 +229,7 @@ const Calculator2 = () => {
             </p>
             <input
               type="text"
-              placeholder="0.95"
+              placeholder=""
               onChange={handleCurrencyAmountChange}
               value={currencyAmount}
               className=" w-full border-transparent bg-transparent  outline-none"
