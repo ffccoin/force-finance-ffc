@@ -7,18 +7,18 @@ const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const TokenomicsChart2 = () => {
   const state = {
-    series: [8, 10, 9, 7, 5], // Your data values
+    series: [8, 6, 7, 6, 9], // Your data values
     options: {
       chart: {
         width: "200px",
         height: "200px",
-        type: "pie",
+        type: "polarArea",
       },
       labels: [
-        "Operations",
-        "Legal Department",
-        "Team Management",
-        "Marketing Development",
+        "10% Operations",
+        "5% Legal Department",
+        "16% Team Management",
+        "10% Marketing Development",
         "Others",
       ], // Your labels
       colors: ["#CBFB45", "#B8DB56", "#96B837", "#DEEBBC", "#6E8727"],
@@ -26,13 +26,14 @@ const TokenomicsChart2 = () => {
         width: 0,
       },
       legend: {
-        offsetY: -5,
+        offsetY: 10,
         labels: {
           colors: "white",
         },
         markers: {
           radius: 0,
         },
+        fontFamily: "Neue Machina Bold",
       },
       fill: {
         opacity: 1,
@@ -44,19 +45,51 @@ const TokenomicsChart2 = () => {
         enabled: false,
       },
       plotOptions: {
-        pie: {
-
+        polarArea: {
+          rings: {
+            strokeWidth: 0,
+          },
+          spokes: {
+            strokeWidth: 0,
+          },
         },
       },
+      responsive: [
+        {
+          breakpoint: 900,
+          options: {
+            chart: {
+              width: "100%",
+              height: "400px",
+            },
+            legend: {
+              offsetX: 50,
+              position: "bottom",
+              onItemClick: {
+                toggleDataSeries: false,
+              },
+              onItemHover: {
+                highlightDataSeries: false,
+              },
+              horizontalAlign: "left",
+              width: 220,
+              itemsMargin: {
+                horizontal: 10,
+                vertical: 10,
+              },
+            },
+          },
+        },
+      ],
     },
   };
 
   return (
-    <div id="chart" className="min-h-[200px] min-w-[350px]">
+    <div id="chart" className="min-h-[200px] w-full min-w-[350px]">
       <ApexCharts
         options={state.options}
         series={state.series}
-        type="pie"
+        type="polarArea"
         width={"100%"}
         height={"100%"}
       />

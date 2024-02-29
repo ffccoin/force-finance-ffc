@@ -59,7 +59,7 @@ const Section6 = () => {
         </div>
       </motion.div>
       <motion.div
-        className="mt-8 flex w-full max-w-7xl flex-col items-center justify-center gap-8 sm:flex-row"
+        className="mt-8 flex w-full max-w-7xl flex-col items-center justify-center gap-8 lg:px-20 sm:flex-row"
         initial="hide"
         whileInView="show"
         exit="show"

@@ -1,21 +1,11 @@
 "use client";
 
-import {
-  updateCoinDetails,
-  updatecoins,
-} from "@/libs/features/coins/coinsSlice";
 import Image from "next/image";
-// import { useEffect } from "react";
-// import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
+import { useGetCoinsQuery } from "@/libs/services/coins";
 
-const MovingBar = ({ coins }) => {
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(updateCoinDetails(coins));
-  // }, [coins]);
-
+const MovingBar = () => {
+  const { data, error, isLoading } = useGetCoinsQuery();
   const movingBarVariants = {
     hide: {
       opacity: 0,
@@ -34,74 +24,74 @@ const MovingBar = ({ coins }) => {
     <div
       className={`ticker-text${number === 2 ? "2" : ""} flex h-[46px] w-fit select-none items-center gap-x-16 bg-black px-5 text-neutralLight`}
     >
-      {coins && coins[0].id === "bitcoin" && (
+      {data && data[0].id === "bitcoin" && (
         <div className="flex gap-x-4">
           <Image src="/icons/bitcoin.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Bitcoin</span>
-          <span className="text-sm">${coins[0].current_price}</span>
+          <span className="text-sm">${data[0].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white">
-              {coins[0].price_change_24h > 0 ? upArrow : downArrow}
+              {data[0].price_change_24h > 0 ? upArrow : downArrow}
             </span>
           </div>
         </div>
       )}
-      {coins && coins[1].id === "ethereum" && (
+      {data && data[1].id === "ethereum" && (
         <div className="flex gap-x-4">
           <Image src="/icons/ethereum.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Ethereum</span>
-          <span className="text-sm">${coins[1].current_price}</span>
+          <span className="text-sm">${data[1].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white">
-              {coins[1].price_change_24h > 0 ? upArrow : downArrow}
+              {data[1].price_change_24h > 0 ? upArrow : downArrow}
             </span>
           </div>
         </div>
       )}
-      {coins && coins[2].id === "solana" && (
+      {data && data[2].id === "solana" && (
         <div className="flex gap-x-4">
           <Image src="/icons/solana.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Solana</span>
-          <span className="text-sm">${coins[2].current_price}</span>
+          <span className="text-sm">${data[2].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white">
-              {coins[2].price_change_24h > 0 ? upArrow : downArrow}
+              {data[2].price_change_24h > 0 ? upArrow : downArrow}
             </span>
           </div>
         </div>
       )}
-      {coins && coins[3].id === "cardano" && (
+      {data && data[3].id === "cardano" && (
         <div className="flex gap-x-4">
           <Image src="/icons/cardano.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Cardano</span>
-          <span className="text-sm">${coins[3].current_price}</span>
+          <span className="text-sm">${data[3].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white">
-              {coins[3].price_change_24h > 0 ? upArrow : downArrow}
+              {data[3].price_change_24h > 0 ? upArrow : downArrow}
             </span>
           </div>
         </div>
       )}
-      {coins && coins[5].id === "terra-luna" && (
+      {data && data[5].id === "terra-luna" && (
         <div className="flex gap-x-4">
           <Image src="/icons/terra.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Terra</span>
-          <span className="text-sm">${coins[5].current_price}</span>
+          <span className="text-sm">${data[5].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white">
-              {coins[5].price_change_24h > 0 ? upArrow : downArrow}
+              {data[5].price_change_24h > 0 ? upArrow : downArrow}
             </span>
           </div>
         </div>
       )}
-      {coins && coins[4].id === "polkadot" && (
+      {data && data[4].id === "polkadot" && (
         <div className="flex gap-x-4">
           <Image src="/icons/polkadot.svg" width={20} height={20} alt="img" />
           <span className="text-sm">Polkadot</span>
-          <span className="text-sm">${coins[4].current_price}</span>
+          <span className="text-sm">${data[4].current_price}</span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white">
-              {coins[4].price_change_24h > 0 ? upArrow : downArrow}
+              {data[4].price_change_24h > 0 ? upArrow : downArrow}
             </span>
           </div>
         </div>

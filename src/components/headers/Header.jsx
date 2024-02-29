@@ -11,7 +11,7 @@ import { Fragment, useState, useEffect } from "react";
 // framer motion import
 import { AnimatePresence, motion } from "framer-motion";
 
-const Header = ({ coins }) => {
+const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -58,16 +58,10 @@ const Header = ({ coins }) => {
           exit={{ y: -120 }}
           transition={{ duration: 0.2 }}
         >
-          <MovingBar coins={coins} />
+          <MovingBar />
           <div className="z-50 grid place-items-center bg-transparent px-5">
             {/* Small screen size */}
             <div className="flex h-[58px] w-full items-center justify-between px-3 md:hidden">
-              {/* <div className="flex items-end md:col-span-3 lg:col-span-3 lg:gap-x-2">
-            {logo}
-            <h1 className="lg:text-xl lg:leading-6 xl:text-2xl">
-              FORCE FINANCE
-            </h1>
-          </div> */}
               <div className="w-[80%]">
                 <Image
                   src="/logos/header-logo.svg"

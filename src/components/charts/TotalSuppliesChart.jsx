@@ -15,11 +15,11 @@ const TotalSuppliesChart = () => {
         type: "donut",
       },
       labels: [
-        "Private Sale",
-        "Public Sale",
-        "Stalking Reward",
-        "Partnership Funds",
-        "Team Pool",
+        "15% Private Sale",
+        "15% Public Sale",
+        "15% Stalking Reward",
+        "10% Partnership Funds",
+        "5% Team Pool",
       ], // Your labels
       colors: ["#CBFB45", "#B8DB56", "#96B837", "#DEEBBC", "#6E8727"],
       stroke: {
@@ -45,6 +45,7 @@ const TotalSuppliesChart = () => {
         markers: {
           radius: 0,
         },
+        fontFamily: "Neue Machina Bold",
       },
       plotOptions: {
         pie: {
@@ -71,12 +72,14 @@ const TotalSuppliesChart = () => {
               },
               total: {
                 show: true,
+                showAlways: true,
                 fontFamily: "Neue Machina Bold",
                 fontWeight: 800,
                 color: "black",
-                label: "Total",
-                formatter: function () {
-                  return "Supply";
+                label: "Total 5B",
+                formatter: function (val) {
+                  // every word to new line
+                  return "Supplies";
                 },
                 fontSize: "10px",
               },
@@ -84,11 +87,78 @@ const TotalSuppliesChart = () => {
           },
         },
       },
+      responsive: [
+        {
+          breakpoint: 900,
+          options: {
+            chart: {
+              width: "100%",
+              height: "400px",
+            },
+            legend: {
+              offsetX: 50,
+              position: "bottom",
+              onItemClick: {
+                toggleDataSeries: false,
+              },
+              onItemHover: {
+                highlightDataSeries: false,
+              },
+              horizontalAlign: "left",
+              width: 200,
+              itemsMargin: {
+                horizontal: 10,
+                vertical: 10,
+              },
+            },
+            plotOptions: {
+              pie: {
+                donut: {
+                  size: "45%", // Adjusts the diameter of the donut hole
+                  background: "white",
+                  labels: {
+                    show: true,
+                    name: {
+                      show: true,
+                      fontSize: "16px",
+                      offsetY: -5,
+                      fontFamily: "Neue Machina Bold",
+                      fontWeight: 800,
+                      color: "black",
+                    },
+                    value: {
+                      show: true,
+                      fontSize: "16px",
+                      offsetY: 0,
+                      fontFamily: "Neue Machina Bold",
+                      fontWeight: 800,
+                      color: "black",
+                    },
+                    total: {
+                      show: true,
+                      showAlways: true,
+                      fontFamily: "Neue Machina Bold",
+                      fontWeight: 800,
+                      color: "black",
+                      label: "Total 5B",
+                      formatter: function (val) {
+                        // every word to new line
+                        return "Supplies";
+                      },
+                      fontSize: "16px",
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      ],
     },
   };
 
   return (
-    <div id="chart" className="min-h-[200px] min-w-[320px]">
+    <div id="chart" className="min-h-[200px] w-[80%] min-w-[350px]">
       <ApexCharts
         options={state.options}
         series={state.series}

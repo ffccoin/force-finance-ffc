@@ -5,7 +5,7 @@ import Header from "@/components/headers/Header";
 import { useEffect, useState } from "react";
 import LoadingPage from "./loading/page";
 
-const PreloaderProvider = ({ children, data }) => {
+const PreloaderProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
@@ -15,7 +15,7 @@ const PreloaderProvider = ({ children, data }) => {
     <>
       {!loading ? (
         <>
-          <Header coins={data} />
+          <Header />
           {children}
           <Footer />
         </>

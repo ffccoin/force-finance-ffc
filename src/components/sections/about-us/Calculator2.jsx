@@ -4,8 +4,10 @@ import Button from "@/components/buttons/Button";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment, useEffect, useState } from "react";
+import { useGetCoinsQuery } from "@/libs/services/coins";
 
 const Calculator2 = () => {
+  const { data, isloading, error } = useGetCoinsQuery();
   const [coinData, setCoinData] = useState([{ bitcoin: { usd: 0 } }]);
   const [selectedCoin, setSelectedCoin] = useState("bitcoin");
   const [selectedCurrency, setSelectedCurrency] = useState("usd");
@@ -29,7 +31,7 @@ const Calculator2 = () => {
   };
 
   const fetchExchangeRate = async () => {
-    const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano,terra-luna,polkadot&vs_currencies=usd,pkr,inr,eur,gbp`;
+    const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano,terra-luna,polkadot&vs_currencies=usd,cny,cad,eur,gbp`;
     const res = await fetch(url);
     if (!res.ok) {
       throw new Error("Network response was not ok");
@@ -93,7 +95,7 @@ const Calculator2 = () => {
           whileInView="show"
           exit="show"
           variants={blinkVariants}
-          className="flex max-w-72 flex-wrap rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 "
+          className="flex max-w-72 rounded-[10px] border border-[#CBFB4533] bg-neutral p-4 lg:gap-10 "
         >
           <div className=" max-w-28 sm:max-w-32">
             <p className="text-neutralLight">
@@ -103,16 +105,58 @@ const Calculator2 = () => {
               type="text"
               value={coinAmount}
               onChange={handleCoinAmountChange}
-              placeholder="0.95"
-              className=" w-full border-transparent bg-transparent  outline-none"
+              placeholder="0.00"
+              className=" w-full border-transparent bg-transparent outline-none"
             />
           </div>
-          <div className="flex items-center justify-center ">
-            <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center rounded-xl  bg-orange-600 p-2 pb-2.5 text-center text-base">
-              ฿
-            </p>
+          <div className="flex items-center justify-center">
+            <div className="flex h-[30px] w-[30px] items-center justify-center">
+              {selectedCoin === "bitcoin" ? (
+                <Image
+                  src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"
+                  width={24}
+                  height={24}
+                  alt="coin"
+                />
+              ) : selectedCoin === "ethereum" ? (
+                <Image
+                  src="https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
+                  width={24}
+                  height={24}
+                  alt="coin"
+                />
+              ) : selectedCoin === "solana" ? (
+                <Image
+                  src="https://assets.coingecko.com/coins/images/4128/large/solana.png?1696504756"
+                  width={24}
+                  height={24}
+                  alt="coin"
+                />
+              ) : selectedCoin === "cardano" ? (
+                <Image
+                  src="https://assets.coingecko.com/coins/images/975/large/cardano.png?1696502090"
+                  width={24}
+                  height={24}
+                  alt="coin"
+                />
+              ) : selectedCoin === "polkadot" ? (
+                <Image
+                  src="https://assets.coingecko.com/coins/images/12171/large/polkadot.png?1696512008"
+                  width={20}
+                  height={20}
+                  alt="coin"
+                />
+              ) : (
+                <Image
+                  src="https://assets.coingecko.com/coins/images/8284/large/01_LunaClassic_color.png?1696508486"
+                  width={15}
+                  height={15}
+                  alt="coin"
+                />
+              )}
+            </div>
             <Menu as="div" className="relative">
-              <Menu.Button className="flex h-8 max-w-fit items-center  border-transparent  bg-transparent font-apfel-grotezk uppercase outline-none">
+              <Menu.Button className="flex h-8 max-w-fit items-center border-transparent bg-transparent font-apfel-grotezk uppercase outline-none">
                 {selectedCoin === "bitcoin"
                   ? "BTC"
                   : selectedCoin === "ethereum"
@@ -123,7 +167,7 @@ const Calculator2 = () => {
                         ? "DOT"
                         : selectedCoin === "solana"
                           ? "SOL"
-                          : "LUNA"}
+                          : "LUNa"}
                 {chevronDown}
               </Menu.Button>
               <Transition
@@ -229,7 +273,7 @@ const Calculator2 = () => {
             </p>
             <input
               type="text"
-              placeholder="0.95"
+              placeholder="0.00"
               onChange={handleCurrencyAmountChange}
               value={currencyAmount}
               className=" w-full border-transparent bg-transparent  outline-none"
@@ -238,7 +282,17 @@ const Calculator2 = () => {
 
           <div className="flex items-center justify-center ">
             <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center rounded-xl bg-[#7D32F9]  p-2 pb-2.5 text-center text-base">
-              $
+              {selectedCurrency == "cny"
+                ? "¥"
+                : selectedCurrency == "eur"
+                  ? "€"
+                  : selectedCurrency == "usd"
+                    ? "$"
+                    : selectedCurrency == "cad"
+                      ? "$"
+                      : selectedCurrency == "gbp"
+                        ? "£"
+                        : ""}
             </p>
             <Menu as="div" className="relative">
               <Menu.Button className="flex h-8 max-w-fit items-center  border-transparent  bg-transparent font-apfel-grotezk uppercase outline-none">
@@ -269,16 +323,6 @@ const Calculator2 = () => {
                     {({ active }) => (
                       <button
                         className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
-                        onClick={() => handleCurrencySelect("inr")}
-                      >
-                        INR
-                      </button>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <button
-                        className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
                         onClick={() => handleCurrencySelect("eur")}
                       >
                         EUR
@@ -289,9 +333,9 @@ const Calculator2 = () => {
                     {({ active }) => (
                       <button
                         className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
-                        onClick={() => handleCurrencySelect("pkr")}
+                        onClick={() => handleCurrencySelect("gbp")}
                       >
-                        PKR
+                        GBP
                       </button>
                     )}
                   </Menu.Item>
@@ -299,9 +343,19 @@ const Calculator2 = () => {
                     {({ active }) => (
                       <button
                         className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
-                        onClick={() => handleCurrencySelect("gbp")}
+                        onClick={() => handleCurrencySelect("cny")}
                       >
-                        GBP
+                        CNY
+                      </button>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${active && "text-primary1"} w-full text-start font-apfel-grotezk`}
+                        onClick={() => handleCurrencySelect("cad")}
+                      >
+                        CAD
                       </button>
                     )}
                   </Menu.Item>
