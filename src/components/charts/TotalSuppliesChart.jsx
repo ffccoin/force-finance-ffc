@@ -10,8 +10,8 @@ const TotalSuppliesChart = () => {
     series: [8, 10, 9, 7, 5], // Your data values
     options: {
       chart: {
-        width: "400px",
-        height: "400px",
+        width: "100%",
+        height: "500px",
         type: "donut",
       },
       labels: [
@@ -100,7 +100,7 @@ const TotalSuppliesChart = () => {
           options: {
             chart: {
               width: "100%",
-              height: "500px",
+              height: "400px",
             },
             legend: {
               offsetX: 50,
@@ -130,7 +130,7 @@ const TotalSuppliesChart = () => {
                     show: true,
                     name: {
                       show: true,
-                      fontSize: "16px",
+                      fontSize: "12px",
                       offsetY: -5,
                       fontFamily: "Neue Machina Bold",
                       fontWeight: 800,
@@ -138,7 +138,7 @@ const TotalSuppliesChart = () => {
                     },
                     value: {
                       show: true,
-                      fontSize: "16px",
+                      fontSize: "12px",
                       offsetY: 0,
                       fontFamily: "Neue Machina Bold",
                       fontWeight: 800,
@@ -155,7 +155,7 @@ const TotalSuppliesChart = () => {
                         // every word to new line
                         return "Supplies";
                       },
-                      fontSize: "16px",
+                      fontSize: "12px",
                     },
                   },
                 },
