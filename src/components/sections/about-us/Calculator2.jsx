@@ -273,7 +273,7 @@ const Calculator2 = () => {
             </p>
             <input
               type="text"
-              placeholder="0.00"
+              placeholder="0.95"
               onChange={handleCurrencyAmountChange}
               value={currencyAmount}
               className=" w-full border-transparent bg-transparent  outline-none"
