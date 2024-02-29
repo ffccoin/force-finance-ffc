@@ -42,6 +42,13 @@ const TotalSuppliesChart = () => {
         labels: {
           colors: "white",
         },
+        customLegendItems: [
+          "15% Private Sale",
+          "15% Public Sale",
+          "15% Stalking Reward",
+          "10% Partnership Funds",
+          "5% Team Pool",
+        ],
         markers: {
           radius: 0,
         },
@@ -93,13 +100,15 @@ const TotalSuppliesChart = () => {
           options: {
             chart: {
               width: "100%",
-              height: "400px",
+              height: "500px",
             },
             legend: {
               offsetX: 50,
+              offsetY: 20,
+              height: 160,
               position: "bottom",
               onItemClick: {
-                toggleDataSeries: false,
+                toggleDataSeries: true,
               },
               onItemHover: {
                 highlightDataSeries: false,
@@ -113,6 +122,7 @@ const TotalSuppliesChart = () => {
             },
             plotOptions: {
               pie: {
+                customScale: 0.9,
                 donut: {
                   size: "45%", // Adjusts the diameter of the donut hole
                   background: "white",

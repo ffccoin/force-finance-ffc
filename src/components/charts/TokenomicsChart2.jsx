@@ -63,7 +63,8 @@ const TokenomicsChart2 = () => {
               height: "400px",
             },
             legend: {
-              offsetX: 50,
+              offsetX: 120,
+              height: 170,
               position: "bottom",
               onItemClick: {
                 toggleDataSeries: false,
@@ -72,7 +73,7 @@ const TokenomicsChart2 = () => {
                 highlightDataSeries: false,
               },
               horizontalAlign: "left",
-              width: 220,
+              width: 240,
               itemsMargin: {
                 horizontal: 10,
                 vertical: 10,
