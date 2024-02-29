@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Header2 from "./Header2";
 import Thumbnail from "./Thumbnail";
 import Image from "next/image";
 
