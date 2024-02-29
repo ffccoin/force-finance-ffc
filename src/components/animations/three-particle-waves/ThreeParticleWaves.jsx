@@ -166,7 +166,7 @@ const ParticleWave = () => {
     <div
       className="absolute"
       ref={mountRef}
-      style={{ height: "100vh", width: "100vw" }}
+      style={{ width: "100vw" }}
     />
   );
 };

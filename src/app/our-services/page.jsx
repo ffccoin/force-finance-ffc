@@ -15,9 +15,11 @@ import ParticleWave from "@/components/animations/three-particle-waves/ThreePart
 export default function page() {
   return (
     <div className="relative mt-48 overflow-hidden">
-      <ParticleWave />
-      <ServicesHeader />
-      <Section1 />
+      <div className="overflow-hidden h-screen">
+        <ParticleWave />
+        <ServicesHeader />
+        <Section1 />
+      </div>
       <ServicesExperience />
       <ServicesMobile />
       <ServicesCertified />

@@ -30,10 +30,10 @@ const ServicesExperience = () => {
     },
   };
   return (
-    <div className="mt-32 sm:mt-16 grid place-items-center items-center bg-primary1  md:h-auto lg:h-[700px] lg:justify-center ">
-      <div className="flex max-w-[90vw] flex-col-reverse  items-center  justify-between gap-8 md:justify-center  lg:flex-row">
+    <div className="mt-32 sm:mt-16 grid place-items-center items-center bg-primary1 z-50 md:h-auto lg:h-[700px] lg:justify-center ">
+      <div className="flex max-w-[90vw] flex-col-reverse items-center justify-between gap-8 md:justify-center  lg:flex-row">
         <motion.div
-          className="flex max-w-[56rem] flex-col p-4 text-neutral md:p-6"
+          className="flex max-w-[56rem] z-50 flex-col p-4 text-neutral md:p-6"
           initial="hide"
           whileInView="show"
           exit="show"
@@ -103,7 +103,7 @@ const ServicesExperience = () => {
           </div>
         </motion.div>
         <motion.div
-          className="mt-10 flex items-center justify-center lg:mr-16 "
+          className="mt-10 flex items-center justify-center lg:mr-16 z-20"
           initial="hide"
           whileInView="show"
           exit="show"
