@@ -33,6 +33,8 @@ const ParticleWave = () => {
         10000,
       );
       camera.position.z = 1000;
+      camera.position.y = 2000;
+      camera.position.x = 2000;
 
       scene = new THREE.Scene();
       scene.background = new THREE.Color(0x161617);
@@ -90,7 +92,7 @@ const ParticleWave = () => {
 
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(window.devicePixelRatio);
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(window.innerWidth, 800);
       container.appendChild(renderer.domElement);
 
       container.style.touchAction = "none";
@@ -106,7 +108,7 @@ const ParticleWave = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
 
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(window.innerWidth, 800);
     }
 
     function onPointerMove(event) {
@@ -166,7 +168,7 @@ const ParticleWave = () => {
     <div
       className="absolute"
       ref={mountRef}
-      style={{ width: "100vw" }}
+      style={{ width: "100vw", height: "50vh" }}
     />
   );
 };

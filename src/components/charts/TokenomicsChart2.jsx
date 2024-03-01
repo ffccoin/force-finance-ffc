@@ -10,8 +10,8 @@ const TokenomicsChart2 = () => {
     series: [8, 6, 7, 6, 9], // Your data values
     options: {
       chart: {
-        width: "200px",
-        height: "200px",
+        width: 200,
+        height: 200,
         type: "polarArea",
       },
       labels: [
@@ -25,16 +25,7 @@ const TokenomicsChart2 = () => {
       stroke: {
         width: 0,
       },
-      legend: {
-        offsetY: 10,
-        labels: {
-          colors: "white",
-        },
-        markers: {
-          radius: 0,
-        },
-        fontFamily: "Neue Machina Bold",
-      },
+      legend: { show: false },
       fill: {
         opacity: 1,
       },
@@ -54,45 +45,17 @@ const TokenomicsChart2 = () => {
           },
         },
       },
-      responsive: [
-        {
-          breakpoint: 900,
-          options: {
-            chart: {
-              width: "100%",
-              height: "400px",
-            },
-            legend: {
-              offsetX: 120,
-              height: 170,
-              position: "bottom",
-              onItemClick: {
-                toggleDataSeries: false,
-              },
-              onItemHover: {
-                highlightDataSeries: false,
-              },
-              horizontalAlign: "left",
-              width: 240,
-              itemsMargin: {
-                horizontal: 10,
-                vertical: 10,
-              },
-            },
-          },
-        },
-      ],
     },
   };
 
   return (
-    <div id="chart" className="min-h-[200px] w-full min-w-[350px]">
+    <div id="chart" className="flex items-center justify-center">
       <ApexCharts
         options={state.options}
         series={state.series}
         type="polarArea"
-        width={"100%"}
-        height={"100%"}
+        width={250}
+        height={250}
       />
     </div>
   );

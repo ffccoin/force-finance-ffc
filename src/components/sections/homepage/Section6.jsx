@@ -59,17 +59,53 @@ const Section6 = () => {
         </div>
       </motion.div>
       <motion.div
-        className="mt-8 flex w-full max-w-7xl flex-col items-center justify-center gap-8 lg:px-20 sm:flex-row"
+        className="grid h-full w-full max-w-7xl grid-cols-1 gap-y-5 py-20 px-20 sm:grid-cols-2 lg:grid-cols-4"
         initial="hide"
         whileInView="show"
         exit="show"
         variants={rightToLeftVariants}
       >
-        <div className="flex h-full min-h-[200px] w-full items-center justify-center">
-          <TotalSuppliesChart />
+        <TotalSuppliesChart />
+        <div className="flex flex-col justify-center gap-y-4">
+          <div className="flex items-center gap-x-3">
+            <div className="h-4 w-4 bg-primary1"></div>
+            <h2>15% Private Sale</h2>
+          </div>
+          <div className="flex items-center gap-x-3">
+            <div className="h-4 w-4 bg-[#96B837]"></div>
+            <h2>15% Public Sale</h2>
+          </div>
+          <div className="flex items-center gap-x-3">
+            <div className="h-4 w-4 bg-[#6E8727]"></div>
+            <h2>15% Staking Reward</h2>
+          </div>
+          <div className="flex items-center gap-x-3">
+            <div className="h-4 w-4 bg-[#CFFA57]"></div>
+            <h2>10% Partnership Funds</h2>
+          </div>
+          <div className="flex items-center gap-x-3">
+            <div className="h-4 w-4 bg-[#DEEBBC]"></div>
+            <h2>5% Team Pool</h2>
+          </div>
         </div>
-        <div className="flex h-full min-h-[200px] w-full items-center justify-center">
-          <TokenomicsChart2 />
+        <TokenomicsChart2 />
+        <div className="flex flex-col justify-center gap-y-4">
+          <div className="flex items-center gap-x-3">
+            <div className="h-4 w-4 bg-primary1"></div>
+            <h2>10% Operations</h2>
+          </div>
+          <div className="flex items-center gap-x-3">
+            <div className="h-4 w-4 bg-[#96B837]"></div>
+            <h2>5% Legal Department</h2>
+          </div>
+          <div className="flex items-center gap-x-3">
+            <div className="h-4 w-4 bg-[#6E8727]"></div>
+            <h2>16% Team Management</h2>
+          </div>
+          <div className="flex items-start gap-x-3">
+            <div className="mt-1 h-4 w-4 bg-[#CFFA57]"></div>
+            <h2>10% Marketing & Development</h2>
+          </div>
         </div>
       </motion.div>
       <motion.div
