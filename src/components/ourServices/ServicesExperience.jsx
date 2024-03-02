@@ -59,7 +59,7 @@ const ServicesExperience = () => {
               />
               <p className="ml-2">
                 Seamless Integration, Connect with ease to decentralized
-                applications and blockchain networks
+                applications and blockchain networks.
               </p>
             </div>
 
@@ -72,7 +72,7 @@ const ServicesExperience = () => {
               />
               <p className="ml-2">
                 Enhanced Security, Safeguard your assets with robust encryption
-                and decentralized architecture{" "}
+                and decentralized architecture.{" "}
               </p>
             </div>
 
@@ -97,7 +97,7 @@ const ServicesExperience = () => {
               />
               <p className="ml-2">
                 DeFi Integration, Explore decentralized finance services like
-                staking, yield farming, and more directly from your wallet
+                staking, yield farming, and more directly from your wallet.
               </p>
             </div>
           </div>

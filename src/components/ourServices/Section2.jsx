@@ -65,7 +65,7 @@ const Section2 = () => {
               </h1>
               <span className="text-neutralLight">
                 Rest easy knowing that your assets are safeguarded by advanced
-                security measures, ensuring peace of mind in every transaction
+                security measures, ensuring peace of mind in every transaction.
               </span>
             </div>
           </motion.div>

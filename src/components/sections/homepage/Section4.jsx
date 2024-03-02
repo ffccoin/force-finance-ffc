@@ -61,7 +61,7 @@ const Section4 = () => {
                   alt="img"
                   src="/homepage/tick.svg"
                 />
-                <p className="ml-2">Decentralized finance on Ethereum chain</p>
+                <p className="ml-2">Decentralized finance on the ethereum.</p>
               </div>
               <div className="flex items-center">
                 <Image
@@ -71,7 +71,7 @@ const Section4 = () => {
                   src="/homepage/tick.svg"
                 />
                 <p className="ml-2">
-                  Efficient transactions with scalable solutions
+                  Efficient transactions with solutions.
                 </p>
               </div>
               <div className="flex items-center">
@@ -82,7 +82,7 @@ const Section4 = () => {
                   src="/homepage/tick.svg"
                 />
                 <p className="ml-2">
-                  Secure smart contract functionality ensured
+                  Secure smart contract functionality is ensured.
                 </p>
               </div>
             </div>

@@ -41,7 +41,7 @@ const ServicesCertified = () => {
           <p className="mt-2	max-w-xl text-wrap text-center text-base">
             Your Trusted Companion for Secure Asset Management and Transactions,
             Featuring advanced encryption protocols, multi-factor
-            authentication, and biometric security options
+            authentication, and biometric security options.
           </p>
         </motion.div>
         <div className="mb-20  flex flex-col gap-x-[19px] gap-y-4 sm:justify-center sm:gap-y-8 md:flex-row">
@@ -132,7 +132,7 @@ const ServicesCertified = () => {
               </p>
               <span className="max-w-[18rem] text-center">
                 Protecting Your Transactions, Providing advanced security
-                protocols to ensure the integrity of every transaction
+                protocols to ensure the integrity of every transaction.
               </span>
             </div>
             </motion.div>

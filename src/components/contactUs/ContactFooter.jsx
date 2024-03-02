@@ -28,7 +28,7 @@ const Section11 = () => {
                 at your service.
               </span>
               <span className="mt-2 flex text-center ">
-                <p className=" font-neue-machina-bold text-primary1 ">
+                <p className=" font-neue-machina-bold text-primary1 hover:border-b hover:border-primary1 cursor-pointer ">
                   chat now{" "}
                 </p>
                 <div className=" flex justify-center text-center">
@@ -59,7 +59,7 @@ const Section11 = () => {
                 View FAQs for detailed instructions on specific features.
               </span>
               <span className="mt-2 flex text-center ">
-                <p className=" font-neue-machina-bold text-primary1 ">
+                <p className=" font-neue-machina-bold text-primary1  hover:border-b hover:border-primary1 cursor-pointer">
                   Learn more
                 </p>
                 <div className=" flex justify-center text-center">
@@ -90,7 +90,7 @@ const Section11 = () => {
                 Stay up to date with the latest stories and commentary.{" "}
               </span>
               <span className="mt-2 flex text-center ">
-                <p className=" font-neue-machina-bold text-primary1 ">
+                <p className=" font-neue-machina-bold text-primary1 hover:border-b hover:border-primary1 cursor-pointer">
                   Learn more
                 </p>
                 <div className=" flex justify-center text-center">

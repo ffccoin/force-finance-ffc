@@ -61,7 +61,7 @@ const Section10 = () => {
             Wondering what tokens is supported?
           </p>
           <span className="mt-2 flex text-center ">
-            <p className=" font-neue-machina-bold text-primary1 ">
+            <p className=" font-neue-machina-bold text-primary1 cursor-pointer  hover:border-b hover:border-primary1 ">
               See all token
             </p>
             <div className=" flex justify-center text-center">

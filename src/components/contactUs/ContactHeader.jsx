@@ -7,7 +7,7 @@ export default function ContactHeader() {
       <p className="mx-4 w-auto text-center font-apfel-grotezk text-[16px] font-[400px] leading-[24px] text-neutralLight md:mx-0 md:w-[625px]">
         Reach Out to Us: Whether you have questions, feedback, or partnership
         inquiries, we're here to assist you. Contact FFC Coin today and let's
-        explore the future of finance together
+        explore the future of finance together.
       </p>
       <div className="my-16 flex">
         <div className="cursor-pointer hover:text-primary1">{telegram}</div>

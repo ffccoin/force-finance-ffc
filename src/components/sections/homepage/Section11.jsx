@@ -58,7 +58,7 @@ const Section11 = () => {
                 className="mt-2 flex items-center gap-x-1 text-center"
                 onClick={() => router.push("/contact-us")}
               >
-                <p className="font-neue-machina-bold text-primary1 ">
+                <p className="font-neue-machina-bold text-primary1 hover:border-b hover:border-primary1 ">
                   Chat now
                 </p>
                 <Image
@@ -96,7 +96,7 @@ const Section11 = () => {
                 className="mt-2 flex items-center gap-x-1 text-center"
                 onClick={() => router.push("/faqs")}
               >
-                <p className=" font-neue-machina-bold text-primary1">
+                <p className=" font-neue-machina-bold text-primary1  hover:border-b hover:border-primary1">
                   Learn more
                 </p>
                 <Image
@@ -131,7 +131,7 @@ const Section11 = () => {
                 Stay up to date with the latest stories and commentary.
               </span>
               <button className="mt-2 flex items-center gap-x-1">
-                <p className=" font-neue-machina-bold text-primary1">
+                <p className=" font-neue-machina-bold text-primary1  hover:border-b hover:border-primary1">
                   Learn more
                 </p>
                 <Image

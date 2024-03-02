@@ -65,7 +65,7 @@ const ServicesMobile = () => {
             or debit card. Benefit from instant settlement, a wide range of
             asset options, and robust security measures, ensuring a convenient
             and secure experience. Enjoy global accessibility and expand your
-            financial opportunities today
+            financial opportunities today.
           </p>
           <div className="mr-auto mt-12 flex flex-col flex-wrap gap-y-3 sm:gap-y-8 md:mr-auto md:flex-row md:gap-x-28 lg:mr-0 lg:flex-row lg:gap-x-4 xl:gap-x-20">
             {renderStat("60M+", "Trading Volume")}

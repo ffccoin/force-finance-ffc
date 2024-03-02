@@ -81,7 +81,7 @@ export default function AboutFFC() {
               services. By leveraging blockchain technology and fostering
               community-driven initiatives, we aim to create a decentralized
               ecosystem that prioritizes security, transparency, and user
-              empowerment
+              empowerment.
             </p>
           </div>
         </motion.div>

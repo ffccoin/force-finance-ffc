@@ -67,7 +67,7 @@ const Section5 = () => {
             platform, facilitating various functions such as staking,
             governance, and transactions. With a focus on utility and community
             involvement, FFC empowers users to participate in the decentralized
-            finance landscape with ease and flexibility
+            finance landscape with ease and flexibility.
           </p>
         </motion.div>
         <motion.div

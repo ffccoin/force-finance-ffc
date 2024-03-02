@@ -64,7 +64,7 @@ const Section3 = () => {
           <p className="mt-9 text-wrap text-[16px] leading-[24px] text-neutralLight lg:max-w-[34.5rem]">
             Experience the seamless convergence of Web 3.0 capabilities with our
             integrated DApp browser, facilitating staking, crypto transactions,
-            liquidity pool farming, and cross-chain interoperability
+            liquidity pool farming, and cross-chain interoperability.
           </p>
           <div className="mr-auto mt-12 flex flex-col flex-wrap gap-y-3 sm:gap-y-8 md:mr-auto md:flex-row md:gap-x-28 lg:mr-0 lg:flex-row lg:gap-x-4 xl:gap-x-20">
             {renderStat("60M+", "Trading Volume")}

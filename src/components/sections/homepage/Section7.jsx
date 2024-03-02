@@ -76,14 +76,14 @@ const Section7 = () => {
               </p>
               <ul className=" 3 ml-2 mt-3 flex  max-w-[380px] list-disc flex-wrap pl-6 text-primary2  ">
                 <li className="mb-1 text-[0.85rem]   ">
-                  Development of core blockchain infrastructure
+                  Development of core blockchain infrastructure.
                 </li>
                 <li className="mb-1 text-[0.85rem] ">
                   Design and implementation of smart contracts for token
-                  creation, transactions, staking, and yield farming
+                  creation, transactions, staking, and yield farming.
                 </li>
                 <li className="text-[0.85rem] ">
-                  Creation of user-friendly wallets and interfaces
+                  Creation of user-friendly wallets and interfaces.
                 </li>
               </ul>
             </div>
@@ -146,14 +146,14 @@ const Section7 = () => {
             </p>
             <ul className="md:max-w-auto 3 ml-2 mt-3 flex  max-w-[380px] list-disc flex-wrap pl-6 text-primary2  xl:max-w-[315px]">
               <li className="mb-1 text-[0.85rem]   ">
-                Development of core blockchain infrastructure
+                Development of core blockchain infrastructure.
               </li>
               <li className="mb-1 text-[0.85rem] ">
                 Design and implementation of smart contracts for token creation,
-                transactions, staking, and yield farming
+                transactions, staking, and yield farming.
               </li>
               <li className="text-[0.85rem] ">
-                Creation of user-friendly wallets and interfaces
+                Creation of user-friendly wallets and interfaces.
               </li>
             </ul>
           </div>
@@ -257,7 +257,7 @@ const Section7 = () => {
                   high-net-worth individuals.{" "}
                 </li>
                 <li className="mb-1 text-wrap text-[0.85rem] ">
-                  Secure funding commitments from strategic investors{" "}
+                  Secure funding commitments from strategic investors.{" "}
                 </li>
               </ul>
             </div>
@@ -328,7 +328,7 @@ const Section7 = () => {
                 individuals.{" "}
               </li>
               <li className="mb-1 text-[0.85rem] ">
-                Secure funding commitments from strategic investors{" "}
+                Secure funding commitments from strategic investors.{" "}
               </li>
             </ul>
           </div>
