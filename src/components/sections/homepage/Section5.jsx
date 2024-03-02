@@ -55,7 +55,7 @@ const Section5 = () => {
             ABOUT FFC COIN
           </p>
           <h3 className="mt-6 text-left font-neue-machina-bold text-3xl font-bold leading-10 tracking-normal">
-            FORCE FINCE COIN (FFC)
+            FORCE FINANCE COIN (FFC)
           </h3>
           <p className="mt-6 whitespace-break-spaces text-left  font-apfel-grotezk text-base font-normal leading-6 lg:w-[28.293rem]">
             Force Finance offers users a gateway to explore the vast

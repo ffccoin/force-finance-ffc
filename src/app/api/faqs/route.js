@@ -19,7 +19,7 @@ export async function POST(req, res) {
         phoneNumber,
       }),
     });
-    console.log("Confirmation Email Result:", data);
+    console.log("Data sent:", data);
 
     const data2 = await resend.emails.send({
       from: "forcefinancecoin<onboarding@resend.dev>",
