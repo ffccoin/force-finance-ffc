@@ -3,14 +3,14 @@ import { Resend } from "resend";
 import { UserEmailTemplate } from "@/components/email/UserEmailTemplate";
 import { NextResponse } from "next/server";
 
-const resend = new Resend("re_MMc2Kf8o_NG68cZhJSBj5pPcmDUj32yc5");
+const resend = new Resend("re_ez8NS9gr_DVKT7UyopoQGYroLrqE7M39A");
 
 export async function POST(req, res) {
   try {
     const { name, email, message, phoneNumber } = await req.json();
     const data = await resend.emails.send({
-      from: "forcefinancecoin<onboarding@resend.dev>",
-      to: ["info@forcefinancecoin.ca"],
+      from: "forcefinancecoin@forcefinancecoin.com",
+      to: ["info@forcefinancecoin.com"],
       subject: "FAQs",
       react: EmailTemplate({
         name,
@@ -22,7 +22,7 @@ export async function POST(req, res) {
     console.log("Data sent:", data);
 
     const data2 = await resend.emails.send({
-      from: "forcefinancecoin<onboarding@resend.dev>",
+      from: "forcefinancecoin@forcefinancecoin.com",
       to: [email],
       subject: "Hello", 
       react: UserEmailTemplate(),

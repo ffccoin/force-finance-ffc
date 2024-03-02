@@ -11,8 +11,8 @@ export async function POST(req, res) {
 
     // Send email to support
     const data = await resend.emails.send({
-      from: "forcefinancecoin@forcefinancecoin.ca",
-      to: ["info@forcefinancecoin.ca"],
+      from: "forcefinancecoin@forcefinancecoin.com",
+      to: ["info@forcefinancecoin.com"],
       subject: "Customer Inquiry",
       react: EmailTemplate({
         name,
@@ -26,7 +26,7 @@ export async function POST(req, res) {
 
 
     const data2 = await resend.emails.send({
-      from: "forcefinancecoin@forcefinancecoin.ca",
+      from: "forcefinancecoin@forcefinancecoin.com",
       to: [email],
       subject: "Hello",
       react: UserEmailTemplate(),
