@@ -23,7 +23,7 @@ export default async function RootLayout({ children }) {
         <body className={inter.className}>
           <PreloaderProvider>
             {children}
-            <GoogleAnalytics gaId="G-R3YC8Z4Z9W" />
+            <GoogleAnalytics gaId="G-C38R7K64GZ" />
             <SpeedInsights />
           </PreloaderProvider>
         </body>
