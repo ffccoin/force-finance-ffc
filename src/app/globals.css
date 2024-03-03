@@ -123,6 +123,7 @@ h6,
 button,
 button > div {
   font-family: "Neue Machina Bold", sans-serif;
+  user-select: none;
 }
 
 p,
@@ -130,6 +131,11 @@ span,
 div,
 small {
   font-family: "Apfel Grotezk", sans-serif;
+  user-select: none;
+}
+
+img {
+  pointer-events: none;
 }
 
 body,
@@ -178,7 +184,7 @@ header {
   width: 100vw;
 }
 
-On hover remove animation from all child divs .ticker-container:hover > * {
+.ticker-container:hover > * {
   animation-play-state: paused;
 }
 
