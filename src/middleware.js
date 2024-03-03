@@ -5,8 +5,8 @@ export function middleware(req) {
   const country = req.geo?.country || "UNKNOWN";
 
   if (country === "CA") {
-    return NextResponse.redirect("https://www.forcefinance.ca");
+    return NextResponse.redirect("https://www.forcefinance.ca", 301);
   } else {
-    return NextResponse.redirect("https://www.forcefinance.com");
+    return NextResponse.redirect("https://www.forcefinance.com", 301);
   }
 }
