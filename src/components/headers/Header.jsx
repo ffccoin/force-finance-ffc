@@ -68,6 +68,7 @@ const Header = () => {
                   loading="eager"
                   width={250}
                   height={32}
+                  alt="Force Finance"
                 />
               </div>
               <HeaderSidebar />

@@ -31,15 +31,16 @@ const HeaderSidebar = () => {
   );
 
   return (
-    <div className=" md:hidden ">
-      <Image
-        className="w-[100%] cursor-pointer"
-        src="/homepage/sidebar.svg"
-        width={40}
-        height={32}
-        onClick={handleImageClick}
-      />
-
+    <div className="md:hidden">
+      <button onClick={handleImageClick}>
+        <Image
+          className="w-[100%] cursor-pointer"
+          src="/homepage/sidebar.svg"
+          width={40}
+          height={32}
+          alt="sidebar"
+        />
+      </button>
       <AnimatePresence>
         {isSidebarVisible && (
           <motion.div
@@ -65,18 +66,21 @@ const HeaderSidebar = () => {
           >
             <div className="mt-16 flex items-center justify-between pl-1 pr-4 sm:px-8 ">
               <Image
-                className=" pl-4 "
+                className="pl-4"
                 src="/logos/header-logo.svg"
                 width={250}
                 height={32}
+                alt="logo"
               />
-              <Image
-                src="/homepage/cross-30.svg"
-                className=""
-                width={20}
-                height={20}
-                onClick={handleImageClick}
-              />
+              <button onClick={handleImageClick}>
+                <Image
+                  src="/homepage/cross-30.svg"
+                  className=""
+                  width={20}
+                  height={20}
+                  alt="cross"
+                />
+              </button>
             </div>
             <ul>
               <motion.div
@@ -85,7 +89,7 @@ const HeaderSidebar = () => {
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: -20 }}
                 transition={{ duration: 1 }}
-                className="mb-6 w-full pl-10 pr-4  sm:pl-16 sm:pr-5 "
+                className="mb-6 w-full pl-10 pr-4 sm:pl-16 sm:pr-5"
               >
                 <div className=" mt-11 select-none justify-between hover:text-primary1 ">
                   <a href="/" className=" ">

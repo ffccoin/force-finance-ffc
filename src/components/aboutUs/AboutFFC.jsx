@@ -233,6 +233,6 @@ const circleArrow = (
     width={24}
     height={24}
     src="/aboutpage/circleArrow.svg"
-    alt="iconframe"
+    alt="circle arrow"
   />
 );

@@ -206,7 +206,7 @@ export default function ContactForm() {
                 src="/contactpage/tick.svg"
                 width={16}
                 height={3}
-                alt="img"
+                alt="tick"
               />
               <p className="select-none text-wrap	 text-neutralLight">
                 The form was sent successfully.

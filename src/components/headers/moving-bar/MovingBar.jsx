@@ -26,7 +26,7 @@ const MovingBar = () => {
     >
       {data && data[0].id === "bitcoin" && (
         <div className="flex gap-x-4">
-          <Image src="/icons/bitcoin.svg" width={20} height={20} alt="img" />
+          <Image src="/icons/bitcoin.svg" width={20} height={20} alt="bitcoin" />
           <span className="text-sm">Bitcoin</span>
           <span className="text-sm">${data[0].current_price}</span>
           <div className="flex items-center gap-x-1">

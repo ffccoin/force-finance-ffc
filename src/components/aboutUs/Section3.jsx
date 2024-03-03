@@ -15,7 +15,7 @@ export default function Section3() {
             width={428}
             height={349}
             src="aboutpage/corner.svg"
-            alt="iconframe"
+            alt="corner"
             className=""
           />
         </div>
@@ -31,7 +31,7 @@ export default function Section3() {
             width={626}
             height={667}
             src="aboutpage/body.svg"
-            alt="iconframe"
+            alt="about body"
           />
         </div>
         <div

@@ -31,7 +31,7 @@ const Section4 = () => {
             src="/ourServices/globe.png"
             width={685}
             height={613}
-            alt="img"
+            alt="globe"
           />
         </motion.div>
         <motion.div
@@ -72,7 +72,7 @@ const Section4 = () => {
               icon={
                 <Image
                   src="/ourServices/arrowHead.svg"
-                  alt="Arrow"
+                  alt="Arrow head"
                   width={16}
                   height={16}
                 />

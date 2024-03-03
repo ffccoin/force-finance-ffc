@@ -21,7 +21,6 @@ export default function AboutHeader() {
       className="grid w-full place-items-center bg-primary2 bg-[url('/aboutpage/about-bg3.png')] bg-cover bg-center bg-no-repeat"
     >
       <div className="relative flex flex-col items-center px-4">
-        {/*         <Image     className="absolute top-[5.4rem] left-[15.4rem] sm:left-[20rem] md:left-[30rem] lg:left-[60rem] xl:left-[60rem]" width={51} height={51} alt="img" src="/aboutpage/bitcoin.svg" /> */}
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: 20 }}
@@ -35,7 +34,7 @@ export default function AboutHeader() {
           <Image
             width={116.52}
             height={116.52}
-            alt="img"
+            alt="bitcoin"
             src="/aboutpage/goldenBitcoin.svg"
           />
         </motion.div>
@@ -48,7 +47,7 @@ export default function AboutHeader() {
           <Image
             width={123}
             height={123}
-            alt="img"
+            alt="bitcoin"
             src="/aboutpage/greenBitcoin.svg"
           />
         </motion.div>
@@ -65,7 +64,7 @@ export default function AboutHeader() {
           <Image
             width={85}
             height={85}
-            alt="img"
+            alt="bitcoin"
             src="/aboutpage/greenBitcoin2.svg"
           />
         </motion.div>
@@ -82,7 +81,7 @@ export default function AboutHeader() {
           <Image
             width={51}
             height={51}
-            alt="img"
+            alt="bitcoin"
             src="/aboutpage/blueBitcoin.svg"
           />
         </motion.div>
@@ -116,7 +115,7 @@ export default function AboutHeader() {
           width={891}
           height={301}
           src="/aboutpage/test.svg"
-          alt="iconframe"
+          alt="test"
         />
       </motion.div>
     </motion.div>

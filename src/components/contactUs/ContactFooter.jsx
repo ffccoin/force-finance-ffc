@@ -16,7 +16,7 @@ const Section11 = () => {
                 src="/homepage/chat.svg"
                 width={80}
                 height={80}
-                alt="img"
+                alt="chat"
               />
             </div>
             <div className="flex w-[80%] flex-col gap-x-3 gap-y-3 ">
@@ -48,7 +48,7 @@ const Section11 = () => {
                 src="/homepage/FaQs.svg"
                 width={80}
                 height={80}
-                alt="img"
+                alt="faqs"
               />
             </div>
             <div className="flex w-[80%] flex-col gap-x-3 gap-y-3 ">
@@ -79,7 +79,7 @@ const Section11 = () => {
                 src="/homepage/blog.svg"
                 width={80}
                 height={80}
-                alt="img"
+                alt="blog"
               />
             </div>
             <div className="flex w-[80%] flex-col gap-x-3 gap-y-3 ">
