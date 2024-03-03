@@ -2,13 +2,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(req) {
-  console.log("Request URL:", req.geo.country);
+  const country = req.geo?.country || "UNKNOWN";
 
-  // if country is canada
-  if (req.geo.country === "CA") {
-    return NextResponse.redirect(new URL("www.forcefinancecoin.ca"));
+  if (country === "CA") {
+    return NextResponse.redirect("https://www.forcefinance.ca");
   } else {
-    return NextResponse.redirect(new URL("www.forcefinancecoin.com"));
+    return NextResponse.redirect("https://www.forcefinance.com");
   }
-  return NextResponse.next();
 }
