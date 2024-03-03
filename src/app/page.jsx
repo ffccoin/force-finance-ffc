@@ -11,8 +11,8 @@ import Section9 from "@/components/sections/homepage/Section9";
 import Section10 from "@/components/sections/homepage/Section10";
 import Section11 from "@/components/sections/homepage/Section11";
 import Section12 from "@/components/sections/homepage/Section12";
-
 import Strip from "@/components/sections/homepage/Strip";
+import { NextRequest } from "next/server";
 
 export default function Home() {
   return (
