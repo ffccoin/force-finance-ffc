@@ -1,4 +1,9 @@
 module.exports = {
+  // async redirects(){
+  //   return [
+
+  //   ]
+  // },
   images: {
     remotePatterns: [
       {
