@@ -4,6 +4,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import ParticleWave from "../animations/three-particle-waves/ThreeParticleWaves";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -117,7 +118,7 @@ export default function ContactForm() {
           </div>
           <Menu
             as="div"
-            className="relative  inline-block pb-4 text-left outline-none"
+            className="relative inline-block  w-full pb-4 text-left outline-none"
           >
             <div className="">
               <Menu.Button className="inline-flex  h-[60px] w-full items-center justify-between rounded-md bg-neutral pl-4  pr-6 font-apfel-grotezk text-sm text-[#9ca3af] sm:text-base md:w-[625px] md:px-4 ">
@@ -163,7 +164,6 @@ export default function ContactForm() {
               </Menu.Items>
             </Transition>
           </Menu>
-
           <textarea
             name="message"
             className="mb-4 mt-12 h-[175px] w-full rounded-md bg-neutral pl-4 pt-4 font-apfel-grotezk text-white outline-none md:w-[625px]"
@@ -171,7 +171,6 @@ export default function ContactForm() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-
           <div className="w-full md:w-[625px]">
             <div className="flex items-center justify-start">
               <input
@@ -191,7 +190,9 @@ export default function ContactForm() {
               </label>{" "}
             </div>
           </div>
-
+          <div className="mr-auto">
+            <ReCAPTCHA sitekey="6LcAaogpAAAAAAYMj1NNiwkPKhUknmUKVC9F5n-S" />
+          </div>
           <Button
             size="small"
             type="submit"
