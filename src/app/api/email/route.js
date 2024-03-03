@@ -7,7 +7,8 @@ const resend = new Resend("re_ez8NS9gr_DVKT7UyopoQGYroLrqE7M39A");
 
 export async function POST(req, res) {
   try {
-    const { name, email, message, selectedOption, phoneNumber } = await req.json();
+    const { name, email, message, selectedOption, phoneNumber } =
+      await req.json();
 
     // Send email to support
     const data = await resend.emails.send({
@@ -24,12 +25,11 @@ export async function POST(req, res) {
     });
     console.log("Data sent:", data);
 
-
     const data2 = await resend.emails.send({
       from: "forcefinancecoin@forcefinancecoin.com",
       to: [email],
       subject: "Hello",
-      react: UserEmailTemplate(),
+      react: UserEmailTemplate({ name, selectedOption }),
     });
 
     console.log("Confirmation Email Result:", data2);

@@ -16,7 +16,7 @@ export const EmailTemplate = ({
     <p className="mt-12">--</p>
     <p>
       This email was sent from a contact form on forcefinancecoin
-      (https://www.forcefinancecoin.ca){" "}
+      (https://www.forcefinancecoin.ca)
     </p>
   </div>
 );
