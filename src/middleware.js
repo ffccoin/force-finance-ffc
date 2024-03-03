@@ -6,8 +6,10 @@ export function middleware(req) {
   console.log("middleware", req.url);
   if (req.url === "https://www.forcefinancecoin.ca" && country !== "CA") {
     return NextResponse.redirect("https://www.forcefinancecoin.com", 301);
-  } else if (req.url === "https://www.forcefinancecoin.com" && country === "CA") {
+  } else if (
+    req.url === "https://www.forcefinancecoin.com" &&
+    country === "CA"
+  ) {
     return NextResponse.redirect("https://www.forcefinancecoin.ca", 301);
   }
-  return NextRequest.next();
 }
