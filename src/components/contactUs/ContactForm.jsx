@@ -191,7 +191,7 @@ export default function ContactForm() {
             </div>
           </div>
           <div className="mr-auto">
-            <ReCAPTCHA sitekey="6LcAaogpAAAAAAYMj1NNiwkPKhUknmUKVC9F5n-S" />
+            <ReCAPTCHA sitekey="6LcAaogpAAAAAAYMj1NNiwkPKhUknmUKVC9F5n-S" theme="Dark" />
           </div>
           <Button
             size="small"
