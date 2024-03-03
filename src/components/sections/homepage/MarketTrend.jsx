@@ -6,7 +6,6 @@ import { useGetCoinsQuery } from "@/libs/services/coins";
 
 const MarketTrend = () => {
   const { data, error, isLoading } = useGetCoinsQuery();
-  console.log("data", isLoading ? "loading" : data);
   const coins = data?.data;
   function convertToInternationalCurrencySystem(labelValue) {
     // Nine Zeroes for Billions
