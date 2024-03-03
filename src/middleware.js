@@ -1,7 +1,7 @@
 // pages/_middleware.ts
 import { NextRequest, NextResponse } from "next/server";
 
-export const runtime = "edge";
+export const runtime = "experimental-edge";
 
 export function middleware(req) {
   if (req.geo.country === "CA") {
