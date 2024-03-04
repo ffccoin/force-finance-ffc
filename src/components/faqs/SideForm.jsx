@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -111,6 +112,9 @@ export default function ContactForm() {
               className=" h-[175px] w-[320px] rounded-md bg-neutral pl-4  pt-4   font-apfel-grotezk text-white outline-none lg:w-[413px]"
               placeholder="Message..."
             />
+          </div>
+          <div className="mr-auto">
+            <ReCAPTCHA sitekey="6LcAaogpAAAAAAYMj1NNiwkPKhUknmUKVC9F5n-S" theme="Dark" />
           </div>
           <button
             type="submit"
