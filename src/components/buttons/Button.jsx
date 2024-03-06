@@ -11,9 +11,11 @@ const Button = ({
   title,
   className,
   dontAnimate,
+  onClick = () => {},
 }) => {
   return (
     <motion.button
+      onClick={onClick}
       className={`grid place-items-center bg-primary1 font-neue-machina-bold leading-6 text-neutralDark transition-all duration-200 ease-out enabled:hover:bg-darkGreen enabled:hover:text-neutralLighter
       ${outline ? "border border-black" : ""}
       ${

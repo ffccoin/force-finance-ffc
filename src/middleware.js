@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(req) {
-  console.log("BASEPATH:", req.nextUrl.hostname);
   if (
     req.geo.country === "CA" &&
     req.nextUrl.hostname === "www.forcefinancecoin.com"

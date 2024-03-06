@@ -2,8 +2,10 @@
 
 import Button from "@/components/buttons/Button";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Section5 = () => {
+  const router = useRouter();
   const tokenInfo = [
     { label: "Token name:", value: "FORCE FINANCE COIN" },
     { label: "Ticker Symbol:", value: "FFC" },
@@ -11,7 +13,10 @@ const Section5 = () => {
     { label: "Minimum Purchase:", value: "0.1 ETH" },
     { label: "Token Type:", value: "ERC-20" },
     { label: "Max Supply:", value: "5,000,000,000" },
-    { label: "Smart Contract:", value: "0xAb5801a7D398351b8bE11C439C9B" },
+    {
+      label: "Smart Contract:",
+      value: "0xbf05C4023E735ab912E2c34c0f391702efEC34",
+    },
   ];
 
   const leftToRightVariants = {
@@ -88,7 +93,16 @@ const Section5 = () => {
             </div>
           ))}
           <div className="mt-auto w-full md:w-fit">
-            <Button title="View on EthScan" size="small" width="full" />
+            <Button
+              title="View on EthScan"
+              size="small"
+              width="full"
+              onClick={() =>
+                router.push(
+                  "https://etherscan.io/token/0xbf05C4023E735aDb912E2cc34c0f391702efEC34",
+                )
+              }
+            />
           </div>
         </motion.div>
       </div>

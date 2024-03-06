@@ -19,7 +19,6 @@ export async function POST(req, res) {
         phoneNumber,
       }),
     });
-    console.log("Data sent:", data);
 
     const data2 = await resend.emails.send({
       from: "forcefinancecoin@forcefinancecoin.com",
@@ -27,8 +26,6 @@ export async function POST(req, res) {
       subject: "Hello", 
       react: UserEmailTemplate(),
     });
-    console.log("Confirmation Email Result:", data2);
-
 
     return NextResponse.json({ message: "method allow" });
   } catch (error) {
