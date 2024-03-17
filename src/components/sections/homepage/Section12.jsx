@@ -52,8 +52,9 @@ const Section12 = () => {
             start your journey with FFC today and experience the power of
             decentralized finance firsthand
           </p>
+          
           <button className="mt-5 w-fit bg-neutralLighter px-[25px] py-[15px] text-black transition-all duration-75 ease-out hover:border hover:border-black">
-            Lunch Dapp
+            <a href="https://ffc-dex.vercel.app/">Lunch Dapp</a>
           </button>
         </motion.div>
         <motion.div
