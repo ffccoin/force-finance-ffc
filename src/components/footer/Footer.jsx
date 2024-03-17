@@ -5,22 +5,32 @@ const Footer = () => {
     <footer className="grid h-[520px] w-screen bg-[url('/footer/bg.svg')] bg-cover px-8 py-10 sm:px-12 lg:px-24 lg:py-24">
       <div className="grid gap-x-20 gap-y-10 md:grid-cols-2 lg:grid-cols-5">
         <div className="flex flex-col gap-y-4 lg:col-span-2 lg:gap-y-7">
-          <Image
-            src="/logos/header-logo.svg"
-            width={250}
-            height={32}
-            alt="logo"
-          />
+          <div className="flex items-center gap-2 ">
+            <Image
+              src="/logos/force-finance-logo-svg.svg"
+              width={42}
+              height={1}
+              alt="logo"
+              className="mt-[-0.25rem]"
+            />
+            <h1 className="lg:text-xl xl:text-2xl xl:leading-6">
+              FORCE FINANCE
+            </h1>
+          </div>
+
           <span className="text-[15px] leading-7 text-neutralLight">
             Pioneering the Future of Finance, Empowering Individuals with
             Innovative Solutions and Endless Opportunities.
           </span>
           <div className="flex gap-x-3.5">
             <button className="hover:text-primary1">{telegramIcon}</button>
-            <button className="hover:text-primary1">{twitterIcon}</button>
-            <button className="hover:text-primary1">{facebookIcon}</button>
+            <button className="hover:text-primary1">
+              <a href="https://twitter.com/forcefinance_">{twitterIcon}</a>
+            </button>
             <button className="hover:text-primary1">{youtubeIcon}</button>
-            <button className="hover:text-primary1">{discordIcon}</button>
+            <button className="hover:text-primary1">
+              <a href="https://discord.gg/nwj93PTAns">{discordIcon}</a>
+            </button>
           </div>
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
