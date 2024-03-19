@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -16,11 +17,25 @@ const Footer = () => {
             Innovative Solutions and Endless Opportunities.
           </span>
           <div className="flex gap-x-3.5">
-            <button className="hover:text-primary1">{telegramIcon}</button>
-            <button className="hover:text-primary1">{twitterIcon}</button>
-            <button className="hover:text-primary1">{facebookIcon}</button>
-            <button className="hover:text-primary1">{youtubeIcon}</button>
-            <button className="hover:text-primary1">{discordIcon}</button>
+            <Link href="#" className="hover:text-primary1">
+              {telegramIcon}
+            </Link>
+            <Link
+              href="https://x.com/forcefinance_?s=11"
+              target="_blank"
+              className="hover:text-primary1"
+            >
+              {twitterIcon}
+            </Link>
+            <Link href="#" className="hover:text-primary1">
+              {facebookIcon}
+            </Link>
+            <Link href="#" className="hover:text-primary1">
+              {youtubeIcon}
+            </Link>
+            <Link href="#" className="hover:text-primary1">
+              {discordIcon}
+            </Link>
           </div>
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
