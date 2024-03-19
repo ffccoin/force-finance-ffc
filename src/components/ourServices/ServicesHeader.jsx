@@ -7,12 +7,14 @@ export default function ServicesHeader() {
         FFC COIN Financial SERVICES
       </p>
       <div className=" mt-10 items-center md:mx-0">
-        <SecondaryButton
-          title="Lunch Dapp"
-          size="small"
-          color="neutralDarker"
-          className="border-none bg-primary1 text-neutralDarker"
-        />
+        <a href="https://ffc-dex.vercel.app/">
+          <SecondaryButton
+            title="Lunch Dapp"
+            size="small"
+            color="neutralDarker"
+            className="border-none bg-primary1 text-neutralDarker"
+          />
+        </a>
       </div>
     </div>
   );
