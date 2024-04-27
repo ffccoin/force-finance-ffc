@@ -5,6 +5,7 @@ import CountdownTimer from "./CountdownTimer";
 import ProgressBar from "./ProgressBar";
 import { motion } from "framer-motion";
 import LinkedParticlesAnimation from "@/components/animations/LinkedParticlesAnimation";
+import Link from "next/link";
 
 const Section1 = () => {
   return (
@@ -48,21 +49,23 @@ const Section1 = () => {
             where financial liberation knows no bounds.
           </motion.p>
           <div className="hidden gap-x-6 md:flex lg:hidden xl:flex">
-            <Button title="Connect Wallet" />
-            <a href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
+            <Link href="https://app.forcefinancecoin.com">
+              <Button title="Connect Wallet" />
+            </Link>
+            <Link href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
               <SecondaryButton title="Coin Audit" icon={rightArrow} />
-            </a>
+            </Link>
           </div>
           <div className="flex flex-col gap-3 md:hidden lg:flex xl:hidden">
             <Button title="Connect Wallet" size="small" width="fit" />
-            <a href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
+            <Link href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
               <SecondaryButton
                 title="Coin Audit"
                 icon={rightArrow}
                 size="small"
                 width="full"
               />
-            </a>
+            </Link>
           </div>
         </div>
         <motion.div
@@ -91,20 +94,24 @@ const Section1 = () => {
           </h2>
           <ProgressBar />
           <div className="hidden items-center gap-x-8 md:flex">
-            <Button title="Buy FFC Coin" />
-            <a href="/whitepaper.pdf" download="ffc-whitepaper">
+            <Link href="https://app.forcefinancecoin.com">
+              <Button title="Buy FFC Coin" />
+            </Link>
+            <Link href="/whitepaper.pdf" download="ffc-whitepaper">
               <SecondaryButton title="Explore WhitePaper" />
-            </a>
+            </Link>
           </div>
           <div className="flex flex-col gap-y-4 md:hidden">
-            <Button title="Buy FFC Coin" size="small" />
-            <a href="/whitepaper.pdf" download="ffc-whitepaper">
+            <Link href="https://app.forcefinancecoin.com">
+              <Button title="Buy FFC Coin" size="small" />
+            </Link>
+            <Link href="/whitepaper.pdf" download="ffc-whitepaper">
               <SecondaryButton
                 title="Explore WhitePaper"
                 size="small"
                 width="full"
               />
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

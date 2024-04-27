@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Section5() {
   const leftToRightVariants = {
@@ -202,11 +203,13 @@ export default function Section5() {
             variants={blinkVariants}
             className="flex flex-col items-center justify-center gap-4 pb-5 lg:flex-row"
           >
-            <button
-              className={`grid h-[54px] w-[148px] place-items-center bg-black font-neue-machina-bold leading-6 text-neutralDark enabled:hover:bg-darkGreen enabled:hover:text-neutralLighter`}
-            >
-              <div className="flex gap-x-2.5 text-white">Get Started</div>
-            </button>
+            <Link href="https://app.forcefinancecoin.com">
+              <button
+                className={`grid h-[54px] w-[148px] place-items-center bg-black font-neue-machina-bold leading-6 text-neutralDark enabled:hover:bg-darkGreen enabled:hover:text-neutralLighter`}
+              >
+                <div className="flex gap-x-2.5 text-white">Get Started</div>
+              </button>
+            </Link>
             <button
               className={`grid h-[54px] w-[148px] place-items-center border border-solid border-black font-neue-machina-bold leading-6 text-neutralDark`}
             >

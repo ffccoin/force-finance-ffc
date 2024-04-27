@@ -2,6 +2,7 @@ import Image from "next/image";
 import Button from "@/components/buttons/Button";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const ServicesMobile = () => {
   const leftToRightVariants = {
@@ -73,11 +74,13 @@ const ServicesMobile = () => {
             {renderStat("1000+", "Yield Farming")}
           </div>
           <div className="mt-11 flex w-full flex-col gap-8 pr-8 md:flex-row">
-            <Button
-              className="w-full bg-primary2 text-neutralLighter sm:w-auto"
-              title="Go to apps"
-              size="small"
-            />
+            <Link href="https://app.forcefinancecoin.com">
+              <Button
+                className="w-full bg-primary2 text-neutralLighter sm:w-auto"
+                title="Go to apps"
+                size="small"
+              />
+            </Link>
             <SecondaryButton
               color="primary2"
               title="Learn more"

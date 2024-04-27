@@ -92,23 +92,23 @@ const HeaderSidebar = () => {
                 className="mb-6 w-full pl-10 pr-4 sm:pl-16 sm:pr-5"
               >
                 <div className=" mt-11 select-none justify-between hover:text-primary1 ">
-                  <a href="/" className=" ">
+                  <Link href="/" className=" ">
                     Home
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-4  hover:text-primary1">
-                  <a href="/about-us" className=" ">
+                  <Link href="/about-us" className=" ">
                     About
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-4  hover:text-primary1 ">
-                  <a href="/our-services" className=" ">
+                  <Link href="/our-services" className=" ">
                     Services
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="  group mt-4 flex justify-between  hover:text-primary1 ">
-                  <a className=" ">Docs</a>
+                  <Link className=" ">Docs</Link>
                   <div
                     className="group-hover:stroke-primary1 "
                     onClick={() => setSubMenuOpen(!subMenuOpen)}
@@ -127,30 +127,30 @@ const HeaderSidebar = () => {
                   >
                     <div className="mb-6  pl-7 text-neutralLight ">
                       <div className=" justify-between hover:text-primary1">
-                        <a href="/whitepaper.pdf" className=" ">
+                        <Link href="/whitepaper.pdf" className=" ">
                           Whitepaper
-                        </a>
+                        </Link>
                       </div>
                       <div className="  mt-2 justify-between hover:text-primary1">
-                        <a
+                        <Link
                           href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/"
                           className=" "
                         >
                           Lightpaper
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </motion.div>
                 )}
                 <div className=" mt-2 hover:text-primary1 ">
-                  <a href="/#Section7" className=" ">
+                  <Link href="/#Section7" className=" ">
                     Roadmap
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-4 hover:text-primary1 ">
-                  <a href="/contact-us" className=" ">
+                  <Link href="/contact-us" className=" ">
                     Contact
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             </ul>

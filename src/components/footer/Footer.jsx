@@ -26,113 +26,121 @@ const Footer = () => {
           <div className="flex gap-x-3.5">
             <button className="hover:text-primary1">{telegramIcon}</button>
             <button className="hover:text-primary1">
-              <a href="https://twitter.com/forcefinance_">{twitterIcon}</a>
+              <Link href="https://twitter.com/forcefinance_">
+                {twitterIcon}
+              </Link>
             </button>
             <button className="hover:text-primary1">{youtubeIcon}</button>
             <button className="hover:text-primary1">
-              <a href="https://discord.gg/nwj93PTAns">{discordIcon}</a>
+              <Link href="https://discord.gg/nwj93PTAns">{discordIcon}</Link>
             </button>
           </div>
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
           <h3 className="mb-2 text-sm uppercase">Company</h3>
-          <a href="/about-us" className="text-neutralLight hover:text-primary1">
+          <Link
+            href="/about-us"
+            className="text-neutralLight hover:text-primary1"
+          >
             About us
-          </a>
-          <a
+          </Link>
+          <Link
             href="/our-services"
             className="text-neutralLight hover:text-primary1"
           >
             Services
-          </a>
-          <a
+          </Link>
+          <Link
             href="/contact-us"
             className="text-neutralLight hover:text-primary1"
           >
             Careers
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/information/our-team"
             className="text-neutralLight hover:text-primary1"
           >
             Teams
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
           <h3 className="mb-2 text-sm uppercase">Resources</h3>
-          <a
+          <Link
             href="/whitepaper.pdf"
             download="ffc-whitepaper"
             className="text-neutralLight hover:text-primary1"
           >
             Whitepaper
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/"
             className="text-neutralLight hover:text-primary1"
           >
             Lightpaper
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://github.com/ffccoin/force-finance-ffc"
             className="text-neutralLight hover:text-primary1"
           >
             Github
-          </a>
-          <a href="#Section7" className="text-neutralLight hover:text-primary1">
+          </Link>
+          <Link
+            href="#Section7"
+            className="text-neutralLight hover:text-primary1"
+          >
             Roadmap
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/tokens/usdffc"
             className="text-neutralLight hover:text-primary1"
           >
             Documentation
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col gap-y-4 text-sm">
           <h3 className="mb-2 text-sm uppercase">Community</h3>
-          <a
+          <Link
             href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/information/beta-dex-launch"
             className="text-neutralLight hover:text-primary1"
           >
             Roles
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/our-foundations"
             className="text-neutralLight hover:text-primary1"
           >
             Ecosystem
-          </a>
-          <a href="#" className="text-neutralLight hover:text-primary1">
+          </Link>
+          <Link href="#" className="text-neutralLight hover:text-primary1">
             Blogs
-          </a>
-          <a href="/faqs" className="text-neutralLight hover:text-primary1">
+          </Link>
+          <Link href="/faqs" className="text-neutralLight hover:text-primary1">
             FAQs
-          </a>
+          </Link>
         </div>
         <div className="mb-10 flex w-[80vw] flex-col gap-y-5  overflow-hidden md:flex-row md:justify-between">
           <span className="w-fit text-nowrap text-sm text-neutralLight">
             Copyright © 2024 FFC. All Rights Reserved
           </span>
           <div className="flex flex-wrap gap-x-6">
-            <a
+            <Link
               href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/terms-and-condition"
               className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1"
             >
               Terms of Service
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/privacy-policy"
               className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1"
             >
               Privacy Policy
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits "
               className="cursor-pointer text-nowrap text-sm text-neutralLight hover:text-primary1"
             >
               Security
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment, useEffect, useState } from "react";
 import { useGetCoinsQuery } from "@/libs/services/coins";
+import Link from "next/link";
 
 const Calculator2 = () => {
   const { data, isloading, error } = useGetCoinsQuery();
@@ -281,7 +282,7 @@ const Calculator2 = () => {
           </div>
 
           <div className="flex items-center justify-center ">
-            <p className="text-white-A700 font-sans mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center rounded-xl bg-[#7D32F9]  p-2 pb-2.5 text-center text-base">
+            <p className="text-white-A700 mr-1 flex max-h-[24px] max-w-[24px] items-center justify-center rounded-xl bg-[#7D32F9] p-2  pb-2.5 text-center font-sans text-base">
               {selectedCurrency == "cny"
                 ? "¥"
                 : selectedCurrency == "eur"
@@ -365,11 +366,13 @@ const Calculator2 = () => {
           </div>
         </motion.div>
       </div>
-      <Button
-        size="small"
-        title="Buy Now"
-        className="px-10 text-xs  md:py-5 lg:py-5 lg:text-base xl:px-10 xl:text-base"
-      />
+      <Link href="https://app.forcefinancecoin.com">
+        <Button
+          size="small"
+          title="Buy Now"
+          className="px-10 text-xs  md:py-5 lg:py-5 lg:text-base xl:px-10 xl:text-base"
+        />
+      </Link>
     </div>
   );
 };

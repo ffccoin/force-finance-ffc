@@ -1,4 +1,5 @@
 import SecondaryButton from "@/components/buttons/SecondaryButton";
+import Link from "next/link";
 
 export default function ServicesHeader() {
   return (
@@ -7,14 +8,14 @@ export default function ServicesHeader() {
         FFC COIN Financial SERVICES
       </p>
       <div className=" mt-10 items-center md:mx-0">
-        <a href="https://ffc-dex.vercel.app/">
+        <Link href="https://app.forcefinancecoin.com">
           <SecondaryButton
             title="Lunch Dapp"
             size="small"
             color="neutralDarker"
             className="border-none bg-primary1 text-neutralDarker"
           />
-        </a>
+        </Link>
       </div>
     </div>
   );

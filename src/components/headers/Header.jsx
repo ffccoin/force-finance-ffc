@@ -10,6 +10,7 @@ import { Fragment, useState, useEffect } from "react";
 
 // framer motion import
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -121,17 +122,17 @@ const Header = () => {
                   >
                     <Menu.Items className="absolute left-1  top-11 z-30 flex w-[232px] flex-col items-start gap-y-1 rounded-md border border-primary1 bg-[#161617]  py-1  pl-1 text-neutralLight ">
                       <Menu.Item className="mt-2  w-full py-1 pl-6  hover:border-l-4   hover:border-l-primary1  hover:bg-neutral hover:text-primary1">
-                        <a href="/whitepaper.pdf" className=" ">
+                        <Link href="/whitepaper.pdf" className=" ">
                           Whitepaper
-                        </a>
+                        </Link>
                       </Menu.Item>
                       <Menu.Item className="mb-4 w-full  py-1  pl-6 hover:border-l-4  hover:border-l-primary1 hover:bg-neutral hover:text-primary1">
-                        <a
+                        <Link
                           href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/"
                           className=" "
                         >
                           Lightpaper
-                        </a>
+                        </Link>
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>

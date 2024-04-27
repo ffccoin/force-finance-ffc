@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useGetCoinsQuery } from "@/libs/services/coins";
+import Link from "next/link";
 
 const MarketTrend = () => {
   const { data, error, isLoading } = useGetCoinsQuery();
@@ -169,9 +170,11 @@ const MarketTrend = () => {
                       ${convertToInternationalCurrencySystem(coin.market_cap)}
                     </td>
                     <td className="px-6 py-4">
-                      <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
-                        <h4 className="text-white">Buy</h4>
-                      </button>
+                      <Link href="https://app.forcefinancecoin.com">
+                        <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
+                          <h4 className="text-white">Buy</h4>
+                        </button>
+                      </Link>
                     </td>
                   </tr>
                 ))
