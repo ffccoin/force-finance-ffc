@@ -3,6 +3,7 @@
 import SecondaryButton from "@/components/buttons/SecondaryButton";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const SubSection8_2 = () => {
   const leftToRightVariants = {
@@ -58,19 +59,21 @@ const SubSection8_2 = () => {
         variants={rightToLeftVariants}
       >
         <div className="mt-8 w-full md:w-[200px] ">
-          <SecondaryButton
-            className="mt-auto  w-full "
-            title="Get Started"
-            size="small"
-            icon={
-              <Image
-                src="/homepage/arrow.svg"
-                alt="Arrow"
-                width={24}
-                height={24}
-              />
-            }
-          />
+          <Link href="https://app.forcefinancecoin.com">
+            <SecondaryButton
+              className="mt-auto  w-full "
+              title="Get Started"
+              size="small"
+              icon={
+                <Image
+                  src="/homepage/arrow.svg"
+                  alt="Arrow"
+                  width={24}
+                  height={24}
+                />
+              }
+            />
+          </Link>
         </div>
       </motion.div>
     </div>

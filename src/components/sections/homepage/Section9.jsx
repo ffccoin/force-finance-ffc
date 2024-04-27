@@ -5,7 +5,7 @@ const Section9 = () => {
     <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg px-8">
       <div className="mt-24 flex max-w-6xl flex-col justify-stretch gap-4 lg:flex-row lg:gap-10 ">
         <Card2
-          title={"Lunch FFC Coin Dapp"}
+          title={"Launch FFC Coin Dapp"}
           text={
             "Sign in or create an account to access the FFC Coin DApp browser."
           }

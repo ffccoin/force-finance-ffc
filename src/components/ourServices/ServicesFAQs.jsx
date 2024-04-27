@@ -2,7 +2,6 @@ import Accordion from "../elements/Accordion";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-
 const ServicesFAQs = () => {
   const router = useRouter();
 
@@ -94,7 +93,10 @@ const ServicesFAQs = () => {
         <p className="text-center font-neue-machina-light text-base ">
           Haven’t got your answer?{" "}
         </p>
-        <p className="text-center font-neue-machina-bold cursor-pointer text-primary1" onClick={() => router.push("/contact-us")}>
+        <p
+          className="cursor-pointer text-center font-neue-machina-bold text-primary1 hover:underline"
+          onClick={() => router.push("/contact-us")}
+        >
           Contact our support now
         </p>
       </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/buttons/Button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Section4 = () => {
   const leftToRightVariants = {
@@ -19,14 +20,15 @@ const Section4 = () => {
   return (
     <div className="bg-primary  grid  place-items-center px-8 md:place-items-start  lg:place-items-center">
       <div className="mt-10 flex max-w-[83rem]  flex-col justify-start  lg:flex-row-reverse  lg:items-center lg:justify-center xl:ml-8 ">
-        <motion.div className="flex max-w-full flex-shrink-0 justify-center lg:max-w-[500px] lg:justify-end xl:max-w-[685px]"
+        <motion.div
+          className="flex max-w-full flex-shrink-0 justify-center lg:max-w-[500px] lg:justify-end xl:max-w-[685px]"
           animate={{ y: [0, 40, 0] }}
-          transition=
-          {{
+          transition={{
             duration: 6,
             repeat: Infinity,
             repeatType: "reverse",
-          }}>
+          }}
+        >
           <Image
             src="/ourServices/globe.png"
             width={685}
@@ -65,19 +67,21 @@ const Section4 = () => {
             range of options.
           </p>
           <div className="mt-11 flex gap-8">
-            <Button
-              className=""
-              title="Join our team"
-              size="small"
-              icon={
-                <Image
-                  src="/ourServices/arrowHead.svg"
-                  alt="Arrow head"
-                  width={16}
-                  height={16}
-                />
-              }
-            />
+            <Link href="/contact-us">
+              <Button
+                className=""
+                title="Join our team"
+                size="small"
+                icon={
+                  <Image
+                    src="/ourServices/arrowHead.svg"
+                    alt="Arrow head"
+                    width={16}
+                    height={16}
+                  />
+                }
+              />
+            </Link>
           </div>
         </motion.div>
       </div>

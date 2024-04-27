@@ -52,10 +52,11 @@ const Section12 = () => {
             start your journey with FFC today and experience the power of
             decentralized finance firsthand
           </p>
-          
-          <button className="mt-5 w-fit bg-neutralLighter px-[25px] py-[15px] text-black transition-all duration-75 ease-out hover:border hover:border-black">
-            <a href="https://ffc-dex.vercel.app/">Lunch Dapp</a>
-          </button>
+          <Link href="https://app.forcefinancecoin.com">
+            <button className="mt-5 w-fit bg-neutralLighter px-[25px] py-[15px] text-black transition-all duration-75 ease-out hover:border hover:border-black">
+              Launch Dapp
+            </button>
+          </Link>
         </motion.div>
         <motion.div
           className="h-fit w-full max-w-[80%] self-center sm:max-w-full md:h-full md:self-end"

@@ -4,6 +4,7 @@ import SideForm from "./SideForm";
 import Button from "../buttons/Button";
 import Header1 from "./Header1";
 import Accordion from "../elements/Accordion";
+import Link from "next/link";
 
 export default function Section() {
   return (
@@ -128,7 +129,9 @@ export default function Section() {
           <SideForm />
         </div>
         <div className="flex h-[520px] w-[320px] items-center justify-center overflow-hidden bg-[url('/faqs/sideSection.svg')] bg-cover bg-center lg:h-[665px] lg:w-[410px]">
-          <Button title={"Connect Wallet"} className="" />
+          <Link href="https://app.forcefinancecoin.com">
+            <Button title={"Connect Wallet"} className="" />
+          </Link>
         </div>
       </div>
     </div>

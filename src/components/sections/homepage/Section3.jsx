@@ -56,9 +56,9 @@ const Section3 = () => {
           whileInView="show"
           exit="show"
           variants={rightToLeftVariants}
-          className="mt-10 flex flex-col  lg:justify-center lg:mb-10 lg:mt-0 lg:items-start"
+          className="mt-10 flex flex-col  lg:mb-10 lg:mt-0 lg:items-start lg:justify-center"
         >
-          <h1 className="text-wrap text-[37.9px] lg:max-w-[30rem]  uppercase leading-[42.64px] lg:mt-10">
+          <h1 className="text-wrap text-[37.9px] uppercase  leading-[42.64px] lg:mt-10 lg:max-w-[30rem]">
             Web 3.0 Fusion Bridging DApp{" "}
           </h1>
           <p className="mt-9 text-wrap text-[16px] leading-[24px] text-neutralLight lg:max-w-[34.5rem]">
@@ -72,11 +72,13 @@ const Section3 = () => {
             {renderStat("1000+", "Yield Farming")}
           </div>
           <div className="mt-11 flex w-full flex-col gap-8 pr-8 md:flex-row">
-            <Button
-              className="w-full sm:w-auto"
-              title="Go to apps"
-              size="small"
-            />
+            <Link href="https://app.forcefinancecoin.com">
+              <Button
+                className="w-full sm:w-auto"
+                title="Go to apps"
+                size="small"
+              />
+            </Link>
             <SecondaryButton title="Learn more" size="small" />
           </div>
         </motion.div>

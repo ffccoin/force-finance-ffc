@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import SecondaryButton from "../buttons/SecondaryButton";
+import Link from "next/link";
 
 const Card = ({
   state,
@@ -101,11 +102,13 @@ const Card = ({
           </p>
         </div>
         <div className="relative mt-7 flex w-full justify-center py-5 text-start">
-          <SecondaryButton
-            className="absolute right-0 top-0 mt-auto hidden group-hover:flex"
-            title="Buy now"
-            size="small"
-          />
+          <Link href="https://app.forcefinancecoin.com">
+            <SecondaryButton
+              className="absolute right-0 top-0 mt-auto hidden group-hover:flex"
+              title="Buy now"
+              size="small"
+            />
+          </Link>
         </div>
       </div>
       <div className="my-4 flex items-center justify-between gap-1 px-4">

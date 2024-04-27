@@ -164,15 +164,19 @@ const Header = () => {
                 </h1>
               </div>
               <div className="flex w-full items-center justify-end gap-x-2 md:col-span-3 lg:col-span-4 xl:gap-x-2">
-                <button className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
-                  Sign up
-                </button>
-                <Button
-                  size="small"
-                  title="Login"
-                  dontAnimate
-                  className="px-2 py-1 text-xs lg:px-4 lg:py-3 lg:text-sm xl:px-[25px] xl:text-base"
-                />
+                <Link href="https://app.forcefinancecoin.com">
+                  <button className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
+                    Sign up
+                  </button>
+                </Link>
+                <Link href="https://app.forcefinancecoin.com">
+                  <Button
+                    size="small"
+                    title="Login"
+                    dontAnimate
+                    className="px-2 py-1 text-xs lg:px-4 lg:py-3 lg:text-sm xl:px-[25px] xl:text-base"
+                  />
+                </Link>
               </div>
             </div>
           </div>

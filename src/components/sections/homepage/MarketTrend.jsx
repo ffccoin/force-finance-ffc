@@ -80,7 +80,9 @@ const MarketTrend = () => {
             className="flex items-center text-primary1"
           >
             <button>
-              <h4>View more markets</h4>
+              <Link href="https://app.forcefinancecoin.com/tokens">
+                <h4>View more markets</h4>
+              </Link>
             </button>
             {chevronRight}
           </motion.div>
@@ -189,9 +191,11 @@ const MarketTrend = () => {
           variants={tableVariants}
           className="mx-6 self-start"
         >
-          <span className="font-neue-machina-bold text-primary1 underline">
-            Sign up
-          </span>{" "}
+          <Link href="https://app.forcefinancecoin.com">
+            <span className="font-neue-machina-bold text-primary1 underline">
+              Sign up
+            </span>{" "}
+          </Link>
           now to build your own portfolio for free!
         </motion.h1>
       </div>

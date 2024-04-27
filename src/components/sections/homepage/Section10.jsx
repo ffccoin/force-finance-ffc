@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Section10 = () => {
   const leftToRightVariants = {
@@ -32,7 +33,7 @@ const Section10 = () => {
   };
   return (
     <div className="bg-primary mt-16 grid h-auto items-center justify-center rounded-lg ">
-      <div className="sm: mt-10 flex flex-col px-4 pl-8 md:flex-row md:gap-8 lg:gap-0 lg:justify-end">
+      <div className="sm: mt-10 flex flex-col px-4 pl-8 md:flex-row md:gap-8 lg:justify-end lg:gap-0">
         <motion.div
           className="flex max-w-[38.7rem] flex-col md:max-w-[36.7rem]  lg:max-w-[36.7rem]"
           initial="hide"
@@ -40,7 +41,7 @@ const Section10 = () => {
           exit="show"
           variants={leftToRightVariants}
         >
-          <h3 className="text-wrap font-neue-machina-bold uppercase text-xl md:text-3xl lg:[37.96px] leading-[42.64px]">
+          <h3 className="lg:[37.96px] text-wrap font-neue-machina-bold text-xl uppercase leading-[42.64px] md:text-3xl">
             Access all your favorite assets effortlessly
           </h3>
 
@@ -61,9 +62,11 @@ const Section10 = () => {
             Wondering what tokens is supported?
           </p>
           <span className="mt-2 flex text-center ">
-            <p className=" font-neue-machina-bold text-primary1 cursor-pointer  hover:border-b hover:border-primary1 ">
-              See all token
-            </p>
+            <Link href="https://app.forcefinancecoin.com/tokens">
+              <p className=" cursor-pointer font-neue-machina-bold text-primary1  hover:border-b hover:border-primary1 ">
+                See all tokens
+              </p>
+            </Link>
             <div className=" flex justify-center text-center">
               <Image
                 src="/homepage/arrowHead.svg"
@@ -82,7 +85,7 @@ const Section10 = () => {
           variants={rightToLeftVariants}
         >
           <motion.div
-            className="mt-8 md:max-w-[30rem] lg:max-w-[38rem] max-w-[38rem]"
+            className="mt-8 max-w-[38rem] md:max-w-[30rem] lg:max-w-[38rem]"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{
               duration: 2,

@@ -10,7 +10,7 @@ export default function ServicesHeader() {
       <div className=" mt-10 items-center md:mx-0">
         <Link href="https://app.forcefinancecoin.com">
           <SecondaryButton
-            title="Lunch Dapp"
+            title="Launch Dapp"
             size="small"
             color="neutralDarker"
             className="border-none bg-primary1 text-neutralDarker"
