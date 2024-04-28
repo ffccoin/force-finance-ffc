@@ -57,8 +57,8 @@ const Section1 = () => {
             </Link>
           </div>
           <div className="flex flex-col gap-3 md:hidden lg:flex xl:hidden">
-            <Link href="https://app.forcefinancecoin.com">
-              <Button title="Connect Wallet" size="small" width="fit" />
+            <Link className="w-full" href="https://app.forcefinancecoin.com">
+              <Button title="Connect Wallet" size="small" width="full" />
             </Link>
             <Link href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
               <SecondaryButton
@@ -104,8 +104,8 @@ const Section1 = () => {
             </Link>
           </div>
           <div className="flex flex-col gap-y-4 md:hidden">
-            <Link href="https://app.forcefinancecoin.com">
-              <Button title="Buy FFC Coin" size="small" />
+            <Link className="w-full" href="https://app.forcefinancecoin.com">
+              <Button title="Buy FFC Coin" size="small" width="full" />
             </Link>
             <Link href="/whitepaper.pdf" download="ffc-whitepaper">
               <SecondaryButton
