@@ -4,6 +4,7 @@ import Image from "next/image";
 import Button from "@/components/buttons/Button";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Section3 = () => {
   const leftToRightVariants = {
