@@ -3,31 +3,25 @@ import axios from "axios";
 import Image from "next/image";
 
 const getData = async () => {
-  const baseUrl = "https://www.forcefinancecoin.com/api/tokens";
-  const res = await axios.get(baseUrl);
-  if (res.status === 200) {
-    return res.data;
-  } else {
-    throw new Error("Failed to fetch data");
+  const res = await axios.get("https://www.forcefinancecoin.com/api/tokens", {
+    next: { revalidate: 10 },
+  });
+  if (res.status !== 200) {
+    return [];
   }
+  return res.data;
 };
 
 const MovingBar = async () => {
   const data = await getData();
 
-  // Bitcoin, Ethereum, Solana, Cardano, Terra, Polkadot
   const displayTicker = (number) => (
     <div
       className={`ticker-text${number === 2 ? "2" : ""} z-[999999] flex h-[46px] w-fit select-none items-center gap-x-16 bg-black px-5 text-neutralLight`}
     >
       {data?.map((coin, index) => (
         <div className="flex gap-x-4" key={index}>
-          <Image
-            src={coin.logoUrl}
-            width={20}
-            height={20}
-            alt="bitcoin"
-          />
+          <Image src={coin.logoUrl} width={20} height={20} alt="bitcoin" />
           <span className="text-sm">{coin.name}</span>
           <span className="text-sm">
             {formatCurrency(coin.quote.USD.price)}
@@ -43,7 +37,7 @@ const MovingBar = async () => {
   );
 
   return (
-    <div className="w-screen bg-black h-[46px]">
+    <div className="h-[46px] w-screen bg-black">
       <div className="ticker-container relative flex overflow-x-hidden">
         {displayTicker(1)}
         {displayTicker(2)}

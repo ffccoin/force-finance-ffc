@@ -4,13 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const getData = async () => {
-  const baseUrl = "https://www.forcefinancecoin.com/api/tokens";
-  const res = await axios.get(baseUrl);
-  if (res.status === 200) {
-    return res.data;
-  } else {
-    throw new Error("Failed to fetch data");
+  const res = await axios.get("https://www.forcefinancecoin.com/api/tokens");
+  if (!res.status === 200) {
+    return [];
   }
+  return res.data;
 };
 
 const MarketTrend = async () => {

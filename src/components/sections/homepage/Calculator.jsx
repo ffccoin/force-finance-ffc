@@ -16,7 +16,7 @@ const Calculator = () => {
     const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano,terra-luna,polkadot&vs_currencies=usd,pkr,inr,eur,gbp`;
     const res = await fetch(url);
     if (!res.ok) {
-      throw new Error("Network response was not ok");
+      console.log("Failed to fetch exchange rate");
     }
     const data = await res.json();
     setCoinData(data);
