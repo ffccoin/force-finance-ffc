@@ -66,6 +66,7 @@ const MarketTrend = async () => {
                   </th>
                   <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
                     <Link
+                      className="min-w-[36px]"
                       href={`https://app.forcefinancecoin.com/tokens/${coin.id}`}
                     >
                       <Image src={coin.logoUrl} width={36} height={36} />
