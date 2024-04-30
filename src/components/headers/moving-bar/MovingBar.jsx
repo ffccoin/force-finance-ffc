@@ -65,7 +65,7 @@ const MovingBar = async () => {
   );
 
   return (
-    <div className="w-screen bg-black">
+    <div className="w-screen bg-black h-[46px]">
       <div className="ticker-container relative flex overflow-x-hidden">
         {displayTicker(1)}
         {displayTicker(2)}

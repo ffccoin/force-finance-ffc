@@ -37,7 +37,6 @@ const getData = async () => {
 
 const MarketTrend = async () => {
   const data = await getData();
-  console.log("DATA", data[0].quote);
 
   return (
     <div className="grid place-items-center py-28">
@@ -82,7 +81,7 @@ const MarketTrend = async () => {
             </thead>
             <tbody>
               {data?.map((coin, index) => (
-                <tr className="h-[58px] even:bg-[#1E1E1F]">
+                <tr className="h-[58px] even:bg-[#1E1E1F]" key={index}>
                   <th
                     scope="row"
                     className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
@@ -90,11 +89,17 @@ const MarketTrend = async () => {
                     {index + 1}
                   </th>
                   <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
-                    <Image src={coin.logoUrl} width={36} height={36} />
-                    <p>
+                    <Link
+                      href={`https://app.forcefinancecoin.com/tokens/${coin.id}`}
+                    >
+                      <Image src={coin.logoUrl} width={36} height={36} />
+                    </Link>
+                    <Link
+                      href={`https://app.forcefinancecoin.com/tokens/${coin.id}`}
+                    >
                       {coin.name}{" "}
                       <span className="uppercase">{coin.symbol}</span>
-                    </p>
+                    </Link>
                   </td>
                   <td className="px-6 py-4 text-neutralLight">
                     {formatCurrency(coin.quote.USD.price)}
