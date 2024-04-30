@@ -1,116 +1,75 @@
-"use client";
-
+import { formatCurrency } from "@/utils/formatters";
+import axios from "axios";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useGetCoinsQuery } from "@/libs/services/coins";
 
-const MovingBar = () => {
-  const { data, error, isLoading } = useGetCoinsQuery();
-  const movingBarVariants = {
-    hide: {
-      opacity: 0,
-    },
-    show: {
-      opacity: 1,
-      transition: {
-        duration: 0.1,
-        delay: 0.3,
-      },
-    },
+const getData = async () => {
+  const apiKey = process.env.NEXT_PUBLIC_COIN_MARKET_CAP_API_KEY;
+  const baseUrl = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5&cryptocurrency_type=tokens`;
+  const headers = {
+    "X-CMC_PRO_API_KEY": apiKey,
   };
+  try {
+    const response = await axios.get(baseUrl, { headers });
+    const data = response.data.data;
+    const detailedTokenData = await axios.get(
+      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info",
+      {
+        params: {
+          id: data.map((token) => token.id).join(","), // Comma-separated list of token IDs
+        },
+        headers,
+      },
+    );
+
+    const detailedDataMap = detailedTokenData.data.data;
+
+    // Append logo URLs to existing data
+    const updatedData = data.map((token) => ({
+      ...token,
+      logoUrl: detailedDataMap[token.id]?.logo,
+    }));
+    return updatedData;
+  } catch (err) {
+    return err;
+  }
+};
+
+const MovingBar = async () => {
+  const data = await getData();
 
   // Bitcoin, Ethereum, Solana, Cardano, Terra, Polkadot
   const displayTicker = (number) => (
     <div
-      className={`ticker-text${number === 2 ? "2" : ""} flex h-[46px] w-fit select-none items-center gap-x-16 bg-black px-5 text-neutralLight`}
+      className={`ticker-text${number === 2 ? "2" : ""} z-[999999] flex h-[46px] w-fit select-none items-center gap-x-16 bg-black px-5 text-neutralLight`}
     >
-      {data && data[0].id === "bitcoin" && (
-        <div className="flex gap-x-4">
-          <Image src="/icons/bitcoin.svg" width={20} height={20} alt="bitcoin" />
-          <span className="text-sm">Bitcoin</span>
-          <span className="text-sm">${data[0].current_price}</span>
+      {data?.map((coin, index) => (
+        <div className="flex gap-x-4" key={index}>
+          <Image
+            src={coin.logoUrl}
+            width={20}
+            height={20}
+            alt="bitcoin"
+          />
+          <span className="text-sm">{coin.name}</span>
+          <span className="text-sm">
+            {formatCurrency(coin.quote.USD.price)}
+          </span>
           <div className="flex items-center gap-x-1">
             <span className="text-sm text-white">
-              {data[0].price_change_24h > 0 ? upArrow : downArrow}
+              {coin.quote.USD.percent_change_24h > 0 ? upArrow : downArrow}
             </span>
           </div>
         </div>
-      )}
-      {data && data[1].id === "ethereum" && (
-        <div className="flex gap-x-4">
-          <Image src="/icons/ethereum.svg" width={20} height={20} alt="img" />
-          <span className="text-sm">Ethereum</span>
-          <span className="text-sm">${data[1].current_price}</span>
-          <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white">
-              {data[1].price_change_24h > 0 ? upArrow : downArrow}
-            </span>
-          </div>
-        </div>
-      )}
-      {data && data[2].id === "solana" && (
-        <div className="flex gap-x-4">
-          <Image src="/icons/solana.svg" width={20} height={20} alt="img" />
-          <span className="text-sm">Solana</span>
-          <span className="text-sm">${data[2].current_price}</span>
-          <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white">
-              {data[2].price_change_24h > 0 ? upArrow : downArrow}
-            </span>
-          </div>
-        </div>
-      )}
-      {data && data[3].id === "cardano" && (
-        <div className="flex gap-x-4">
-          <Image src="/icons/cardano.svg" width={20} height={20} alt="img" />
-          <span className="text-sm">Cardano</span>
-          <span className="text-sm">${data[3].current_price}</span>
-          <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white">
-              {data[3].price_change_24h > 0 ? upArrow : downArrow}
-            </span>
-          </div>
-        </div>
-      )}
-      {data && data[5].id === "terra-luna" && (
-        <div className="flex gap-x-4">
-          <Image src="/icons/terra.svg" width={20} height={20} alt="img" />
-          <span className="text-sm">Terra</span>
-          <span className="text-sm">${data[5].current_price}</span>
-          <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white">
-              {data[5].price_change_24h > 0 ? upArrow : downArrow}
-            </span>
-          </div>
-        </div>
-      )}
-      {data && data[4].id === "polkadot" && (
-        <div className="flex gap-x-4">
-          <Image src="/icons/polkadot.svg" width={20} height={20} alt="img" />
-          <span className="text-sm">Polkadot</span>
-          <span className="text-sm">${data[4].current_price}</span>
-          <div className="flex items-center gap-x-1">
-            <span className="text-sm text-white">
-              {data[4].price_change_24h > 0 ? upArrow : downArrow}
-            </span>
-          </div>
-        </div>
-      )}
+      ))}
     </div>
   );
 
   return (
     <div className="w-screen bg-black">
-      <motion.div
-        className="ticker-container relative flex overflow-x-hidden"
-        initial="hide"
-        whileInView="show"
-        exit="show"
-        variants={movingBarVariants}
-      >
+      <div className="ticker-container relative flex overflow-x-hidden">
         {displayTicker(1)}
         {displayTicker(2)}
-      </motion.div>
+      </div>
     </div>
   );
 };

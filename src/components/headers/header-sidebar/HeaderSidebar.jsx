@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const HeaderSidebar = () => {
   const [isSidebarVisible, setSidebarVisibility] = useState(false);
@@ -108,7 +109,7 @@ const HeaderSidebar = () => {
                 </div>
 
                 <div className="  group mt-4 flex justify-between  hover:text-primary1 ">
-                  <Link className=" ">Docs</Link>
+                  <div>Docs</div>
                   <div
                     className="group-hover:stroke-primary1 "
                     onClick={() => setSubMenuOpen(!subMenuOpen)}

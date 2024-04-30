@@ -4,6 +4,7 @@ import StoreProvider from "./StoreProvider";
 import PreloaderProvider from "./PreloaderProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import MovingBar from "@/components/headers/moving-bar/MovingBar";
 
 export const revalidate = 300;
 
@@ -21,6 +22,7 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <StoreProvider>
         <body className={inter.className}>
+          <MovingBar />
           <PreloaderProvider>
             {children}
             <GoogleAnalytics gaId="G-C38R7K64GZ" />

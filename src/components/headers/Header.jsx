@@ -53,13 +53,12 @@ const Header = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.header
-          className="fixed top-0 z-50 w-full bg-neutralDark"
+          className={`fixed top-0 ${window.scrollY > 100 ? "pt-0" : "pt-[46px]"} z-50 w-full bg-neutralDark transition-all duration-200 ease-in-out`}
           initial={{ y: -120 }}
           animate={{ y: 0 }}
           exit={{ y: -120 }}
           transition={{ duration: 0.2 }}
         >
-          <MovingBar />
           <div className="z-50 grid place-items-center bg-transparent px-5">
             {/* Small screen size */}
             <div className="flex h-[58px] w-full items-center justify-between md:hidden">

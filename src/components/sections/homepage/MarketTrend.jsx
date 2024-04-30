@@ -1,99 +1,59 @@
-"use client";
-
+import { formatCurrency, formatNumber } from "@/utils/formatters";
+import axios from "axios";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useGetCoinsQuery } from "@/libs/services/coins";
 import Link from "next/link";
 
-const MarketTrend = () => {
-  const { data, error, isLoading } = useGetCoinsQuery();
-  const coins = data?.data;
-  function convertToInternationalCurrencySystem(labelValue) {
-    // Nine Zeroes for Billions
-    return Math.abs(Number(labelValue)) >= 1.0e9
-      ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
-      : // Six Zeroes for Millions
-        Math.abs(Number(labelValue)) >= 1.0e6
-        ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
-        : // Three Zeroes for Thousands
-          Math.abs(Number(labelValue)) >= 1.0e3
-          ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
-          : Math.abs(Number(labelValue));
-  }
+const getData = async () => {
+  const apiKey = process.env.NEXT_PUBLIC_COIN_MARKET_CAP_API_KEY;
+  const baseUrl = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5&cryptocurrency_type=tokens`;
+  const headers = {
+    "X-CMC_PRO_API_KEY": apiKey,
+  };
+  try {
+    const response = await axios.get(baseUrl, { headers });
+    const data = response.data.data;
+    const detailedTokenData = await axios.get(
+      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info",
+      {
+        params: {
+          id: data.map((token) => token.id).join(","), // Comma-separated list of token IDs
+        },
+        headers,
+      },
+    );
 
-  const h1Variants = {
-    hide: {
-      opacity: 0,
-      x: -50,
-    },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-  const viewMoreVariants = {
-    hide: {
-      opacity: 0,
-      x: 50,
-    },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-  const tableVariants = {
-    hide: {
-      opacity: 0,
-    },
-    show: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+    const detailedDataMap = detailedTokenData.data.data;
+
+    // Append logo URLs to existing data
+    const updatedData = data.map((token) => ({
+      ...token,
+      logoUrl: detailedDataMap[token.id]?.logo,
+    }));
+    return updatedData;
+  } catch (err) {
+    return err;
+  }
+};
+
+const MarketTrend = async () => {
+  const data = await getData();
+  console.log("DATA", data[0].quote);
 
   return (
     <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">
         <div className="flex w-full justify-between px-6">
-          <motion.h1
-            initial="hide"
-            whileInView="show"
-            exit="show"
-            variants={h1Variants}
-            className="text-[37.9px] leading-[42.64px]"
-          >
-            MARKET TREND
-          </motion.h1>
-          <motion.div
-            initial="hide"
-            whileInView="show"
-            exit="show"
-            variants={viewMoreVariants}
-            className="flex items-center text-primary1"
-          >
+          <h1 className="text-[37.9px] leading-[42.64px]">MARKET TREND</h1>
+          <div className="flex items-center text-primary1">
             <button>
               <Link href="https://app.forcefinancecoin.com/tokens">
                 <h4>View more markets</h4>
               </Link>
             </button>
             {chevronRight}
-          </motion.div>
+          </div>
         </div>
-        <motion.div
-          initial="hide"
-          whileInView="show"
-          exit="show"
-          variants={tableVariants}
-          className="relative w-[80vw] overflow-auto shadow-md sm:rounded-lg xl:w-full"
-        >
+        <div className="relative w-[80vw] overflow-auto shadow-md sm:rounded-lg xl:w-full">
           <table className="w-full text-left rtl:text-right dark:text-gray-400">
             <thead className="h-[58px] bg-[#1E1E1F] text-white">
               <tr>
@@ -121,83 +81,68 @@ const MarketTrend = () => {
               </tr>
             </thead>
             <tbody>
-              {isLoading ? (
-                <tr>
-                  <td>Loading</td>
+              {data?.map((coin, index) => (
+                <tr className="h-[58px] even:bg-[#1E1E1F]">
+                  <th
+                    scope="row"
+                    className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
+                  >
+                    {index + 1}
+                  </th>
+                  <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
+                    <Image src={coin.logoUrl} width={36} height={36} />
+                    <p>
+                      {coin.name}{" "}
+                      <span className="uppercase">{coin.symbol}</span>
+                    </p>
+                  </td>
+                  <td className="px-6 py-4 text-neutralLight">
+                    {formatCurrency(coin.quote.USD.price)}
+                  </td>
+                  <td className="px-6 text-white">
+                    <div className="flex items-center gap-x-1">
+                      {coin.quote.USD.percent_change_24h > 0
+                        ? arrowUp
+                        : arrowDown}
+                      <span>
+                        {formatNumber(coin.quote.USD.percent_change_24h)}%
+                      </span>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <Image
+                      src={
+                        coin.quote.USD.percent_change_24h > 0
+                          ? "/homepage/yellow-chart.svg"
+                          : "/homepage/red-chart.svg"
+                      }
+                      width={67}
+                      height={20}
+                    />
+                  </td>
+                  <td className="px-6 py-4">
+                    {formatCurrency(coin.quote.USD.market_cap)}
+                  </td>
+                  <td className="px-6 py-4">
+                    <Link href="https://app.forcefinancecoin.com">
+                      <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
+                        <h4 className="text-white">Buy</h4>
+                      </button>
+                    </Link>
+                  </td>
                 </tr>
-              ) : error ? (
-                <tr>
-                  <td>Error</td>
-                </tr>
-              ) : (
-                data.map((coin, index) => (
-                  <tr className="h-[58px] even:bg-[#1E1E1F]">
-                    <th
-                      scope="row"
-                      className="whitespace-nowrap px-6 py-4 font-medium text-neutralLight"
-                    >
-                      {index + 1}
-                    </th>
-                    <td className="flex items-center gap-x-3.5 px-6 py-4 text-neutralLight">
-                      <Image src={coin.image} width={36} height={36} />
-                      <p>
-                        {coin.name}{" "}
-                        <span className="uppercase">{coin.symbol}</span>
-                      </p>
-                    </td>
-                    <td className="px-6 py-4 text-neutralLight">
-                      $
-                      {convertToInternationalCurrencySystem(coin.current_price)}
-                    </td>
-                    <td className="px-6 text-white">
-                      <div className="flex items-center gap-x-1">
-                        {coin.price_change_percentage_24h > 0
-                          ? arrowUp
-                          : arrowDown}
-                        <span>{coin.price_change_percentage_24h}%</span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <Image
-                        src={
-                          coin.price_change_24h > 0
-                            ? "/homepage/yellow-chart.svg"
-                            : "/homepage/red-chart.svg"
-                        }
-                        width={67}
-                        height={20}
-                      />
-                    </td>
-                    <td className="px-6 py-4">
-                      ${convertToInternationalCurrencySystem(coin.market_cap)}
-                    </td>
-                    <td className="px-6 py-4">
-                      <Link href="https://app.forcefinancecoin.com">
-                        <button className="grid h-[34px] w-[92px] place-items-center rounded-[10px] border border-primary1">
-                          <h4 className="text-white">Buy</h4>
-                        </button>
-                      </Link>
-                    </td>
-                  </tr>
-                ))
-              )}
+              ))}
             </tbody>
           </table>
-        </motion.div>
-        <motion.h1
-          initial="hide"
-          whileInView="show"
-          exit="show"
-          variants={tableVariants}
-          className="mx-6 self-start"
-        >
+        </div>
+        <h1 className="mx-6 self-start">
           <Link href="https://app.forcefinancecoin.com">
             <span className="font-neue-machina-bold text-primary1 underline">
               Sign up
             </span>{" "}
           </Link>
           now to build your own portfolio for free!
-        </motion.h1>
+        </h1>
       </div>
     </div>
   );

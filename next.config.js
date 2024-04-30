@@ -8,13 +8,11 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "assets.coingecko.com",
+        hostname: "(s2.coinmarketcap.com)",
         port: "",
         pathname: "/**",
       },
-
     ],
-
   },
   // ... other configurations
 };
