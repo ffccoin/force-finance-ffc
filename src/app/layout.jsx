@@ -6,7 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import MovingBar from "@/components/headers/moving-bar/MovingBar";
 
-export const revalidate = 300;
+export const revalidate = 10;
 
 const inter = Inter({ subsets: ["latin"] });
 

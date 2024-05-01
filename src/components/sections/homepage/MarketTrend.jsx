@@ -4,16 +4,39 @@ import Image from "next/image";
 import Link from "next/link";
 
 const getData = async () => {
-  const res = await axios.get("https://www.forcefinancecoin.com/api/tokens");
-  if (!res.status === 200) {
+  const apiKey = process.env.NEXT_PUBLIC_COIN_MARKET_CAP_API_KEY;
+  const baseUrl = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5`;
+  const headers = {
+    "X-CMC_PRO_API_KEY": apiKey,
+  };
+  try {
+    const response = await axios.get(baseUrl, { headers });
+    const data = response.data.data;
+    const detailedTokenData = await axios.get(
+      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info",
+      {
+        params: {
+          id: data.map((token) => token.id).join(","), // Comma-separated list of token IDs
+        },
+        headers,
+      },
+    );
+
+    const detailedDataMap = detailedTokenData.data.data;
+
+    // Append logo URLs to existing data
+    const updatedData = data.map((token) => ({
+      ...token,
+      logoUrl: detailedDataMap[token.id]?.logo,
+    }));
+    return updatedData;
+  } catch (err) {
     return [];
   }
-  return res.data;
 };
 
 const MarketTrend = async () => {
   const data = await getData();
-
   return (
     <div className="grid place-items-center py-28">
       <div className="flex w-full max-w-7xl flex-col items-center gap-y-7 px-5 sm:px-10">
