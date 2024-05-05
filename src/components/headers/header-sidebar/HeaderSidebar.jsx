@@ -66,13 +66,16 @@ const HeaderSidebar = () => {
             aria-label="Sidebar"
           >
             <div className="mt-16 flex items-center justify-between pl-1 pr-4 sm:px-8 ">
-              <Image
-                className="pl-4"
-                src="/logos/header-logo.svg"
-                width={250}
-                height={32}
-                alt="logo"
-              />
+              <div className="flex items-center gap-x-3 px-2">
+                <Image
+                  className="pl-4"
+                  src="/logos/force-finance-logo-svg.svg"
+                  width={50}
+                  height={32}
+                  alt="logo"
+                />
+                <h1 className="text-lg mt-1">Force Finance</h1>
+              </div>
               <button onClick={handleImageClick}>
                 <Image
                   src="/homepage/cross-30.svg"
