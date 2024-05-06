@@ -92,7 +92,7 @@ const Section1 = () => {
             <CountdownTimer />
           </div>
           <h2 className="py-3 leading-[22.4px] sm:text-[21.3px]">
-            $25,256,432 contribution received
+            $19,256,432 contribution received
           </h2>
           <ProgressBar />
           <div className="hidden items-center gap-x-8 md:flex">

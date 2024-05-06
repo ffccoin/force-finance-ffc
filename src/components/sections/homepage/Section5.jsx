@@ -9,7 +9,7 @@ const Section5 = () => {
   const tokenInfo = [
     { label: "Token name:", value: "FORCE FINANCE COIN" },
     { label: "Ticker Symbol:", value: "FFC" },
-    { label: "Starting Price:", value: "FFC for USD 0.00007" },
+    { label: "Starting Price:", value: "FFC for USD 0.00579" },
     { label: "Minimum Purchase:", value: "0.1 ETH" },
     { label: "Token Type:", value: "ERC-20" },
     { label: "Max Supply:", value: "5,000,000,000" },
