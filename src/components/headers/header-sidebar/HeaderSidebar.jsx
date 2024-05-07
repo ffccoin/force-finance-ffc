@@ -74,7 +74,7 @@ const HeaderSidebar = () => {
                   height={32}
                   alt="logo"
                 />
-                <h1 className="text-lg mt-1">Force Finance</h1>
+                <h1 className="mt-1 text-lg">Force Finance</h1>
               </div>
               <button onClick={handleImageClick}>
                 <Image
@@ -96,17 +96,23 @@ const HeaderSidebar = () => {
                 className="mb-6 w-full pl-10 pr-4 sm:pl-16 sm:pr-5"
               >
                 <div className=" mt-11 select-none justify-between hover:text-primary1 ">
-                  <Link href="/" className=" ">
+                  <Link href="/" onClick={() => setSidebarVisibility(false)}>
                     Home
                   </Link>
                 </div>
                 <div className="mt-4  hover:text-primary1">
-                  <Link href="/about-us" className=" ">
+                  <Link
+                    href="/about-us"
+                    onClick={() => setSidebarVisibility(false)}
+                  >
                     About
                   </Link>
                 </div>
                 <div className="mt-4  hover:text-primary1 ">
-                  <Link href="/our-services" className=" ">
+                  <Link
+                    href="/our-services"
+                    onClick={() => setSidebarVisibility(false)}
+                  >
                     Services
                   </Link>
                 </div>
@@ -131,14 +137,17 @@ const HeaderSidebar = () => {
                   >
                     <div className="mb-6  pl-7 text-neutralLight ">
                       <div className=" justify-between hover:text-primary1">
-                        <Link href="/whitepaper.pdf" className=" ">
+                        <Link
+                          href="/whitepaper.pdf"
+                          onClick={() => setSidebarVisibility(false)}
+                        >
                           Whitepaper
                         </Link>
                       </div>
                       <div className="  mt-2 justify-between hover:text-primary1">
                         <Link
                           href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/"
-                          className=" "
+                          onClick={() => setSidebarVisibility(false)}
                         >
                           Lightpaper
                         </Link>
@@ -147,12 +156,18 @@ const HeaderSidebar = () => {
                   </motion.div>
                 )}
                 <div className=" mt-2 hover:text-primary1 ">
-                  <Link href="/#Section7" className=" ">
+                  <Link
+                    href="/#Section7"
+                    onClick={() => setSidebarVisibility(false)}
+                  >
                     Roadmap
                   </Link>
                 </div>
                 <div className="mt-4 hover:text-primary1 ">
-                  <Link href="/contact-us" className=" ">
+                  <Link
+                    href="/contact-us"
+                    onClick={() => setSidebarVisibility(false)}
+                  >
                     Contact
                   </Link>
                 </div>
