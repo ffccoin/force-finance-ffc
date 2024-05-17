@@ -124,14 +124,14 @@ export const StoreProviders = ({ children }) => {
     rewardEarned: 0,
   });
 
-  const [masterContractData, setMasterContractData] = useState({
-    totalStakers: 0,
-    totalStakeAmount: 0,
-    totalRewards: 0,
-    distributed: 0,
-  });
+  // const [masterContractData, setMasterContractData] = useState({
+  //   totalStakers: 0,
+  //   totalStakeAmount: 0,
+  //   totalRewards: 0,
+  //   distributed: 0,
+  // });
 
-  const [masterContractProposalData, setMasterContractProposalData] = useState([]);
+  // const [masterContractProposalData, setMasterContractProposalData] = useState([]);
 
 
   const GetValues = async () => {
@@ -817,6 +817,8 @@ export const StoreProviders = ({ children }) => {
   //   GetAllProposalByArray();
   //   GetInvestedTokensWithdrawRequests();
   // }, [address])
+
+console.log(contractData,"contractDatacontractData")
 
   return (
     <>

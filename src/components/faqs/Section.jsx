@@ -130,7 +130,7 @@ export default function Section() {
         </div>
         <div className="flex h-[520px] w-[320px] items-center justify-center overflow-hidden bg-[url('/faqs/sideSection.svg')] bg-cover bg-center lg:h-[665px] lg:w-[410px]">
           <Link href="https://app.forcefinancecoin.com">
-            <Button title={"Connect Wallet"} className="" />
+            {/* <Button title={"Connect Wallet"} className="" /> */}
           </Link>
         </div>
       </div>

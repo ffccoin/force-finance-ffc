@@ -20,26 +20,47 @@ const Section1 = () => {
   const [active, setActive] = useState(0)
   const [creedToken, setCreedToken] = useState(0)
 
-  function calculateTokens(price, pricePerToken) {
+  // function calculateTokens(price, pricePerToken) {
 
-    // Convert prices to BigNumber objects to handle large numbers
-    const priceBN = ethers.BigNumber.from(price?.toString())
+  //   // Convert prices to BigNumber objects to handle large numbers
+  //   const priceBN = ethers.BigNumber.from(price?.toString())
 
-    console.log(priceBN?.toString(), "priceBNpriceBNpriceBN")
+  //   console.log(priceBN?.toString(), "priceBNpriceBNpriceBN")
 
-    const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString())
+  //   const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString())
 
-    let final = +priceBN?.toString() / +pricePerTokenBN?.toString()
+  //   let final = +priceBN?.toString() / +pricePerTokenBN?.toString()
+   
+  //   return final;
+  // }
 
-    return final;
-  }
+  const calculateTokens = (price, pricePerToken) => {
+    try {
+      // Convert prices to BigNumber objects to handle large numbers
+      const priceBN = ethers.BigNumber.from(price?.toString());
+      const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString());
+  
+      // Check if the pricePerTokenBN is not zero to avoid division by zero
+      if (pricePerTokenBN.isZero()) {
+        throw new Error("pricePerTokenBN is zero, cannot divide by zero");
+      }
+  
+      // Calculate the final value
+      let final = priceBN.div(pricePerTokenBN);
+  
+      return final.toString();
+    } catch (error) {
+      console.error("Error calculating tokens:", error);
+      return "0";
+    }
+  };
   // Example usage:
   // const pricePerToken = 0.1; // $0.1 per token
   // const userProvidedPrice = 2.5; // User provides $2.5
   // const tokens = calculateTokens(userProvidedPrice, pricePerToken);
 
 
-  const { contractData, addTokenToMetamask, copyToClipboard, getSignerPresaleContract, getProviderPresaleContract, BuyWithUSDTandUSDC
+  const { contractData, addTokenToMetamask, copyToClipboard, GetValues, getSignerPresaleContract, getProviderPresaleContract, BuyWithUSDTandUSDC
     , BuyWithETH } = useContext(Store);
 
 
@@ -82,7 +103,7 @@ const Section1 = () => {
       } else {
         try {
           let parse2 = ethers.utils.parseEther(buyAmount?.toString());
-          console.log(parse2?.toString(), "parse2");
+          console.log(parse2?.toString(),contractData?.tokenPrice, "parse2");
 
           if (parse2.gt(0)) {
             const tokens = calculateTokens(parse2, contractData?.tokenPrice);
@@ -98,6 +119,9 @@ const Section1 = () => {
     main();
   }, [buyAmount, active]);
 
+  useEffect(()=>{
+    GetValues();
+  },[])
   console.log(creedToken, "creedTokencreedTokencreedTokencreedToken")
   return (
     <div className="relative mt-24 flex w-full flex-wrap items-center justify-center  bg-transparent pb-20 pt-11 lg:mt-44 ">
@@ -140,16 +164,16 @@ const Section1 = () => {
             where financial liberation knows no bounds.
           </motion.p>
           <div className="hidden gap-x-6 md:flex lg:hidden xl:flex">
-            <Link href="https://app.forcefinancecoin.com">
-              <Button title="Connect Wallet" />
+            <Link href="/whitepaper.pdf"  download="ffc-whitepaper">
+              <Button title="Explore WhitePaper" />
             </Link>
             <Link href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
               <SecondaryButton title="Coin Audit" icon={rightArrow} />
             </Link>
           </div>
           <div className="flex flex-col gap-3 md:hidden lg:flex xl:hidden">
-            <Link className="w-full" href="https://app.forcefinancecoin.com">
-              <Button title="Connect Wallet" size="small" width="full" />
+            <Link className="w-full" href="/whitepaper.pdf"  download="ffc-whitepaper">
+              <Button title="Explore WhitePaper" size="small" width="full" />
             </Link>
             <Link href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
               <SecondaryButton
