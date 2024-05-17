@@ -22,16 +22,16 @@ const Section1 = () => {
 
   function calculateTokens(price, pricePerToken) {
 
-      // Convert prices to BigNumber objects to handle large numbers
-      const priceBN = ethers.BigNumber.from(price?.toString())
+    // Convert prices to BigNumber objects to handle large numbers
+    const priceBN = ethers.BigNumber.from(price?.toString())
 
-      console.log(priceBN?.toString(), "priceBNpriceBNpriceBN")
+    console.log(priceBN?.toString(), "priceBNpriceBNpriceBN")
 
-      const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString())
+    const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString())
 
-      let final = +priceBN?.toString() / +pricePerTokenBN?.toString()
+    let final = +priceBN?.toString() / +pricePerTokenBN?.toString()
 
-      return final;
+    return final;
   }
   // Example usage:
   // const pricePerToken = 0.1; // $0.1 per token
@@ -40,7 +40,7 @@ const Section1 = () => {
 
 
   const { contractData, addTokenToMetamask, copyToClipboard, getSignerPresaleContract, getProviderPresaleContract, BuyWithUSDTandUSDC
-      , BuyWithETH } = useContext(Store);
+    , BuyWithETH } = useContext(Store);
 
 
   const endTime = new Date();
@@ -53,40 +53,52 @@ const Section1 = () => {
 
 
   useEffect(() => {
-      const main = async () => { 
-        if (active === 0 && buyAmount !== 0) {
-              setTimeout(async () => {
-                  let parse = ethers.utils.parseEther(buyAmount?.toString());
+    const main = async () => {
+      if (buyAmount === 0) return;
 
-                  console.log(parse?.toString(),"parseparseparse")
+      if (active === 0) {
+        setTimeout(async () => {
+          try {
+            let parse = ethers.utils.parseEther(buyAmount?.toString());
 
-                  if (parse > 0) {
+            console.log(parse?.toString(), "parse");
 
-                      let oneDoller = await getProviderPresaleContract().getLatestUSDTPrice();
-
-                      let howMuch = +parse?.toString() / +oneDoller?.toString();
-
-                      let parse2 = ethers.utils.parseEther(howMuch?.toString());
-
-                      setCreedToken(parse2?.toString()); // Tokens in ether
-                  }
-
-              }, 2000);
-          } else if (active !== 0 && buyAmount !== 0) {
-              let parse2 = ethers.utils.parseEther(buyAmount?.toString());
-              console.log(parse2?.toString(),"parseparseparse")
-              if (parse2 > 0) {
-                  const tokens = calculateTokens(parse2, contractData?.tokenPrice);
-                  setCreedToken(ethers.utils.parseEther(tokens?.toString())); // Tokens in ether
+            if (parse.gt(0)) {
+              let oneDollar = await getProviderPresaleContract().getLatestUSDTPrice();
+              
+              if (oneDollar.isZero()) {
+                throw new Error("oneDollar price is zero, cannot divide by zero");
               }
+
+              let howMuch = parse.div(oneDollar);
+              let parse2 = ethers.utils.parseEther(howMuch.toString()).toString();
+
+              setCreedToken(parse2); // Tokens in ether
+            }
+          } catch (error) {
+            console.error("Error in timeout:", error);
           }
+        }, 2000);
+      } else {
+        try {
+          let parse2 = ethers.utils.parseEther(buyAmount?.toString());
+          console.log(parse2?.toString(), "parse2");
+
+          if (parse2.gt(0)) {
+            const tokens = calculateTokens(parse2, contractData?.tokenPrice);
+            let tokensss = ethers.utils.parseEther(tokens).toString();
+            setCreedToken(tokensss); // Tokens in ether
+          }
+        } catch (error) {
+          console.error("Error in else block:", error);
+        }
       }
+    };
 
-      main();
+    main();
+  }, [buyAmount, active]);
 
-  }, [buyAmount, active])
-
-  console.log(buyAmount,"buyAmountbuyAmountbuyAmountbuyAmount")
+  console.log(creedToken, "creedTokencreedTokencreedTokencreedToken")
   return (
     <div className="relative mt-24 flex w-full flex-wrap items-center justify-center  bg-transparent pb-20 pt-11 lg:mt-44 ">
       <LinkedParticlesAnimation />
@@ -175,73 +187,73 @@ const Section1 = () => {
           </h2> */}
           <ProgressBar />
           <div className="transactionCard-wrap-one">
-                    <div className="transactionCard-wrap-one-one"></div>
-                    <div className="transactionCard-wrap-one-two">1 Force Finance Coin = $ {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}</div>
-                    <div className="transactionCard-wrap-one-three"></div>
-                </div>
-                <div className="transactionCard-wrap-two">
-                    <div className="buttom-border">
-                        <button className={`${active === 0 ? 'active' : ''}`} onClick={() => { setActive(0), setBuyAmount(0), setCreedToken(0) }}>
-                            <img src="/images/eth.png" alt="" />
+            <div className="transactionCard-wrap-one-one"></div>
+            <div className="transactionCard-wrap-one-two">1 Force Finance Coin = $ {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}</div>
+            <div className="transactionCard-wrap-one-three"></div>
+          </div>
+          <div className="transactionCard-wrap-two">
+            <div className="buttom-border">
+              <button className={`${active === 0 ? 'active' : ''}`} onClick={() => { setActive(0), setBuyAmount(0), setCreedToken(0) }}>
+                <img src="/images/eth.png" alt="" />
 
-                            ETH
-                        </button>
-                    </div>
-                    <div className="buttom-border">
-                        <button className={`${active === 1 ? 'active' : ''}`} onClick={() => { setActive(1), setBuyAmount(0), setCreedToken(0) }}>
-                            <img src="/images/usdc.png" alt="" />
-                            USDC
-                        </button>
-                    </div>
-                    <div className="buttom-border">
-                        <button className={`${active === 2 ? 'active' : ''}`} onClick={() => { setActive(2), setBuyAmount(0), setCreedToken(0) }}>
-                            <img src="/images/usdt.png" alt="" />
-                            USDT
-                        </button>
-                    </div>
-                </div>
-                <div className="transactionCard-wrap-eight">
+                ETH
+              </button>
+            </div>
+            <div className="buttom-border">
+              <button className={`${active === 1 ? 'active' : ''}`} onClick={() => { setActive(1), setBuyAmount(0), setCreedToken(0) }}>
+                <img src="/images/usdc.png" alt="" />
+                USDC
+              </button>
+            </div>
+            <div className="buttom-border">
+              <button className={`${active === 2 ? 'active' : ''}`} onClick={() => { setActive(2), setBuyAmount(0), setCreedToken(0) }}>
+                <img src="/images/usdt.png" alt="" />
+                USDT
+              </button>
+            </div>
+          </div>
+          <div className="transactionCard-wrap-eight">
 
-                    <p className="p5">{active == 0 ? `ETH balance : ${Number(contractData?.ethBalance)?.toFixed(6)}` : active == 1 ? `USDC balance : ${Number(contractData?.usdcBalance)?.toFixed(6)}` : `USDT balance : ${Number(contractData?.usdtBalance)?.toFixed(6)}`}
-                    </p>
+            <p className="p5">{active == 0 ? `ETH balance : ${Number(contractData?.ethBalance)?.toFixed(6)}` : active == 1 ? `USDC balance : ${Number(contractData?.usdcBalance)?.toFixed(6)}` : `USDT balance : ${Number(contractData?.usdtBalance)?.toFixed(6)}`}
+            </p>
 
-                    <p className="p5"> Force Finance Coin balance: {Number(contractData?.creedBalance)?.toFixed(6)}</p>
-                </div>
-                <div className="transactionCard-wrap-three">
-                    <div className="transactionCard-wrap-three-left">
-                        <span>{active == 0 ? "Amount in ETH" : active == 1 ? "Amount in USDC" : "Amount in USDT"} </span>
-                        <div className="btn-icon">
-                            <input type="number" name="" id="" placeholder='0.0' onChange={(e) => setBuyAmount(e.target.value)} />
-                            {active === 0 && <img src="/images/eth.png" alt="" />}
-                            {active === 1 && <img src="/images/usdc.png" alt="" />}
-                            {active === 2 && <img src="/images/usdt.png" alt="" />}
-                        </div>
-                    </div>
-                    <div className="transactionCard-wrap-three-right">
-                        <span>Recive Force Finance Coin</span>
-                        <div className="btn-icon">
-                            <input type="number" name="" id="" placeholder='0.0' value={Number(ethers.utils.formatEther(creedToken?.toString()))?.toFixed(6)} />
-                            <img src="/images/creed.png" alt="" />
-                        </div>
-                    </div>
-                </div>
-                <div className="transactionCard-wrap-four">
-                    {/* <button onClick={addTokenToMetamask}>Add token in Metamask</button> */}
+            <p className="p5"> Force Finance Coin balance: {Number(contractData?.creedBalance)?.toFixed(6)}</p>
+          </div>
+          <div className="transactionCard-wrap-three">
+            <div className="transactionCard-wrap-three-left">
+              <span>{active == 0 ? "Amount in ETH" : active == 1 ? "Amount in USDC" : "Amount in USDT"} </span>
+              <div className="btn-icon">
+                <input type="number" name="" id="" placeholder='0.0' onChange={(e) => setBuyAmount(e.target.value)} />
+                {active === 0 && <img src="/images/eth.png" alt="" />}
+                {active === 1 && <img src="/images/usdc.png" alt="" />}
+                {active === 2 && <img src="/images/usdt.png" alt="" />}
+              </div>
+            </div>
+            <div className="transactionCard-wrap-three-right">
+              <span>Recive Force Finance Coin</span>
+              <div className="btn-icon">
+                <input type="number" name="" id="" placeholder='0.0' value={Number(ethers.utils.formatEther(creedToken?.toString()))?.toFixed(6)} />
+                <img src="/images/creed.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div className="transactionCard-wrap-four">
+            {/* <button onClick={addTokenToMetamask}>Add token in Metamask</button> */}
 
+            {console.log(isConnected, "isConnectedisConnected")}
+            {isConnected ?
+              active == 0 ?
+                <button onClick={() => BuyWithETH(creedToken?.toString(), buyAmount)}>Buy</button>
+                : active == 1 ?
+                  <button onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), false)}>Buy</button>
+                  :
+                  <button onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), true)}>Buy</button>
+              :
+              <button onClick={open}>Connect Wallet</button>
+            }
+          </div>
 
-                    {isConnected ?
-                        active == 0 ?
-                            <button onClick={() => BuyWithETH(creedToken?.toString(), buyAmount)}>Buy</button>
-                            : active == 1 ?
-                                <button onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), false)}>Buy</button>
-                                :
-                                <button onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), true)}>Buy</button>
-                        :
-                        <button onClick={open}>Connect Wallet</button>
-                    }
-                </div>
-
-              {/* <w3m-button/> */}
+          {/* <w3m-button/> */}
 
           {/* <div className="hidden items-center gap-x-8 md:flex">
             <Link href="https://app.forcefinancecoin.com">

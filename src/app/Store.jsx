@@ -15,8 +15,9 @@ import creedCoin from "../components/contractsData/creedCoin.json";
 import { useWeb3Modal, useWeb3ModalAccount } from '@web3modal/ethers5/react'
 import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
+import { ExternalProvider } from "@ethersproject/providers";
 
-const { ethereum } = window;
+// const { ethereum } = window;
 
 // const getSignerMasterContract = () => {
 //   const provider = new ethers.providers.Web3Provider(ethereum);
@@ -41,7 +42,7 @@ const { ethereum } = window;
 // };
 
 const getSignerPresaleContract = () => {
-  const provider = new ethers.providers.Web3Provider(ethereum);
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const presaleContract = new ethers.Contract(
     creedPresaleContractAddress.address,
@@ -63,7 +64,7 @@ const getProviderPresaleContract = () => {
 };
 
 const getSignerUSDTContrat = () => {
-  const provider = new ethers.providers.Web3Provider(ethereum);
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const USDTContracts = new ethers.Contract(
     USDTContractAddress.address,
@@ -74,7 +75,7 @@ const getSignerUSDTContrat = () => {
 };
 
 const getSignerUSDCContrat = () => {
-  const provider = new ethers.providers.Web3Provider(ethereum);
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const USDCContracts = new ethers.Contract(
     USDCContractAddress.address,
@@ -85,7 +86,7 @@ const getSignerUSDCContrat = () => {
 };
 
 const getSignerCreedContrat = () => {
-  const provider = new ethers.providers.Web3Provider(ethereum);
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const creedContracts = new ethers.Contract(
     creedCoinAddress.address,
@@ -151,7 +152,7 @@ export const StoreProviders = ({ children }) => {
 
       if (isConnected) {
 
-        const provider = new ethers.providers.Web3Provider(ethereum);
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
         const balance = await provider.getBalance(address);
         const USDTBalance = await getSignerUSDTContrat().balanceOf(address);
         const USDCBalance = await getSignerUSDCContrat().balanceOf(address);
@@ -299,7 +300,7 @@ export const StoreProviders = ({ children }) => {
 
   // const addTokenToMetamask = async () => {
   //   try {
-  //     // Check if ethereum object is available
+  //     // Check if window.ethereum object is available
   //     if (window.ethereum) {
   //       // Use ethereum.request method to add the token
   //       await window.ethereum.request({
