@@ -7,7 +7,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import MovingBar from "@/components/headers/moving-bar/MovingBar";
 import { Web3Modal } from "@/components/context/Web3Modal";
-
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import LoadingPage from "./loading/page";
 export const revalidate = 10;
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,6 +37,7 @@ export default async function RootLayout({ children }) {
             </body>
           </StoreProvider>
         </Web3Modal>
+        <ToastContainer />
       </StoreProviders>
     </html>
   );

@@ -2,11 +2,16 @@
 
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/headers/Header";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LoadingPage from "./loading/page";
+import { Store } from "./Store";
 
 const PreloaderProvider = ({ children }) => {
+
+  // const { loader, setloader }=useContext(Store)
+
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);
   }, []);

@@ -20,47 +20,8 @@ const Section1 = () => {
   const [active, setActive] = useState(0)
   const [creedToken, setCreedToken] = useState(0)
 
-  // function calculateTokens(price, pricePerToken) {
 
-  //   // Convert prices to BigNumber objects to handle large numbers
-  //   const priceBN = ethers.BigNumber.from(price?.toString())
-
-  //   console.log(priceBN?.toString(), "priceBNpriceBNpriceBN")
-
-  //   const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString())
-
-  //   let final = +priceBN?.toString() / +pricePerTokenBN?.toString()
-   
-  //   return final;
-  // }
-
-  const calculateTokens = (price, pricePerToken) => {
-    try {
-      // Convert prices to BigNumber objects to handle large numbers
-      const priceBN = ethers.BigNumber.from(price?.toString());
-      const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString());
-  
-      // Check if the pricePerTokenBN is not zero to avoid division by zero
-      if (pricePerTokenBN.isZero()) {
-        throw new Error("pricePerTokenBN is zero, cannot divide by zero");
-      }
-  
-      // Calculate the final value
-      let final = priceBN.div(pricePerTokenBN);
-  
-      return final.toString();
-    } catch (error) {
-      console.error("Error calculating tokens:", error);
-      return "0";
-    }
-  };
-  // Example usage:
-  // const pricePerToken = 0.1; // $0.1 per token
-  // const userProvidedPrice = 2.5; // User provides $2.5
-  // const tokens = calculateTokens(userProvidedPrice, pricePerToken);
-
-
-  const { contractData, addTokenToMetamask, copyToClipboard, GetValues, getSignerPresaleContract, getProviderPresaleContract, BuyWithUSDTandUSDC
+  const { contractData, loader, addTokenToMetamask, copyToClipboard, GetValues, getSignerPresaleContract, getProviderPresaleContract, BuyWithUSDTandUSDC
     , BuyWithETH } = useContext(Store);
 
 
@@ -70,48 +31,55 @@ const Section1 = () => {
   console.log(contractData, "contractDatacontractData");
 
   // Calculate the percentage of sold tokens
-  const soldPercentage = (contractData?.raisedAmount / ((contractData?.tokenPrice / 10 ** 18) * contractData?.totalSupply)) * 100;
+  const soldPercentage = (contractData?.raisedAmount * 100 / +contractData?.totalSupply);
 
-
+  console.log(soldPercentage,"soldPercentagesoldPercentagesoldPercentage")
   useEffect(() => {
     const main = async () => {
-      if (buyAmount === 0) return;
+      if (buyAmount !== 0) {
+        if (active === 0) {
+          setTimeout(async () => {
+            try {
+              let parse = ethers.utils.parseEther(buyAmount.toString());
 
-      if (active === 0) {
-        setTimeout(async () => {
-          try {
-            let parse = ethers.utils.parseEther(buyAmount?.toString());
+              console.log(parse.toString(), "parse");
 
-            console.log(parse?.toString(), "parse");
+              if (parse.gt(0)) {
+                let oneDollar = await getProviderPresaleContract().getLatestUSDTPrice();
 
-            if (parse.gt(0)) {
-              let oneDollar = await getProviderPresaleContract().getLatestUSDTPrice();
-              
-              if (oneDollar.isZero()) {
-                throw new Error("oneDollar price is zero, cannot divide by zero");
+                console.log(oneDollar?.toString(), "oneDollaroneDollar")
+
+                if (oneDollar.isZero()) {
+                  throw new Error("oneDollar price is zero, cannot divide by zero");
+                }
+                // let howMuch = parse.mul(ethers.BigNumber.from(10).pow(6)).div(oneDollar);
+                // setCreedToken(howMuch.toString()); // Tokens in smallest unit
+                let howMuch = parse.div(oneDollar);
+                console.log(contractData?.tokenPrice / 10 ** 6, "contractData?.tokenPrice / 10**6contractData?.tokenPrice / 10**6contractData?.tokenPrice / 10**6")
+                let price = (contractData?.tokenPrice / 10 ** 6)
+                console.log(howMuch?.toString(), "howMuchhowMuch")
+                let tokens = (+howMuch?.toString() / +price);
+                let parse2 = ethers.utils.parseEther(tokens?.toString())?.toString();
+                setCreedToken(parse2); // Tokens in ether
               }
+            } catch (error) {
+              console.error("Error in timeout:", error);
+            }
+          }, 2000);
+        } else {
+          try {
+            // let parse2 = ethers.utils.parseEther(buyAmount.toString());
+            // console.log(parse2.toString(), contractData?.tokenPrice, "parse2");
 
-              let howMuch = parse.div(oneDollar);
-              let parse2 = ethers.utils.parseEther(howMuch.toString()).toString();
-
-              setCreedToken(parse2); // Tokens in ether
+            if (buyAmount > 0) {
+              let price = (contractData?.tokenPrice / 10 ** 6)
+              let tokens = (+buyAmount?.toString() / +price);
+              let force = ethers.utils.parseEther(tokens?.toString())?.toString();
+              setCreedToken(force?.toString()); // Tokens in smallest unit
             }
           } catch (error) {
-            console.error("Error in timeout:", error);
+            console.error("Error in else block:", error);
           }
-        }, 2000);
-      } else {
-        try {
-          let parse2 = ethers.utils.parseEther(buyAmount?.toString());
-          console.log(parse2?.toString(),contractData?.tokenPrice, "parse2");
-
-          if (parse2.gt(0)) {
-            const tokens = calculateTokens(parse2, contractData?.tokenPrice);
-            let tokensss = ethers.utils.parseEther(tokens).toString();
-            setCreedToken(tokensss); // Tokens in ether
-          }
-        } catch (error) {
-          console.error("Error in else block:", error);
         }
       }
     };
@@ -119,9 +87,55 @@ const Section1 = () => {
     main();
   }, [buyAmount, active]);
 
-  useEffect(()=>{
+  // useEffect(() => {
+  //   const main = async () => {
+  //     if (buyAmount === 0) return;
+
+  //     if (active === 0) {
+  //       setTimeout(async () => {
+  //         try {
+  //           let parse = ethers.utils.parseEther(buyAmount?.toString());
+
+  //           console.log(parse?.toString(), "parse");
+
+  //           if (parse.gt(0)) {
+  //             let oneDollar = await getProviderPresaleContract().getLatestUSDTPrice();
+
+  //             if (oneDollar.isZero()) {
+  //               throw new Error("oneDollar price is zero, cannot divide by zero");
+  //             }
+
+  //             let howMuch = parse.div(oneDollar);
+  //             let parse2 = ethers.utils.parseEther(howMuch.toString()).toString();
+
+  //             setCreedToken(parse2); // Tokens in ether
+  //           }
+  //         } catch (error) {
+  //           console.error("Error in timeout:", error);
+  //         }
+  //       }, 2000);
+  //     } else {
+  //       try {
+  //         let parse2 = ethers.utils.parseEther(buyAmount?.toString());
+  //         console.log(parse2?.toString(),contractData?.tokenPrice, "parse2");
+
+  //         if (parse2.gt(0)) {
+  //           const tokens = calculateTokens(parse2, contractData?.tokenPrice);
+  //           let tokensss = ethers.utils.parseEther(tokens).toString();
+  //           setCreedToken(tokensss); // Tokens in ether
+  //         }
+  //       } catch (error) {
+  //         console.error("Error in else block:", error);
+  //       }
+  //     }
+  //   };
+
+  //   main();
+  // }, [buyAmount, active]);
+
+  useEffect(() => {
     GetValues();
-  },[])
+  }, [])
   console.log(creedToken, "creedTokencreedTokencreedTokencreedToken")
   return (
     <div className="relative mt-24 flex w-full flex-wrap items-center justify-center  bg-transparent pb-20 pt-11 lg:mt-44 ">
@@ -164,7 +178,7 @@ const Section1 = () => {
             where financial liberation knows no bounds.
           </motion.p>
           <div className="hidden gap-x-6 md:flex lg:hidden xl:flex">
-            <Link href="/whitepaper.pdf"  download="ffc-whitepaper">
+            <Link href="/whitepaper.pdf" download="ffc-whitepaper">
               <Button title="Explore WhitePaper" />
             </Link>
             <Link href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
@@ -172,7 +186,7 @@ const Section1 = () => {
             </Link>
           </div>
           <div className="flex flex-col gap-3 md:hidden lg:flex xl:hidden">
-            <Link className="w-full" href="/whitepaper.pdf"  download="ffc-whitepaper">
+            <Link className="w-full" href="/whitepaper.pdf" download="ffc-whitepaper">
               <Button title="Explore WhitePaper" size="small" width="full" />
             </Link>
             <Link href="https://force-finance-coin.gitbook.io/force-coin-lightpaper/security/audits">
@@ -209,10 +223,10 @@ const Section1 = () => {
           {/* <h2 className="py-3 leading-[22.4px] sm:text-[21.3px]">
             $19,256,432 contribution received
           </h2> */}
-          <ProgressBar />
+          <ProgressBar contractData={contractData} soldPercentage={soldPercentage} />
           <div className="transactionCard-wrap-one">
             <div className="transactionCard-wrap-one-one"></div>
-            <div className="transactionCard-wrap-one-two">1 Force Finance Coin = $ {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}</div>
+            <div className="transactionCard-wrap-one-two">1 $FFC = $ {ethers.utils.formatUnits(contractData?.tokenPrice, 6)}</div>
             <div className="transactionCard-wrap-one-three"></div>
           </div>
           <div className="transactionCard-wrap-two">
@@ -241,7 +255,7 @@ const Section1 = () => {
             <p className="p5">{active == 0 ? `ETH balance : ${Number(contractData?.ethBalance)?.toFixed(6)}` : active == 1 ? `USDC balance : ${Number(contractData?.usdcBalance)?.toFixed(6)}` : `USDT balance : ${Number(contractData?.usdtBalance)?.toFixed(6)}`}
             </p>
 
-            <p className="p5"> Force Finance Coin balance: {Number(contractData?.creedBalance)?.toFixed(6)}</p>
+            <p className="p5"> $FFC Balance: { Number(contractData?.ForceBalance)?.toFixed(6)}</p>
           </div>
           <div className="transactionCard-wrap-three">
             <div className="transactionCard-wrap-three-left">
@@ -267,11 +281,11 @@ const Section1 = () => {
             {console.log(isConnected, "isConnectedisConnected")}
             {isConnected ?
               active == 0 ?
-                <button onClick={() => BuyWithETH(creedToken?.toString(), buyAmount)}>Buy</button>
+                <button disabled={loader} onClick={() => BuyWithETH(creedToken?.toString(), buyAmount)}>Buy</button>
                 : active == 1 ?
-                  <button onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), false)}>Buy</button>
+                  <button disabled={loader}  onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), false)}>Buy</button>
                   :
-                  <button onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), true)}>Buy</button>
+                  <button disabled={loader} onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), true)}>Buy</button>
               :
               <button onClick={open}>Connect Wallet</button>
             }

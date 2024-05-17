@@ -2,16 +2,14 @@
 import React, { useState, useEffect, createContext } from "react";
 import { ethers, providers, utils } from "ethers";
 import CryptoJS from 'crypto-js'
-import creedMasterContractAddress from "../components/contractsData/CreedMasterContract-address.json";
-import creedMasterContract from "../components/contractsData/CreedMasterContract.json";
-import creedPresaleContractAddress from "../components/contractsData/CreedPreSaleContract-address.json";
-import creedPresaleContract from "../components/contractsData/CreedPreSaleContract.json";
+import ForcePresaleContractAddress from "../components/contractsData/ForcePreSaleContract-address.json";
+import ForcePresaleContract from "../components/contractsData/ForcePreSaleContract.json";
 import USDTContractAddress from "../components/contractsData/USDTToken-address.json";
 import USDTContract from "../components/contractsData/USDCToken.json"
 import USDCContractAddress from "../components/contractsData/USDCToken-address.json";
 import USDCContract from "../components/contractsData/USDCToken.json"
-import creedCoinAddress from "../components/contractsData/creedCoin-address.json";
-import creedCoin from "../components/contractsData/creedCoin.json";
+import ForceCoinAddress from "../components/contractsData/ForceCoin-address.json";
+import ForceCoin from "../components/contractsData/ForceCoin.json";
 import { useWeb3Modal, useWeb3ModalAccount } from '@web3modal/ethers5/react'
 import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
@@ -23,8 +21,8 @@ import { ExternalProvider } from "@ethersproject/providers";
 //   const provider = new ethers.providers.Web3Provider(ethereum);
 //   const signer = provider.getSigner();
 //   const masterContract = new ethers.Contract(
-//     creedMasterContractAddress.address,
-//     creedMasterContract.abi,
+//     ForceMasterContractAddress.address,
+//     ForceMasterContract.abi,
 //     signer
 //   );
 //   return masterContract;
@@ -34,8 +32,8 @@ import { ExternalProvider } from "@ethersproject/providers";
 //   const providers = process.env.NEXT_PUBLIC_RPC_URL_TBNB;
 //   const provider = new ethers.providers.JsonRpcProvider(providers); //"http://localhost:8545/"
 //   const masterContract = new ethers.Contract(
-//     creedMasterContractAddress.address,
-//     creedMasterContract.abi,
+//     ForceMasterContractAddress.address,
+//     ForceMasterContract.abi,
 //     provider
 //   );
 //   return masterContract;
@@ -45,8 +43,8 @@ const getSignerPresaleContract = () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const presaleContract = new ethers.Contract(
-    creedPresaleContractAddress.address,
-    creedPresaleContract.abi,
+    ForcePresaleContractAddress.address,
+    ForcePresaleContract.abi,
     signer
   );
   return presaleContract;
@@ -56,8 +54,8 @@ const getProviderPresaleContract = () => {
   const providers = process.env.NEXT_PUBLIC_RPC_URL_TBNB;
   const provider = new ethers.providers.JsonRpcProvider(providers); //"http://localhost:8545/"
   const presaleContract = new ethers.Contract(
-    creedPresaleContractAddress.address,
-    creedPresaleContract.abi,
+    ForcePresaleContractAddress.address,
+    ForcePresaleContract.abi,
     provider
   );
   return presaleContract;
@@ -85,15 +83,15 @@ const getSignerUSDCContrat = () => {
   return USDCContracts;
 };
 
-const getSignerCreedContrat = () => {
+const getSignerForceContrat = () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  const creedContracts = new ethers.Contract(
-    creedCoinAddress.address,
-    creedCoin.abi,
+  const ForceContracts = new ethers.Contract(
+    ForceCoinAddress.address,
+    ForceCoin.abi,
     signer
   );
-  return creedContracts;
+  return ForceContracts;
 };
 
 
@@ -113,10 +111,10 @@ export const StoreProviders = ({ children }) => {
     ethBalance: 0,
     usdcBalance: 0,
     usdtBalance: 0,
-    creedBalance: 0,
+    ForceBalance: 0,
     raisedAmount: 0,
     tokenPrice: 0,
-    totalSupply: 300000000000,
+    totalSupply: 5000000000,
     isPreSaleActive: false,
     stakedTokens: 0,
     startTime: 0,
@@ -145,7 +143,7 @@ export const StoreProviders = ({ children }) => {
 
       setContractData(prevState => ({
         ...prevState,
-        raisedAmount: formatUnits(raisedAmount, 18)?.toString(),
+        raisedAmount: formatUnits(raisedAmount,6)?.toString(),
         tokenPrice: sellPrice?.toString(),
         isPreSaleActive: isPresale,
       }));
@@ -156,14 +154,14 @@ export const StoreProviders = ({ children }) => {
         const balance = await provider.getBalance(address);
         const USDTBalance = await getSignerUSDTContrat().balanceOf(address);
         const USDCBalance = await getSignerUSDCContrat().balanceOf(address);
-        const CREEDBalance = await getSignerCreedContrat().balanceOf(address);
+        const ForceBalance = await getSignerForceContrat().balanceOf(address);
 
         setContractData(prevState => ({
           ...prevState,
           ethBalance: formatUnits(balance, 18)?.toString(),
-          usdcBalance: formatUnits(USDTBalance, 18)?.toString(),
-          usdtBalance: formatUnits(USDCBalance, 18)?.toString(),
-          creedBalance: formatUnits(CREEDBalance, 18)?.toString(),
+          usdcBalance: formatUnits(USDTBalance, 6)?.toString(),
+          usdtBalance: formatUnits(USDCBalance, 6)?.toString(),
+          ForceBalance: formatUnits(ForceBalance, 18)?.toString(),
         }));
       }
       setloader(false);
@@ -180,7 +178,7 @@ export const StoreProviders = ({ children }) => {
     try {
 
       let tokensss = ethers.utils.formatEther(tokens?.toString());
-      console.log(+tokensss?.toString(),"tokenssstokenssstokensss")
+      console.log(+tokensss?.toString(), "tokenssstokenssstokensss")
       if (+tokensss?.toString() < 10) {
         return toast.error("Please buy minimum One (1) Doller");
       } else if (+tokensss?.toString() > 10000) {
@@ -190,21 +188,28 @@ export const StoreProviders = ({ children }) => {
       console.log(tokens, "tokenstokenstokenstokenstokens");
 
       setloader(true);
-      let amountInWei = ethers.utils.parseEther(payAmountInUSDT?.toString())
+      let amountInWei = (+payAmountInUSDT?.toString() * 10 ** 6);
       if (isUSDT) {
-        let tokenApprove = await getSignerUSDTContrat().approve(creedPresaleContractAddress.address, amountInWei);
-        await tokenApprove.wait()
+        let allowance = await getSignerUSDTContrat().allowance(address, ForcePresaleContractAddress?.address);
 
+        if (+allowance?.toString() < +amountInWei?.toString()) {
+          let tokenApprove = await getSignerUSDTContrat().approve(ForcePresaleContractAddress.address, amountInWei);
+          await tokenApprove.wait();
+        }
         const buying = await getSignerPresaleContract().buyWithUSDT(tokens, isUSDT);
         buying.wait();
 
       } else {
 
-        let tokenApprove = await getSignerUSDCContrat().approve(creedPresaleContractAddress.address, amountInWei);
-        await tokenApprove.wait()
+        let allowance = await getSignerUSDCContrat().allowance(address, ForcePresaleContractAddress?.address);
 
+        if (+allowance?.toString() < +amountInWei?.toString()) {
+          let tokenApprove = await getSignerUSDCContrat().approve(ForcePresaleContractAddress.address, amountInWei);
+          await tokenApprove.wait();
+        }
         const buying = await getSignerPresaleContract().buyWithUSDT(tokens, isUSDT);
         buying.wait();
+
       }
 
       await GetValues();
@@ -219,12 +224,12 @@ export const StoreProviders = ({ children }) => {
   const BuyWithETH = async (tokens, amountInEthPayable) => {
     try {
 
-      let tokensss = ethers.utils.parseEther(tokens?.toString());
-      console.log(tokensss,"tokenssstokenssstokensss")
+      let tokensss = ethers.utils.formatEther(tokens?.toString());
 
-      if (tokensss < 10) {
+
+      if (tokensss?.toString() < 10) {
         return toast.error("Please buy minimum One (1) Doller");
-      } else if (tokensss > 10000) {
+      } else if (tokensss?.toString() > 10000) {
         return toast.error("Please buy maximum One Thousand (1000) Doller");
       }
 
@@ -298,33 +303,33 @@ export const StoreProviders = ({ children }) => {
   //   }));
   // }
 
-  // const addTokenToMetamask = async () => {
-  //   try {
-  //     // Check if window.ethereum object is available
-  //     if (window.ethereum) {
-  //       // Use ethereum.request method to add the token
-  //       await window.ethereum.request({
-  //         method: 'wallet_watchAsset',
-  //         params: {
-  //           type: 'ERC20',
-  //           options: {
-  //             address: creedCoinAddress?.address, // Token address
-  //             symbol: '$ForceFinanceCoin', // Token symbol
-  //             decimals: 18, // Token decimals
-  //             image: 'https://example.com/creed-logo.png', // Token image URL
-  //           },
-  //         },
-  //       });
-  //       toast.success("Token added to Metamask!");
-  //     } else {
-  //       // Metamask not available, show error message
-  //       toast.error("Metamask not available.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Failed to add token to Metamask: ", error);
-  //     toast.error("Failed to add token to Metamask. Please try again later.");
-  //   }
-  // };
+  const addTokenToMetamask = async () => {
+    try {
+      // Check if window.ethereum object is available
+      if (window.ethereum) {
+        // Use ethereum.request method to add the token
+        await window.ethereum.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: ForceCoinAddress?.address, // Token address
+              symbol: '$FFC', // Token symbol
+              decimals: 18, // Token decimals
+              image: 'https://example.com/Force-logo.png', // Token image URL
+            },
+          },
+        });
+        toast.success("Token added to Metamask!");
+      } else {
+        // Metamask not available, show error message
+        toast.error("Metamask not available.");
+      }
+    } catch (error) {
+      console.error("Failed to add token to Metamask: ", error);
+      toast.error("Failed to add token to Metamask. Please try again later.");
+    }
+  };
 
   // const copyToClipboard = () => {
   //   const tokenAddress = "0x2eD89D0027BB2490CbfAA8cac38DdA0d6e242Edf"; // Your token address
@@ -446,10 +451,10 @@ export const StoreProviders = ({ children }) => {
 
   //     const tokens = ethers.utils.parseEther(amount?.toString());
 
-  //     let balance = await getSignerCreedContrat().balanceOf(address);
-  //     let allow = await getSignerCreedContrat().allowance(
+  //     let balance = await getSignerForceContrat().balanceOf(address);
+  //     let allow = await getSignerForceContrat().allowance(
   //       address,
-  //       creedMasterContractAddress?.address
+  //       ForceMasterContractAddress?.address
   //     );
 
   //     // console.log(allow?.toString(),balance?.toString(),"allowallowallow");
@@ -468,8 +473,8 @@ export const StoreProviders = ({ children }) => {
 
   //       // console.log("condidtion True")
 
-  //       let approve = await getSignerCreedContrat().approve(
-  //         creedMasterContractAddress.address,
+  //       let approve = await getSignerForceContrat().approve(
+  //         ForceMasterContractAddress.address,
   //         tokens?.toString()
   //       );
 
@@ -585,8 +590,8 @@ export const StoreProviders = ({ children }) => {
   //     return setloader(false);
   //   }
   //   try {
-  //     let approve = await getSignerCreedContrat().approve(
-  //       creedMasterContractAddress.address,
+  //     let approve = await getSignerForceContrat().approve(
+  //       ForceMasterContractAddress.address,
   //       amount?.toString()
   //     );
   //     await approve.wait();
@@ -818,7 +823,7 @@ export const StoreProviders = ({ children }) => {
   //   GetInvestedTokensWithdrawRequests();
   // }, [address])
 
-console.log(contractData,"contractDatacontractData")
+  console.log(contractData, "contractDatacontractData")
 
   return (
     <>
@@ -827,7 +832,7 @@ console.log(contractData,"contractDatacontractData")
           loader,
           setloader,
           contractData,
-          // addTokenToMetamask,
+          addTokenToMetamask,
           // copyToClipboard,
           GetValues,
           getProviderPresaleContract,
