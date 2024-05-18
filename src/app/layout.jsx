@@ -22,22 +22,29 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+
+
   return (
     <html lang="en">
+      <head></head>
       <StoreProviders>
         <Web3Modal>
           <StoreProvider>
             <body className={inter.className}>
+              {/* {true ? 'loading' : */}
+              <>
               <MovingBar />
               <PreloaderProvider>
                 {children}
                 <GoogleAnalytics gaId="G-C38R7K64GZ" />
                 <SpeedInsights />
               </PreloaderProvider>
+              </>
+               {/* } */}
+              <ToastContainer />
             </body>
           </StoreProvider>
         </Web3Modal>
-        <ToastContainer />
       </StoreProviders>
     </html>
   );
