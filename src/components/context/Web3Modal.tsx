@@ -30,6 +30,16 @@ const BNBSmartChainTestnet = {
 }
 
 
+const seoiliaTestnet = {
+  chainId: 11155111,
+  name: 'Sepolia',
+  currency: 'ETH',
+  explorerUrl: 'https://sepolia.etherscan.io',
+  rpcUrl: `${process.env.NEXT_PUBLIC_RPC_URL_SEPO}`
+}
+
+// 
+
 // 3. Create modal
 const metadata = {
   name: 'XV Bot Website',
@@ -53,7 +63,7 @@ const ethersConfig = defaultConfig({
 
 createWeb3Modal({
   ethersConfig,
-  chains: [Binance, BNBSmartChainTestnet],
+  chains: [seoiliaTestnet],
   projectId,
   enableAnalytics: true, // Optional - defaults to your Cloud configuration,
   enableOnramp: true // Optional - false as default

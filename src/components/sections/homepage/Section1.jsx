@@ -33,7 +33,7 @@ const Section1 = () => {
   // Calculate the percentage of sold tokens
   const soldPercentage = (contractData?.raisedAmount * 100 / +contractData?.totalSupply);
 
-  console.log(soldPercentage,"soldPercentagesoldPercentagesoldPercentage")
+  console.log(soldPercentage, "soldPercentagesoldPercentagesoldPercentage")
   useEffect(() => {
     const main = async () => {
       if (buyAmount !== 0) {
@@ -255,7 +255,7 @@ const Section1 = () => {
             <p className="p5">{active == 0 ? `ETH balance : ${Number(contractData?.ethBalance)?.toFixed(6)}` : active == 1 ? `USDC balance : ${Number(contractData?.usdcBalance)?.toFixed(6)}` : `USDT balance : ${Number(contractData?.usdtBalance)?.toFixed(6)}`}
             </p>
 
-            <p className="p5"> $FFC Balance: { Number(contractData?.ForceBalance)?.toFixed(6)}</p>
+            <p className="p5"> $FFC Balance: {Number(contractData?.ForceBalance)?.toFixed(6)}</p>
           </div>
           <div className="transactionCard-wrap-three">
             <div className="transactionCard-wrap-three-left">
@@ -268,7 +268,7 @@ const Section1 = () => {
               </div>
             </div>
             <div className="transactionCard-wrap-three-right">
-              <span>Recive Force Finance Coin</span>
+              <span>$FFC Coin</span>
               <div className="btn-icon">
                 <input type="number" name="" id="" placeholder='0.0' value={Number(ethers.utils.formatEther(creedToken?.toString()))?.toFixed(6)} />
                 <img src="/images/creed.png" alt="" />
@@ -276,19 +276,18 @@ const Section1 = () => {
             </div>
           </div>
           <div className="transactionCard-wrap-four">
-            {/* <button onClick={addTokenToMetamask}>Add token in Metamask</button> */}
-
-            {console.log(isConnected, "isConnectedisConnected")}
+            
             {isConnected ?
               active == 0 ?
                 <button disabled={loader} onClick={() => BuyWithETH(creedToken?.toString(), buyAmount)}>Buy</button>
                 : active == 1 ?
-                  <button disabled={loader}  onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), false)}>Buy</button>
+                  <button disabled={loader} onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), false)}>Buy</button>
                   :
                   <button disabled={loader} onClick={() => BuyWithUSDTandUSDC(buyAmount, creedToken?.toString(), true)}>Buy</button>
-              :
-              <button onClick={open}>Connect Wallet</button>
-            }
+                  :
+                  <button onClick={open}>Connect Wallet</button>
+                }
+                <button onClick={addTokenToMetamask}> Add Token in Metamask </button>
           </div>
 
           {/* <w3m-button/> */}

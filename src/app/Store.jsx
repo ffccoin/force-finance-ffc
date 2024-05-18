@@ -51,7 +51,7 @@ const getSignerPresaleContract = () => {
 };
 
 const getProviderPresaleContract = () => {
-  const providers = process.env.NEXT_PUBLIC_RPC_URL_TBNB;
+  const providers = process.env.NEXT_PUBLIC_RPC_URL_SEPO;
   const provider = new ethers.providers.JsonRpcProvider(providers); //"http://localhost:8545/"
   const presaleContract = new ethers.Contract(
     ForcePresaleContractAddress.address,
