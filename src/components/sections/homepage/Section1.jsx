@@ -9,12 +9,13 @@ import Link from "next/link";
 import { ethers } from "ethers";
 import { useContext, useEffect, useState } from "react";
 import { useWeb3Modal, useWeb3ModalAccount, useWeb3ModalError } from "@web3modal/ethers5/react";
-import { Store } from "@/components/context/Store";
+import { Store } from "@/context/Store";
 import LoadingPage from "@/app/loading/page";
 import { useSwitchNetwork } from '@web3modal/ethers5/react'
 
 const Section1 = () => {
   const { open } = useWeb3Modal();
+  const { connectWallet } = useWeb3Modal();
   const { address, chainId, isConnected } = useWeb3ModalAccount();
   const { switchNetwork } = useSwitchNetwork()
   const { error } = useWeb3ModalError()
@@ -104,14 +105,14 @@ const Section1 = () => {
     main();
   }, [buyAmount, active]);
 
-  console.log(loader, "loaderloaderloaderloaderloader");
 
   useEffect(() => {
     GetValues();
     networkChange();
-  }, [chainId,error]);
+  }, [chainId, error]);
 
-  console.log(error,"errorerror") 
+  console.log(error, "errorerror")
+
 
   return loader ? (
     <LoadingPage />

@@ -1,12 +1,12 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
-import { StoreProviders } from '../components/context/Store';
+import { StoreProviders } from '../context/Store';
 import PreloaderProvider from "./PreloaderProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import MovingBar from "@/components/headers/moving-bar/MovingBar";
-import { Web3Modal } from "@/components/context/Web3Modal";
+import { Web3Modal } from "@/context/Web3Modal";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import LoadingPage from "./loading/page";
@@ -29,17 +29,17 @@ export default async function RootLayout({ children }) {
       <head></head>
       <body className={inter.className}>
         <Web3Modal>
-          <StoreProvider>
             <StoreProviders>
+        <ToastContainer />
+          <StoreProvider>
               <MovingBar />
               <PreloaderProvider>
                 {children}
                 <GoogleAnalytics gaId="G-C38R7K64GZ" />
                 <SpeedInsights />
               </PreloaderProvider>
-            </StoreProviders>
           </StoreProvider>
-        <ToastContainer />
+            </StoreProviders>
         </Web3Modal>
       </body>
     </html>
