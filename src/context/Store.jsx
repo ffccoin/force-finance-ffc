@@ -40,7 +40,8 @@ const getProviderPresaleContract = () => {
 };
 
 const getSignerUSDTContrat = () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  // const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider());
   const signer = provider.getSigner();
   const USDTContracts = new ethers.Contract(
     USDTContractAddress.address,
@@ -275,7 +276,13 @@ export const StoreProviders = ({ children }) => {
       }
       //   // Check if window.ethereum object is available
 
-      const provider = new ethers.providers.JsonRpcProvider(window.ethereum); //"http://localhost:8545/"
+      const providerss = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider());
+
+
+
+
+
+      // const provider = new ethers.providers.JsonRpcProvider(window.ethereum); //"http://localhost:8545/"
 
       //   console.log(provider,"provider")
       // if (provider) {
@@ -286,9 +293,9 @@ export const StoreProviders = ({ children }) => {
       //   }
       // console.log(providers,"providers")
 
-      if (provider) {
+      if (providerss) {
         // Use ethereum.request method to add the token
-        const wasAdded = await window.ethereum.request({
+        const wasAdded = await providerss.request({
           method: 'wallet_watchAsset',
           params: {
             type: 'ERC20',
