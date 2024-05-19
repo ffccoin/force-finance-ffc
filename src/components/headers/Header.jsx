@@ -11,10 +11,15 @@ import { Fragment, useState, useEffect } from "react";
 // framer motion import
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const { open } = useWeb3Modal()
+
+  const { address, chainId, isConnected } = useWeb3ModalAccount()
 
   const controlNavbar = () => {
     if (typeof window !== "undefined") {
@@ -163,19 +168,29 @@ const Header = () => {
                 </h1>
               </div>
               <div className="flex w-full items-center justify-end gap-x-2 md:col-span-3 lg:col-span-4 xl:gap-x-2">
-                <Link href="https://app.forcefinancecoin.com">
-                  <button className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
-                    Sign up
+                {!isConnected ?
+                  <button onClick={open} className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
+                    Connect Wallet
                   </button>
-                </Link>
-                <Link href="https://app.forcefinancecoin.com">
-                  <Button
-                    size="small"
-                    title="Login"
-                    dontAnimate
-                    className="px-2 py-1 text-xs lg:px-4 lg:py-3 lg:text-sm xl:px-[25px] xl:text-base"
-                  />
-                </Link>
+                  :
+                  <>
+
+                    <button onClick={open} className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
+                      Disconnect
+                    </button>
+
+                    <Link href="https://app.forcefinancecoin.com">
+                      <Button
+                        size="small"
+                        title="Launch App"
+                        dontAnimate
+                        className="px-2 py-1 text-xs lg:px-4 lg:py-3 lg:text-sm xl:px-[25px] xl:text-base"
+                      />
+                    </Link>
+                  </>
+                }
+
+
               </div>
             </div>
           </div>

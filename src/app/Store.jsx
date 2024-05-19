@@ -141,9 +141,9 @@ export const StoreProviders = ({ children }) => {
       let tokensss = ethers.utils.formatEther(tokens?.toString());
       console.log(+tokensss?.toString(), "tokenssstokenssstokensss")
       if (+tokensss?.toString() < 10) {
-        return toast.error("Please buy minimum One (1) Doller");
+        return toast.error("Please buy minimum One (1) Dollar");
       } else if (+tokensss?.toString() > 10000) {
-        return toast.error("Please buy maximum One Thousand (1000) Doller");
+        return toast.error("Please buy maximum One Thousand (1000) Dollar");
       }
 
       console.log(tokens, "tokenstokenstokenstokenstokens");

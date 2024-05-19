@@ -31,7 +31,6 @@ export default async function RootLayout({ children }) {
         <Web3Modal>
           <StoreProvider>
             <body className={inter.className}>
-              {/* {true ? 'loading' : */}
               <>
               <MovingBar />
               <PreloaderProvider>
@@ -40,7 +39,6 @@ export default async function RootLayout({ children }) {
                 <SpeedInsights />
               </PreloaderProvider>
               </>
-               {/* } */}
               <ToastContainer />
             </body>
           </StoreProvider>
