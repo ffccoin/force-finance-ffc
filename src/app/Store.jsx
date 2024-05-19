@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect, createContext } from "react";
-import { ethers, providers, utils } from "ethers";
+import { ethers, providers,getDefaultProvider, utils } from "ethers";
 import CryptoJS from 'crypto-js'
 import ForcePresaleContractAddress from "../components/contractsData/ForcePreSaleContract-address.json";
 import ForcePresaleContract from "../components/contractsData/ForcePreSaleContract.json";
@@ -10,10 +10,11 @@ import USDCContractAddress from "../components/contractsData/USDCToken-address.j
 import USDCContract from "../components/contractsData/USDCToken.json"
 import ForceCoinAddress from "../components/contractsData/ForceCoin-address.json";
 import ForceCoin from "../components/contractsData/ForceCoin.json";
-import { useSwitchNetwork, useWeb3Modal, useWeb3ModalAccount } from '@web3modal/ethers5/react'
+import { useSwitchNetwork, useWeb3Modal, useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers5/react'
 import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
 import { ExternalProvider } from "@ethersproject/providers";
+
 
 const getSignerPresaleContract = () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -76,7 +77,9 @@ export const StoreProviders = ({ children }) => {
 
   const { address, chainId, isConnected } = useWeb3ModalAccount();
   const { switchNetwork } = useSwitchNetwork()
+  const { walletProvider } = useWeb3ModalProvider()
   const [loader, setloader] = useState(false);
+
 
   const [contractData, setContractData] = useState({
     ethBalance: 0,
@@ -268,9 +271,20 @@ export const StoreProviders = ({ children }) => {
       if (!isConnected) {
         return toast.error("Please Connect Your Wallet");
       }
-      // Check if window.ethereum object is available
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      if (provider) {
+    //   // Check if window.ethereum object is available
+      
+    //   // const providers = new BrowserProvider(walletProvider)
+
+    //   console.log(provider,"provider")
+    //   if(providers){
+    //     toast.success("Ether Provider");
+    //   }
+    //  else if(provider){
+    //     toast.success("Ether window.ethereum");
+    //   }
+      // console.log(providers,"providers")
+
+      if (providers) {
         // Use ethereum.request method to add the token
         await window.ethereum.request({
           method: 'wallet_watchAsset',

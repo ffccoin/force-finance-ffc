@@ -28,21 +28,21 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <head></head>
       <StoreProviders>
-        <Web3Modal>
           <StoreProvider>
             <body className={inter.className}>
               <>
+        <Web3Modal>
               <MovingBar />
               <PreloaderProvider>
                 {children}
                 <GoogleAnalytics gaId="G-C38R7K64GZ" />
                 <SpeedInsights />
               </PreloaderProvider>
+        </Web3Modal>
               </>
               <ToastContainer />
             </body>
           </StoreProvider>
-        </Web3Modal>
       </StoreProviders>
     </html>
   );
