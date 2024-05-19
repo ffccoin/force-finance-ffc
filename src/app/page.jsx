@@ -16,7 +16,6 @@ import Strip from "@/components/sections/homepage/Strip";
 export default function Home() {
 
   return (
-    
     <main className="overflow-hidden">
       <Section1 />
       <Strip />

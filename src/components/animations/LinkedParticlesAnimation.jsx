@@ -26,7 +26,7 @@ const LinkedParticlesAnimation = () => {
   }, []);
 
   const particlesLoaded = (container) => {
-    console.log("");
+    console.log("Particles Loaded");
   };
 
   const options = useMemo(
