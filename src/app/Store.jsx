@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect, createContext } from "react";
-import { ethers, providers,getDefaultProvider, utils } from "ethers";
+import { ethers, providers, getDefaultProvider, utils } from "ethers";
 import CryptoJS from 'crypto-js'
 import ForcePresaleContractAddress from "../components/contractsData/ForcePreSaleContract-address.json";
 import ForcePresaleContract from "../components/contractsData/ForcePreSaleContract.json";
@@ -271,17 +271,17 @@ export const StoreProviders = ({ children }) => {
       if (!isConnected) {
         return toast.error("Please Connect Your Wallet");
       }
-    //   // Check if window.ethereum object is available
-      
-    //   // const providers = new BrowserProvider(walletProvider)
+      //   // Check if window.ethereum object is available
 
-    //   console.log(provider,"provider")
-    //   if(providers){
-    //     toast.success("Ether Provider");
-    //   }
-    //  else if(provider){
-    //     toast.success("Ether window.ethereum");
-    //   }
+      //   // const providers = new BrowserProvider(walletProvider)
+
+      //   console.log(provider,"provider")
+        if(providers){
+          toast.success("Ether Provider");
+        }
+      //  else if(provider){
+      //     toast.success("Ether window.ethereum");
+      //   }
       // console.log(providers,"providers")
 
       if (providers) {
