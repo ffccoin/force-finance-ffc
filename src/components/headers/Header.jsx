@@ -17,7 +17,7 @@ const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const { open } = useWeb3Modal()
+  const { open, close } = useWeb3Modal()
 
   const { address, chainId, isConnected } = useWeb3ModalAccount()
 
@@ -169,13 +169,23 @@ const Header = () => {
               </div>
               <div className="flex w-full items-center justify-end gap-x-2 md:col-span-3 lg:col-span-4 xl:gap-x-2">
                 {!isConnected ?
-                  <button onClick={open} className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
-                    Connect Wallet
-                  </button>
+                  <>
+                    <button onClick={() => open()} className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
+                      Connect Wallet
+                    </button>
+                    <Link href="https://app.forcefinancecoin.com">
+                      <Button
+                        size="small"
+                        title="Launch App"
+                        dontAnimate
+                        className="px-2 py-1 text-xs lg:px-4 lg:py-3 lg:text-sm xl:px-[25px] xl:text-base"
+                      />
+                    </Link>
+                  </>
                   :
                   <>
 
-                    <button onClick={open} className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
+                    <button onClick={() => open()} className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
                       Disconnect
                     </button>
 

@@ -8,14 +8,16 @@ import LinkedParticlesAnimation from "@/components/animations/LinkedParticlesAni
 import Link from "next/link";
 import { ethers } from "ethers";
 import { useContext, useEffect, useState } from "react";
-import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
+import { useWeb3Modal, useWeb3ModalAccount, useWeb3ModalError } from "@web3modal/ethers5/react";
 import { Store } from "@/app/Store";
 import LoadingPage from "@/app/loading/page";
+import { useSwitchNetwork } from '@web3modal/ethers5/react'
 
 const Section1 = () => {
   const { open } = useWeb3Modal();
-
   const { address, chainId, isConnected } = useWeb3ModalAccount();
+  const { switchNetwork } = useSwitchNetwork()
+  const { error } = useWeb3ModalError()
 
   const [buyAmount, setBuyAmount] = useState(0);
   const [active, setActive] = useState(0);
@@ -30,6 +32,7 @@ const Section1 = () => {
     getSignerPresaleContract,
     getProviderPresaleContract,
     BuyWithUSDTandUSDC,
+    networkChange,
     BuyWithETH,
   } = useContext(Store);
 
@@ -105,7 +108,10 @@ const Section1 = () => {
 
   useEffect(() => {
     GetValues();
-  }, []);
+    networkChange();
+  }, [chainId,error]);
+
+  console.log(error,"errorerror") 
 
   return loader ? (
     <LoadingPage />
@@ -326,7 +332,7 @@ const Section1 = () => {
                 </button>
               )
             ) : (
-              <button onClick={open}>Connect Wallet</button>
+              <button onClick={() => open()}> Connect Wallet </button>
             )}
             <button onClick={addTokenToMetamask}>
               {" "}

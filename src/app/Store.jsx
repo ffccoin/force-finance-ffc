@@ -10,7 +10,7 @@ import USDCContractAddress from "../components/contractsData/USDCToken-address.j
 import USDCContract from "../components/contractsData/USDCToken.json"
 import ForceCoinAddress from "../components/contractsData/ForceCoin-address.json";
 import ForceCoin from "../components/contractsData/ForceCoin.json";
-import { useWeb3Modal, useWeb3ModalAccount } from '@web3modal/ethers5/react'
+import { useSwitchNetwork, useWeb3Modal, useWeb3ModalAccount } from '@web3modal/ethers5/react'
 import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
 import { ExternalProvider } from "@ethersproject/providers";
@@ -75,7 +75,7 @@ export const Store = createContext();
 export const StoreProviders = ({ children }) => {
 
   const { address, chainId, isConnected } = useWeb3ModalAccount();
-
+  const { switchNetwork } = useSwitchNetwork()
   const [loader, setloader] = useState(false);
 
   const [contractData, setContractData] = useState({
@@ -105,7 +105,7 @@ export const StoreProviders = ({ children }) => {
 
       setContractData(prevState => ({
         ...prevState,
-        raisedAmount: formatUnits(raisedAmount,6)?.toString(),
+        raisedAmount: formatUnits(raisedAmount, 6)?.toString(),
         tokenPrice: sellPrice?.toString(),
         isPreSaleActive: isPresale,
       }));
@@ -135,8 +135,20 @@ export const StoreProviders = ({ children }) => {
     }
   };
 
+  const networkChange = async () => {
+
+    let chainid = process.env.NEXT_PUBLIC_CHAIN_ID;
+
+    if (isConnected && chainId?.toString() !== chainid?.toString()) {
+      console.log(chainid, chainId, "chainidchainid")
+      switchNetwork(Number(chainid));
+      return
+    }
+  }
+
   const BuyWithUSDTandUSDC = async (payAmountInUSDT, tokens, isUSDT) => {
     try {
+      networkChange();
 
       let tokensss = ethers.utils.formatEther(tokens?.toString());
       console.log(+tokensss?.toString(), "tokenssstokenssstokensss")
@@ -185,6 +197,8 @@ export const StoreProviders = ({ children }) => {
   const BuyWithETH = async (tokens, amountInEthPayable) => {
     try {
 
+      networkChange();
+
       let tokensss = ethers.utils.formatEther(tokens?.toString());
 
 
@@ -213,6 +227,8 @@ export const StoreProviders = ({ children }) => {
 
   const presaleStart = async () => {
     try {
+      networkChange();
+
       setloader(true);
 
       const start = await getSignerPresaleContract().startTheSale();
@@ -229,6 +245,9 @@ export const StoreProviders = ({ children }) => {
 
   const presaleStop = async () => {
     try {
+
+      networkChange();
+
       setloader(true);
 
       const stop = await getSignerPresaleContract().stopTheSale();
@@ -245,8 +264,13 @@ export const StoreProviders = ({ children }) => {
 
   const addTokenToMetamask = async () => {
     try {
+
+      if (!isConnected) {
+        return toast.error("Please Connect Your Wallet");
+      }
       // Check if window.ethereum object is available
-      if (window.ethereum) {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      if (provider) {
         // Use ethereum.request method to add the token
         await window.ethereum.request({
           method: 'wallet_watchAsset',
@@ -271,11 +295,16 @@ export const StoreProviders = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    networkChange();
+  }, [])
+
   return (
     <>
       <Store.Provider
         value={{
           loader,
+          networkChange,
           setloader,
           contractData,
           addTokenToMetamask,
