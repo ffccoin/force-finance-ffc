@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
-import { StoreProviders } from './Store';
+import { StoreProviders } from '../components/context/Store';
 import PreloaderProvider from "./PreloaderProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -27,23 +27,21 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <head></head>
-      <StoreProviders>
-          <StoreProvider>
-            <body className={inter.className}>
-              <>
+      <body className={inter.className}>
         <Web3Modal>
+          <StoreProvider>
+            <StoreProviders>
               <MovingBar />
               <PreloaderProvider>
                 {children}
                 <GoogleAnalytics gaId="G-C38R7K64GZ" />
                 <SpeedInsights />
               </PreloaderProvider>
-        </Web3Modal>
-              </>
-              <ToastContainer />
-            </body>
+            </StoreProviders>
           </StoreProvider>
-      </StoreProviders>
+        <ToastContainer />
+        </Web3Modal>
+      </body>
     </html>
   );
 }

@@ -69,6 +69,7 @@ createWeb3Modal({
   enableOnramp: true // Optional - false as default
 })
 
-export function Web3Modal({ children }:any) {
+
+export function Web3Modal({ children }) {
   return children
 }

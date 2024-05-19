@@ -4,7 +4,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/headers/Header";
 import { useContext, useEffect, useState } from "react";
 import LoadingPage from "./loading/page";
-import { Store } from "./Store";
+import { Store } from "../components/context/Store";
 
 const PreloaderProvider = ({ children }) => {
 

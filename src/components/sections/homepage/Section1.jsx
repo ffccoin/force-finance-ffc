@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ethers } from "ethers";
 import { useContext, useEffect, useState } from "react";
 import { useWeb3Modal, useWeb3ModalAccount, useWeb3ModalError } from "@web3modal/ethers5/react";
-import { Store } from "@/app/Store";
+import { Store } from "@/components/context/Store";
 import LoadingPage from "@/app/loading/page";
 import { useSwitchNetwork } from '@web3modal/ethers5/react'
 

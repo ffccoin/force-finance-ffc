@@ -2,74 +2,17 @@
 import React, { useState, useEffect, createContext } from "react";
 import { ethers, providers, getDefaultProvider, utils } from "ethers";
 import CryptoJS from 'crypto-js'
-import ForcePresaleContractAddress from "../components/contractsData/ForcePreSaleContract-address.json";
-import ForcePresaleContract from "../components/contractsData/ForcePreSaleContract.json";
-import USDTContractAddress from "../components/contractsData/USDTToken-address.json";
-import USDTContract from "../components/contractsData/USDCToken.json"
-import USDCContractAddress from "../components/contractsData/USDCToken-address.json";
-import USDCContract from "../components/contractsData/USDCToken.json"
-import ForceCoinAddress from "../components/contractsData/ForceCoin-address.json";
-import ForceCoin from "../components/contractsData/ForceCoin.json";
+import ForcePresaleContractAddress from "../contractsData/ForcePreSaleContract-address.json";
+import ForcePresaleContract from "../contractsData/ForcePreSaleContract.json";
+import USDTContractAddress from "../contractsData/USDTToken-address.json";
+import USDTContract from "../contractsData/USDCToken.json"
+import USDCContractAddress from "../contractsData/USDCToken-address.json";
+import USDCContract from "../contractsData/USDCToken.json"
+import ForceCoinAddress from "../contractsData/ForceCoin-address.json";
+import ForceCoin from "../contractsData/ForceCoin.json";
 import { useSwitchNetwork, useWeb3Modal, useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers5/react'
 import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
-import { ExternalProvider } from "@ethersproject/providers";
-
-
-const getSignerPresaleContract = () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const presaleContract = new ethers.Contract(
-    ForcePresaleContractAddress.address,
-    ForcePresaleContract.abi,
-    signer
-  );
-  return presaleContract;
-};
-
-const getProviderPresaleContract = () => {
-  const providers = process.env.NEXT_PUBLIC_RPC_URL_SEPO;
-  const provider = new ethers.providers.JsonRpcProvider(providers); //"http://localhost:8545/"
-  const presaleContract = new ethers.Contract(
-    ForcePresaleContractAddress.address,
-    ForcePresaleContract.abi,
-    provider
-  );
-  return presaleContract;
-};
-
-const getSignerUSDTContrat = () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const USDTContracts = new ethers.Contract(
-    USDTContractAddress.address,
-    USDTContract.abi,
-    signer
-  );
-  return USDTContracts;
-};
-
-const getSignerUSDCContrat = () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const USDCContracts = new ethers.Contract(
-    USDCContractAddress.address,
-    USDCContract.abi,
-    signer
-  );
-  return USDCContracts;
-};
-
-const getSignerForceContrat = () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const ForceContracts = new ethers.Contract(
-    ForceCoinAddress.address,
-    ForceCoin.abi,
-    signer
-  );
-  return ForceContracts;
-};
 
 export const Store = createContext();
 
@@ -97,6 +40,61 @@ export const StoreProviders = ({ children }) => {
   });
 
 
+  const getSignerPresaleContract = () => {
+    const provider = new ethers.providers.JsonRpcProvider();
+    const signer = provider.getSigner();
+    const presaleContract = new ethers.Contract(
+      ForcePresaleContractAddress.address,
+      ForcePresaleContract.abi,
+      signer
+    );
+    return presaleContract;
+  };
+
+  const getProviderPresaleContract = () => {
+    const providers = process.env.NEXT_PUBLIC_RPC_URL_SEPO;
+    const provider = new ethers.providers.JsonRpcProvider(providers); //"http://localhost:8545/"
+    const presaleContract = new ethers.Contract(
+      ForcePresaleContractAddress.address,
+      ForcePresaleContract.abi,
+      provider
+    );
+    return presaleContract;
+  };
+
+  const getSignerUSDTContrat = () => {
+    const provider = new ethers.providers.JsonRpcProvider();
+    const signer = provider.getSigner();
+    const USDTContracts = new ethers.Contract(
+      USDTContractAddress.address,
+      USDTContract.abi,
+      signer
+    );
+    return USDTContracts;
+  };
+
+  const getSignerUSDCContrat = () => {
+    const provider = new ethers.providers.JsonRpcProvider();
+    const signer = provider.getSigner();
+    const USDCContracts = new ethers.Contract(
+      USDCContractAddress.address,
+      USDCContract.abi,
+      signer
+    );
+    return USDCContracts;
+  };
+
+  const getSignerForceContrat = () => {
+    const provider = new ethers.providers.JsonRpcProvider();
+    const signer = provider.getSigner();
+    const ForceContracts = new ethers.Contract(
+      ForceCoinAddress.address,
+      ForceCoin.abi,
+      signer
+    );
+    return ForceContracts;
+  };
+
   const GetValues = async () => {
 
     try {
@@ -115,7 +113,7 @@ export const StoreProviders = ({ children }) => {
 
       if (isConnected) {
 
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const provider = new ethers.providers.JsonRpcProvider();
         const balance = await provider.getBalance(address);
         const USDTBalance = await getSignerUSDTContrat().balanceOf(address);
         const USDCBalance = await getSignerUSDCContrat().balanceOf(address);
@@ -273,18 +271,18 @@ export const StoreProviders = ({ children }) => {
       }
       //   // Check if window.ethereum object is available
 
-      //   // const providers = new BrowserProvider(walletProvider)
+      const provider = new ethers.providers.JsonRpcProvider();
 
       //   console.log(provider,"provider")
-        if(providers){
-          toast.success("Ether Provider");
-        }
+      if (provider) {
+        toast.success("Ether Provider");
+      }
       //  else if(provider){
       //     toast.success("Ether window.ethereum");
       //   }
       // console.log(providers,"providers")
 
-      if (providers) {
+      if (provider) {
         // Use ethereum.request method to add the token
         await window.ethereum.request({
           method: 'wallet_watchAsset',
@@ -310,6 +308,16 @@ export const StoreProviders = ({ children }) => {
   };
 
   useEffect(() => {
+    const main = async () => {
+      console.log("Enter")
+      // if (!isConnected || !walletProvider) throw Error('User disconnected')
+        const provider = new ethers.providers.JsonRpcProvider();
+      console.log(provider, "providerprovider")
+      const signer = provider.getSigner()
+      console.log(signer, "useWeb3ModalProvider")
+    }
+    main()
+    // const providers = new ethers.providers.Web3Provider(providers)
     networkChange();
   }, [])
 
