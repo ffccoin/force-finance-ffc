@@ -255,49 +255,27 @@ export const StoreProviders = ({ children }) => {
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
       );
-  
+
     if (typeof window.ethereum !== "undefined") {
       try {
-        if (isMobile) {
-          // Mobile Metamask mein token add karna
-          const wasAdded = await window.ethereum.request({
-            method: 'wallet_watchAsset',
-            params: {
-              type: 'ERC20',
-              options: {
-                address: ForceCoinAddress?.address, // Token address
-                symbol: '$FFC', // Token symbol
-                decimals: 18, // Token decimals
-                image: 'https://example.com/Force-logo.png', // Token image URL
-              },
+        // Directly open Metamask app and add token
+        const wasAdded = await window.ethereum.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: ForceCoinAddress.address, // Token address
+              symbol: '$FFC', // Token symbol
+              decimals: 18, // Token decimals
+              image: 'https://example.com/Force-logo.png', // Token image URL
             },
-          });
-  
-          if (wasAdded) {
-            toast.success("Token successfully added to Metamask!");
-          } else {
-            toast.error("Failed to add the token.");
-          }
+          },
+        });
+
+        if (wasAdded) {
+          toast.success("Token successfully added to Metamask!");
         } else {
-          // Desktop Metamask mein token add karna
-          const wasAdded = await window.ethereum.request({
-            method: 'wallet_watchAsset',
-            params: {
-              type: 'ERC20',
-              options: {
-                address: ForceCoinAddress?.address, // Token address
-                symbol: '$FFC', // Token symbol
-                decimals: 18, // Token decimals
-                image: 'https://example.com/Force-logo.png', // Token image URL
-              },
-            },
-          });
-  
-          if (wasAdded) {
-            toast.success("Token successfully added to Metamask!");
-          } else {
-            toast.error("Failed to add the token.");
-          }
+          toast.error("Failed to add the token.");
         }
       } catch (error) {
         toast.error("Failed to add token to Metamask. Please try again later.");
@@ -317,7 +295,7 @@ export const StoreProviders = ({ children }) => {
       }
     }
   };
-  
+
 
 
   console.log(address, "addressaddressaddressaddress")
