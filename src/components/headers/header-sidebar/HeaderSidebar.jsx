@@ -2,10 +2,13 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
+import Button from "@/components/buttons/Button";
 
 const HeaderSidebar = () => {
   const [isSidebarVisible, setSidebarVisibility] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState(false);
+  const { isConnected } = useWeb3ModalAccount();
 
   const handleImageClick = () => {
     setSidebarVisibility(!isSidebarVisible);
@@ -62,7 +65,7 @@ const HeaderSidebar = () => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.5 }}
-            className="fixed bottom-0 left-0 top-0 z-50 w-[85%] border-r-2 border-zinc-800 bg-zinc-900"
+            className="fixed bottom-0 left-0 top-0 z-[51] w-[85%] border-r-2 border-zinc-800 bg-zinc-900"
             aria-label="Sidebar"
           >
             <div className="mt-16 flex items-center justify-between pl-1 pr-4 sm:px-8 ">
@@ -93,7 +96,7 @@ const HeaderSidebar = () => {
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: -20 }}
                 transition={{ duration: 1 }}
-                className="mb-6 w-full pl-10 pr-4 sm:pl-16 sm:pr-5"
+                className="z-[99999] mb-6 w-full pl-10 pr-4 sm:pl-16 sm:pr-5"
               >
                 <div className=" mt-11 select-none justify-between hover:text-primary1 ">
                   <Link href="/" onClick={() => setSidebarVisibility(false)}>
@@ -171,6 +174,43 @@ const HeaderSidebar = () => {
                     Contact
                   </Link>
                 </div>
+                {!isConnected ? (
+                  <div className="my-10 flex flex-col gap-y-5">
+                    <button
+                      onClick={() => open()}
+                      className="border-2 p-3 md:text-xs lg:px-4 lg:text-sm xl:text-base"
+                    >
+                      Connect Wallet
+                    </button>
+                    <Link href="https://app.forcefinancecoin.com">
+                      <Button
+                        size="small"
+                        title="Launch App"
+                        width="full"
+                        dontAnimate
+                        className="p-3"
+                      />
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="my-10 flex flex-col gap-y-5">
+                    <button
+                      onClick={() => open()}
+                      className="border-2 p-3 md:text-xs lg:px-4 lg:text-sm xl:text-base"
+                    >
+                      Disconnect
+                    </button>
+                    <Link href="https://app.forcefinancecoin.com">
+                      <Button
+                        size="small"
+                        title="Launch App"
+                        width="full"
+                        dontAnimate
+                        className="p-3"
+                      />
+                    </Link>
+                  </div>
+                )}
               </motion.div>
             </ul>
           </motion.div>

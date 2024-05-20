@@ -184,7 +184,6 @@ const Header = () => {
                   </>
                   :
                   <>
-
                     <button onClick={() => open()} className="md:text-xs lg:px-4 lg:text-sm xl:text-base">
                       Disconnect
                     </button>
@@ -199,8 +198,6 @@ const Header = () => {
                     </Link>
                   </>
                 }
-
-
               </div>
             </div>
           </div>

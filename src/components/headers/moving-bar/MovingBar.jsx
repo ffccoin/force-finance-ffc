@@ -39,7 +39,7 @@ const MovingBar = async () => {
 
   const displayTicker = (number) => (
     <div
-      className={`ticker-text${number === 2 ? "2" : ""} z-[999999] flex h-[46px] w-fit select-none items-center gap-x-16 bg-black px-5 text-neutralLight`}
+      className={`ticker-text${number === 2 ? "2" : ""} z-[999] flex h-[46px] w-fit select-none items-center gap-x-16 bg-black px-5 text-neutralLight`}
     >
       {data?.map((coin, index) => (
         <div className="flex gap-x-4" key={index}>
