@@ -251,59 +251,74 @@ export const StoreProviders = ({ children }) => {
   };
 
   const addTokenToMetamask = async () => {
-    try {
-
-      if (!isConnected) {
-        return toast.error("Please Connect Your Wallet");
-      }
-      //   // Check if window.ethereum object is available
-
-      const providerss = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider());
-
-
-
-
-
-      // const provider = new ethers.providers.JsonRpcProvider(window.ethereum); //"http://localhost:8545/"
-
-      //   console.log(provider,"provider")
-      // if (provider) {
-      //   toast.success("Ether Provider");
-      // }
-      //  else if(provider){
-      //     toast.success("Ether window.ethereum");
-      //   }
-      // console.log(providers,"providers")
-
-      if (providerss) {
-        // Use ethereum.request method to add the token
-        const wasAdded = await providerss.request({
-          method: 'wallet_watchAsset',
-          params: {
-            type: 'ERC20',
-            options: {
-              address: ForceCoinAddress?.address, // Token address
-              symbol: '$FFC', // Token symbol
-              decimals: 18, // Token decimals
-              image: 'https://example.com/Force-logo.png', // Token image URL
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+  
+    if (typeof window.ethereum !== "undefined") {
+      try {
+        if (isMobile) {
+          // Mobile Metamask mein token add karna
+          const wasAdded = await window.ethereum.request({
+            method: 'wallet_watchAsset',
+            params: {
+              type: 'ERC20',
+              options: {
+                address: ForceCoinAddress?.address, // Token address
+                symbol: '$FFC', // Token symbol
+                decimals: 18, // Token decimals
+                image: 'https://example.com/Force-logo.png', // Token image URL
+              },
             },
-          },
-        });
-        if (wasAdded) {
-          toast.success("Thanks for your interest!");
+          });
+  
+          if (wasAdded) {
+            toast.success("Token successfully added to Metamask!");
+          } else {
+            toast.error("Failed to add the token.");
+          }
         } else {
-          toast.success("Your loss!");
+          // Desktop Metamask mein token add karna
+          const wasAdded = await window.ethereum.request({
+            method: 'wallet_watchAsset',
+            params: {
+              type: 'ERC20',
+              options: {
+                address: ForceCoinAddress?.address, // Token address
+                symbol: '$FFC', // Token symbol
+                decimals: 18, // Token decimals
+                image: 'https://example.com/Force-logo.png', // Token image URL
+              },
+            },
+          });
+  
+          if (wasAdded) {
+            toast.success("Token successfully added to Metamask!");
+          } else {
+            toast.error("Failed to add the token.");
+          }
         }
-        // toast.success("Token added to Metamask!");
-      } else {
-        // Metamask not available, show error message
-        toast.error("Metamask not available.");
+      } catch (error) {
+        toast.error("Failed to add token to Metamask. Please try again later.");
+        console.error("Failed to add token to Metamask: ", error);
       }
-    } catch (error) {
-      console.error("Failed to add token to Metamask: ", error);
-      toast.error("Failed to add token to Metamask. Please try again later.");
+    } else {
+      if (isMobile) {
+        // Metamask app is not installed, redirect to installation page
+        window.open(
+          "https://metamask.app.link/dapp/https://www.forcefinancecoin.com/"
+        );
+      } else {
+        // if no window.ethereum and no window.web3, then MetaMask or Trust Wallet is not installed
+        alert(
+          "MetaMask or Trust Wallet is not installed. Please consider installing one of them."
+        );
+      }
     }
   };
+  
+
 
   console.log(address, "addressaddressaddressaddress")
   useEffect(() => {
