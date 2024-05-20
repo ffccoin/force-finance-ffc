@@ -30,7 +30,6 @@ const Section1 = () => {
     addTokenToMetamask,
     copyToClipboard,
     GetValues,
-    getSignerPresaleContract,
     getProviderPresaleContract,
     BuyWithUSDTandUSDC,
     networkChange,

@@ -15,19 +15,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
 
 
-console.log(ForcePresaleContractAddress, "ForcePresaleContractAddressForcePresaleContractAddress")
-
-const getSignerPresaleContract = () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const presaleContract = new ethers.Contract(
-    ForcePresaleContractAddress.address,
-    ForcePresaleContract.abi,
-    signer
-  );
-  return presaleContract;
-};
-
 const getProviderPresaleContract = () => {
   const providersss = process.env.NEXT_PUBLIC_RPC_URL_SEPO;
   const provider = new ethers.providers.JsonRpcProvider(providersss); //"http://localhost:8545/"
@@ -38,41 +25,6 @@ const getProviderPresaleContract = () => {
   );
   return presaleContract;
 };
-
-const getSignerUSDTContrat = () => {
-  // const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider());
-  const signer = provider.getSigner();
-  const USDTContracts = new ethers.Contract(
-    USDTContractAddress.address,
-    USDTContract.abi,
-    signer
-  );
-  return USDTContracts;
-};
-
-const getSignerUSDCContrat = () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const USDCContracts = new ethers.Contract(
-    USDCContractAddress.address,
-    USDCContract.abi,
-    signer
-  );
-  return USDCContracts;
-};
-
-const getSignerForceContrat = () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const ForceContracts = new ethers.Contract(
-    ForceCoinAddress.address,
-    ForceCoin.abi,
-    signer
-  );
-  return ForceContracts;
-};
-
 
 export const Store = createContext();
 
@@ -103,9 +55,13 @@ export const StoreProviders = ({ children }) => {
     try {
       setloader(true);
 
-      const sellPrice = await getProviderPresaleContract().salePrice();
-      const raisedAmount = await getProviderPresaleContract().raisedAmount();
-      const isPresale = await getProviderPresaleContract().isSale();
+      const providersss = process.env.NEXT_PUBLIC_RPC_URL_SEPO;
+      const provider = new ethers.providers.JsonRpcProvider(providersss); //"http://localhost:8545/"
+      const presaleContract = new ethers.Contract(ForcePresaleContractAddress.address, ForcePresaleContract.abi, provider);
+
+      const sellPrice = await presaleContract.salePrice()
+      const raisedAmount = await presaleContract.raisedAmount();
+      const isPresale = await presaleContract.isSale();
 
       setContractData(prevState => ({
         ...prevState,
@@ -116,11 +72,18 @@ export const StoreProviders = ({ children }) => {
 
       if (isConnected) {
 
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const balance = await provider.getBalance(address);
-        const USDTBalance = await getSignerUSDTContrat().balanceOf(address);
-        const USDCBalance = await getSignerUSDCContrat().balanceOf(address);
-        const ForceBalance = await getSignerForceContrat().balanceOf(address);
+        const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+        const balance = await ethersProvider.getBalance(address);
+
+        const USDTContracts = new ethers.Contract(USDTContractAddress.address, USDTContract.abi, ethersProvider);
+        const USDCContracts = new ethers.Contract(USDCContractAddress.address, USDCContract.abi, ethersProvider);
+        const ForceContracts = new ethers.Contract(ForceCoinAddress.address, ForceCoin.abi, ethersProvider);
+
+        console.log(balance?.toString(), "balancebalancebalancebalancebalance")
+
+        const USDTBalance = await USDTContracts.balanceOf(address);
+        const USDCBalance = await USDCContracts.balanceOf(address);
+        const ForceBalance = await ForceContracts.balanceOf(address);
 
         setContractData(prevState => ({
           ...prevState,
@@ -135,7 +98,6 @@ export const StoreProviders = ({ children }) => {
       setloader(false);
       console.log("Fourth")
       console.log(error);
-      // toast.error(`${JSON.stringify(error.reason)}`);
     }
   };
 
@@ -151,42 +113,50 @@ export const StoreProviders = ({ children }) => {
   }
 
   const BuyWithUSDTandUSDC = async (payAmountInUSDT, tokens, isUSDT) => {
+
     try {
       networkChange();
 
       let tokensss = ethers.utils.formatEther(tokens?.toString());
       console.log(+tokensss?.toString(), "tokenssstokenssstokensss")
+
       if (+tokensss?.toString() < 10) {
         return toast.error("Please buy minimum One (1) Dollar");
       } else if (+tokensss?.toString() > 10000) {
         return toast.error("Please buy maximum One Thousand (1000) Dollar");
       }
 
-      console.log(tokens, "isUSDT");
-
       setloader(true);
+
+      const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+      const signer = ethersProvider.getSigner();
+      const presaleContract = new ethers.Contract(ForcePresaleContractAddress.address, ForcePresaleContract.abi, signer);
+      const USDTContracts = new ethers.Contract(USDTContractAddress.address, USDTContract.abi, signer);
+      const USDCContracts = new ethers.Contract(USDCContractAddress.address, USDCContract.abi, signer);
+
       let amountInWei = (+payAmountInUSDT?.toString() * 10 ** 6);
       if (isUSDT) {
-        let allowance = await getSignerUSDTContrat().allowance(address, ForcePresaleContractAddress?.address);
+        let allowance = await USDTContracts.allowance(address, ForcePresaleContractAddress?.address);
 
         if (+allowance?.toString() < +amountInWei?.toString()) {
-          let tokenApprove = await getSignerUSDTContrat().approve(ForcePresaleContractAddress?.address, amountInWei);
+          let tokenApprove = await USDTContracts.approve(ForcePresaleContractAddress?.address, amountInWei);
           await tokenApprove.wait();
         }
-        const buying = await getSignerPresaleContract().buyWithUSDT(tokens, isUSDT);
+
+        const buying = await presaleContract.buyWithUSDT(tokens, isUSDT);
         buying.wait();
 
       } else {
         console.log("check2")
-        let allowance = await getSignerUSDCContrat().allowance(address, ForcePresaleContractAddress?.address);
-        console.log(+allowance?.toString(),"allowanceallowanceallowance")
+        let allowance = await USDCContracts.allowance(address, ForcePresaleContractAddress?.address);
+        console.log(+allowance?.toString(), "allowanceallowanceallowance")
         if (+allowance?.toString() < +amountInWei?.toString()) {
           console.log("check3")
-          let tokenApprove = await getSignerUSDCContrat().approve(ForcePresaleContractAddress?.address, amountInWei);
+          let tokenApprove = await USDCContracts.approve(ForcePresaleContractAddress?.address, amountInWei);
           await tokenApprove.wait();
         }
-        console.log("check",isUSDT)
-        const buying = await getSignerPresaleContract().buyWithUSDT(tokens, isUSDT);
+        console.log("check", isUSDT)
+        const buying = await presaleContract.buyWithUSDT(tokens, isUSDT);
         buying.wait();
 
       }
@@ -219,8 +189,12 @@ export const StoreProviders = ({ children }) => {
 
 
       setloader(true);
+
+      const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+      const signer = ethersProvider.getSigner();
+      const presaleContract = new ethers.Contract(ForcePresaleContractAddress.address, ForcePresaleContract.abi, signer);
       let amountInWei = ethers.utils.parseEther(amountInEthPayable?.toString())
-      const buying = await getSignerPresaleContract().buyWithBNB(tokens?.toString(), { value: amountInWei?.toString() });
+      const buying = await presaleContract.buyWithBNB(tokens?.toString(), { value: amountInWei?.toString() });
       buying.wait();
       await GetValues();
       setloader(false);
@@ -237,7 +211,11 @@ export const StoreProviders = ({ children }) => {
 
       setloader(true);
 
-      const start = await getSignerPresaleContract().startTheSale();
+      const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+      const signer = ethersProvider.getSigner();
+      const presaleContract = new ethers.Contract(ForcePresaleContractAddress.address, ForcePresaleContract.abi, signer);
+
+      const start = await presaleContract.startTheSale();
       start.wait();
 
       await GetValues();
@@ -256,7 +234,11 @@ export const StoreProviders = ({ children }) => {
 
       setloader(true);
 
-      const stop = await getSignerPresaleContract().stopTheSale();
+      const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+      const signer = ethersProvider.getSigner();
+      const presaleContract = new ethers.Contract(ForcePresaleContractAddress.address, ForcePresaleContract.abi, signer);
+
+      const stop = await presaleContract.stopTheSale();
       stop.wait();
 
       await GetValues();
@@ -343,7 +325,6 @@ export const StoreProviders = ({ children }) => {
           BuyWithETH,
           presaleStart,
           presaleStop,
-          getSignerPresaleContract,
         }}
       >
         {children}
