@@ -2,13 +2,14 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
+import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import Button from "@/components/buttons/Button";
 
 const HeaderSidebar = () => {
   const [isSidebarVisible, setSidebarVisibility] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState(false);
   const { isConnected } = useWeb3ModalAccount();
+  const { open, close } = useWeb3Modal()
 
   const handleImageClick = () => {
     setSidebarVisibility(!isSidebarVisible);
