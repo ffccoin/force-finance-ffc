@@ -16,7 +16,7 @@ import { formatUnits } from "ethers/lib/utils";
 
 
 const getProviderPresaleContract = () => {
-  const providersss = process.env.NEXT_PUBLIC_RPC_URL_SEPO;
+  const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
   const provider = new ethers.providers.JsonRpcProvider(providersss); //"http://localhost:8545/"
   const presaleContract = new ethers.Contract(
     ForcePresaleContractAddress.address,
@@ -55,7 +55,7 @@ export const StoreProviders = ({ children }) => {
     try {
       setloader(true);
 
-      const providersss = process.env.NEXT_PUBLIC_RPC_URL_SEPO;
+      const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
       const provider = new ethers.providers.JsonRpcProvider(providersss); //"http://localhost:8545/"
       const presaleContract = new ethers.Contract(ForcePresaleContractAddress.address, ForcePresaleContract.abi, provider);
 
@@ -123,7 +123,7 @@ export const StoreProviders = ({ children }) => {
       if (+tokensss?.toString() < 10) {
         return toast.error("Please buy minimum One (1) Dollar");
       } else if (+tokensss?.toString() > 10000) {
-        return toast.error("Please buy maximum One Thousand (1000) Dollar");
+        return toast.error("Please buy maximum One Thousand (10000) Dollar");
       }
 
       setloader(true);
@@ -181,7 +181,7 @@ export const StoreProviders = ({ children }) => {
       if (tokensss?.toString() < 10) {
         return toast.error("Please buy minimum One (1) Doller");
       } else if (tokensss?.toString() > 10000) {
-        return toast.error("Please buy maximum One Thousand (1000) Doller");
+        return toast.error("Please buy maximum One Thousand (10000) Doller");
       }
 
       console.log(tokens?.toString(), "tokens?.toString()tokens?.toString()")

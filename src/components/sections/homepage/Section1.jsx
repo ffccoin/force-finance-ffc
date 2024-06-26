@@ -8,19 +8,23 @@ import LinkedParticlesAnimation from "@/components/animations/LinkedParticlesAni
 import Link from "next/link";
 import { ethers } from "ethers";
 import { useContext, useEffect, useState } from "react";
-import { useWeb3Modal, useWeb3ModalAccount, useWeb3ModalError } from "@web3modal/ethers5/react";
+import {
+  useWeb3Modal,
+  useWeb3ModalAccount,
+  useWeb3ModalError,
+} from "@web3modal/ethers5/react";
 import { Store } from "@/context/Store";
 import LoadingPage from "@/app/loading/page";
-import { useSwitchNetwork } from '@web3modal/ethers5/react'
+import { useSwitchNetwork } from "@web3modal/ethers5/react";
 
 const Section1 = () => {
   const { open } = useWeb3Modal();
   const { connectWallet } = useWeb3Modal();
   const { address, chainId, isConnected } = useWeb3ModalAccount();
-  const { switchNetwork } = useSwitchNetwork()
-  const { error } = useWeb3ModalError()
+  const { switchNetwork } = useSwitchNetwork();
+  const { error } = useWeb3ModalError();
 
-  const [buyAmount, setBuyAmount] = useState(0);
+  const [buyAmount, setBuyAmount] = useState("");
   const [active, setActive] = useState(0);
   const [creedToken, setCreedToken] = useState(0);
 
@@ -42,76 +46,71 @@ const Section1 = () => {
   console.log(contractData, "contractDatacontractData");
 
   // Calculate the percentage of sold tokens
-  const soldPercentage =
-    (contractData?.raisedAmount * 100) / +contractData?.totalSupply;
+  const soldPercentage = (contractData?.raisedAmount * 100) / +contractData?.totalSupply;
 
   useEffect(() => {
     const main = async () => {
-      if (buyAmount !== 0) {
-        if (active === 0) {
-          setTimeout(async () => {
-            try {
-              let parse = ethers.utils.parseEther(buyAmount.toString());
-
-              console.log(parse.toString(), "parse");
-
-              if (parse.gt(0)) {
-                let oneDollar =
-                  await getProviderPresaleContract().getLatestUSDTPrice();
-
-                console.log(oneDollar?.toString(), "oneDollaroneDollar");
-
-                if (oneDollar.isZero()) {
-                  throw new Error(
-                    "oneDollar price is zero, cannot divide by zero",
-                  );
-                }
-
-                let howMuch = parse.div(oneDollar);
-                console.log(
-                  contractData?.tokenPrice / 10 ** 6,
-                  "contractData?.tokenPrice / 10**6contractData?.tokenPrice / 10**6contractData?.tokenPrice / 10**6",
-                );
-                let price = contractData?.tokenPrice / 10 ** 6;
-                console.log(howMuch?.toString(), "howMuchhowMuch");
-                let tokens = +howMuch?.toString() / +price;
-                let parse2 = ethers.utils
-                  .parseEther(tokens?.toString())
-                  ?.toString();
-                setCreedToken(parse2); // Tokens in ether
-              }
-            } catch (error) {
-              console.error("Error in timeout:", error);
-            }
-          }, 2000);
-        } else {
+      if (active === 0 && buyAmount !== 0) {
+        setTimeout(async () => {
           try {
-            if (buyAmount > 0) {
+            let parse = ethers.utils.parseEther(buyAmount.toString());
+
+            console.log(parse.toString(), "parse");
+
+            if (parse.gt(0)) {
+              let oneDollar = await getProviderPresaleContract().getLatestUSDTPrice();
+
+              console.log(oneDollar?.toString(), "oneDollaroneDollar");
+
+              if (oneDollar.isZero()) {
+                throw new Error(
+                  "oneDollar price is zero, cannot divide by zero",
+                );
+              }
+
+              let howMuch = parse.div(oneDollar);
+              console.log(
+                contractData?.tokenPrice / 10 ** 6,
+                "contractData?.tokenPrice / 10**6contractData?.tokenPrice / 10**6contractData?.tokenPrice / 10**6",
+              );
               let price = contractData?.tokenPrice / 10 ** 6;
-              let tokens = +buyAmount?.toString() / +price;
-              let force = ethers.utils
+              console.log(howMuch?.toString(), "howMuchhowMuch");
+              let tokens = +howMuch?.toString() / +price;
+              let parse2 = ethers.utils
                 .parseEther(tokens?.toString())
                 ?.toString();
-              setCreedToken(force?.toString()); // Tokens in smallest unit
+              setCreedToken(parse2); // Tokens in ether
             }
           } catch (error) {
-            console.error("Error in else block:", error);
+            console.error("Error in timeout:", error);
           }
+        }, 1000);
+      } else if (active !== 0 && buyAmount !== 0 && buyAmount?.length > 0) {
+        try {
+          if (buyAmount > 0) {
+            let price = contractData?.tokenPrice / 10 ** 6;
+            let tokens = +buyAmount?.toString() / +price;
+            let force = ethers.utils.parseEther(tokens?.toString())?.toString();
+            setCreedToken(force?.toString()); // Tokens in smallest unit
+          }
+        } catch (error) {
+          console.error("Error in else block:", error);
         }
+      } else {
+        setCreedToken(0);
+        setBuyAmount(0);
       }
     };
 
     main();
   }, [buyAmount, active]);
 
-
   useEffect(() => {
     GetValues();
     networkChange();
   }, [chainId, error]);
 
-  console.log(error, "errorerror")
-
+  console.log(error, "errorerror");
 
   return loader ? (
     <LoadingPage />
@@ -276,7 +275,8 @@ const Section1 = () => {
               </span>
               <div className="btn-icon">
                 <input
-                  type="number"
+                  type="text"
+                  value={buyAmount}
                   name=""
                   id=""
                   placeholder="0.0"
@@ -291,7 +291,7 @@ const Section1 = () => {
               <span>$FFC Coin</span>
               <div className="btn-icon">
                 <input
-                  type="number"
+                  type="text"
                   name=""
                   id=""
                   placeholder="0.0"
@@ -299,7 +299,7 @@ const Section1 = () => {
                     ethers.utils.formatEther(creedToken?.toString()),
                   )?.toFixed(6)}
                 />
-                <img src="/images/creed.png" alt="" />
+                <img src="/logos/force-finance-logo-svg.svg" alt="" />
               </div>
             </div>
           </div>

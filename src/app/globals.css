@@ -452,6 +452,8 @@ input[type="checkbox"]:checked + label:before {
 
 .transactionCard-wrap-three .transactionCard-wrap-three-right .btn-icon img {
   position: absolute;
+  width: 30px;
+  height: 30px;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
