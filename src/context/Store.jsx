@@ -194,7 +194,7 @@ export const StoreProviders = ({ children }) => {
       const signer = ethersProvider.getSigner();
       const presaleContract = new ethers.Contract(ForcePresaleContractAddress.address, ForcePresaleContract.abi, signer);
       let amountInWei = ethers.utils.parseEther(amountInEthPayable?.toString())
-      const buying = await presaleContract.buyWithBNB(tokens?.toString(), { value: amountInWei?.toString() });
+      const buying = await presaleContract.buyWithETH(tokens?.toString(), { value: amountInWei?.toString() });
       buying.wait();
       await GetValues();
       setloader(false);
