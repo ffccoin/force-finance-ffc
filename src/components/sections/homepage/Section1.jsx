@@ -98,7 +98,7 @@ const Section1 = () => {
         }
       } else {
         setCreedToken(0);
-        setBuyAmount(0);
+        setBuyAmount("");
       }
     };
 
@@ -220,7 +220,7 @@ const Section1 = () => {
               <button
                 className={`${active === 0 ? "active" : ""}`}
                 onClick={() => {
-                  setActive(0), setBuyAmount(0), setCreedToken(0);
+                  setActive(0), setBuyAmount(""), setCreedToken(0);
                 }}
               >
                 <img src="/images/eth.png" alt="" />
@@ -231,7 +231,7 @@ const Section1 = () => {
               <button
                 className={`${active === 1 ? "active" : ""}`}
                 onClick={() => {
-                  setActive(1), setBuyAmount(0), setCreedToken(0);
+                  setActive(1), setBuyAmount(""), setCreedToken(0);
                 }}
               >
                 <img src="/images/usdc.png" alt="" />
@@ -295,9 +295,7 @@ const Section1 = () => {
                   name=""
                   id=""
                   placeholder="0.0"
-                  value={Number(
-                    ethers.utils.formatEther(creedToken?.toString()),
-                  )?.toFixed(6)}
+                  value={Number(ethers.utils.formatEther(creedToken?.toString()))?.toFixed(6)}
                 />
                 <img src="/logos/force-finance-logo-svg.svg" alt="" />
               </div>
