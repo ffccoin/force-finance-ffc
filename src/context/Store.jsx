@@ -296,7 +296,17 @@ export const StoreProviders = ({ children }) => {
     }
   };
 
-
+  const copyToClipboard = () => {
+    const tokenAddress = "0xbf05C4023E735aDb912E2cc34c0f391702efEC34"; // Your token address
+    navigator.clipboard
+      .writeText(tokenAddress)
+      .then(() => {
+        toast.success("Token address copied to clipboard!");
+      })
+      .catch((error) => {
+        console.error("Failed to copy: ", error);
+      });
+  };
 
   console.log(address, "addressaddressaddressaddress")
   useEffect(() => {
@@ -311,6 +321,7 @@ export const StoreProviders = ({ children }) => {
           networkChange,
           setloader,
           contractData,
+          copyToClipboard,
           addTokenToMetamask,
           GetValues,
           getProviderPresaleContract,
