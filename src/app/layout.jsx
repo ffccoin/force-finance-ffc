@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
-import { StoreProviders } from '../context/Store';
+import { StoreProviders } from "../context/Store";
 import PreloaderProvider from "./PreloaderProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -22,13 +22,15 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-
-
   return (
     <html lang="en">
       <head></head>
       <body className={inter.className}>
-        <Web3Modal>
+        <div className="flex h-screen flex-col items-center justify-center">
+          <h1 className="text-4xl font-bold">Error 404</h1>
+          <p className="text-xl">Contact Administrator</p>
+        </div>
+        {/* <Web3Modal>
             <StoreProviders>
         <ToastContainer />
           <StoreProvider>
@@ -40,7 +42,7 @@ export default async function RootLayout({ children }) {
               </PreloaderProvider>
           </StoreProvider>
             </StoreProviders>
-        </Web3Modal>
+        </Web3Modal> */}
       </body>
     </html>
   );
