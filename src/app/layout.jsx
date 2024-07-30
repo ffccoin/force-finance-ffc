@@ -26,11 +26,11 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <head></head>
       <body className={inter.className}>
-        <div className="flex h-screen flex-col items-center justify-center">
+        {/* <div className="flex h-screen flex-col items-center justify-center">
           <h1 className="text-4xl font-bold">Error 404</h1>
           <p className="text-xl">Contact Administrator</p>
-        </div>
-        {/* <Web3Modal>
+        </div> */}
+        <Web3Modal>
             <StoreProviders>
         <ToastContainer />
           <StoreProvider>
@@ -42,7 +42,7 @@ export default async function RootLayout({ children }) {
               </PreloaderProvider>
           </StoreProvider>
             </StoreProviders>
-        </Web3Modal> */}
+        </Web3Modal>
       </body>
     </html>
   );
